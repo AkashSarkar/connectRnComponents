@@ -5,14 +5,11 @@ const styles = StyleSheet.create({
   cardBg: {
     display: 'flex',
     backgroundColor: 'rgb(255, 245, 0)',
-    shadowColor: 'rgba(0, 0, 0, 0.05)',
     shadowOffset: {
       width: 0,
       height: 3
     },
     elevation: 1,
-    shadowRadius: 6,
-    shadowOpacity: 1,
     paddingTop: 20,
     paddingBottom: 25,
   },

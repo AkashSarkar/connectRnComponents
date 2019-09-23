@@ -1,5 +1,7 @@
-import TextComponent from './typography/TextComponent'
+import TextComponent from './typography/TextComponent';
+import ButtonPrimary from './button/ButtonPrimary';
 
-export default {
-    TextComponent
+export {
+    TextComponent,
+    ButtonPrimary
 }
