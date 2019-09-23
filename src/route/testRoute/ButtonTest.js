@@ -1,15 +1,17 @@
 import React from 'react';
-import { Text, View, SafeAreaView, StyleSheet } from 'react-native';
+import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { ButtonPrimary } from '../../component/ui';
-import { brandPrimary } from '../../styles/baseStyle';
+import { colors, fonts } from '../../styles/baseStyle';
 
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'space-around',
-      marginTop: 20,
-      marginLeft: 10
+      marginTop: 10
+    },
+    viewWrapper: {
+      marginBottom: 10
     }
   });
 
@@ -17,11 +19,26 @@ const styles = StyleSheet.create({
 const ButtonTest = ({
     params,
 }) => (
-    <SafeAreaView >
-        <View style={styles.container}>
-            <ButtonPrimary />
-        </View>
-    </SafeAreaView>
+    <ScrollView >
+        <SafeAreaView style={styles.container}>
+            <View style={styles.viewWrapper}>
+                <ButtonPrimary 
+                content='Button Primary' 
+                buttonColor={colors.buttonPrimary} 
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14} 
+                onPress={()=> console.warn("Button Primary")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonPrimary 
+                content='Button Primary' 
+                buttonColor={colors.buttonPrimary} 
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14} 
+                onPress={()=> console.warn("Button Primary")}/>
+            </View>
+        </SafeAreaView>
+    </ScrollView>
 );
 
 export default ButtonTest;
