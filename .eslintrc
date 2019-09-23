@@ -2,7 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "react/jsx-filename-extension": "0",
+    "react/jsx-filename-extension": 0,
     "no-nested-ternary": 0,
     "global-require": 1,
     "react/require-default-props": 0,
@@ -12,6 +12,14 @@
     "comma-dangle": [
       "error",
       "never"
+    ],
+    "react/prop-types": [
+      "error",
+      {
+        "ignore": [
+          "navigation"
+        ]
+      }
     ],
     "max-len": [
       2,
