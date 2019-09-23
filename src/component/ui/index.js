@@ -1,5 +1,5 @@
 import TextComponent from './typography/TextComponent'
 
-export default {
+export {
     TextComponent
 }

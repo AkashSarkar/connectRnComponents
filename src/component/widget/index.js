@@ -1,5 +1,5 @@
 import SeatListItem from './card/SeatListItem';
 
-export default {
+export {
     SeatListItem
 }

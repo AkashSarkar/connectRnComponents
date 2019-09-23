@@ -1,19 +1,20 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 import { string, number } from 'prop-types';
+import { TextComponent } from '../../ui'
+import { fonts, colors} from '../../../styles/baseStyle'
 
 const SeatListItem = ({
   content, family, size, color
 }) => (
-  <Text
-    style={{
-      fontFamily: family,
-      fontSize: size,
-      color
-    }}
-  >
-    {content}
-  </Text>
+  <View>
+      <TextComponent 
+        content="hello"
+        color={colors.brandPrimary}
+        family={fonts.light}
+        fontSize={fonts.fs10}
+      />
+  </View>
 );
 
 SeatListItem.propTypes = {
