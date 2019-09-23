@@ -12,7 +12,7 @@ const AppNavigator = createStackNavigator(
     ButtonTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'ButtonTest',
     headerMode: 'none'
   },
 );

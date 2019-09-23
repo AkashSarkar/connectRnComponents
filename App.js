@@ -1,13 +1,15 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, SafeAreaView } from 'react-native';
 
 const App = ({ navigation }) => {
   console.log(navigation);
   return (
-    <TouchableOpacity
+    <SafeAreaView style={{ flex: 1 }}>
+      <TouchableOpacity
       onPress={() => navigation.navigate('TestRoute')}>
       <Text style={{fontFamily: 'Montserrat-Bold'}}>Go to test route</Text>
     </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 export default App;
