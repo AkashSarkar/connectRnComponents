@@ -10,6 +10,7 @@ export const colors = {
   white1: '#FFFFFF',
   white2: '#F8F8F8',
   white3: '#EFEFF4',
+  black0: '#000000',
   black1: '#4A4A4A',
   black2: '#8E8E93',
   black3: '#9F9D9D',
@@ -18,7 +19,8 @@ export const colors = {
   bgPrimary: '#F7F7F7',
   barPrimary: '#4A4A4A',
   gradient1: ['#002880', '#FF005B'],
-  gradient2: ['#B50041', '#14143C']
+  gradient2: ['#B50041', '#14143C'],
+  gradient3: ['#FFF500', "#FFB100"]
 };
 
 export const fonts = {
@@ -36,3 +38,5 @@ export const fonts = {
   semiBold: 'Montserrat-SemiBold',
   bold: 'Montserrat-Bold'
 };
+
+

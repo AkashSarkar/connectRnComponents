@@ -14,6 +14,15 @@ export const mt5 = {
 export const mt10 = {
   marginTop: 10
 };
+export const ml25 = {
+  marginLeft: 25
+};
+export const mr5 = {
+  marginRight: 5
+};
+export const mr10 = {
+  marginRight: 10
+};
 export const mv5 = {
   marginVertical: 5
 };
@@ -23,6 +32,9 @@ export const mv5 = {
 // common padding sizes
 export const p10 = {
   padding: 10
+};
+export const p20 = {
+  padding: 20
 };
 export const p15 = {
   padding: 15
@@ -35,6 +47,9 @@ export const pt10 = {
 };
 export const pt15 = {
   paddingTop: 15
+};
+export const pt20 = {
+  paddingTop: 20
 };
 export const pt30 = {
   paddingTop: 30
@@ -74,6 +89,9 @@ export const pb15 = {
 };
 export const pb20 = {
   paddingBottom: 20
+};
+export const pb25 = {
+  paddingBottom: 25
 };
 // END
 
