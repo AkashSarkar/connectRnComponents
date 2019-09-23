@@ -13,14 +13,6 @@
       "error",
       "never"
     ],
-    "react/prop-types": [
-      "error",
-      {
-        "ignore": [
-          "navigation"
-        ]
-      }
-    ],
     "max-len": [
       2,
       {
