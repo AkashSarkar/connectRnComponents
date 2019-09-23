@@ -1,57 +1,62 @@
 import React, { Component } from 'react';
-import { Animated, StyleSheet, Text, View } from 'react-native';
+import { Animated, StyleSheet, Text, View, Image } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 export default class SwipeableWrapper extends Component {
-  renderLeftActions = (progress, dragX) => {
-    const trans = dragX.interpolate({
-      inputRange: [0, 50, 100, 101],
-      outputRange: [-20, 0, 0, 1],
-    });
-    return (
-      <RectButton style={styles.leftAction} onPress={this.close}>
-        <Animated.Text
-          style={[
-            styles.actionText,
-            {
-              transform: [{ translateX: trans }],
-            },
-          ]}
-        >
-          Archive
-        </Animated.Text>
-      </RectButton>
-    );
-  };
-  renderRightAction = (text, color, x, progress) => {
+  renderLeftActions = progress => {
+    const { leftActions } = this.props
     const trans = progress.interpolate({
       inputRange: [0, 1],
-      outputRange: [x, 0],
+      outputRange: [-50, 0]
     });
-    const pressHandler = () => {
-      this.close();
-      alert(text);
+    return (
+      <View style={{ width: 50, flexDirection: 'row' }}>
+        {leftActions.map((action) => {
+            return (
+              <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }} key={action.id}>
+                <RectButton style={styles.leftAction} onPress={action.pressHandler}>
+                  <Image source={action.icon} style={{ height: 40, width: 40 }}/>
+                </RectButton>
+              </Animated.View>
+            )
+          }
+        )}
+      </View>
+    );
+  };
+  renderRightAction = (action, progress) => {
+    const trans = progress.interpolate({
+      inputRange: [0, 1],
+      outputRange: [action.x, 0],
+    });
+    const onPressHandler = () => {
+      // this.close();
+      action.pressHandler();
     };
     return (
-      <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }}>
+      <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }} key={action.id}>
         <RectButton
-          style={[styles.rightAction, { backgroundColor: color }]}
-          onPress={pressHandler}
+          style={[styles.rightAction, { backgroundColor: action.color }]}
+          onPress={onPressHandler}
         >
-          <Text style={styles.actionText}>{text}</Text>
+          {/*<Text style={styles.actionText}>{text}</Text>*/}
+          <Image source={action.icon} style={{ height: 40, width: 40 }}/>
         </RectButton>
       </Animated.View>
     );
   };
 
-  renderRightActions = progress => (
-    <View style={{ width: 192, flexDirection: 'row' }}>
-      {this.renderRightAction('More', '#C8C7CD', 192, progress)}
-      {this.renderRightAction('Flag', '#ffab00', 128, progress)}
-      {this.renderRightAction('More', '#dd2c00', 64, progress)}
-    </View>
-  );
+  renderRightActions = progress => {
+    const { rightActions } = this.props;
+    return (
+      <View style={{ width: 192, flexDirection: 'row' }}>
+        {rightActions.map((action) => {
+          return this.renderRightAction(action, progress)
+        })}
+      </View>
+    );
+  }
 
   updateRef = (ref) => {
     this._swipeableRow = ref;
@@ -85,8 +90,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   actionText: {
-    color: 'white',
-    fontSize: 16,
     backgroundColor: 'transparent',
     padding: 10,
   },

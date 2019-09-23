@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SwipeableWrapper from '../../component/swipeable/SwipeableWrapper';
+import assets from '../../assets'
 
 const style = StyleSheet.create({
   boxShadow: {
@@ -19,19 +20,82 @@ const style = StyleSheet.create({
     marginBottom: 10
   }
 });
-const BoxShadow = ({ children }) => (
-  <View style={style.boxShadow}>{children}</View>
-);
-const SwipeableWrapperTest = () => (
-  <View>
-    <SwipeableWrapper>
-      <BoxShadow>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
+
+
+const SwipeableWrapperTest = () => {
+  const refs = {
+    swipeableRef: useRef(null)
+  }
+  const deleteAction = () => {
+    refs.swipeableRef.current.close();
+    alert("delete")
+  }
+  const pauseAction = () => {
+    refs.swipeableRef.current.close();
+    alert("Pause")
+  }
+  const editAction = () => {
+    refs.swipeableRef.current.close();
+    alert("Edit")
+  }
+  const mapRightActions = () => {
+    const { Check, Delete, LeftArrow } = assets;
+    return (
+      [
+        {
+          id: 1,
+          icon: Check,
+          color: '#00000029',
+          x: 192,
+          pressHandler: deleteAction
+        },
+        {
+          id: 2,
+          icon: Delete,
+          color: '#ffab00',
+          x: 128,
+          pressHandler: pauseAction
+        },
+        {
+          id: 3,
+          icon: LeftArrow,
+          color: '#dd2c00',
+          x: 64,
+          pressHandler: editAction
+        }
+      ]
+    )
+  }
+
+  const mapLeftActions = () => {
+    const { StarFilled } = assets;
+    return (
+      [
+        {
+          id: 1,
+          icon: StarFilled,
+          color: '#00000029',
+          x: -100,
+          pressHandler: deleteAction
+        }
+      ]
+    )
+  }
+  const BoxShadow = ({ children }) => (
+    <View style={style.boxShadow}>{children}</View>
+  );
+  return (
+    <View>
+      <SwipeableWrapper
+        rightActions={mapRightActions()}
+        leftActions={mapLeftActions()}
+        ref={refs.swipeableRef}
+      >
+        <View style={{ justifyContent: "center", alignItems: "center", height: 40, backgroundColor: '#C8C7CD' }}>
           <Text>Swipe me</Text>
         </View>
-      </BoxShadow>
-
-    </SwipeableWrapper>
-  </View>
-);
+      </SwipeableWrapper>
+    </View>
+  );
+}
 export default SwipeableWrapperTest;
