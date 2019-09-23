@@ -6,7 +6,7 @@ const App = ({ navigation }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('TestRoute')}>
-      <Text>Go to test route</Text>
+      <Text style={{fontFamily: 'Montserrat-Bold'}}>Go to test route</Text>
     </TouchableOpacity>
   );
 }

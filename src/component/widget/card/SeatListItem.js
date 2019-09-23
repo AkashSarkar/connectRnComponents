@@ -18,10 +18,10 @@ const SeatListItem = ({
 );
 
 SeatListItem.propTypes = {
-  content: string.isRequired,
-  family: string.isRequired,
-  size: number.isRequired,
-  color: string.isRequired
+//   content: string.isRequired,
+//   family: string.isRequired,
+//   size: number.isRequired,
+//   color: string.isRequired
 };
 
 export default SeatListItem;

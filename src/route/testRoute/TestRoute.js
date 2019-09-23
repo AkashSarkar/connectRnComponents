@@ -15,6 +15,12 @@ const TestRoute = ({ navigation }) => (
     <TouchableOpacity
       onPress={() => navigation.navigate('SwipeableWrapperTest')}
     >
+      <Text> Swipeable Test</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity
+      onPress={() => navigation.navigate('ButtonTest')}
+    >
       <Text> Button Test</Text>
     </TouchableOpacity>
   </ScrollView>

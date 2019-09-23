@@ -7,7 +7,6 @@ const screenContainer = {
   flexDirection: 'column',
   paddingLeft: 10,
   paddingRight: 10,
-  justifyContent: 'space-between',
   paddingVertical: 10
 };
 
