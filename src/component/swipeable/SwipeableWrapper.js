@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
-
 import { RectButton } from 'react-native-gesture-handler';
-
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-export default class AppleStyleSwipeableRow extends Component {
+export default class SwipeableWrapper extends Component {
   renderLeftActions = (progress, dragX) => {
     const trans = dragX.interpolate({
       inputRange: [0, 50, 100, 101],
@@ -19,7 +17,8 @@ export default class AppleStyleSwipeableRow extends Component {
             {
               transform: [{ translateX: trans }],
             },
-          ]}>
+          ]}
+        >
           Archive
         </Animated.Text>
       </RectButton>
@@ -38,12 +37,14 @@ export default class AppleStyleSwipeableRow extends Component {
       <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }}>
         <RectButton
           style={[styles.rightAction, { backgroundColor: color }]}
-          onPress={pressHandler}>
+          onPress={pressHandler}
+        >
           <Text style={styles.actionText}>{text}</Text>
         </RectButton>
       </Animated.View>
     );
   };
+
   renderRightActions = progress => (
     <View style={{ width: 192, flexDirection: 'row' }}>
       {this.renderRightAction('More', '#C8C7CD', 192, progress)}
@@ -51,12 +52,15 @@ export default class AppleStyleSwipeableRow extends Component {
       {this.renderRightAction('More', '#dd2c00', 64, progress)}
     </View>
   );
-  updateRef = ref => {
+
+  updateRef = (ref) => {
     this._swipeableRow = ref;
   };
+
   close = () => {
     this._swipeableRow.close();
   };
+
   render() {
     const { children } = this.props;
     return (
@@ -66,7 +70,8 @@ export default class AppleStyleSwipeableRow extends Component {
         leftThreshold={30}
         rightThreshold={40}
         renderLeftActions={this.renderLeftActions}
-        renderRightActions={this.renderRightActions}>
+        renderRightActions={this.renderRightActions}
+      >
         {children}
       </Swipeable>
     );
