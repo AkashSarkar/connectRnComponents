@@ -4,6 +4,7 @@ export const colors = {
   secondary: '#00d1da',
   red1: '#e15073',
   offWhite: '#fefefe',
+  black: '#000',
   grey1: '#939393',
   grey2: '#F2F2F2',
   success: '#32D769',
@@ -26,7 +27,7 @@ export const gradientColors = {
   gradientPrimary: ['#14438f', '#000632'],
   gradientGrey: ['#C2C2C2', '#939393'],
   gradientSecondary: ['#00D1DA', '#14438F'],
-  gradientYellow: ['#FFF500', "#FFB100"],
+  gradientYellow: ['#FFF500', '#FFB100'],
   gradient1: ['#002880', '#FF005B'],
   gradient2: ['#B50041', '#14143C']
 };
@@ -39,7 +40,6 @@ export const fonts = {
   fs18: 18,
   fs20: 20,
   fs24: 24,
-  fs26: 26,
   fs32: 32,
   fs50: 50,
   fs52: 52,

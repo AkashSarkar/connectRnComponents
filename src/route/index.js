@@ -6,6 +6,8 @@ import CardTest from './testRoute/CardTest';
 import ButtonTest from './testRoute/ButtonTest';
 import AccountDetails from '../component/widget/card/AccountDetails';
 import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
+import TabTest from './testRoute/TabTest';
+import PickerTest from './testRoute/PickerTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -15,7 +17,9 @@ const AppNavigator = createStackNavigator(
     CardTest,
     ButtonTest,
     AccountDetails,
-    TestAccountSliderItem
+    TestAccountSliderItem,
+    TabTest,
+    PickerTest
   },
   {
     initialRouteName: 'CardTest',

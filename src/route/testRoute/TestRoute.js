@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, TouchableOpacity, Text} from 'react-native';
+import { ScrollView, TouchableOpacity, Text } from 'react-native';
 
 const screenContainer = {
   height: '100%',
@@ -10,7 +10,7 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const TestRoute = ({navigation}) => (
+const TestRoute = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
     <TouchableOpacity
       onPress={() => navigation.navigate('SwipeableWrapperTest')}
@@ -34,8 +34,17 @@ const TestRoute = ({navigation}) => (
       <Text>Account Details</Text>
     </TouchableOpacity>
     <TouchableOpacity
-      onPress={() => navigation.navigate('CardTest')}
+      onPress={() => navigation.navigate('TabTest')}
     >
+      <Text> Tab Test</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('PickerTest')}
+    >
+      <Text> Picker Test</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={() => navigation.navigate('CardTest')}>
       <Text>Card Details</Text>
     </TouchableOpacity>
   </ScrollView>
