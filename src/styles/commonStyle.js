@@ -122,4 +122,23 @@ export const pb25 = {
   paddingBottom: 25
 };
 
+export const pr5 = {
+  paddingRight: 5
+};
+
+export const pr10 = {
+  paddingRight: 10
+};
+
+export const pr15 = {
+  paddingRight: 15
+};
+
+export const pr20 = {
+  paddingRight: 20
+};
+
+export const pr25 = {
+  paddingRight: 25
+};
 // END

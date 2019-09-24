@@ -1,10 +1,9 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
-import { SeatListItem, PopUpMessage, Amount, VerifiedInfo } from '../../component/widget'
+import { SeatListItem, PopUpMessage, Amount, VerifiedInfo, ExpenseItem } from '../../component/widget'
 import { mb20} from '../../styles/commonStyle'
 
 const screenContainer = {
-  height: '100%',
   width: '100%',
   flexDirection: 'column',
   paddingLeft: 10,
@@ -23,13 +22,16 @@ const CardTest = ({ navigation }) => (
       <SeatListItem />
     </View>
     <View style={mb20}>
-      <PopUpMessage/>
+      <PopUpMessage />
     </View>
     <View style={mb20}>
-      <Amount/>
+      <Amount />
     </View>
     <View style={mb20}>
-      <VerifiedInfo/>
+      <VerifiedInfo />
+    </View>
+    <View style={mb20}>
+      <ExpenseItem />
     </View>
   </ScrollView>
 );

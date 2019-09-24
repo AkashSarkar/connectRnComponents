@@ -4,6 +4,7 @@ import InputTabbed from './card/InputTabbed';
 import TimePick from './card/TimePick';
 import Amount from './card/Amount';
 import VerifiedInfo from './card/VerifiedInfo';
+import ExpenseItem from './card/ExpenseItem';
 
 export {
   SeatListItem,
@@ -11,5 +12,6 @@ export {
   InputTabbed,
   TimePick,
   Amount,
-  VerifiedInfo
+  VerifiedInfo,
+  ExpenseItem
 };

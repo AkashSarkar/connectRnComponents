@@ -22,7 +22,7 @@ const AppNavigator = createStackNavigator(
     PickerTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'CardTest',
     headerMode: 'none'
   },
 );
