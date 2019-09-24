@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SwipeableWrapper from '../../component/swipeable/SwipeableWrapper';
-import assets from '../../assets'
+import assets from '../../assets';
 
 const style = StyleSheet.create({
   boxShadow: {
@@ -79,11 +79,8 @@ const SwipeableWrapperTest = () => {
           pressHandler: deleteAction
         }
       ]
-    )
+    );
   }
-  const BoxShadow = ({ children }) => (
-    <View style={style.boxShadow}>{children}</View>
-  );
   return (
     <View>
       <SwipeableWrapper
@@ -91,7 +88,13 @@ const SwipeableWrapperTest = () => {
         leftActions={mapLeftActions()}
         ref={refs.swipeableRef}
       >
-        <View style={{ justifyContent: "center", alignItems: "center", height: 40, backgroundColor: '#C8C7CD' }}>
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 40,
+          backgroundColor: '#C8C7CD'
+        }}
+        >
           <Text>Swipe me</Text>
         </View>
       </SwipeableWrapper>
