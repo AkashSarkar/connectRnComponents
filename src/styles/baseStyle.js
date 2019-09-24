@@ -17,9 +17,8 @@ export const colors = {
   black5: '#838383',
   bgPrimary: '#F7F7F7',
   barPrimary: '#4A4A4A',
-  gradient1: ['#002880', '#FF005B'],
-  gradient2: ['#B50041', '#14143C'],
-  buttonPrimary: ['#14438f','#000632']
+  gradient1: ['#14438f','#000632'],
+  gradient2: ['#00d1da', '#14438f'],
 };
 
 export const fonts = {

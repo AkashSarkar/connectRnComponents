@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import { ButtonPrimary } from '../../component/ui';
+import { ButtonPrimary, ButtonGradientPrimary } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 
 
@@ -24,15 +24,15 @@ const ButtonTest = ({
             <View style={styles.viewWrapper}>
                 <ButtonPrimary 
                 content='Button Primary' 
-                buttonColor={colors.buttonPrimary} 
+                buttonColor={colors.gradient1} 
                 textColor={colors.bgPrimary}
                 fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Button Primary")}/>
             </View>
             <View style={styles.viewWrapper}>
-                <ButtonPrimary 
-                content='Button Primary' 
-                buttonColor={colors.buttonPrimary} 
+                <ButtonGradientPrimary 
+                content='Button Gradient Primary' 
+                buttonColor={colors.gradient2} 
                 textColor={colors.bgPrimary}
                 fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Button Primary")}/>
