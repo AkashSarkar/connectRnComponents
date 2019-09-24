@@ -15,6 +15,7 @@ export const colors = {
   black3: '#9F9D9D',
   black4: '#707070',
   black5: '#838383',
+  text1: '#08205C',
   bgPrimary: '#F7F7F7',
   barPrimary: '#4A4A4A',
   gradient1: ['#14438f','#000632'],

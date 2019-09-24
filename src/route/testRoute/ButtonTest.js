@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey, ButtonBrand } from '../../component/ui';
+import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey, ButtonBrand, ButtonCenter } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
 
@@ -8,7 +8,7 @@ import assets from '../../assets';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'space-around',
+    //   justifyContent: 'space-around',
       marginTop: 10
     },
     viewWrapper: {
@@ -51,6 +51,15 @@ const ButtonTest = ({
                 buttonLogo={assets.LogoConnect}
                 buttonColor={colors.gradient2}
                 onPress={()=> console.warn("Button Brand")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonCenter 
+                content='Button Grey'
+                buttonLogo={assets.LogoConnect}
+                buttonColor={colors.white1} 
+                textColor={colors.text1}
+                fontSize={fonts.fs14} 
+                onPress={()=> console.warn("Add New Account")}/>
             </View>
         </SafeAreaView>
     </ScrollView>

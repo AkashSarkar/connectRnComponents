@@ -8,7 +8,6 @@ import { pv15 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-      width: '100%',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 20,
