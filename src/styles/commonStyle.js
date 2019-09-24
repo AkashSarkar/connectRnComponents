@@ -44,6 +44,9 @@ export const mr15 = {
 export const mr20 = {
   marginRight: 20
 };
+export const mh10 = {
+  marginHorizontal: 10
+};
 
 // END
 
