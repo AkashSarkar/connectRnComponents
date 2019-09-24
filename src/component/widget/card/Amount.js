@@ -16,7 +16,7 @@ const styles = {
         ...p15,
         elevation: 1,
         shadowColor: colors.black6,
-        shadowOffset: { width: 0, height: 4 },
+        shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
                                                              
     }

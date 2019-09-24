@@ -13,11 +13,11 @@ const styles = {
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: colors.white1,
-        borderRadius: 10,
+        borderRadius: 8,
         ...p15,
         elevation: 1,
         shadowColor: colors.black6,
-        shadowOffset: { width: 0, height: 4 },
+        shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
                                                              
     },
