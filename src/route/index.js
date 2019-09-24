@@ -18,7 +18,7 @@ const AppNavigator = createStackNavigator(
     TestAccountSliderItem
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'CardTest',
     headerMode: 'none'
   },
 );

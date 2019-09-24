@@ -1,9 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { string, number } from 'prop-types';
-import { TextComponent } from '../../ui'
-import { fonts, colors } from '../../../styles/baseStyle'
-import { p15, mb5, mb20 } from '../../../styles/commonStyle'
+import LinearGradient from 'react-native-linear-gradient';
+import { TextComponent } from '../../ui';
+import { fonts, colors, gradientColors } from '../../../styles/baseStyle';
+import { p15, mb5, mb20 } from '../../../styles/commonStyle';
 
 const styles = {
   wrapper: {
@@ -15,7 +16,7 @@ const styles = {
     borderRadius: 16,
     ...p15,
     elevation: 1,
-    shadowColor: colors.black6,
+    shadowColor: colors.black0,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2
   }
@@ -24,12 +25,12 @@ const styles = {
 const VerifiedInfo = ({
   content, family, size, color
 }) => (
-  <View style={styles.wrapper}>
+  <LinearGradient colors={gradientColors.gradientPrimary} style={[styles.wrapper]}>
     <View style={mb20}>
       <View style={mb5}>
         <TextComponent
           content="bKash Account Name"
-          color={colors.black1}
+          color={colors.secondary}
           family={fonts.semiBold}
           size={fonts.fs14}
         />
@@ -37,7 +38,7 @@ const VerifiedInfo = ({
       <View style={mb5}>
         <TextComponent
           content="Mehzabi Chaudhry"
-          color={colors.black1}
+          color={colors.white1}
           family={fonts.regular}
           size={fonts.fs12}
         />
@@ -47,7 +48,7 @@ const VerifiedInfo = ({
       <View style={mb5}>
         <TextComponent
           content="bKash Account Number"
-          color={colors.black1}
+          color={colors.secondary}
           family={fonts.semiBold}
           size={fonts.fs14}
         />
@@ -55,13 +56,13 @@ const VerifiedInfo = ({
       <View style={mb5}>
         <TextComponent
           content="01755 666 777"
-          color={colors.black1}
+          color={colors.white1}
           family={fonts.regular}
           size={fonts.fs12}
         />
       </View>
     </View>
-  </View>
+  </LinearGradient>
 );
 
 VerifiedInfo.propTypes = {

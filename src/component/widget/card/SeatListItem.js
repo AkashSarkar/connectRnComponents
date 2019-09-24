@@ -16,7 +16,7 @@ const styles = {
     paddingLeft: 10,
     paddingRight: 10,
     elevation: 1,
-    shadowColor: colors.black6,
+    shadowColor: colors.black0,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2
   },
