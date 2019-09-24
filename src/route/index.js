@@ -3,13 +3,17 @@ import App from '../../App';
 import TestRoute from './testRoute/TestRoute';
 import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
 import ButtonTest from './testRoute/ButtonTest';
+import InputTest from './testRoute/InputTest';
+import SwitchTest from './testRoute/SwitchTest';
 
 const AppNavigator = createStackNavigator(
   {
     Home: App,
     TestRoute,
     SwipeableWrapperTest,
-    ButtonTest
+    ButtonTest,
+    InputTest,
+    SwitchTest
   },
   {
     initialRouteName: 'Home',

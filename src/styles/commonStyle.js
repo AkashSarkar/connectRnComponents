@@ -8,6 +8,16 @@ export const mb10 = {
 export const mb20 = {
   marginBottom: 20
 };
+
+export const mr5 = {
+  marginRight: 5
+};
+export const mr10 = {
+  marginRight: 10
+};
+export const mr15 = {
+  marginRight: 15
+};
 export const mt5 = {
   marginTop: 5
 };

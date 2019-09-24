@@ -18,7 +18,12 @@ export const colors = {
   bgPrimary: '#F7F7F7',
   barPrimary: '#4A4A4A',
   gradient1: ['#002880', '#FF005B'],
-  gradient2: ['#B50041', '#14143C']
+  gradient2: ['#B50041', '#14143C'],
+  grey: '#939393',
+  red: '#e15073',
+  white: '#fff',
+  offWhite: '#fefefe',
+  black: '#000'
 };
 
 export const fonts = {

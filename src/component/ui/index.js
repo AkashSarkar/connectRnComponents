@@ -1,7 +1,11 @@
 import TextComponent from './typography/TextComponent';
+import AnimatedTextComponent from './typography/AnimatedTextComponent';
 import ButtonPrimary from './button/ButtonPrimary';
+import Input from './input/Input';
 
 export {
-    TextComponent,
-    ButtonPrimary
-}
+  TextComponent,
+  AnimatedTextComponent,
+  ButtonPrimary,
+  Input
+};
