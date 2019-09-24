@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {colors, fonts} from '../../../styles/baseStyle';
 import {mb10, mr20, mt5, p20, pb25, pt20} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
@@ -7,7 +7,7 @@ import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
 
 
-const AccountSliderItem = ({suffixNo, amount, connectAcc}) => {
+const AccountSliderItem = ({handleInformation, gradient = colors.gradient3, suffixNo, amount, connectAcc}) => {
 
   let amountStyle = {
     fontFamily: fonts.regular,
@@ -21,17 +21,17 @@ const AccountSliderItem = ({suffixNo, amount, connectAcc}) => {
     color: colors.black0
   };
 
-  let _number = 1222222.45;
-
   return (
-    <LinearGradient colors={colors.gradient3} style={[styles.cardBg, mt5, pt20, pb25]}>
+    <LinearGradient colors={gradient} style={[styles.cardBg, mt5, pt20, pb25]}>
       <View style={[p20]}>
         <View style={styles.header}>
           {/*TODO have to change icon   */}
-          <Image
-            style={[styles.informationIcon, mb10]}
-            source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-          />
+          <TouchableOpacity onPress={handleInformation}>
+            <Image
+              style={[styles.informationIcon, mb10]}
+              source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.body}>
           <View style={mr20}>
@@ -43,18 +43,18 @@ const AccountSliderItem = ({suffixNo, amount, connectAcc}) => {
           </View>
           <View>
             <TextComponent
-              content={`Connect Suffix 12`}
+              content={`Connect Suffix ${suffixNo}`}
               family={fonts.regular}
               size={fonts.fs12}
               color={colors.black0}
             />
             <AmountWidget
-              amount={_number}
+              amount={amount}
               amountStyle={amountStyle}
               decimalStyle={decimalStyle}
             />
             <TextComponent
-              content="9999 99 9 9 9"
+              content={connectAcc}
               family={fonts.bold}
               size={fonts.fs12}
               color={colors.black0}

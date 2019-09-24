@@ -4,7 +4,7 @@ import {pb6} from "../styles/commonStyle";
 import TextComponent from '../component/ui/typography/TextComponent';
 import {number, object} from 'prop-types';
 
-const AmountWidget = ({amount, amountStyle, decimalStyle}) => {
+const AmountWidget = ({amount = 0, amountStyle, decimalStyle}) => {
 
   const styles = StyleSheet.create({
     amountTextWrapper: {
