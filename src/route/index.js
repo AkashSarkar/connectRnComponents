@@ -16,7 +16,7 @@ const AppNavigator = createStackNavigator(
     PickerTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'PickerTest',
     headerMode: 'none'
   },
 );
