@@ -8,6 +8,7 @@ import AccountDetails from '../component/widget/card/AccountDetails';
 import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
 import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
+import Listtest from './testRoute/Listtest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -19,10 +20,11 @@ const AppNavigator = createStackNavigator(
     AccountDetails,
     TestAccountSliderItem,
     TabTest,
-    PickerTest
+    PickerTest,
+    Listtest
   },
   {
-    initialRouteName: 'CardTest',
+    initialRouteName: 'Listtest',
     headerMode: 'none'
   },
 );
