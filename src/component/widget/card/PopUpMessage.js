@@ -40,28 +40,10 @@ const SeatListItem = ({
                 family={fonts.semiBold}
                 size={fonts.fs16}
             />
-             <TextComponent 
-                content="110-DHK-CHAP Non AC"
-                color={colors.black1}
-                family={fonts.regular}
-                size={fonts.fs10}
-            />
-             <TextComponent 
-                content="5:45 AM  1:30 PM"
-                color={colors.black1}
-                family={fonts.regular}
-                size={fonts.fs10}
-            />
         </View>
-        <View style={styles.rightWrapper}>
+        <View>
             <TextComponent 
-                content="32 Seats Available"
-                color={colors.black1}
-                family={fonts.regular}
-                size={fonts.fs10}
-            />
-            <TextComponent 
-                content="BDT Tk. 450.00"
+                content="Desh Travels"
                 color={colors.black1}
                 family={fonts.semiBold}
                 size={fonts.fs16}
