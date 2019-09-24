@@ -37,7 +37,8 @@ export const gradientColors = {
   gradient3: ['#C2C2C2', '#939393'],
   gradient4: ['#FFF500', '#FFDB00'],
   gradient5: ['#14438f', '#000632'],
-  gradient6: ['#00d1da', '#14438f']
+  gradient6: ['#00d1da', '#14438f'],
+  gradientInputLogin: ['#08205c', '#000630']
 };
 
 export const fonts = {

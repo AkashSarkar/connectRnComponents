@@ -44,6 +44,7 @@ const Input = forwardRef(
     {
       value,
       placeholder,
+      placeholderTextColor,
       autoFocus,
       keyboardType,
       maxLength,
@@ -55,7 +56,8 @@ const Input = forwardRef(
       numberOfLines,
       isError,
       iconSource,
-      isIcon
+      isIcon,
+      secureTextEntry,
     },
     ref,
   ) => {
@@ -99,6 +101,7 @@ const Input = forwardRef(
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
+          placeholderTextColor={placeholderTextColor}
           autoFocus={autoFocus}
           keyboardType={keyboardType}
           maxLength={maxLength}
@@ -116,6 +119,7 @@ const Input = forwardRef(
           selectTextOnFocus={false}
           contextMenuHidden
           ref={textInputRef}
+          secureTextEntry={secureTextEntry}
           // blurOnSubmit={false}
         />
       </View>
@@ -132,6 +136,7 @@ Input.defaultProps = {
 Input.propTypes = {
   value: any.isRequired,
   placeholder: string,
+  placeholderTextColor: string,
   autoFocus: bool,
   keyboardType: string.isRequired,
   maxLength: number,
@@ -143,7 +148,8 @@ Input.propTypes = {
   numberOfLines: number,
   isError: bool.isRequired,
   iconSource: string,
-  isIcon: bool
+  isIcon: bool,
+  secureTextEntry: bool
 };
 
 export default Input;

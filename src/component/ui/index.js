@@ -10,8 +10,8 @@ import MenuItem from './button/MenuItem';
 import ButtonQuickAmount from './button/ButtonQuickAmount';
 import ButtonCommunication from './button/ButtonCommunication';
 import ButtonAdd from './button/ButtonAdd';
-import Input from './input/Input';
 import BoxShadow from './wrapper/BoxShadow';
+import Input from './input/Input';
 
 export {
   TextComponent,

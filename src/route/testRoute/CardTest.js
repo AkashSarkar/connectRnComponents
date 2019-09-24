@@ -1,7 +1,19 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
-import { SeatListItem, PopUpMessage, Amount, VerifiedInfo } from '../../component/widget'
-import { mb20} from '../../styles/commonStyle'
+import {
+  ScrollView,
+  TouchableOpacity,
+  Text,
+  View,
+  KeyboardAvoidingView
+} from 'react-native';
+import {
+  SeatListItem,
+  PopUpMessage,
+  Amount,
+  VerifiedInfo,
+  InputLogin
+} from '../../component/widget';
+import { mb20 } from '../../styles/commonStyle';
 
 const screenContainer = {
   height: '100%',
@@ -14,23 +26,29 @@ const screenContainer = {
 
 const CardTest = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
-    <TouchableOpacity
-      onPress={() => navigation.navigate('SwipeableWrapperTest')}
-    >
-      <Text> Button Test</Text>
-    </TouchableOpacity>
-    <View style={mb20}>
-      <SeatListItem />
-    </View>
-    <View style={mb20}>
-      <PopUpMessage/>
-    </View>
-    <View style={mb20}>
-      <Amount/>
-    </View>
-    <View style={mb20}>
-      <VerifiedInfo/>
-    </View>
+    <KeyboardAvoidingView>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('SwipeableWrapperTest')}
+      >
+        <Text> Button Test</Text>
+      </TouchableOpacity>
+      <View style={mb20}>
+        <SeatListItem/>
+      </View>
+      <View style={mb20}>
+        <PopUpMessage/>
+      </View>
+      <View style={mb20}>
+        <Amount/>
+      </View>
+      <View style={mb20}>
+        <VerifiedInfo/>
+      </View>
+
+      <View style={mb20}>
+        <InputLogin/>
+      </View>
+    </KeyboardAvoidingView>
   </ScrollView>
 );
 
