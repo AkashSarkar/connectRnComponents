@@ -10,7 +10,9 @@ import { ButtonPrimary,
     MenuItem, 
     ButtonQuickAmount,
     ButtonCommunication,
-    ButtonAdd
+    ButtonAdd,
+    ButtonTag,
+    ButtonSecondaryBadge
 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
@@ -107,6 +109,25 @@ const ButtonTest = ({
                 buttonColor={colors.white1} 
                 textColor={colors.text2}
                 fontSize={fonts.fs10} 
+                onPress={()=> console.warn("Button Desco")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonTag 
+                content='Button Tag'
+                buttonColor={colors.white1}
+                textColor={colors.text2}
+                fontSize={fonts.fs10} 
+                onPress={()=> console.warn("Button Desco")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonSecondaryBadge 
+                content='pending'
+                buttonColor='#f9f9f9'
+                badgeCount='15'
+                textColorContent={colors.colorSecondery}
+                textColorBadge={colors.white1}
+                fontSizeText={fonts.fs12} 
+                fontSizeBadge={fonts.fs10}
                 onPress={()=> console.warn("Button Desco")}/>
             </View>
             <View style={styles.viewWrapper}>

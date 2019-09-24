@@ -10,6 +10,8 @@ import ButtonQuickAmount from './button/ButtonQuickAmount';
 import ButtonCommunication from './button/ButtonCommunication';
 import ButtonAdd from './button/ButtonAdd';
 import ButtonPrimaryBadge from './button/ButtonPrimaryBadge';
+import ButtonTag from './button/ButtonTag';
+import ButtonSecondaryBadge from './button/ButtonSecondaryBadge';
 
 export {
     TextComponent,
@@ -23,5 +25,7 @@ export {
     ButtonQuickAmount,
     ButtonCommunication,
     ButtonAdd,
-    ButtonPrimaryBadge
+    ButtonPrimaryBadge,
+    ButtonTag,
+    ButtonSecondaryBadge
 }
