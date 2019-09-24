@@ -1,11 +1,12 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 import App from '../../App';
 import TestRoute from './testRoute/TestRoute';
 import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
 import CardTest from './testRoute/CardTest';
 import ButtonTest from './testRoute/ButtonTest';
-import AccountDetails from "../component/widget/card/AccountDetails";
+import AccountDetails from '../component/widget/card/AccountDetails';
 import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
+import TabTest from './testRoute/TabTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -15,7 +16,8 @@ const AppNavigator = createStackNavigator(
     CardTest,
     ButtonTest,
     AccountDetails,
-    TestAccountSliderItem
+    TestAccountSliderItem,
+    TabTest
   },
   {
     initialRouteName: 'Home',
