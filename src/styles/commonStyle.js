@@ -14,6 +14,12 @@ export const mt5 = {
 export const mt10 = {
   marginTop: 10
 };
+export const ml5 = {
+  marginLeft: 5
+};
+export const ml10 = {
+  marginLeft: 10
+};
 export const ml25 = {
   marginLeft: 25
 };
@@ -22,6 +28,9 @@ export const mr5 = {
 };
 export const mr10 = {
   marginRight: 10
+};
+export const mr20 = {
+  marginRight: 20
 };
 export const mv5 = {
   marginVertical: 5
@@ -80,6 +89,12 @@ export const pl10 = {
 };
 export const pl15 = {
   paddingLeft: 15
+};
+export const pb5 = {
+  paddingBottom: 5
+};
+export const pb6 = {
+  paddingBottom: 6
 };
 export const pb10 = {
   paddingBottom: 10

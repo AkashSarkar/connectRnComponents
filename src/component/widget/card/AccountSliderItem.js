@@ -1,11 +1,28 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {colors, fonts} from '../../../styles/baseStyle';
-import {pt20, pb25, mt5, ml25, p10, mb10, p20, p40, mr5, mr10} from '../../../styles/commonStyle';
+import {mb10, mr20, mt5, p20, pb25, pt20} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import TextComponent from '../../ui/typography/TextComponent';
+import AmountWidget from "../../../utils/AmountWidget";
+
 
 const AccountSliderItem = ({suffixNo, amount, connectAcc}) => {
+
+  let amountStyle = {
+    fontFamily: fonts.regular,
+    size: fonts.fs52,
+    color: colors.black0
+  };
+
+  let decimalStyle = {
+    fontFamily: fonts.regular,
+    size: fonts.fs26,
+    color: colors.black0
+  };
+
+  let _number = 1222222.45;
+
   return (
     <LinearGradient colors={colors.gradient3} style={[styles.cardBg, mt5, pt20, pb25]}>
       <View style={[p20]}>
@@ -17,7 +34,7 @@ const AccountSliderItem = ({suffixNo, amount, connectAcc}) => {
           />
         </View>
         <View style={styles.body}>
-          <View style={mr10}>
+          <View style={mr20}>
             {/*TODO have to change icon   */}
             <Image
               style={{width: 35, height: 35}}
@@ -26,22 +43,23 @@ const AccountSliderItem = ({suffixNo, amount, connectAcc}) => {
           </View>
           <View>
             <TextComponent
-              content={`Connect Suffix ${suffixNo}`}
+              content={`Connect Suffix 12`}
               family={fonts.regular}
               size={fonts.fs12}
               color={colors.black0}
             />
-            <TextComponent
-              content={amount}
-              family={fonts.regular}
-              size={fonts.fs50}
-              color={colors.black0}
+            <AmountWidget
+              amount={_number}
+              amountStyle={amountStyle}
+              decimalStyle={decimalStyle}
             />
             <TextComponent
-              content={connectAcc}
-              family={fonts.semiBold}
+              content="9999 99 9 9 9"
+              family={fonts.bold}
               size={fonts.fs12}
-              color={colors.black0}/>
+              color={colors.black0}
+              extraStyle={styles.connectAccNo}
+            />
           </View>
         </View>
       </View>
@@ -58,10 +76,6 @@ const styles = StyleSheet.create({
     elevation: 1,
     borderRadius: 20
   },
-  currencyIcon: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
   informationIcon: {
     width: 20,
     height: 20,
@@ -71,11 +85,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   connectAmount: {
-    // lineHeight: 61
+    lineHeight: 61
   },
   connectAccNo: {
-    // fontStyle: "italic",
-    // letterSpacing: 1.8,
+    fontStyle: "italic",
+    letterSpacing: 1.8,
   }
 });
 
