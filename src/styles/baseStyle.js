@@ -19,6 +19,10 @@ export const colors = {
   black3: '#9F9D9D',
   black4: '#707070',
   black5: '#838383',
+  text1: '#08205C',
+  text2: '#000000',
+  yellow1: '#fff500',
+  colorSecondery: '#00d1da',
   bgPrimary: '#F7F7F7',
   barPrimary: '#4A4A4A'
 };
@@ -29,7 +33,11 @@ export const gradientColors = {
   gradientSecondary: ['#00D1DA', '#14438F'],
   gradientYellow: ['#FFF500', '#FFB100'],
   gradient1: ['#002880', '#FF005B'],
-  gradient2: ['#B50041', '#14143C']
+  gradient2: ['#B50041', '#14143C'],
+  gradient3: ['#C2C2C2', '#939393'],
+  gradient4: ['#FFF500', '#FFDB00'],
+  gradient5: ['#14438f', '#000632'],
+  gradient6: ['#00d1da', '#14438f']
 };
 
 export const fonts = {
