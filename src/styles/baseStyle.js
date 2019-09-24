@@ -19,6 +19,7 @@ export const colors = {
   barPrimary: '#4A4A4A',
   gradient1: ['#14438f','#000632'],
   gradient2: ['#00d1da', '#14438f'],
+  gradient3: ['#C2C2C2', '#939393'],
 };
 
 export const fonts = {
