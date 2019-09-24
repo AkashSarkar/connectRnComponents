@@ -5,7 +5,7 @@ import {
 import { string, func } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { TextComponent, BoxShadow } from '../../ui';
-import { fonts, colors } from '../../../style/baseStyle';
+import { fonts, colors, gradientColors } from '../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   tabWrapper: {

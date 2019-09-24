@@ -1,3 +1,4 @@
-import Tab from './tab/Tab';
+import InputTabbed from './card/InputTabbed';
+import TimePick from './card/TimePick';
 
-export { Tab }
+export { InputTabbed, TimePick };
