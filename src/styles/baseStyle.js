@@ -30,7 +30,7 @@ export const gradientColors = {
   gradientYellow: ['#FFF500', '#FFB100'],
   gradient1: ['#002880', '#FF005B'],
   gradient2: ['#B50041', '#14143C'],
-  gradientInputLogin: ['rgba(8 32 92)', 'rgba(0 6 48)']
+  gradientInputLogin: ['#08205c', '#000630']
 };
 
 export const fonts = {
