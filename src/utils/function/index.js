@@ -1,5 +1,7 @@
-import { generateDate } from './dateTime';
+import {
+  generateDays, generateDate, generateMonths, generateYears
+} from './dateTime';
 
 export {
-  generateDate
+  generateDays, generateDate, generateMonths, generateYears
 };
