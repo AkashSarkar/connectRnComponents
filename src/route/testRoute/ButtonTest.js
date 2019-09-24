@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { ButtonPrimary, 
-    ButtonGradientPrimary, 
+    ButtonGradientPrimary,
+    ButtonPrimaryBadge, 
     ButtonGrey, 
     ButtonConnect, 
     ButtonCenter, 
@@ -38,6 +39,16 @@ const ButtonTest = ({
                 buttonColor={colors.gradient1} 
                 textColor={colors.bgPrimary}
                 fontSize={fonts.fs14} 
+                onPress={()=> console.warn("Button Primary")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonPrimaryBadge 
+                content='Button Primary'
+                badgeCount='250'
+                buttonColor={colors.gradient1} 
+                textColor={colors.bgPrimary}
+                fontSizeText={fonts.fs14} 
+                fontSizeBadge={fonts.fs12} 
                 onPress={()=> console.warn("Button Primary")}/>
             </View>
             <View style={styles.viewWrapper}>

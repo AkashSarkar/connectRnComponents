@@ -9,6 +9,7 @@ import MenuItem from './button/MenuItem';
 import ButtonQuickAmount from './button/ButtonQuickAmount';
 import ButtonCommunication from './button/ButtonCommunication';
 import ButtonAdd from './button/ButtonAdd';
+import ButtonPrimaryBadge from './button/ButtonPrimaryBadge';
 
 export {
     TextComponent,
@@ -21,5 +22,6 @@ export {
     MenuItem,
     ButtonQuickAmount,
     ButtonCommunication,
-    ButtonAdd
+    ButtonAdd,
+    ButtonPrimaryBadge
 }
