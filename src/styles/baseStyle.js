@@ -29,7 +29,8 @@ export const gradientColors = {
   gradientSecondary: ['#00D1DA', '#14438F'],
   gradientYellow: ['#FFF500', '#FFB100'],
   gradient1: ['#002880', '#FF005B'],
-  gradient2: ['#B50041', '#14143C']
+  gradient2: ['#B50041', '#14143C'],
+  gradientInputLogin: ['rgba(8 32 92)', 'rgba(0 6 48)']
 };
 
 export const fonts = {
