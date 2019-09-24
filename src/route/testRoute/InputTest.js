@@ -7,6 +7,8 @@ import assets from '../../assets';
 const InputTest = () => {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [search, setSearch] = useState('');
 
   return (
     <View>
@@ -69,13 +71,13 @@ const InputTest = () => {
       <BoxShadow>
         <View style={{ padding: 15 }}>
           <InputField
-            value={id}
+            value={number}
             placeholder="+880"
             keyboardType="numeric"
             maxLength={11}
             returnKeyType="next"
             onChangeText={(text) => {
-              setId(text);
+              setNumber(text);
             }}
             setIsValid={(validity) => {
             }}
@@ -93,6 +95,37 @@ const InputTest = () => {
             ]}
             isIcon
             iconSource={assets.Check}
+          />
+        </View>
+      </BoxShadow>
+
+      <BoxShadow>
+        <View style={{ padding: 15 }}>
+          <InputField
+            value={search}
+            placeholder="Type here"
+            keyboardType="default"
+            maxLength={11}
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setSearch(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+            isIcon
+            iconSource={assets.Search}
           />
         </View>
       </BoxShadow>
