@@ -33,6 +33,11 @@ const TestRoute = ({navigation}) => (
     >
       <Text>Account Details</Text>
     </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('CardTest')}
+    >
+      <Text>Card Details</Text>
+    </TouchableOpacity>
   </ScrollView>
 );
 
