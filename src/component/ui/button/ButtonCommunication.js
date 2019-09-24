@@ -7,12 +7,12 @@ import { pv5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-      width: 100,
-      height: 36,
+      width: 50,
+      height: 50,
       flexDirection: 'row',  
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 20,
+      borderRadius: 25,
       ...pv5,
       elevation: 1,
       shadowColor: colors.black1,
@@ -29,46 +29,37 @@ const styles = StyleSheet.create({
       left: 10,
       right: 10
     },
-    leftWrapper:{
-        marginRight: 5
-    },
-    rightWrapper:{
-        marginRight: 18
+    viewWrapper:{
+        padding: 5
     },
     imageStyle:{
         resizeMode:'contain',
-        height: 26, 
-        width: 26, 
+        height: 30, 
+        width: 30, 
         margin: 7
     }
   });
 
-const ButtonBrand = ({
-    content, buttonColor, textColor, fontSize, buttonLogo, onPress
+const ButtonCommunication = ({
+    buttonColor, buttonLogo, onPress
 }) => (
     <TouchableOpacity onPress={onPress}>
         <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
-            <View style={styles.leftWrapper}>
+            <View style={styles.viewWrapper}>
                 <Image
                     style={styles.imageStyle}
                     source={buttonLogo}
                 />
             </View>
-            <View style={styles.rightWrapper}>
-                <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
-            </View>
         </View>
     </TouchableOpacity>
 );
 
-ButtonBrand.propTypes = {
-    content: string.isRequired,
+ButtonCommunication.propTypes = {
     buttonColor: string.isRequired,
-    textColor: string.isRequired,
-    fontSize: number,
     buttonLogo: number.isRequired,
     onPress: func,
   };
   
 
-export default ButtonBrand;
+export default ButtonCommunication;

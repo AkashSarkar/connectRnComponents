@@ -63,6 +63,7 @@ const MenuItem = ({
 
 MenuItem.propTypes = {
     content: string.isRequired,
+    buttonLogo: number.isRequired,
     buttonColor: string.isRequired,
     textColor: string.isRequired,
     fontSize: number,

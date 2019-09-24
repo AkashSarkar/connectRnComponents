@@ -7,7 +7,8 @@ import { ButtonPrimary,
     ButtonCenter, 
     ButtonBrand, 
     MenuItem, 
-    ButtonQuickAmount 
+    ButtonQuickAmount,
+    ButtonCommunication
 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
@@ -94,6 +95,14 @@ const ButtonTest = ({
                 textColor={colors.text2}
                 fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Button Desco")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonCommunication 
+                buttonLogo={assets.Check}
+                buttonColor={colors.white1} 
+                textColor={colors.text2}
+                fontSize={fonts.fs14} 
+                onPress={()=> console.warn("ButtonCommunication")}/>
             </View>
         </SafeAreaView>
     </ScrollView>

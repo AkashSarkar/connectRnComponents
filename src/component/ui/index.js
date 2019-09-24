@@ -7,6 +7,7 @@ import ButtonCenter from './button/ButtonCenter';
 import ButtonBrand from './button/ButtonBrand';
 import MenuItem from './button/MenuItem';
 import ButtonQuickAmount from './button/ButtonQuickAmount';
+import ButtonCommunication from './button/ButtonCommunication';
 
 export {
     TextComponent,
@@ -17,5 +18,6 @@ export {
     ButtonCenter,
     ButtonBrand,
     MenuItem,
-    ButtonQuickAmount
+    ButtonQuickAmount,
+    ButtonCommunication
 }
