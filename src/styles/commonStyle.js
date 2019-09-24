@@ -98,6 +98,9 @@ export const pv10 = {
 export const pv15 = {
   paddingVertical: 15
 };
+export const pv25 = {
+  paddingVertical: 25
+};
 export const pl10 = {
   paddingLeft: 10
 };
