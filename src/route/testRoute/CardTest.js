@@ -6,7 +6,8 @@ import {
   Amount,
   VerifiedInfo,
   ExpenseItem,
-  TripType
+  TripType,
+  HotelItem
 } from '../../component/widget'
 import { mb20} from '../../styles/commonStyle'
 
@@ -42,6 +43,9 @@ const CardTest = ({ navigation }) => (
     </View>
     <View style={mb20}>
       <TripType />
+    </View>
+    <View style={mb20}>
+      <HotelItem />
     </View>
   </ScrollView>
 );
