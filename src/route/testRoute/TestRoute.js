@@ -36,9 +36,6 @@ const TestRoute = ({ navigation }) => (
     <TouchableOpacity
       onPress={() => navigation.navigate('TabTest')}
     >
-      <Text>Tab Test</Text>
-      onPress={() => navigation.navigate('TabTest')}
-    >
       <Text> Tab Test</Text>
     </TouchableOpacity>
     <TouchableOpacity
