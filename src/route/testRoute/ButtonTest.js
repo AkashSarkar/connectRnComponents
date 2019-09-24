@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey } from '../../component/ui';
+import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey, ButtonBrand } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
+import assets from '../../assets';
 
 
 const styles = StyleSheet.create({
@@ -44,6 +45,12 @@ const ButtonTest = ({
                 textColor={colors.bgPrimary}
                 fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Button Grey")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonBrand 
+                buttonLogo={assets.LogoConnect}
+                buttonColor={colors.gradient2}
+                onPress={()=> console.warn("Button Brand")}/>
             </View>
         </SafeAreaView>
     </ScrollView>
