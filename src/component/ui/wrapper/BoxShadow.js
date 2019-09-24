@@ -7,6 +7,7 @@ import { mb10 } from '../../../styles/commonStyle';
 
 const style = StyleSheet.create({
   boxShadow: {
+    // borderRadius: 8,
     borderRadius: 16,
     backgroundColor: colors.offWhite,
     shadowColor: '#00000029',

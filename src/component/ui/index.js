@@ -1,4 +1,5 @@
 import TextComponent from './typography/TextComponent';
+import AnimatedTextComponent from './typography/AnimatedTextComponent';
 import ButtonPrimary from './button/ButtonPrimary';
 import ButtonGradientPrimary from './button/ButtonGradientPrimary';
 import ButtonGrey from './button/ButtonGrey';
@@ -9,15 +10,18 @@ import MenuItem from './button/MenuItem';
 import ButtonQuickAmount from './button/ButtonQuickAmount';
 import ButtonCommunication from './button/ButtonCommunication';
 import ButtonAdd from './button/ButtonAdd';
+import Input from './input/Input';
 import BoxShadow from './wrapper/BoxShadow';
 
 export {
   TextComponent,
+  AnimatedTextComponent,
   ButtonGradientPrimary,
   ButtonGrey,
   ButtonConnect,
   ButtonCenter,
   ButtonBrand,
+  Input,
   MenuItem,
   ButtonQuickAmount,
   ButtonCommunication,

@@ -7,6 +7,8 @@ import ButtonTest from './testRoute/ButtonTest';
 import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
 import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
+import InputTest from './testRoute/InputTest';
+import SwitchTest from './testRoute/SwitchTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -17,7 +19,9 @@ const AppNavigator = createStackNavigator(
     ButtonTest,
     TestAccountSliderItem,
     TabTest,
-    PickerTest
+    PickerTest,
+    InputTest,
+    SwitchTest
   },
   {
     initialRouteName: 'Home',
