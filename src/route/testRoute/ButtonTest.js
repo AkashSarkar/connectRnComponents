@@ -1,6 +1,14 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey, ButtonConnect, ButtonCenter, ButtonBrand } from '../../component/ui';
+import { ButtonPrimary, 
+    ButtonGradientPrimary, 
+    ButtonGrey, 
+    ButtonConnect, 
+    ButtonCenter, 
+    ButtonBrand, 
+    MenuItem, 
+    ButtonQuickAmount 
+} from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
 
@@ -68,6 +76,23 @@ const ButtonTest = ({
                 buttonColor={colors.yellow1} 
                 textColor={colors.text2}
                 fontSize={fonts.fs10} 
+                onPress={()=> console.warn("Button Desco")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <MenuItem 
+                content='Cash & Account'
+                buttonLogo={assets.LogoConnect}
+                buttonColor={colors.white1} 
+                textColor={colors.text2}
+                fontSize={fonts.fs10} 
+                onPress={()=> console.warn("Button Desco")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonQuickAmount 
+                content='15%'
+                buttonColor={colors.white1} 
+                textColor={colors.text2}
+                fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Button Desco")}/>
             </View>
         </SafeAreaView>

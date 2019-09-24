@@ -18,6 +18,7 @@ export const colors = {
   text1: '#08205C',
   text2: '#000000',
   yellow1: '#fff500',
+  colorSecondery: '#00d1da',
   bgPrimary: '#F7F7F7',
   barPrimary: '#4A4A4A',
   gradient1: ['#14438f','#000632'],

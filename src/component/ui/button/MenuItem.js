@@ -7,12 +7,12 @@ import { pv5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-      width: 100,
-      height: 36,
+      width: 146,
+      height: 46,
       flexDirection: 'row',  
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 20,
+      borderRadius: 8,
       ...pv5,
       elevation: 1,
       shadowColor: colors.black1,
@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
       right: 10
     },
     leftWrapper:{
-        marginRight: 5
+        marginRight: 10
     },
     rightWrapper:{
-        marginRight: 18
+        marginRight: 13
     },
     imageStyle:{
         resizeMode:'contain',
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     }
   });
 
-const ButtonBrand = ({
+const MenuItem = ({
     content, buttonColor, textColor, fontSize, buttonLogo, onPress
 }) => (
     <TouchableOpacity onPress={onPress}>
@@ -61,7 +61,7 @@ const ButtonBrand = ({
     </TouchableOpacity>
 );
 
-ButtonBrand.propTypes = {
+MenuItem.propTypes = {
     content: string.isRequired,
     buttonColor: string.isRequired,
     textColor: string.isRequired,
@@ -70,4 +70,4 @@ ButtonBrand.propTypes = {
   };
   
 
-export default ButtonBrand;
+export default MenuItem;

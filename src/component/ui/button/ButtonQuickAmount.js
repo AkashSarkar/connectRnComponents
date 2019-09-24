@@ -7,21 +7,14 @@ import { pv5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-      width: 100,
-      height: 36,
+      width: 50,
+      height: 30,
       flexDirection: 'row',  
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 20,
-      ...pv5,
-      elevation: 1,
-      shadowColor: colors.black1,
-      shadowOffset: {
-        width: 0,
-        height: 3
-    },
-      shadowRadius: 6,
-      shadowOpacity: 1
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: colors.colorSecondery
     },
     hitSlop: {
       top: 10,
@@ -29,39 +22,24 @@ const styles = StyleSheet.create({
       left: 10,
       right: 10
     },
-    leftWrapper:{
-        marginRight: 5
-    },
-    rightWrapper:{
-        marginRight: 18
-    },
-    imageStyle:{
-        resizeMode:'contain',
-        height: 26, 
-        width: 26, 
-        margin: 7
+    viewWrapper:{
+      margin: 5
     }
   });
 
-const ButtonBrand = ({
-    content, buttonColor, textColor, fontSize, buttonLogo, onPress
+const ButtonQuickAmount = ({
+    content, buttonColor, textColor, fontSize, onPress
 }) => (
     <TouchableOpacity onPress={onPress}>
         <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
-            <View style={styles.leftWrapper}>
-                <Image
-                    style={styles.imageStyle}
-                    source={buttonLogo}
-                />
-            </View>
-            <View style={styles.rightWrapper}>
+            <View style={styles.viewWrapper}>
                 <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
             </View>
         </View>
     </TouchableOpacity>
 );
 
-ButtonBrand.propTypes = {
+ButtonQuickAmount.propTypes = {
     content: string.isRequired,
     buttonColor: string.isRequired,
     textColor: string.isRequired,
@@ -70,4 +48,4 @@ ButtonBrand.propTypes = {
   };
   
 
-export default ButtonBrand;
+export default ButtonQuickAmount;

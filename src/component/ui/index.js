@@ -5,6 +5,8 @@ import ButtonGrey from './button/ButtonGrey';
 import ButtonConnect from './button/ButtonConnect';
 import ButtonCenter from './button/ButtonCenter';
 import ButtonBrand from './button/ButtonBrand';
+import MenuItem from './button/MenuItem';
+import ButtonQuickAmount from './button/ButtonQuickAmount';
 
 export {
     TextComponent,
@@ -13,5 +15,7 @@ export {
     ButtonGrey,
     ButtonConnect,
     ButtonCenter,
-    ButtonBrand
+    ButtonBrand,
+    MenuItem,
+    ButtonQuickAmount
 }
