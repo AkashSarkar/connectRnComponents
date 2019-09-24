@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Title from '../title/Title';
 import {p20} from "../../../styles/commonStyle";
+import BoxShadow from "../../ui/wrapper/BoxShadow";
 
 const styles = StyleSheet.create({
   contentWrapper: {
@@ -22,7 +23,7 @@ const AccountDetails = ({handleShareButton}) => {
   };
 
   return (
-    <View>
+    <BoxShadow>
       <View style={styles.contentWrapper}>
         <Title subTitle="Account Name" title="Anisur Rahman"/>
         <TouchableOpacity onPress={handleShareButton}>
@@ -39,7 +40,7 @@ const AccountDetails = ({handleShareButton}) => {
         <Title subTitle="Routing No" title="123456789"/>
         <Title subTitle="CONNECT Suffix" title="12"/>
       </View>
-    </View>
+    </BoxShadow>
   )
 };
 
