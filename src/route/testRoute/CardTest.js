@@ -1,6 +1,13 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
-import { SeatListItem, PopUpMessage, Amount, VerifiedInfo, ExpenseItem } from '../../component/widget'
+import { 
+  SeatListItem,
+  PopUpMessage,
+  Amount,
+  VerifiedInfo,
+  ExpenseItem,
+  TripType
+} from '../../component/widget'
 import { mb20} from '../../styles/commonStyle'
 
 const screenContainer = {
@@ -32,6 +39,9 @@ const CardTest = ({ navigation }) => (
     </View>
     <View style={mb20}>
       <ExpenseItem />
+    </View>
+    <View style={mb20}>
+      <TripType />
     </View>
   </ScrollView>
 );

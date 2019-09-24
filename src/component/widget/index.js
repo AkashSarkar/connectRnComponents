@@ -5,6 +5,7 @@ import TimePick from './card/TimePick';
 import Amount from './card/Amount';
 import VerifiedInfo from './card/VerifiedInfo';
 import ExpenseItem from './card/ExpenseItem';
+import TripType from './card/TripType';
 
 export {
   SeatListItem,
@@ -13,5 +14,6 @@ export {
   TimePick,
   Amount,
   VerifiedInfo,
-  ExpenseItem
+  ExpenseItem,
+  TripType
 };

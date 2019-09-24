@@ -52,7 +52,7 @@ const ExpenseItem = ({
           size={fonts.fs12}
         />
         <TextComponent
-          content="Transport"
+          content="5 transaction"
           color={colors.grey1}
           family={fonts.regular}
           size={fonts.fs12}
