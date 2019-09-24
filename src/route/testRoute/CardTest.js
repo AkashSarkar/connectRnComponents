@@ -5,6 +5,7 @@ import { mb20} from '../../styles/commonStyle'
 
 const screenContainer = {
   height: '100%',
+  width: '100%',
   flexDirection: 'column',
   paddingLeft: 10,
   paddingRight: 10,

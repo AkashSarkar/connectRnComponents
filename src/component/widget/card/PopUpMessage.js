@@ -1,32 +1,37 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import { string, number } from 'prop-types';
 import { TextComponent } from '../../ui'
 import { fonts, colors} from '../../../styles/baseStyle'
-import { pb10, pt10} from '../../../styles/commonStyle'
+import { p15, mr10} from '../../../styles/commonStyle'
+import image from '../../../assets'
 
 const styles = {
     wrapper: {
-        width: '60%',
+        minWidth: '60%',
         maxWidth: '80%',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: colors.white1,
         borderRadius: 10,
-        ...pt10,
-        ...pb10,
+        ...p15,
         elevation: 1,
-        shadowColor: '#000',
+        shadowColor: colors.black6,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.2,
                                                              
     },
     leftWrapper: {
-
+        alignSelf: 'flex-start',
+        ...mr10
+    },
+    imagestyle: {
+        width: 30,
+        height: 30
     },
     rightWrapper: {
-        alignItems: 'flex-end',
+        
     }
 }
 
@@ -34,17 +39,15 @@ const PopUpMessage = ({
   content, family, size, color
 }) => (
     <View style={styles.wrapper}>
-        <View>
-            <TextComponent 
-                content="Desh Travels"
-                color={colors.black1}
-                family={fonts.semiBold}
-                size={fonts.fs16}
+        <View style={styles.leftWrapper}>
+            <Image 
+                style={styles.imagestyle}
+                source={image['Check']}
             />
         </View>
         <View>
             <TextComponent 
-                content="Desh Travels"
+                content="Desh Travels fdkhdfkfhk  dfkdf dfd dfjkdf k dfojdfkjfd  dfjkdfjkdfdfk  kdfjkdfjk "
                 color={colors.black1}
                 family={fonts.semiBold}
                 size={fonts.fs16}

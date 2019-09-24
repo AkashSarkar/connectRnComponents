@@ -20,6 +20,30 @@ export const mb5 = {
   export const mv10 = {
     marginVertical: 10
   };
+  export const ml5 = {
+    marginLeft: 5
+  };
+  export const ml10 = {
+    marginLeft: 10
+  };
+  export const ml15 = {
+    marginLeft: 15
+  };
+  export const ml20 = {
+    marginLeft: 20
+  };
+  export const mr5 = {
+    marginRight: 5
+  };
+  export const mr10 = {
+    marginRight: 10
+  };
+  export const mr15 = {
+    marginRight: 15
+  };
+  export const mr20 = {
+    marginRight: 20
+  };
   
   // END
   
@@ -63,11 +87,20 @@ export const mb5 = {
   export const pv15 = {
     paddingVertical: 15
   };
+  export const pl5 = {
+    paddingLeft: 5
+  };
   export const pl10 = {
     paddingLeft: 10
   };
   export const pl15 = {
     paddingLeft: 15
+  };
+  export const pl20 = {
+    paddingLeft: 20
+  };
+  export const pb5 = {
+    paddingBottom: 5
   };
   export const pb10 = {
     paddingBottom: 10
@@ -77,6 +110,18 @@ export const mb5 = {
   };
   export const pb20 = {
     paddingBottom: 20
+  };
+  export const pr5 = {
+    paddingRight: 5
+  };
+  export const pr10 = {
+    paddingRight: 10
+  };
+  export const pr15 = {
+    paddingRight: 15
+  };
+  export const pr20 = {
+    paddingRight: 20
   };
   // END
   
