@@ -3,16 +3,15 @@ import { View, Image } from 'react-native';
 import { string, number } from 'prop-types';
 import { TextComponent } from '../../ui'
 import { fonts, colors} from '../../../styles/baseStyle'
-import { p15, mr10} from '../../../styles/commonStyle'
-import image from '../../../assets'
+import { p15, mb10} from '../../../styles/commonStyle'
 
 const styles = {
     wrapper: {
-        maxWidth: '80%',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
+        width: '100%',
+        height: 90,
+        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.white1,
+        backgroundColor: colors.grey2,
         borderRadius: 10,
         ...p15,
         elevation: 1,
@@ -20,33 +19,24 @@ const styles = {
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.2,
                                                              
-    },
-    leftWrapper: {
-        alignSelf: 'flex-start',
-        ...mr10
-    },
-    imagestyle: {
-        width: 30,
-        height: 30
-    },
-    rightWrapper: {
-        
     }
 }
 
-const PopUpMessage = ({
+const Amount = ({
   content, family, size, color
 }) => (
     <View style={styles.wrapper}>
-        <View style={styles.leftWrapper}>
-            <Image 
-                style={styles.imagestyle}
-                source={image['Check']}
+        <View style={mb10}>
+            <TextComponent 
+                content="Due Amount"
+                color={colors.black1}
+                family={fonts.regular}
+                size={fonts.fs10}
             />
         </View>
         <View>
             <TextComponent 
-                content="Successful Massege"
+                content="Tk. 3,600.00"
                 color={colors.black1}
                 family={fonts.semiBold}
                 size={fonts.fs16}
@@ -55,11 +45,11 @@ const PopUpMessage = ({
     </View>
 );
 
-PopUpMessage.propTypes = {
+Amount.propTypes = {
 //   content: string.isRequired,
 //   family: string.isRequired,
 //   size: number.isRequired,
 //   color: string.isRequired
 };
 
-export default PopUpMessage;
+export default Amount;
