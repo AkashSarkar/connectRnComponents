@@ -9,16 +9,11 @@
     "import/prefer-default-export": 0,
     "react/forbid-prop-types": 0,
     "class-methods-use-this": 0,
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
+    "comma-dangle": ["error", "never"],
     "react/prop-types": [
       "error",
       {
-        "ignore": [
-          "navigation"
-        ]
+        "ignore": ["navigation"]
       }
     ],
     "max-len": [
@@ -30,15 +25,8 @@
       }
     ],
     "react/sort-comp": 0,
-    "react/destructuring-assignment": [
-      {
-        "ignoreClassFields": true
-      }
-    ],
+    "react/destructuring-assignment": 1,
     "react/no-did-update-set-state": 0,
-    "react/jsx-indent": [
-      "error",
-      2
-    ]
+    "react/jsx-indent": ["error", 2]
   }
 }
