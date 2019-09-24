@@ -10,9 +10,10 @@ const AccountDetails = () => {
         size={fonts.fs20}
         color={colors.black}
         content="Account details"
-        family={fonts.regular}/>
+        family={fonts.regular}
+      />
     </View>
-  )
+  );
 };
 
-export default AccountDetails
+export default AccountDetails;

@@ -77,7 +77,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
             content={title1}
             family={fonts.medium}
             size={fonts.fs14}
-            color={active === 1 ? colors.white : colors.grey}
+            color={active === 1 ? colors.white1 : colors.grey1}
           />
         </TouchableOpacity>
 
@@ -90,7 +90,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
             content={title2}
             family={fonts.medium}
             size={fonts.fs14}
-            color={active === 2 ? colors.white : colors.grey}
+            color={active === 2 ? colors.white1 : colors.grey1}
           />
         </TouchableOpacity>
       </View>

@@ -2,17 +2,34 @@ export const colors = {
   primary: '#14438f',
   primary2: '#000632',
   secondary: '#00d1da',
-  grey: '#939393',
-  red: '#e15073',
-  white: '#fff',
+  red1: '#e15073',
   offWhite: '#fefefe',
-  black: '#000'
+  black: '#000',
+  grey1: '#939393',
+  grey2: '#F2F2F2',
+  success: '#32D769',
+  error: '#D22D37',
+  warning: '#FFCD2D',
+  white1: '#FFFFFF',
+  white2: '#F8F8F8',
+  white3: '#EFEFF4',
+  black0: '#000000',
+  black1: '#4A4A4A',
+  black2: '#8E8E93',
+  black3: '#9F9D9D',
+  black4: '#707070',
+  black5: '#838383',
+  bgPrimary: '#F7F7F7',
+  barPrimary: '#4A4A4A'
 };
 
 export const gradientColors = {
   gradientPrimary: ['#14438f', '#000632'],
   gradientGrey: ['#C2C2C2', '#939393'],
-  gradientSecondary: ['#00D1DA', '#14438F']
+  gradientSecondary: ['#00D1DA', '#14438F'],
+  gradientYellow: ['#FFF500', '#FFB100'],
+  gradient1: ['#002880', '#FF005B'],
+  gradient2: ['#B50041', '#14143C']
 };
 
 export const fonts = {
@@ -32,5 +49,3 @@ export const fonts = {
   semiBold: 'Montserrat-SemiBold',
   bold: 'Montserrat-Bold'
 };
-
-

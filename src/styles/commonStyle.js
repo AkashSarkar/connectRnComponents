@@ -20,6 +20,30 @@ export const mv5 = {
 export const mv10 = {
   marginVertical: 10
 };
+export const ml5 = {
+  marginLeft: 5
+};
+export const ml10 = {
+  marginLeft: 10
+};
+export const ml15 = {
+  marginLeft: 15
+};
+export const ml20 = {
+  marginLeft: 20
+};
+export const mr5 = {
+  marginRight: 5
+};
+export const mr10 = {
+  marginRight: 10
+};
+export const mr15 = {
+  marginRight: 15
+};
+export const mr20 = {
+  marginRight: 20
+};
 
 // END
 
@@ -99,29 +123,3 @@ export const pb25 = {
 };
 
 // END
-
-export const ml5 = {
-  marginLeft: 5
-};
-export const ml10 = {
-  marginLeft: 10
-};
-export const ml25 = {
-  marginLeft: 25
-};
-export const mr5 = {
-  marginRight: 5
-};
-export const mr10 = {
-  marginRight: 10
-};
-export const mr20 = {
-  marginRight: 20
-};
-
-// END
-
-export const ctaWrapperDimension = {
-  height: 65,
-  width: '100%'
-};
