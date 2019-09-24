@@ -24,6 +24,7 @@ export const colors = {
   gradient1: ['#14438f','#000632'],
   gradient2: ['#00d1da', '#14438f'],
   gradient3: ['#C2C2C2', '#939393'],
+  gradient4: ['#FFF500', '#FFDB00'],
 };
 
 export const fonts = {

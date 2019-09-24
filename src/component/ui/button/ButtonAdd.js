@@ -1,8 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, ActivityIndicator, Image, View } from 'react-native';
-import { number, string, func } from 'prop-types';
+import { array, string, func, number } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
+import LinearGradient from 'react-native-linear-gradient';
 import { pv10 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
@@ -41,14 +42,14 @@ const styles = StyleSheet.create({
     }
 });
 
-const ButtonCenter = (
+const ButtonAdd = (
   {
     content, buttonColor, textColor, fontSize, onPress, buttonLogo
   }
 ) => (
   <TouchableOpacity onPress={onPress}
   >
-    <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
+    <LinearGradient colors={buttonColor} style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
             <View style={styles.leftWrapper}>
                 <Image
                     style={styles.imageStyle}
@@ -58,17 +59,17 @@ const ButtonCenter = (
             <View style={styles.rightWrapper}>
                 <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
             </View>
-        </View>
+        </LinearGradient>
   </TouchableOpacity>
 );
 
-ButtonCenter.propTypes = {
+ButtonAdd.propTypes = {
     content: string.isRequired,
-    buttonColor: string.isRequired,
+    buttonColor: array.isRequired,
     textColor: string.isRequired,
     fontSize: number,
     buttonLogo: number.isRequired,
     onPress: func,
 };
 
-export default ButtonCenter;
+export default ButtonAdd;

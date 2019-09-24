@@ -8,7 +8,8 @@ import { ButtonPrimary,
     ButtonBrand, 
     MenuItem, 
     ButtonQuickAmount,
-    ButtonCommunication
+    ButtonCommunication,
+    ButtonAdd
 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
@@ -63,9 +64,18 @@ const ButtonTest = ({
             </View>
             <View style={styles.viewWrapper}>
                 <ButtonCenter 
-                content='Button Grey'
-                buttonLogo={assets.LogoConnect}
+                content='Button Center'
+                buttonLogo={assets.Check}
                 buttonColor={colors.white1} 
+                textColor={colors.text1}
+                fontSize={fonts.fs14} 
+                onPress={()=> console.warn("Add New Account")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonAdd 
+                content='Button Add'
+                buttonLogo={assets.Check}
+                buttonColor={colors.gradient4}
                 textColor={colors.text1}
                 fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Add New Account")}/>

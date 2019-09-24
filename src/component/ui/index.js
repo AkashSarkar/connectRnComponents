@@ -8,6 +8,7 @@ import ButtonBrand from './button/ButtonBrand';
 import MenuItem from './button/MenuItem';
 import ButtonQuickAmount from './button/ButtonQuickAmount';
 import ButtonCommunication from './button/ButtonCommunication';
+import ButtonAdd from './button/ButtonAdd';
 
 export {
     TextComponent,
@@ -19,5 +20,6 @@ export {
     ButtonBrand,
     MenuItem,
     ButtonQuickAmount,
-    ButtonCommunication
+    ButtonCommunication,
+    ButtonAdd
 }
