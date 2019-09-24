@@ -7,7 +7,7 @@ import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
 
 
-const AccountSliderItem = ({handleInformation, gradient = colors.gradient3, suffixNo, amount, connectAcc}) => {
+const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, connectAcc}) => {
 
   let amountStyle = {
     fontFamily: fonts.regular,

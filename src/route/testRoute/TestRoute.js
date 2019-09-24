@@ -24,9 +24,14 @@ const TestRoute = ({navigation}) => (
       <Text> Button Test</Text>
     </TouchableOpacity>
     <TouchableOpacity
-      onPress={() => navigation.navigate('AccountSliderItem')}
+      onPress={() => navigation.navigate('TestAccountSliderItem')}
     >
-      <Text>Account Slider Item</Text>
+      <Text>Account Slider item</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('AccountDetails')}
+    >
+      <Text>Account Details</Text>
     </TouchableOpacity>
   </ScrollView>
 );
