@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
 import { 
-  HotelList
+  HotelList, TripTypeList, ExpenseList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -28,6 +28,12 @@ const ListTest = ({ navigation }) => (
     </TouchableOpacity>
     <View style={mb20}>
       <HotelList items={items} />
+    </View>
+    <View style={mb20}>
+      <TripTypeList items={items} />
+    </View>
+    <View style={mb20}>
+      <ExpenseList items={items} />
     </View>
   </ScrollView>
 );

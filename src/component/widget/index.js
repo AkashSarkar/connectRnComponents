@@ -8,6 +8,8 @@ import VerifiedInfo from './card/VerifiedInfo';
 import ExpenseItem from './card/ExpenseItem';
 import TripType from './card/TripType';
 import HotelList from './list/HotelList';
+import TripTypeList from './list/TripTypeList';
+import ExpenseList from './list/ExpenseList';
 
 export {
   SeatListItem,
@@ -19,5 +21,7 @@ export {
   HotelItem,
   ExpenseItem,
   TripType,
-  HotelList
+  HotelList,
+  TripTypeList,
+  ExpenseList
 };
