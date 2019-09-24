@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey, ButtonBrand, ButtonCenter } from '../../component/ui';
+import { ButtonPrimary, ButtonGradientPrimary, ButtonGrey, ButtonConnect, ButtonCenter, ButtonBrand } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
 
@@ -47,7 +47,7 @@ const ButtonTest = ({
                 onPress={()=> console.warn("Button Grey")}/>
             </View>
             <View style={styles.viewWrapper}>
-                <ButtonBrand 
+                <ButtonConnect 
                 buttonLogo={assets.LogoConnect}
                 buttonColor={colors.gradient2}
                 onPress={()=> console.warn("Button Brand")}/>
@@ -60,6 +60,15 @@ const ButtonTest = ({
                 textColor={colors.text1}
                 fontSize={fonts.fs14} 
                 onPress={()=> console.warn("Add New Account")}/>
+            </View>
+            <View style={styles.viewWrapper}>
+                <ButtonBrand 
+                content='DESCO'
+                buttonLogo={assets.LogoConnect}
+                buttonColor={colors.yellow1} 
+                textColor={colors.text2}
+                fontSize={fonts.fs10} 
+                onPress={()=> console.warn("Button Desco")}/>
             </View>
         </SafeAreaView>
     </ScrollView>
