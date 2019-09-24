@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Text } from 'react-native';
-import { SeatListItem } from '../../component/widget'
+import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
+import { SeatListItem, PopUpMessage } from '../../component/widget'
+import { mb20} from '../../styles/commonStyle'
 
 const screenContainer = {
   height: '100%',
@@ -17,7 +18,12 @@ const CardTest = ({ navigation }) => (
     >
       <Text> Button Test</Text>
     </TouchableOpacity>
-    <SeatListItem />
+    <View style={mb20}>
+      <SeatListItem />
+    </View>
+    <View style={mb20}>
+      <PopUpMessage/>
+    </View>
   </ScrollView>
 );
 

@@ -3,18 +3,19 @@ import { View } from 'react-native';
 import { string, number } from 'prop-types';
 import { TextComponent } from '../../ui'
 import { fonts, colors} from '../../../styles/baseStyle'
+import { pb10, pt10} from '../../../styles/commonStyle'
 
 const styles = {
     wrapper: {
-        width: '100%',
-        height: 100,
+        width: '60%',
+        maxWidth: '80%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'white',
-        borderRadius: 16,
-        paddingLeft:  10,
-        paddingRight: 10,
+        borderRadius: 10,
+        ...pt10,
+        ...pb10,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
@@ -29,7 +30,7 @@ const styles = {
     }
 }
 
-const SeatListItem = ({
+const PopUpMessage = ({
   content, family, size, color
 }) => (
     <View style={styles.wrapper}>
@@ -52,11 +53,11 @@ const SeatListItem = ({
     </View>
 );
 
-SeatListItem.propTypes = {
+PopUpMessage.propTypes = {
 //   content: string.isRequired,
 //   family: string.isRequired,
 //   size: number.isRequired,
 //   color: string.isRequired
 };
 
-export default SeatListItem;
+export default PopUpMessage;
