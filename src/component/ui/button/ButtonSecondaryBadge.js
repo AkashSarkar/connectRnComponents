@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     },
     rightViewWrapper: {
         alignItems: 'center',
+        height: 14,
         width: 14,
         borderRadius: 7,
         backgroundColor: 'red',
