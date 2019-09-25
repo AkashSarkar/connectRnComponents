@@ -1,77 +1,167 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View, UIManager, LayoutAnimation, Platform, StyleSheet
-} from 'react-native';
-import { string, node } from 'prop-types';
-import { BoxShadow } from '../../ui';
-import TabSlider from './TabSlider';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { TabWrapper } from '../index';
+import InputField from '../input/InputField';
+import { mb10, p10 } from '../../../styles/commonStyle';
 
-if (
-  Platform.OS === 'android'
-    && UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20
-  },
-  tabWrapper: {
-    padding: 10
-  }
-});
-
-const InputTabbed = ({
-  tab1Components, tab2Components, tabTitle1, tabTitle2
-}) => {
-  const [activeTab, setActiveTab] = useState(1);
-  const [shouldTab1Render, setShouldTab1Render] = useState(true);
-  const [shouldTab2Render, setShouldTab2Render] = useState(false);
-
-  useEffect(() => {
-    LayoutAnimation.configureNext(
-      LayoutAnimation.create(
-        100, 'easeInEaseOut', 'opacity'
-      )
-    );
-    if (activeTab === 1) {
-      setShouldTab1Render(true);
-      setShouldTab2Render(false);
-    } else {
-      setShouldTab2Render(true);
-      setShouldTab1Render(false);
-    }
-  }, [activeTab]);
-
-  return (
-    <View style={styles.container}>
-      <BoxShadow>
-        <View style={{ padding: 10 }}>
-          <TabSlider title1={tabTitle1} title2={tabTitle2} setCurrentTab={setActiveTab} />
-          {shouldTab1Render
-            && (
-            <View>
-              { tab1Components }
-            </View>
-            )
-          }
-          {shouldTab2Render
-            && (
-            <View>{ tab2Components }</View>
-            )
-          }
+const InputTabbed = () => {
+  const BankAccountComponent = () => {
+    const [accountNumber, setAccountNumber] = useState('');
+    return (
+      <View style={p10}>
+        <View style={mb10}>
+          <InputField
+            value={accountNumber}
+            placeholder="EX: 0011-310063223"
+            keyboardType="numeric"
+            maxLength={14}
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setAccountNumber(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
         </View>
-      </BoxShadow>
-    </View>
+      </View>
+    );
+  };
+
+  const CreditCardComponent = () => {
+    const [cardNumber, setCardNumber] = useState('');
+    const [cardholderName, setCardholderName] = useState('');
+    const [validity, setValidity] = useState('');
+    const [cvc, setCvc] = useState('');
+    return (
+      <View style={p10}>
+        <View style={mb10}>
+          <InputField
+            value={cardNumber}
+            autoFocus
+            placeholder="Card Number"
+            keyboardType="numeric"
+            maxLength={14}
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCardNumber(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <View style={mb10}>
+          <InputField
+            value={cardholderName}
+            placeholder="Cardholder Name"
+            keyboardType="default"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCardholderName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <View style={mb10}>
+          <InputField
+            value={validity}
+            placeholder="Valid Thru(MM/YY)"
+            keyboardType="numeric"
+            maxLength={5}
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setValidity(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <View style={mb10}>
+          <InputField
+            value={cvc}
+            placeholder="CVC Number"
+            keyboardType="numeric"
+            maxLength={5}
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCvc(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+      </View>
+    );
+  }
+  return (
+    <TabWrapper
+      tabTitle1="Bank Account"
+      tabTitle2="Credit Card"
+      tabSubtitle1="Please enter a valid bank account or credit card number that you hold"
+      tabSubtitle2="Please enter the valid credit card information that you hold"
+      tab1Components={BankAccountComponent()}
+      tab2Components={CreditCardComponent()}
+    />
   );
 };
-
-InputTabbed.propTypes = {
-  tab1Components: node.isRequired,
-  tab2Components: node.isRequired,
-  tabTitle1: string.isRequired,
-  tabTitle2: string.isRequired
-};
-
 export default InputTabbed;

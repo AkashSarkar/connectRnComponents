@@ -8,6 +8,7 @@ export const mb10 = {
 export const mb20 = {
   marginBottom: 20
 };
+
 export const mt5 = {
   marginTop: 5
 };
@@ -43,6 +44,9 @@ export const mr15 = {
 };
 export const mr20 = {
   marginRight: 20
+};
+export const mh10 = {
+  marginHorizontal: 10
 };
 
 // END
@@ -80,6 +84,12 @@ export const ph10 = {
 export const ph15 = {
   paddingHorizontal: 15
 };
+export const ph20 = {
+  paddingHorizontal: 20
+};
+export const ph60 = {
+  paddingHorizontal: 60
+};
 export const ph80 = {
   paddingHorizontal: 80
 };
@@ -94,6 +104,9 @@ export const pv10 = {
 };
 export const pv15 = {
   paddingVertical: 15
+};
+export const pv25 = {
+  paddingVertical: 25
 };
 export const pl10 = {
   paddingLeft: 10

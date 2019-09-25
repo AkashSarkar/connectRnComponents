@@ -9,7 +9,7 @@ const TextComponent = ({content, family, size, color, extraStyle = {}}) => {
       style={{
         fontFamily: family,
         fontSize: size,
-        color,
+        color
       }}
     >
       {content}
@@ -22,6 +22,7 @@ TextComponent.propTypes = {
   family: string.isRequired,
   size: number.isRequired,
   color: string.isRequired,
+  textDecorationLine: string,
   extraStyle: object
 };
 

@@ -4,11 +4,12 @@ import TestRoute from './testRoute/TestRoute';
 import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
 import CardTest from './testRoute/CardTest';
 import ButtonTest from './testRoute/ButtonTest';
-import AccountDetails from '../component/widget/card/AccountDetails';
 import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
 import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
 import Listtest from './testRoute/Listtest';
+import InputTest from './testRoute/InputTest';
+import SwitchTest from './testRoute/SwitchTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -17,11 +18,12 @@ const AppNavigator = createStackNavigator(
     SwipeableWrapperTest,
     CardTest,
     ButtonTest,
-    AccountDetails,
     TestAccountSliderItem,
     TabTest,
     PickerTest,
-    Listtest
+    Listtest,
+    InputTest,
+    SwitchTest
   },
   {
     initialRouteName: 'CardTest',
