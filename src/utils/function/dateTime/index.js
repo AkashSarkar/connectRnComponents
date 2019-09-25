@@ -15,9 +15,15 @@ export const generateMonths = () => moment.monthsShort();
 
 export const generateYears = () => {
   const years = [];
-  for (let i = 1900; i <= parseInt(new Date().getFullYear()) + 50; i++) {
+  let currentYearIndex = 0;
+  const currentYear = parseInt(new Date().getFullYear());
+  for (let i = 1900; i <= currentYear + 50; i++) {
+    if (i === currentYear) {
+      currentYearIndex = i - 1900;
+      console.log(i - 1900);
+    }
     years.push(`${i}`);
   }
 
-  return years;
+  return { years, currentYearIndex };
 };

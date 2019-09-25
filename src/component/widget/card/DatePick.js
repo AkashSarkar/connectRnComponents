@@ -34,7 +34,7 @@ const DatePick = ({ onDateSelected, title }) => (
         />
       </View>
       <View style={styles.dateWrapper}>
-        <DateWheel />
+        <DateWheel onDateSelected={date => console.log(date)} />
       </View>
     </View>
   </BoxShadow>

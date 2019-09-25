@@ -4,6 +4,7 @@ import { func } from 'prop-types';
 import { DatePicker } from 'react-native-wheel-picker-android';
 import { BoxShadow, TextComponent } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
+import DateWheel from './DateWheel';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,18 +36,7 @@ const DateRange = ({ onStartDateSelected, onEndDateSelected }) => (
             size={fonts.fs14}
           />
         </View>
-        <DatePicker
-          isCyclic
-          itemTextColor={colors.grey}
-          selectedItemTextFontFamily={fonts.bold}
-          selectedItemTextSize={fonts.fs18}
-          itemTextSize={fonts.fs18}
-          onDateSelected={onStartDateSelected}
-          format24
-          hideHours
-          hideMinutes
-          hidAM
-        />
+        <DateWheel onDateSelected={onStartDateSelected} />
       </View>
       <View style={styles.dateWrapper}>
         <View style={styles.label}>
@@ -57,17 +47,7 @@ const DateRange = ({ onStartDateSelected, onEndDateSelected }) => (
             size={fonts.fs14}
           />
         </View>
-        <DatePicker
-          itemTextColor={colors.grey}
-          selectedItemTextFontFamily={fonts.bold}
-          selectedItemTextSize={fonts.fs18}
-          itemTextSize={fonts.fs18}
-          onDateSelected={onEndDateSelected}
-          format24
-          hideHours
-          hideMinutes
-          hidAM
-        />
+        <DateWheel onDateSelected={onEndDateSelected} />
       </View>
     </View>
   </BoxShadow>

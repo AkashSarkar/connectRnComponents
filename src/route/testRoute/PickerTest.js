@@ -5,7 +5,7 @@ import { TimePick, DateRange, DatePick } from '../../component/widget';
 const PickerTest = () => (
   <View>
     <TimePick />
-    <DateRange />
+    <DateRange onEndDateSelected={(date) => { console.log(date); }} onStartDateSelected={(date) => { console.log(date); }} />
     <DatePick title="Journey Date" />
   </View>
 );
