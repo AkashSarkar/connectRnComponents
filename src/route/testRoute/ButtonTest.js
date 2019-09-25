@@ -98,7 +98,8 @@ const ButtonTest = ({
             <View style={styles.viewWrapper}>
                 <ButtonAdd 
                 content='Button Add'
-                buttonLogo={assets.Check}
+                buttonLogoLeft={assets.Check}
+                buttonLogoRight={assets.Check}
                 buttonColor={colors.gradient4}
                 textColor={colors.text1}
                 fontSize={fonts.fs14} 

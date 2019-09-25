@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 
 const ButtonAdd = (
   {
-    content, buttonColor, textColor, fontSize, onPress, buttonLogo
+    content, buttonColor, textColor, fontSize, onPress, buttonLogoLeft, buttonLogoRight
   }
 ) => (
   <TouchableOpacity onPress={onPress}
@@ -64,13 +64,13 @@ const ButtonAdd = (
             {/* <View style={styles.leftImageWrapper}> */}
                 <Image
                     style={styles.coverImageStyle}
-                    source={buttonLogo}
+                    source={buttonLogoLeft}
                 />
             {/* </View> */}
             <View style={styles.leftWrapper}>
                 <Image
                     style={styles.imageStyle}
-                    source={buttonLogo}
+                    source={buttonLogoRight}
                 />
             </View>
             <View style={styles.rightWrapper}>
@@ -85,7 +85,8 @@ ButtonAdd.propTypes = {
     buttonColor: array.isRequired,
     textColor: string.isRequired,
     fontSize: number,
-    buttonLogo: number.isRequired,
+    buttonLogoLeft: number.isRequired,
+    buttonLogoRight: number.isRequired,
     onPress: func,
 };
 
