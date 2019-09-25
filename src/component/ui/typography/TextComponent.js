@@ -8,7 +8,7 @@ const TextComponent = ({
 }) => (
   <Text
     style={{
-      fontFamily: family || fonts.regular,
+      fontFamily: family || fonts.light,
       fontSize: size,
       color
     }}

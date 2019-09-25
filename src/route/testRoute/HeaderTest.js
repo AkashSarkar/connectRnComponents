@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { ButtonPrimary, 
-    HeaderPrimary
+    HeaderPrimary,
+    HeaderTop
 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
       marginTop: 10
     },
     viewWrapper: {
-      marginBottom: 10
+      marginBottom: 20
     }
   });
 
@@ -26,6 +27,11 @@ const HeaderTest = ({
             <View style={styles.viewWrapper}>
                 <HeaderPrimary 
                     content='Send And Receive'
+                />
+            </View>
+            <View style={styles.viewWrapper}>
+                <HeaderTop 
+                    content='Hotel Booking'
                 />
             </View>
         </SafeAreaView>

@@ -14,6 +14,7 @@ import ButtonTag from './button/ButtonTag';
 import ButtonSecondaryBadge from './button/ButtonSecondaryBadge';
 import ButtonDouble from './button/ButtonDouble';
 import HeaderPrimary from './header/HeaderPrimary';
+import HeaderTop from './header/HeaderTop';
 
 export {
     TextComponent,
@@ -31,5 +32,6 @@ export {
     ButtonTag,
     ButtonSecondaryBadge,
     ButtonDouble,
-    HeaderPrimary
+    HeaderPrimary,
+    HeaderTop
 }
