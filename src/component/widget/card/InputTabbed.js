@@ -49,7 +49,6 @@ const InputTabbed = () => {
         <View style={mb10}>
           <InputField
             value={cardNumber}
-            autoFocus
             placeholder="Card Number"
             keyboardType="numeric"
             maxLength={14}
