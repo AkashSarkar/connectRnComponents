@@ -30,7 +30,9 @@ const style = {
 const Switch = () => {
   return (
     <View style={style.wrapperStyle}>
-      <Animated.View style={style.overlay}/>
+      <Animated.View style={style.overlay}>
+        <TextComponent size={fonts.fs10} color={colors.brandPrimary} content="a" family={fonts.regular}/>
+      </Animated.View>
       <TextComponent
         size={fonts.fs14}
         color={colors.brandPrimary}
