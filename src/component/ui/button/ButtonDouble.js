@@ -11,50 +11,58 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        borderRadius: 18,
-        // elevation: 1,
-        // shadowColor: colors.black1,
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 3
-        // },
-        // shadowRadius: 6,
-        // shadowOpacity: 0.1,
-        ...pv10
+        justifyContent: 'center',
+        borderRadius: 25,
+        elevation: 1,
+        backgroundColor: colors.white1,
+        shadowColor: colors.black1,
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 6,
+        shadowOpacity: 0.1,
     },
-    buttonLeft: {
-      width: '50%',  
+    buttonGradient: {
+      width: '100%',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 25,
+      alignSelf: 'stretch',
       ...pv15
     },
-    buttonRight: {
-      width: '50%',  
+    leftWrapper: {
+      width: '50%',
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 25,
-      ...pv15
+      alignSelf: 'stretch'
+    },
+    rightWrapper: {
+      width: '50%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'stretch',
     },
     hitSlop: {
-      top: 10,
-      bottom: 10,
-      left: 10,
-      right: 10
+      top: 5,
+      bottom: 5,
+      left: 5,
+      right: 5
     }
   });
 
 const ButtonDouble = ({
-    content, buttonColor, textColorLeft, textColorRight, fontSize, onPress
+    content, contentRight, buttonColor, textColorLeft, textColorRight, fontSize, onPress
 }) => (
     <TouchableOpacity onPress={onPress}>
-        <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
-            <LinearGradient colors={buttonColor} style={styles.buttonLeft} hitSlop={styles.hitSlop}>
-                <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColorLeft} />
-            </LinearGradient>
-            <View style={styles.buttonRight}>
-                <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColorRight} />
+        <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
+            <View style={styles.leftWrapper}>
+                <LinearGradient colors={buttonColor} style={styles.buttonGradient} hitSlop={styles.hitSlop}>
+                    <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColorLeft} />
+                </LinearGradient>
+            </View>
+            <View style={styles.rightWrapper}>
+                <TextComponent content={contentRight} family={fonts.regular} size={fontSize} color={textColorRight} />
             </View>
         </View>
     </TouchableOpacity>
@@ -62,6 +70,7 @@ const ButtonDouble = ({
 
 ButtonDouble.propTypes = {
     content: string.isRequired,
+    contentRight: string.isRequired,
     buttonColor: array.isRequired,
     textColorLeft: string.isRequired,
     textColorRight: string.isRequired,
