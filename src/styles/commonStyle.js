@@ -52,6 +52,9 @@ export const mh10 = {
 // END
 
 // common padding sizes
+export const p5 = {
+  padding: 5
+};
 export const p10 = {
   padding: 10
 };
