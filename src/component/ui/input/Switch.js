@@ -26,7 +26,7 @@ const style = {
     borderRadius: 50,
     backgroundColor: 'rgba( 0 209 218)'
   }
-}
+};
 const Switch = () => {
   return (
     <View style={style.wrapperStyle}>
@@ -45,5 +45,5 @@ const Switch = () => {
       />
     </View>
   );
-}
+};
 export default Switch;
