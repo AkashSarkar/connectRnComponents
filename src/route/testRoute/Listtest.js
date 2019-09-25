@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
 import { 
-  HotelList, TripTypeList, ExpenseList, BrandStackList
+  HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -157,6 +157,12 @@ const ListTest = ({ navigation }) => (
     </TouchableOpacity>
     <View style={mb20}>
       <BrandStackList
+        items={brands}
+        onPress={id => console.log(id)}
+      />
+    </View>
+    <View style={mb20}>
+      <MenuStackList
         items={brands}
         onPress={id => console.log(id)}
       />

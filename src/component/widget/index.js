@@ -11,6 +11,7 @@ import HotelList from './list/HotelList';
 import TripTypeList from './list/TripTypeList';
 import ExpenseList from './list/ExpenseList';
 import BrandStackList from './list/BrandStackList';
+import MenuStackList from './list/MenuStackList';
 import InputLogin from './card/InputLogin';
 import TabWrapper from './tab/TabWrapper';
 import InputLabeled from './card/InputLabeled';
@@ -36,6 +37,7 @@ export {
   TripTypeList,
   ExpenseList,
   BrandStackList,
+  MenuStackList,
   InputLogin,
   InputLabeled,
   InputTabbed,

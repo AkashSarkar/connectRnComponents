@@ -4,8 +4,9 @@ import {
   arrayOf, shape, number, string, func
 } from 'prop-types';
 import { mr10 } from '../../../styles/commonStyle';
-import { colors } from '../../../styles/baseStyle';
-import { ButtonBrand } from '../../ui';
+import { fonts, colors } from '../../../styles/baseStyle';
+import { MenuItem } from '../../ui';
+import image from '../../../assets';
 
 const styles = {
   wrapper: {
@@ -16,7 +17,7 @@ const styles = {
   }
 };
 
-const BrandStackList = ({
+const MenuStackList = ({
   items, onPress
 }) => (
   <ScrollView
@@ -27,12 +28,13 @@ const BrandStackList = ({
     {
       items.map((item, index) => (
         <View key={item.id} style={mr10}>
-          <ButtonBrand
-            content={item.content}
-            logo={item.logo}
-            buttonColor={item.buttonColor}
-            textColor={item.textColor}
-            onPress={() => onPress(index)}
+          <MenuItem
+            content="Cash & Account"
+            buttonLogo={image.LogoConnect}
+            buttonColor={colors.white1}
+            textColor={colors.text2}
+            fontSize={fonts.fs10}
+            onPress={() => console.warn('Button Desco')}
           />
         </View>
       ))
@@ -40,7 +42,7 @@ const BrandStackList = ({
   </ScrollView>
 );
 
-BrandStackList.propTypes = {
+MenuStackList.propTypes = {
   items: arrayOf(
     shape({
       id: number.isRequired,
@@ -53,4 +55,4 @@ BrandStackList.propTypes = {
   onPress: func.isRequired
 };
 
-export default BrandStackList;
+export default MenuStackList;
