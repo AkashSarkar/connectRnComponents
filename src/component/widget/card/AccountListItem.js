@@ -4,8 +4,9 @@ import {TextComponent} from "../../ui";
 import {colors, fonts} from "../../../styles/baseStyle";
 import SwitchComponent from "../../ui/input/SwitchComponent";
 import {ph10, pv10} from "../../../styles/commonStyle";
+import {func, object} from 'prop-types';
 
-const AccountListItem = ({onSwitchChange, accountInformation, switchIsOn}) => {
+const AccountListItem = ({onSwitchChange, accountInformation}) => {
 
   return (
     <View style={[styles.wrapper, pv10, ph10]}>
@@ -43,7 +44,7 @@ const AccountListItem = ({onSwitchChange, accountInformation, switchIsOn}) => {
         style={styles.iconStyle}
         source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
       />
-      <SwitchComponent isOn={switchIsOn} onValueChange={onSwitchChange}/>
+      <SwitchComponent isOn={accountInformation.isSwitchOn} onValueChange={onSwitchChange}/>
     </View>
   )
 };
@@ -63,5 +64,11 @@ const styles = StyleSheet.create({
     width: 112
   }
 });
+
+AccountListItem.propTypes = {
+  accountInformation: object.isRequired,
+  onSwitchChange: func.isRequired,
+};
+
 
 export default AccountListItem;
