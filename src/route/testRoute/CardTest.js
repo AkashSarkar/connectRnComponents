@@ -63,6 +63,7 @@ const CardTest = ({ navigation }) => (
         title="Scan a valid QR code"
         subtitle="Please scan a valid QR code connect ID from
         the product or web"
+        content="Scan now"
       />
     </View>
     <View style={mb20}>

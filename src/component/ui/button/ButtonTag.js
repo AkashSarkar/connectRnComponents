@@ -7,39 +7,41 @@ import { pv5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-      width: 50,
-      height: 30,
+      width: 150,
+      height: 46,
       flexDirection: 'row',  
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 10,
-      borderWidth: 1,
-      borderColor: colors.colorSecondery
+      borderRadius: 8,
+      ...pv5,
+      elevation: 1,
+      shadowColor: colors.black1,
+      shadowOffset: {
+        width: 0,
+        height: 3
+    },
+      shadowRadius: 6,
+      shadowOpacity: 1
     },
     hitSlop: {
       top: 5,
       bottom: 5,
       left: 5,
       right: 5
-    },
-    viewWrapper:{
-      margin: 5
     }
   });
 
-const ButtonQuickAmount = ({
+const ButtonTag = ({
     content, buttonColor, textColor, fontSize, onPress
 }) => (
     <TouchableOpacity onPress={onPress}>
         <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
-            <View style={styles.viewWrapper}>
-                <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
-            </View>
+            <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
         </View>
     </TouchableOpacity>
 );
 
-ButtonQuickAmount.propTypes = {
+ButtonTag.propTypes = {
     content: string.isRequired,
     buttonColor: string.isRequired,
     textColor: string.isRequired,
@@ -48,4 +50,4 @@ ButtonQuickAmount.propTypes = {
   };
   
 
-export default ButtonQuickAmount;
+export default ButtonTag;

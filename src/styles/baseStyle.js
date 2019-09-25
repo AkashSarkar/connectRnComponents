@@ -42,6 +42,7 @@ export const gradientColors = {
 };
 
 export const fonts = {
+  fs8: 8,
   fs10: 10,
   fs12: 12,
   fs14: 14,

@@ -4,7 +4,7 @@ import { array, string, func, number } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import LinearGradient from 'react-native-linear-gradient';
-import { pv10 } from '../../../styles/commonStyle';
+import { pv5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   buttonWrapper: {
@@ -20,16 +20,19 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 6,
     shadowOpacity: 0.1,
-    ...pv10
+    // ...pv5
   },
   hitSlop: {
-    top: 10,
-    bottom: 10,
-    left: 10,
-    right: 10
+    top: 5,
+    bottom: 5,
+    left: 5,
+    right: 5
   },
   leftWrapper:{
     marginRight: 5
+    },
+  leftImageWrapper:{
+    justifyContent: 'flex-start'
     },
   rightWrapper:{
         marginRight: 18
@@ -39,21 +42,35 @@ const styles = StyleSheet.create({
     height: 26, 
     width: 26, 
     margin: 7
+    },
+  coverImageStyle:{
+    position: 'absolute',
+    resizeMode: 'stretch',
+    left: 0,
+    resizeMode:'contain',
+    height: '100%', 
+    width: '25%'
     }
 });
 
 const ButtonAdd = (
   {
-    content, buttonColor, textColor, fontSize, onPress, buttonLogo
+    content, buttonColor, textColor, fontSize, onPress, buttonLogoLeft, buttonLogoRight
   }
 ) => (
   <TouchableOpacity onPress={onPress}
   >
     <LinearGradient colors={buttonColor} style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
+            {/* <View style={styles.leftImageWrapper}> */}
+                <Image
+                    style={styles.coverImageStyle}
+                    source={buttonLogoLeft}
+                />
+            {/* </View> */}
             <View style={styles.leftWrapper}>
                 <Image
                     style={styles.imageStyle}
-                    source={buttonLogo}
+                    source={buttonLogoRight}
                 />
             </View>
             <View style={styles.rightWrapper}>
@@ -68,7 +85,8 @@ ButtonAdd.propTypes = {
     buttonColor: array.isRequired,
     textColor: string.isRequired,
     fontSize: number,
-    buttonLogo: number.isRequired,
+    buttonLogoLeft: number.isRequired,
+    buttonLogoRight: number.isRequired,
     onPress: func,
 };
 
