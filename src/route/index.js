@@ -8,7 +8,7 @@ import HeaderTest from './testRoute/HeaderTest';
 import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
 import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
-import Listtest from './testRoute/Listtest';
+import ListTest from './testRoute/ListTest';
 import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
 
@@ -23,7 +23,7 @@ const AppNavigator = createStackNavigator(
     TestAccountSliderItem,
     TabTest,
     PickerTest,
-    Listtest,
+    ListTest,
     InputTest,
     SwitchTest
   },

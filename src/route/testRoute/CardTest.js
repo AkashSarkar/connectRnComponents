@@ -22,13 +22,8 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const CardTest = ({ navigation }) => (
+const CardTest = () => (
   <ScrollView contentContainerStyle={screenContainer}>
-    <TouchableOpacity
-      onPress={() => navigation.navigate('SwipeableWrapperTest')}
-    >
-      <Text> Button Test</Text>
-    </TouchableOpacity>
     <View style={mb20}>
       <SeatListItem
         title="Desh Travels"
