@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { string } from 'prop-types';
-import { TextComponent } from '../../ui';
-import { fonts, colors } from '../../../styles/baseStyle';
+import { ButtonPrimary, TextComponent } from '../../ui';
+import { fonts, colors, gradientColors } from '../../../styles/baseStyle';
 import { p15, mb10, mb5 } from '../../../styles/commonStyle';
 import image from '../../../assets';
 
@@ -34,7 +34,7 @@ const styles = {
 };
 
 const Scan = ({
-  title, subtitle
+  title, subtitle, content
 }) => (
   <View style={styles.wrapper}>
     <View style={styles.leftStyle}>
@@ -46,22 +46,22 @@ const Scan = ({
           <TextComponent
             content={title}
             color={colors.primary2}
-            family={fonts.regular}
+            family={fonts.semiBold}
             size={fonts.fs16}
           />
         </View>
         <TextComponent
           content={subtitle}
           color={colors.primary2}
-          family={fonts.semiBold}
+          family={fonts.regular}
           size={fonts.fs10}
         />
       </View>
-      <TextComponent
-        content={subtitle}
-        color={colors.primary2}
-        family={fonts.semiBold}
-        size={fonts.fs10}
+      <ButtonPrimary
+        content={content}
+        buttonColor={gradientColors.gradientPrimary}
+        textColor={colors.white1}
+        fontSize={fonts.fs14}
       />
     </View>
   </View>
@@ -69,7 +69,8 @@ const Scan = ({
 
 Scan.propTypes = {
   title: string.isRequired,
-  subtitle: string.isRequired
+  subtitle: string.isRequired,
+  content: string.isRequired
 };
 
 export default Scan;
