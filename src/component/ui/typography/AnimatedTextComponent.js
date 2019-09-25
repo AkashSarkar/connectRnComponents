@@ -1,6 +1,6 @@
 import React from 'react';
 import { string, number } from 'prop-types';
-import AnimateOpacity from '../animation/AnimateOpacity';
+import AnimateOpacity from '../wrapper/animation/AnimateOpacity';
 import TextComponent from './TextComponent';
 
 const AnimatedTextComponent = (
@@ -9,7 +9,7 @@ const AnimatedTextComponent = (
   }
 ) => (
   <AnimateOpacity animateOnState={content} duration={350}>
-    <TextComponent family={family} size={size} color={color} content={content}/>
+    <TextComponent family={family} size={size} color={color} content={content} />
   </AnimateOpacity>
 );
 

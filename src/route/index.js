@@ -9,6 +9,7 @@ import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
 import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
+import LimitTest from './testRoute/LimitTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -21,10 +22,11 @@ const AppNavigator = createStackNavigator(
     TabTest,
     PickerTest,
     InputTest,
-    SwitchTest
+    SwitchTest,
+    LimitTest
   },
   {
-    initialRouteName: 'TestRoute',
+    initialRouteName: 'LimitTest',
     headerMode: 'none'
   },
 );

@@ -1,5 +1,7 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity} from 'react-native';
+import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import { ButtonGradientPrimary } from '../../component/ui';
+import { colors, gradientColors } from '../../styles/baseStyle';
 
 const screenContainer = {
   height: '100%',
@@ -10,7 +12,7 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const TestRoute = ({navigation}) => (
+const TestRoute = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
     <TouchableOpacity
       onPress={() => navigation.navigate('SwipeableWrapperTest')}
@@ -54,6 +56,7 @@ const TestRoute = ({navigation}) => (
     >
       <Text>Switch Test</Text>
     </TouchableOpacity>
+    <ButtonGradientPrimary buttonColor={gradientColors.gradientPrimary} content="Limit Test" onPress={() => navigation.navigate('LimitTest')} />
   </ScrollView>
 );
 
