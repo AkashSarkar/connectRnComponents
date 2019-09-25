@@ -9,6 +9,8 @@ import InputLabeled from './card/InputLabeled';
 import InputTabbed from './card/InputTabbed';
 import DateRange from './card/DateRange';
 import DatePick from './card/DatePick';
+import CardTitleWidget from './title/CardTitleWidget';
+import InputMiddleLabeled from './card/InputMiddleLabeled';
 
 export {
   SeatListItem,
@@ -21,5 +23,7 @@ export {
   InputLabeled,
   InputTabbed,
   DateRange,
-  DatePick
+  DatePick,
+  CardTitleWidget,
+  InputMiddleLabeled
 };

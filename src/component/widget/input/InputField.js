@@ -153,7 +153,7 @@ InputField.propTypes = {
   onChangeText: func.isRequired,
   validations: array.isRequired,
   setIsValid: func.isRequired,
-  iconSource: string,
+  iconSource: number,
   isIcon: bool,
   secureTextEntry: bool
 };

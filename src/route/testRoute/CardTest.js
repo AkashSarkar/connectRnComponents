@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   ScrollView,
-  TouchableOpacity,
-  Text,
   View,
   KeyboardAvoidingView
 } from 'react-native';
@@ -11,7 +9,10 @@ import {
   PopUpMessage,
   Amount,
   VerifiedInfo,
-  InputLogin, InputLabeled, InputTabbed
+  InputLogin,
+  InputLabeled,
+  InputTabbed,
+  InputMiddleLabeled
 } from '../../component/widget';
 import { mb20, p10 } from '../../styles/commonStyle';
 
@@ -50,6 +51,9 @@ const CardTest = () => (
 
       <View style={[mb20]}>
         <InputTabbed/>
+      </View>
+      <View style={[mb20]}>
+        <InputMiddleLabeled/>
       </View>
     </KeyboardAvoidingView>
   </ScrollView>
