@@ -23,13 +23,13 @@ const styles = {
 };
 
 const VerifiedInfo = ({
-  content, family, size, color
+  title1, title2, subtitle1, subtitle2
 }) => (
   <LinearGradient colors={gradientColors.gradientPrimary} style={[styles.wrapper]}>
     <View style={mb20}>
       <View style={mb5}>
         <TextComponent
-          content="bKash Account Name"
+          content={title1}
           color={colors.secondary}
           family={fonts.semiBold}
           size={fonts.fs14}
@@ -37,7 +37,7 @@ const VerifiedInfo = ({
       </View>
       <View style={mb5}>
         <TextComponent
-          content="Mehzabi Chaudhry"
+          content={subtitle1}
           color={colors.white1}
           family={fonts.regular}
           size={fonts.fs12}
@@ -47,7 +47,7 @@ const VerifiedInfo = ({
     <View>
       <View style={mb5}>
         <TextComponent
-          content="bKash Account Number"
+          content={title2}
           color={colors.secondary}
           family={fonts.semiBold}
           size={fonts.fs14}
@@ -55,7 +55,7 @@ const VerifiedInfo = ({
       </View>
       <View style={mb5}>
         <TextComponent
-          content="01755 666 777"
+          content={subtitle2}
           color={colors.white1}
           family={fonts.regular}
           size={fonts.fs12}
@@ -66,10 +66,10 @@ const VerifiedInfo = ({
 );
 
 VerifiedInfo.propTypes = {
-//   content: string.isRequired,
-//   family: string.isRequired,
-//   size: number.isRequired,
-//   color: string.isRequired
+  title1: string.isRequired,
+  title2: string.isRequired,
+  subtitle1: string.isRequired,
+  subtitle2: string.isRequired
 };
 
 export default VerifiedInfo;

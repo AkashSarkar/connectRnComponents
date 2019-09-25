@@ -1,6 +1,8 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
-import { 
+import {
+  ScrollView, TouchableOpacity, Text, View
+} from 'react-native';
+import {
   SeatListItem,
   PopUpMessage,
   Amount,
@@ -8,8 +10,8 @@ import {
   ExpenseItem,
   TripType,
   HotelItem
-} from '../../component/widget'
-import { mb20} from '../../styles/commonStyle'
+} from '../../component/widget';
+import { mb20 } from '../../styles/commonStyle';
 
 const screenContainer = {
   width: '100%',
@@ -27,25 +29,57 @@ const CardTest = ({ navigation }) => (
       <Text> Button Test</Text>
     </TouchableOpacity>
     <View style={mb20}>
-      <SeatListItem />
+      <SeatListItem
+        title="Desh Travels"
+        subtitle="110-DHK-CHAP Non AC"
+        duration="5:45 AM  1:30 PM"
+        available="32 Seats Available"
+        price="BDT Tk. 450.00"
+      />
     </View>
     <View style={mb20}>
-      <PopUpMessage />
+      <PopUpMessage
+        icon="Check"
+        content="Success message"
+      />
     </View>
     <View style={mb20}>
-      <Amount />
+      <Amount
+        title="Due Amount"
+        subtitle="Tk. 3,600.00"
+      />
     </View>
     <View style={mb20}>
-      <VerifiedInfo />
+      <VerifiedInfo
+        title1="bKash Account Name"
+        title2="bKash Account Number"
+        subtitle1="Mehzabi Chaudhry"
+        subtitle2="01755 666 777"
+      />
     </View>
     <View style={mb20}>
-      <ExpenseItem />
+      <ExpenseItem
+        title="Hotel Name"
+        subtitle="Dhaka"
+        topValue="1002"
+        bottomValue="340"
+      />
     </View>
     <View style={mb20}>
-      <TripType />
+      <TripType
+        url="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+        title="Hotel Name"
+      />
     </View>
     <View style={mb20}>
-      <HotelItem />
+      <HotelItem
+        url="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+        title="Hotel Name"
+        subtitle="Dhaka"
+        price="1002"
+        people="340"
+        rating="4"
+      />
     </View>
   </ScrollView>
 );

@@ -29,24 +29,24 @@ const styles = {
 };
 
 const SeatListItem = ({
-  content, family, size, color
+  title, subtitle, duration, price, available
 }) => (
   <View style={styles.wrapper}>
     <View>
       <TextComponent
-        content="Desh Travels"
+        content={title}
         color={colors.black1}
         family={fonts.semiBold}
         size={fonts.fs16}
       />
       <TextComponent
-        content="110-DHK-CHAP Non AC"
+        content={subtitle}
         color={colors.black1}
         family={fonts.regular}
         size={fonts.fs10}
       />
       <TextComponent
-        content="5:45 AM  1:30 PM"
+        content={duration}
         color={colors.black1}
         family={fonts.regular}
         size={fonts.fs10}
@@ -54,13 +54,13 @@ const SeatListItem = ({
     </View>
     <View style={styles.rightWrapper}>
       <TextComponent
-        content="32 Seats Available"
+        content={available}
         color={colors.black1}
         family={fonts.regular}
         size={fonts.fs10}
       />
       <TextComponent
-        content="BDT Tk. 450.00"
+        content={price}
         color={colors.black1}
         family={fonts.semiBold}
         size={fonts.fs16}
@@ -70,10 +70,11 @@ const SeatListItem = ({
 );
 
 SeatListItem.propTypes = {
-//   content: string.isRequired,
-//   family: string.isRequired,
-//   size: number.isRequired,
-//   color: string.isRequired
+  title: string.isRequired,
+  subtitle: string.isRequired,
+  duration: string.isRequired,
+  available: string.isRequired,
+  price: string.isRequired
 };
 
 export default SeatListItem;

@@ -34,18 +34,18 @@ const styles = {
 };
 
 const PopUpMessage = ({
-  content, family, size, color
+  content, icon
 }) => (
   <View style={styles.wrapper}>
     <View style={styles.leftWrapper}>
       <Image
         style={styles.imagestyle}
-        source={image['Check']}
+        source={image[icon]}
       />
     </View>
     <View>
       <TextComponent
-        content="Successful Massege"
+        content={content}
         color={colors.black1}
         family={fonts.semiBold}
         size={fonts.fs16}
@@ -55,10 +55,8 @@ const PopUpMessage = ({
 );
 
 PopUpMessage.propTypes = {
-//   content: string.isRequired,
-//   family: string.isRequired,
-//   size: number.isRequired,
-//   color: string.isRequired
+  content: string.isRequired,
+  icon: string.isRequired
 };
 
 export default PopUpMessage;
