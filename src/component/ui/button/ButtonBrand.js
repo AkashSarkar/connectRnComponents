@@ -4,6 +4,7 @@ import { string, func, array, number } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import { pv5 } from '../../../styles/commonStyle';
+import image from '../../../assets';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
@@ -19,9 +20,8 @@ const styles = StyleSheet.create({
       shadowOffset: {
         width: 0,
         height: 3
-    },
-      shadowRadius: 6,
-      shadowOpacity: 1
+      },
+      shadowOpacity: 0.3
     },
     hitSlop: {
       top: 10,
@@ -44,18 +44,18 @@ const styles = StyleSheet.create({
   });
 
 const ButtonBrand = ({
-    content, buttonColor, textColor, fontSize, buttonLogo, onPress
+    content, buttonColor, textColor, logo, onPress
 }) => (
     <TouchableOpacity onPress={onPress}>
-        <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
+        <View style={[styles.buttonWrapper, {backgroundColor: colors[buttonColor] }]} hitSlop={styles.hitSlop}>
             <View style={styles.leftWrapper}>
                 <Image
                     style={styles.imageStyle}
-                    source={buttonLogo}
+                    source={image[logo]}
                 />
             </View>
             <View style={styles.rightWrapper}>
-                <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
+                <TextComponent content={content} family={fonts.regular} size={fonts.fs10} color={colors[textColor]} />
             </View>
         </View>
     </TouchableOpacity>
@@ -65,9 +65,8 @@ ButtonBrand.propTypes = {
     content: string.isRequired,
     buttonColor: string.isRequired,
     textColor: string.isRequired,
-    fontSize: number,
-    buttonLogo: number.isRequired,
-    onPress: func,
+    logo: string.isRequired,
+    onPress: func
   };
   
 

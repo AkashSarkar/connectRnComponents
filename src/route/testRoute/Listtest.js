@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
 import { 
-  HotelList, TripTypeList, ExpenseList
+  HotelList, TripTypeList, ExpenseList, BrandStackList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -114,13 +114,53 @@ const expense = [
   }
 ];
 
+const brands = [
+  {
+    id: 1,
+    content: 'Transport',
+    buttonColor: 'yellow1',
+    textColor: 'primary2',
+    logo: 'Check'
+
+  },
+  {
+    id: 2,
+    content: 'Transport',
+    buttonColor: 'yellow1',
+    textColor: 'primary2',
+    logo: 'Check'
+  },
+  {
+    id: 3,
+    content: 'Transport',
+    buttonColor: 'yellow1',
+    textColor: 'primary2',
+    logo: 'Check'
+  },
+  {
+    id: 4,
+    content: 'Transport',
+    buttonColor: 'yellow1',
+    textColor: 'primary2',
+    logo: 'LogoConnect'
+  }
+];
+
+
 const ListTest = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
     <TouchableOpacity
+      style={mb20}
       onPress={() => navigation.navigate('SwipeableWrapperTest')}
     >
       <Text> Button Test</Text>
     </TouchableOpacity>
+    <View style={mb20}>
+      <BrandStackList
+        items={brands}
+        onPress={id => console.log(id)}
+      />
+    </View>
     <View style={mb20}>
       <HotelList items={hotels} />
     </View>
