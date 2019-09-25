@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { func } from 'prop-types';
-import { DatePicker } from 'react-native-wheel-picker-android';
-import { BoxShadow, TextComponent } from '../../ui';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { func, string } from 'prop-types';
+import { stringLiteral } from '@babel/types';
+import { BoxShadow, TextComponent, ButtonPrimary } from '../../ui';
+import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import DateWheel from './DateWheel';
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'column'
+  },
+  dateWheelWrapper: {
     paddingTop: 15,
     paddingBottom: 5,
     paddingHorizontal: 20,
@@ -21,41 +24,53 @@ const styles = StyleSheet.create({
   },
   label: {
     marginBottom: 5
+  },
+  submitBtnWrapper: {
+    padding: 10
   }
 });
 
-const DateRange = ({ onStartDateSelected, onEndDateSelected }) => (
+const DateRange = ({
+  onStartDateSelected, onEndDateSelected, buttonTitle, onSubmitPress
+}) => (
   <BoxShadow>
     <View style={styles.container}>
-      <View style={styles.dateWrapper}>
-        <View style={styles.label}>
-          <TextComponent
-            color={colors.black}
-            content="Start Date"
-            family={fonts.medium}
-            size={fonts.fs14}
-          />
+      <View style={styles.dateWheelWrapper}>
+        <View style={styles.dateWrapper}>
+          <View style={styles.label}>
+            <TextComponent
+              color={colors.black}
+              content="Start Date"
+              family={fonts.medium}
+              size={fonts.fs14}
+            />
+          </View>
+          <DateWheel onDateSelected={onStartDateSelected} />
         </View>
-        <DateWheel onDateSelected={onStartDateSelected} />
+        <View style={styles.dateWrapper}>
+          <View style={styles.label}>
+            <TextComponent
+              color={colors.black}
+              content="Start Date"
+              family={fonts.medium}
+              size={fonts.fs14}
+            />
+          </View>
+          <DateWheel onDateSelected={onEndDateSelected} />
+        </View>
       </View>
-      <View style={styles.dateWrapper}>
-        <View style={styles.label}>
-          <TextComponent
-            color={colors.black}
-            content="Start Date"
-            family={fonts.medium}
-            size={fonts.fs14}
-          />
-        </View>
-        <DateWheel onDateSelected={onEndDateSelected} />
+      <View style={styles.submitBtnWrapper}>
+        <ButtonPrimary textColor={colors.white1} buttonColor={gradientColors.gradientPrimary} content={buttonTitle} onPress={onSubmitPress} />
       </View>
     </View>
   </BoxShadow>
 );
 
 DateRange.propTypes = {
-  onStartDateSelected: func,
-  onEndDateSelected: func
+  buttonTitle: stringLiteral.isRequired,
+  onStartDateSelected: func.isRequired,
+  onEndDateSelected: func.isRequired,
+  onSubmitPress: func.isRequired
 };
 
 export default DateRange;
