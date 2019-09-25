@@ -28,4 +28,4 @@ export {
   ButtonAdd,
   ButtonPrimary,
   BoxShadow
-}
+};

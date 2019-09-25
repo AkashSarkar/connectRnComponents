@@ -22,7 +22,7 @@ const style = StyleSheet.create({
   },
   wrapperStyle: {
     flexDirection: 'row',
-    borderBottomColor: colors.grey,
+    borderBottomColor: colors.grey1,
     borderBottomWidth: 1
   },
   iconStyle: {
@@ -76,10 +76,10 @@ const Input = forwardRef(
     // };
 
     const borderStyle = () => {
-      let color = colors.grey;
+      let color = colors.grey1;
 
       if (isError) {
-        color = colors.red;
+        color = colors.red1;
       } else if (onInputFocus) {
         color = colors.primary;
       }
