@@ -147,7 +147,7 @@ Input.propTypes = {
   multiline: bool,
   numberOfLines: number,
   isError: bool.isRequired,
-  iconSource: string,
+  iconSource: number,
   isIcon: bool,
   secureTextEntry: bool
 };
