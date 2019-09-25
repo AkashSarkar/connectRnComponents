@@ -40,7 +40,7 @@ Hotellist.propTypes = {
       id: number.isRequired,
       url: string.isRequired,
       title: string.isRequired,
-      subtitle: number.isRequired,
+      subtitle: string.isRequired,
       price: string.isRequired,
       people: string.isRequired,
       rating: string.isRequired

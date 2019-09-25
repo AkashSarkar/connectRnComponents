@@ -80,8 +80,8 @@ const HotelItem = ({
       </View>
       <View style={styles.ratingStyle}>
         <View style={[styles.ratingImageListStyle, mr5]}>
-          {Array.from(Array(parseInt(rating, 10)), () => {
-            return <Image style={styles.ratingImageStyle} source={image.Check} />;
+          {Array.from(Array(parseInt(rating, 10)), (i) => {
+            return <Image key={i} style={styles.ratingImageStyle} source={image.Check} />;
           })
           }
         </View>
@@ -99,7 +99,7 @@ const HotelItem = ({
 HotelItem.propTypes = {
   url: string.isRequired,
   title: string.isRequired,
-  subtitle: number.isRequired,
+  subtitle: string.isRequired,
   price: string.isRequired,
   people: string.isRequired,
   rating: string.isRequired

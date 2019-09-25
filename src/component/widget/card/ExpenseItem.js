@@ -23,9 +23,10 @@ const styles = {
   leftWrapper: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    alignItems: 'center'
   },
   rightWrapper: {
-    
+    alignItems: 'center'
   },
   imagestyle: {
     width: 40,
@@ -34,7 +35,7 @@ const styles = {
 };
 
 const ExpenseItem = ({
-  content, family, size, color
+  title, subtitle, topValue, bottomValue
 }) => (
   <View style={[styles.wrapper]}>
     <View style={styles.leftWrapper}>
@@ -46,13 +47,13 @@ const ExpenseItem = ({
       </View>
       <View>
         <TextComponent
-          content="Transport"
+          content={title}
           color={colors.primary2}
           family={fonts.semiBold}
           size={fonts.fs12}
         />
         <TextComponent
-          content="5 transaction"
+          content={subtitle}
           color={colors.grey1}
           family={fonts.regular}
           size={fonts.fs12}
@@ -61,13 +62,13 @@ const ExpenseItem = ({
     </View>
     <View style={styles.rightWrapper}>
       <TextComponent
-        content="90"
+        content={topValue}
         color={colors.secondary}
         family={fonts.semiBold}
         size={fonts.fs14}
       />
       <TextComponent
-        content="10%"
+        content={bottomValue}
         color={colors.grey1}
         family={fonts.regular}
         size={fonts.fs12}
@@ -77,10 +78,10 @@ const ExpenseItem = ({
 );
 
 ExpenseItem.propTypes = {
-//   content: string.isRequired,
-//   family: string.isRequired,
-//   size: number.isRequired,
-//   color: string.isRequired
+  title: string.isRequired,
+  subtitle: string.isRequired,
+  topValue: string.isRequired,
+  bottomValue: string.isRequired
 };
 
 export default ExpenseItem;

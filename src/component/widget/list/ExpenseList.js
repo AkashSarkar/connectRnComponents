@@ -1,8 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import { array } from 'prop-types';
+import {
+  arrayOf, shape, number, string
+} from 'prop-types';
 import { mb10 } from '../../../styles/commonStyle';
-import { fonts, colors } from '../../../styles/baseStyle';
+import { colors } from '../../../styles/baseStyle';
 import ExpenseItem from '../card/ExpenseItem';
 
 const styles = {
@@ -18,8 +20,13 @@ const ExpenseList = ({
   <View style={styles.wrapper}>
     {
       items.map(item => (
-        <View style={mb10}>
-          <ExpenseItem />
+        <View key={item.id} style={mb10}>
+          <ExpenseItem
+            title={item.title}
+            subtitle={item.subtitle}
+            topValue={item.topValue}
+            bottomValue={item.bottomValue}
+          />
         </View>
       ))
     }
@@ -27,7 +34,15 @@ const ExpenseList = ({
 );
 
 ExpenseList.propTypes = {
-  items: array.isRequired
+  items: arrayOf(
+    shape({
+      id: number.isRequired,
+      title: string.isRequired,
+      subtitle: string.isRequired,
+      topValue: string.isRequired,
+      bottomValue: string.isRequired
+    })
+  ).isRequired
 };
 
 export default ExpenseList;

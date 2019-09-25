@@ -82,6 +82,37 @@ const trips = [
   }
 ];
 
+const expense = [
+  {
+    id: 1,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '90',
+    bottomValue: '10%'
+
+  },
+  {
+    id: 2,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '90',
+    bottomValue: '10%'
+  },
+  {
+    id: 3,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '90',
+    bottomValue: '10%'
+  },
+  {
+    id: 4,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '90',
+    bottomValue: '10%'
+  }
+];
 
 const ListTest = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
@@ -97,7 +128,7 @@ const ListTest = ({ navigation }) => (
       <TripTypeList items={trips} />
     </View>
     <View style={mb20}>
-      <ExpenseList items={items} />
+      <ExpenseList items={expense} />
     </View>
   </ScrollView>
 );
