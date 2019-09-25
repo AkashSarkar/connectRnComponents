@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ScrollView, TouchableOpacity, Text, View
+  ScrollView, View
 } from 'react-native';
 import {
   SeatListItem,
@@ -10,7 +10,7 @@ import {
   Scan,
   ExpenseItem,
   TripType,
-  HotelItem, InputLogin, InputLabeled, InputTabbed, InputMiddleLabeled
+  HotelItem, InputLogin, InputLabeled, InputTabbed, InputMiddleLabeled, CTA
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -24,6 +24,12 @@ const screenContainer = {
 
 const CardTest = () => (
   <ScrollView contentContainerStyle={screenContainer}>
+    <View style={mb20}>
+      <CTA
+        title="Send"
+        subtitle="Money"
+      />
+    </View>
     <View style={mb20}>
       <SeatListItem
         title="Desh Travels"
@@ -96,16 +102,16 @@ const CardTest = () => (
       />
     </View>
     <View style={mb20}>
-      <InputLogin/>
+      <InputLogin />
     </View>
     <View style={mb20}>
-      <InputLabeled/>
+      <InputLabeled />
     </View>
     <View style={mb20}>
-      <InputTabbed/>
+      <InputTabbed />
     </View>
     <View style={mb20}>
-      <InputMiddleLabeled/>
+      <InputMiddleLabeled />
     </View>
   </ScrollView>
 );

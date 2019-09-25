@@ -129,8 +129,8 @@ const ButtonTest = ({
       <View style={styles.viewWrapper}>
         <MenuItem
           content="Cash & Account"
-          buttonLogo={assets.LogoConnect}
-          buttonColor={colors.white1}
+          logo="Check"
+          buttonColor="white1"
           textColor={colors.text2}
           fontSize={fonts.fs10}
           onPress={() => console.warn('Button Desco')}

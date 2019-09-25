@@ -30,11 +30,10 @@ const MenuStackList = ({
         <View key={item.id} style={mr10}>
           <MenuItem
             content={item.content}
-            buttonLogo={image.Check}
-            buttonColor={colors.white1}
-            textColor={colors.text2}
-            fontSize={fonts.fs10}
-            onPress={() => console.warn('Button Desco')}
+            logo={item.logo}
+            buttonColor={item.buttonColor}
+            textColor={item.textColor}
+            onPress={() => onPress(index)}
           />
         </View>
       ))

@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import InputField from '../../component/widget/input/InputField';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import assets from '../../assets';
+import { p10 } from '../../styles/commonStyle';
 
 const InputTest = () => {
   const [id, setId] = useState('');
@@ -11,7 +12,7 @@ const InputTest = () => {
   const [search, setSearch] = useState('');
 
   return (
-    <View>
+    <View style={p10}>
       <BoxShadow>
         <View style={{ padding: 15 }}>
           <InputField
