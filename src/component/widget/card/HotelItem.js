@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { string, number } from 'prop-types';
+import { string } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { mb10, mb20, mr5, mb5 } from '../../../styles/commonStyle';
