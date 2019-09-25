@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
-import { array } from 'prop-types';
+import {
+  arrayOf, shape, number, string
+} from 'prop-types';
 import { mr10 } from '../../../styles/commonStyle';
-import { fonts, colors } from '../../../styles/baseStyle';
+import { colors } from '../../../styles/baseStyle';
 import TripType from '../card/TripType';
 
 const styles = {
   wrapper: {
     width: '100%',
-    height: 150,
+    height: 160,
     flexDirection: 'row',
     backgroundColor: colors.white1
   }
@@ -17,11 +19,18 @@ const styles = {
 const TripTypeList = ({
   items
 }) => (
-  <ScrollView style={styles.wrapper} horizontal>
+  <ScrollView
+    style={styles.wrapper}
+    horizontal
+    showsHorizontalScrollIndicator={false}
+  >
     {
       items.map(item => (
-        <View style={mr10}>
-          <TripType />
+        <View key={item.id} style={mr10}>
+          <TripType
+            url={item.url}
+            title={item.title}
+          />
         </View>
       ))
     }
@@ -29,7 +38,13 @@ const TripTypeList = ({
 );
 
 TripTypeList.propTypes = {
-  items: array.isRequired
+  items: arrayOf(
+    shape({
+      id: number.isRequired,
+      title: string.isRequired,
+      url: string.isRequired
+    })
+  ).isRequired
 };
 
 export default TripTypeList;

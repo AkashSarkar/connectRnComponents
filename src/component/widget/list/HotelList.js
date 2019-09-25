@@ -1,8 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import { array } from 'prop-types';
+import {
+  arrayOf, shape, number, string
+} from 'prop-types';
 import { mb10 } from '../../../styles/commonStyle';
-import { fonts, colors } from '../../../styles/baseStyle';
+import { colors } from '../../../styles/baseStyle';
 import HotelItem from '../card/HotelItem';
 
 const styles = {
@@ -17,13 +19,33 @@ const Hotellist = ({
 }) => (
   <View style={styles.wrapper}>
     {
-      items.map(item => <HotelItem />)
+      items.map(item => (
+        <HotelItem
+          key={item.id}
+          url={item.url}
+          title={item.title}
+          subtitle={item.subtitle}
+          price={item.price}
+          people={item.people}
+          rating={item.rating}
+        />
+      ))
     }
   </View>
 );
 
 Hotellist.propTypes = {
-  items: array.isRequired
+  items: arrayOf(
+    shape({
+      id: number.isRequired,
+      url: string.isRequired,
+      title: string.isRequired,
+      subtitle: number.isRequired,
+      price: string.isRequired,
+      people: string.isRequired,
+      rating: string.isRequired
+    })
+  ).isRequired
 };
 
 export default Hotellist;

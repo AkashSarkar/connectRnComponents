@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "react-native start",
+    "runandroid": "react-native run-android",
+    "runios": "react-native run-ios --simulator='iPhone 8'",
     "test": "jest",
     "lint": "eslint ."
   },

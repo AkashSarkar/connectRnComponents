@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { string, number } from 'prop-types';
+import { string } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
-import { p15, mr10 } from '../../../styles/commonStyle';
-import image from '../../../assets';
 
 const styles = {
   wrapper: {
@@ -32,23 +30,23 @@ const styles = {
   bottomWrapper: {
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   }
 };
 
 const TripType = ({
-  content, family, size, color
+  url, title
 }) => (
   <View style={styles.wrapper}>
     <View style={styles.topWrapper}>
       <Image
         style={styles.imagestyle}
-        source={{ uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' }}
+        source={{ url }}
       />
     </View>
     <View style={styles.bottomWrapper}>
       <TextComponent
-        content="Successful"
+        content={title}
         color={colors.primary2}
         family={fonts.semiBold}
         size={fonts.fs14}
@@ -58,10 +56,8 @@ const TripType = ({
 );
 
 TripType.propTypes = {
-//   content: string.isRequired,
-//   family: string.isRequired,
-//   size: number.isRequired,
-//   color: string.isRequired
+  url: string.isRequired,
+  title: string.isRequired
 };
 
 export default TripType;
