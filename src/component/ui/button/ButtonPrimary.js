@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import {array, func, number, string} from 'prop-types';
-import {fonts} from '../../../styles/baseStyle';
+import { TouchableOpacity, StyleSheet } from 'react-native';
+import { string, func, array, number } from 'prop-types';
+import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import LinearGradient from 'react-native-linear-gradient';
 import { pv10 } from '../../../styles/commonStyle';
@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     ...pv10
   },
   hitSlop: {
-    top: 10,
-    bottom: 10,
-    left: 10,
-    right: 10
+    top: 5,
+    bottom: 5,
+    left: 5,
+    right: 5
   }
 });
 

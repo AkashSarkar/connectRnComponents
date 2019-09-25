@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, Text, TouchableOpacity } from 'react-native';
-import { ButtonPrimary } from "../../component/ui";
-import { colors, gradientColors } from "../../styles/baseStyle";
+import {ScrollView} from 'react-native';
+import {ButtonPrimary} from "../../component/ui";
+import {colors, gradientColors} from "../../styles/baseStyle";
 
 const screenContainer = {
   height: '100%',
@@ -12,7 +12,7 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const TestRoute = ({ navigation }) => (
+const TestRoute = ({navigation}) => (
   <ScrollView contentContainerStyle={screenContainer}>
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
@@ -61,6 +61,12 @@ const TestRoute = ({ navigation }) => (
       textColor={colors.bgPrimary}
       content="SwitchTest"
       onPress={() => navigation.navigate('SwitchTest')}
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Header Test"
+      onPress={() => navigation.navigate('HeaderTest')}
     />
   </ScrollView>
 );

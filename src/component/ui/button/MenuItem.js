@@ -19,16 +19,16 @@ const styles = StyleSheet.create({
       shadowOffset: {
         width: 0,
         height: 3
-    },
+      },
       shadowRadius: 6,
       shadowOpacity: 1
     },
     hitSlop: {
-      top: 10,
-      bottom: 10,
-      left: 10,
-      right: 10
-    },
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5
+      },
     leftWrapper:{
         marginRight: 10
     },
