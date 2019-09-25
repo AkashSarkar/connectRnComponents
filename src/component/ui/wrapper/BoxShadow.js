@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { node } from 'prop-types';
+import {StyleSheet, View} from 'react-native';
+import {node, number} from 'prop-types';
 
-import { colors } from '../../../styles/baseStyle';
-import { mb10 } from '../../../styles/commonStyle';
+import {colors} from '../../../styles/baseStyle';
+import {mb10} from '../../../styles/commonStyle';
 
 const style = StyleSheet.create({
   boxShadow: {
-    // borderRadius: 8,
-    borderRadius: 16,
     backgroundColor: colors.offWhite,
     shadowColor: '#00000029',
     shadowOffset: {
@@ -23,12 +21,13 @@ const style = StyleSheet.create({
   }
 });
 
-const BoxShadow = ({ children }) => (
-  <View style={style.boxShadow}>{children}</View>
+const BoxShadow = ({children, borderRadius = 16}) => (
+  <View style={[style.boxShadow, {borderRadius}]}>{children}</View>
 );
 
 BoxShadow.propTypes = {
-  children: node.isRequired
+  children: node.isRequired,
+  borderRadius: number
 };
 
 export default BoxShadow;
