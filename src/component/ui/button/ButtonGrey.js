@@ -4,14 +4,14 @@ import { string, func, array, number } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import LinearGradient from 'react-native-linear-gradient';
-import { pv15 } from '../../../styles/commonStyle';
+import { pv10 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 20,
-      ...pv15
+      borderRadius: 25,
+      ...pv10
     },
     hitSlop: {
       top: 5,

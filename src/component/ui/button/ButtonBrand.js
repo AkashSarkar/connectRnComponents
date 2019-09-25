@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
       flexDirection: 'row',  
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 20,
+      borderRadius: 25,
       ...pv5,
       elevation: 1,
       shadowColor: colors.black1,
       shadowOffset: {
         width: 0,
         height: 3
-    },
+      },
       shadowRadius: 6,
       shadowOpacity: 1
     },

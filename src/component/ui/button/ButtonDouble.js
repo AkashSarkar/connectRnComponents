@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 25,
       alignSelf: 'stretch',
-      ...pv15
+      ...pv10
     },
     leftWrapper: {
       width: '50%',

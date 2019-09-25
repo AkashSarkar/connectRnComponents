@@ -23,6 +23,12 @@ const TestRoute = ({ navigation }) => (
     >
       <Text> Button Test</Text>
     </TouchableOpacity>
+
+    <TouchableOpacity
+      onPress={() => navigation.navigate('HeaderTest')}
+    >
+      <Text> Header Test</Text>
+    </TouchableOpacity>
   </ScrollView>
 );
 

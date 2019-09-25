@@ -28,12 +28,14 @@ export const colors = {
 };
 
 export const fonts = {
+  fs10: 8,
   fs10: 10,
   fs12: 12,
   fs14: 14,
   fs16: 16,
   fs18: 18,
   fs20: 20,
+  fs24: 24,
   fs32: 32,
   fs50: 50,
   light: 'Montserrat-Light',

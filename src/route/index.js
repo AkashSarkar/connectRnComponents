@@ -3,16 +3,18 @@ import App from '../../App';
 import TestRoute from './testRoute/TestRoute';
 import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
 import ButtonTest from './testRoute/ButtonTest';
+import HeaderTest from './testRoute/HeaderTest';
 
 const AppNavigator = createStackNavigator(
   {
     Home: App,
     TestRoute,
     SwipeableWrapperTest,
-    ButtonTest
+    ButtonTest,
+    HeaderTest
   },
   {
-    initialRouteName: 'ButtonTest',
+    initialRouteName: 'HeaderTest',
     headerMode: 'none'
   },
 );

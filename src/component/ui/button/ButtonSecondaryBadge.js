@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, View, Image } from 'react-native';
 import { string, func, array, number } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv5 } from '../../../styles/commonStyle';
+import { pv8 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 8,
-      ...pv5,
+      ...pv8,
     },
     hitSlop: {
         top: 5,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         right: 5
       },
     leftViewWrapper: {
-        marginRight: 10
+        // marginRight: 10
     },
     rightViewWrapper: {
         alignItems: 'center',
@@ -44,9 +44,10 @@ const ButtonSecondaryBadge = ({
             <View style={styles.leftViewWrapper}>
                 <TextComponent content={content} family={fonts.regular} size={fontSizeText} color={textColorContent} />
             </View>
+            {badgeCount && 
             <View style={styles.rightViewWrapper}>
-                <TextComponent content={badgeCount} family={fonts.regular} size={fontSizeBadge} color={textColorBadge} />
-            </View>
+            <TextComponent content={badgeCount} family={fonts.regular} size={fontSizeBadge} color={textColorBadge} />
+        </View>}
         </View>
     </TouchableOpacity>
 );
