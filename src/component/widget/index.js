@@ -20,7 +20,7 @@ import DateRange from './card/DateRange';
 import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
-
+import AmountChange from './input/AmountChange';
 
 export {
   SeatListItem,
@@ -42,6 +42,7 @@ export {
   InputLabeled,
   InputTabbed,
   InputMiddleLabeled,
+  AmountChange,
   DateRange,
   DatePick,
   CardTitleWidget

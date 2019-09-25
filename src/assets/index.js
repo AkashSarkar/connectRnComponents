@@ -14,6 +14,8 @@ const assets = {
   LogoConnect: require('./icons/LogoConnect.png'),
   LeftArrow: require('./icons/LeftArrow.png'),
   Search: require('./icons/search.png'),
+  Plus: require('./icons/plus.png'),
+  Minus: require('./icons/minus.png')
 };
 
 export default assets;
