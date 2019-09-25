@@ -55,13 +55,13 @@ const SeatListItem = ({
     <View style={styles.rightWrapper}>
       <TextComponent
         content={available}
-        color={colors.black1}
+        color={colors.primary2}
         family={fonts.regular}
         size={fonts.fs10}
       />
       <TextComponent
         content={price}
-        color={colors.black1}
+        color={colors.primary2}
         family={fonts.semiBold}
         size={fonts.fs16}
       />

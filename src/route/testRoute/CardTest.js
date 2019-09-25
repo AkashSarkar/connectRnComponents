@@ -7,6 +7,7 @@ import {
   PopUpMessage,
   Amount,
   VerifiedInfo,
+  Scan,
   ExpenseItem,
   TripType,
   HotelItem
@@ -55,6 +56,13 @@ const CardTest = ({ navigation }) => (
         title2="bKash Account Number"
         subtitle1="Mehzabi Chaudhry"
         subtitle2="01755 666 777"
+      />
+    </View>
+    <View style={mb20}>
+      <Scan
+        title="Scan a valid QR code"
+        subtitle="Please scan a valid QR code connect ID from
+        the product or web"
       />
     </View>
     <View style={mb20}>

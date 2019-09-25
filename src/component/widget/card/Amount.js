@@ -28,7 +28,7 @@ const Amount = ({
     <View style={mb10}>
       <TextComponent
         content={title}
-        color={colors.black1}
+        color={colors.primary2}
         family={fonts.regular}
         size={fonts.fs10}
       />
@@ -36,7 +36,7 @@ const Amount = ({
     <View>
       <TextComponent
         content={subtitle}
-        color={colors.black1}
+        color={colors.primary2}
         family={fonts.semiBold}
         size={fonts.fs16}
       />

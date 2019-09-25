@@ -8,7 +8,7 @@ const AccountDetails = () => {
     <View>
       <TextComponent
         size={fonts.fs20}
-        color={colors.black}
+        color={colors.primary2}
         content="Account details"
         family={fonts.regular}
       />

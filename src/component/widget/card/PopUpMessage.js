@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { string, number } from 'prop-types';
+import { string } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { p15, mr10 } from '../../../styles/commonStyle';
@@ -46,7 +46,7 @@ const PopUpMessage = ({
     <View>
       <TextComponent
         content={content}
-        color={colors.black1}
+        color={colors.primary2}
         family={fonts.semiBold}
         size={fonts.fs16}
       />
