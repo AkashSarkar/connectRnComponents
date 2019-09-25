@@ -12,6 +12,7 @@ import ButtonAdd from './button/ButtonAdd';
 import ButtonPrimaryBadge from './button/ButtonPrimaryBadge';
 import ButtonTag from './button/ButtonTag';
 import ButtonSecondaryBadge from './button/ButtonSecondaryBadge';
+import ButtonDouble from './button/ButtonDouble';
 
 export {
     TextComponent,
@@ -27,5 +28,6 @@ export {
     ButtonAdd,
     ButtonPrimaryBadge,
     ButtonTag,
-    ButtonSecondaryBadge
+    ButtonSecondaryBadge,
+    ButtonDouble
 }

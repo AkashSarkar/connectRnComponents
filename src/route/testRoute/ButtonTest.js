@@ -12,7 +12,8 @@ import { ButtonPrimary,
     ButtonCommunication,
     ButtonAdd,
     ButtonTag,
-    ButtonSecondaryBadge
+    ButtonSecondaryBadge,
+    ButtonDouble
 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
@@ -35,6 +36,16 @@ const ButtonTest = ({
 }) => (
     <ScrollView >
         <SafeAreaView style={styles.container}>
+            <View style={styles.viewWrapper}>
+                <ButtonDouble 
+                content='Button Double'
+                contentRight='Type here' 
+                buttonColor={colors.gradient1} 
+                textColorLeft={colors.bgPrimary}
+                textColorRight={colors.black1}
+                fontSize={fonts.fs14} 
+                onPress={()=> console.warn("Button Primary")}/>
+            </View>
             <View style={styles.viewWrapper}>
                 <ButtonPrimary 
                 content='Button Primary' 
