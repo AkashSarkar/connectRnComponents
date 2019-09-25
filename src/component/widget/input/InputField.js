@@ -23,8 +23,10 @@ const InputField = forwardRef(
     {
       value,
       label,
+      labelColor,
       autoFocus,
       placeholder,
+      placeholderTextColor,
       keyboardType,
       maxLength,
       disable,
@@ -33,7 +35,8 @@ const InputField = forwardRef(
       setIsValid,
       validations,
       iconSource,
-      isIcon
+      isIcon,
+      secureTextEntry
     },
     ref,
   ) => {
@@ -90,7 +93,7 @@ const InputField = forwardRef(
         {label.length > 0 && (
           <View style={styles.labelWrapper}>
             <TextComponent
-              color={colors.primary}
+              color={labelColor || colors.primary}
               content={label}
               family={fonts.medium}
               size={fonts.fs14}
@@ -102,6 +105,7 @@ const InputField = forwardRef(
             autoFocus={autoFocus}
             keyboardType={keyboardType}
             placeholder={placeholder}
+            placeholderTextColor={placeholderTextColor}
             maxLength={maxLength}
             disable={disable}
             onBlur={() => !disable && onValidate()}
@@ -112,12 +116,13 @@ const InputField = forwardRef(
             isError={isError}
             iconSource={iconSource}
             isIcon={isIcon}
+            secureTextEntry={secureTextEntry}
           />
         </View>
         {errorMsg.length > 0 ? (
           <View style={mb5}>
             <AnimatedTextComponent
-              color={colors.red}
+              color={colors.red1}
               content={errorMsg}
               family={fonts.regular}
               size={fonts.fs12}
@@ -138,6 +143,8 @@ InputField.propTypes = {
   value: any.isRequired,
   label: string,
   placeholder: string,
+  labelColor: string,
+  placeholderTextColor: string,
   autoFocus: bool,
   keyboardType: string.isRequired,
   maxLength: number,
@@ -147,7 +154,8 @@ InputField.propTypes = {
   validations: array.isRequired,
   setIsValid: func.isRequired,
   iconSource: string,
-  isIcon: bool
+  isIcon: bool,
+  secureTextEntry: bool
 };
 
 export default InputField;

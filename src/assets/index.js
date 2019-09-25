@@ -11,6 +11,7 @@ const assets = {
   Payment: require('./icons/Payment.png'),
   Withdrawal: require('./icons/Withdrawal.png'),
   Transfer: require('./icons/Transfer.png'),
+  LogoConnect: require('./icons/LogoConnect.png'),
   LeftArrow: require('./icons/LeftArrow.png'),
   Search: require('./icons/search.png'),
 };

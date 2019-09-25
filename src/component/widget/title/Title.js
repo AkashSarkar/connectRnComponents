@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import TextComponent from "../../ui/typography/TextComponent";
-import { colors, fonts } from "../../../styles/baseStyle";
+import {colors, fonts} from "../../../styles/baseStyle";
 
 const styles = StyleSheet.create({
   textInformationAlign: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Title = ({ subTitle, title }) => {
+const Title = ({subTitle, title}) => {
   return (
     <View>
       <TextComponent
@@ -27,7 +27,7 @@ const Title = ({ subTitle, title }) => {
         />
       </View>
     </View>
-  );
+  )
 };
 
 export default Title;
