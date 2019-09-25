@@ -3,9 +3,12 @@ import { View, StyleSheet } from 'react-native';
 import { func, string } from 'prop-types';
 import moment from 'moment';
 import { DatePicker, WheelPicker } from 'react-native-wheel-picker-android';
-import { BoxShadow, TextComponent } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { generateDays, generateMonths, generateYears } from '../../../utils/function/dateTime';
+import {
+  generateDays,
+  generateMonths,
+  generateYears
+} from '../../../utils/function/dateTime';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,8 +26,6 @@ const styles = StyleSheet.create({
 
 const DateWheel = ({ onDateSelected }) => {
   const { years: yearsArray, currentYearIndex } = generateYears();
-
-  console.log(yearsArray[119]);
 
   const daysArray = generateDays();
 
@@ -91,7 +92,7 @@ const DateWheel = ({ onDateSelected }) => {
         selectedItemTextSize={fonts.fs18}
         itemTextSize={fonts.fs18}
         onItemSelected={idx => setDate('year', yearsArray[idx])}
-        selectedItem={currentYearIndex}
+        selectedItem={currentYearIndex + 8}
       />
     </View>
   );
