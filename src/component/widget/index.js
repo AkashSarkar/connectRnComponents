@@ -20,6 +20,7 @@ import DateRange from './card/DateRange';
 import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
+import CTA from './card/CTA';
 
 
 export {
@@ -44,5 +45,6 @@ export {
   InputMiddleLabeled,
   DateRange,
   DatePick,
-  CardTitleWidget
+  CardTitleWidget,
+  CTA
 };

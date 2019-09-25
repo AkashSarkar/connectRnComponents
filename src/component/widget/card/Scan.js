@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Image } from 'react-native';
-import { string } from 'prop-types';
+import { View, Image, TouchableOpacity } from 'react-native';
+import { string, func } from 'prop-types';
 import { ButtonPrimary, TextComponent } from '../../ui';
 import { fonts, colors, gradientColors } from '../../../styles/baseStyle';
 import { p15, mb10, mb5 } from '../../../styles/commonStyle';
@@ -34,11 +34,11 @@ const styles = {
 };
 
 const Scan = ({
-  title, subtitle, content
+  title, subtitle, content, onPress
 }) => (
-  <View style={styles.wrapper}>
+  <View onPress={onPress} style={styles.wrapper}>
     <View style={styles.leftStyle}>
-      <Image style={styles.imageStyle} source={image['Check']} />
+      <Image style={styles.imageStyle} source={image.Check} />
     </View>
     <View style={[styles.rightStyle, mb10]}>
       <View>
@@ -62,6 +62,7 @@ const Scan = ({
         buttonColor={gradientColors.gradientPrimary}
         textColor={colors.white1}
         fontSize={fonts.fs14}
+        onPress={onPress}
       />
     </View>
   </View>
@@ -70,7 +71,8 @@ const Scan = ({
 Scan.propTypes = {
   title: string.isRequired,
   subtitle: string.isRequired,
-  content: string.isRequired
+  content: string.isRequired,
+  onPress: func.isRequired
 };
 
 export default Scan;
