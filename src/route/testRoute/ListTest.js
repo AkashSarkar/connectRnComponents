@@ -1,6 +1,6 @@
 import React from 'react';
 import {
- ScrollView, TouchableOpacity, Text, View 
+  ScrollView, TouchableOpacity, Text, View
 } from 'react-native';
 import {
   HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList
@@ -148,6 +148,38 @@ const brands = [
   }
 ];
 
+const menus = [
+  {
+    id: 1,
+    content: 'Transport',
+    buttonColor: 'success',
+    textColor: 'primary2',
+    logo: 'Check'
+
+  },
+  {
+    id: 2,
+    content: 'Transport',
+    buttonColor: 'error',
+    textColor: 'primary2',
+    logo: 'Check'
+  },
+  {
+    id: 3,
+    content: 'Transport',
+    buttonColor: 'white1',
+    textColor: 'primary2',
+    logo: 'Check'
+  },
+  {
+    id: 4,
+    content: 'Transport',
+    buttonColor: 'yellow1',
+    textColor: 'primary2',
+    logo: 'LogoConnect'
+  }
+];
+
 
 const ListTest = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
@@ -165,7 +197,7 @@ const ListTest = ({ navigation }) => (
     </View>
     <View style={mb20}>
       <MenuStackList
-        items={brands}
+        items={menus}
         onPress={id => console.log(id)}
       />
     </View>

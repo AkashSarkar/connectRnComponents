@@ -28,7 +28,7 @@ const AppNavigator = createStackNavigator(
     SwitchTest
   },
   {
-    initialRouteName: 'CardTest',
+    initialRouteName: 'ListTest',
     headerMode: 'none'
   },
 );
