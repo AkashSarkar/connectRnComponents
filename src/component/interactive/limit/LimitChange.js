@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, StyleSheet, TouchableOpacity, Animated
+  View, StyleSheet, PanResponder, Animated
 } from 'react-native';
 import { string } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -23,14 +23,6 @@ const styles = StyleSheet.create({
     left: 0,
     borderRadius: 16
   },
-  meter: {
-    position: 'absolute',
-    height: '120%',
-    top: 15,
-    left: 0,
-    borderWidth: 1,
-    borderColor: colors.red1
-  },
   utilizedLimitWrapper: {
     minWidth: '50%',
     paddingVertical: 15,
@@ -49,28 +41,24 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 16
   },
-  scale: {
-    width: '100%',
-    borderWidth: 1,
-    borderColor: colors.colorSecondery,
-    position: 'relative'
-  },
-  scaleMarks: {
+  slider: {
     position: 'absolute',
-    height: 12,
-    top: 0,
-    borderLeftWidth: 1,
-    borderColor: colors.colorSecondery
+    height: 35,
+    top: '25%',
+    width: 35,
+    backgroundColor: colors.white1,
+    borderRadius: 50
   }
 });
 
 const Limit = ({
-  title1, title2, utilizedLimit, limit
+  title1, title2, utilizedLimit, limit, setUtilizedLimit
 }) => {
   const [utilizedWidth, setUtilizedWidth] = useState(0);
   const [limitWidth, setLimitWidth] = useState(new Animated.Value(0));
   const [translateX, setTranslateX] = useState(new Animated.Value(0));
   const [totalViewWidth, setTotalViewWidth] = useState(0);
+  const [sliderLeftOffset, setSliderLeftOffset] = useState(0);
 
   const animateWidth = (toWidth) => {
     Animated.timing(limitWidth, {
@@ -78,7 +66,7 @@ const Limit = ({
       duration: 500
     }).start();
     Animated.timing(translateX, {
-      toValue: toWidth < totalViewWidth - 10 ? toWidth + 10 : toWidth,
+      toValue: toWidth - 15,
       duration: 500
     }).start();
   };
@@ -92,23 +80,38 @@ const Limit = ({
     return utilizedWidthValue;
   };
 
+  const calculateLeftOffset = (xPos) => {
+    if (xPos < totalViewWidth - 12 && xPos > utilizedWidth) {
+      let offset = xPos;
+      if (offset < sliderLeftOffset) {
+        console.log('negative');
+        offset *= -1;
+      }
+      //   console.log('offset', offset);
+      const amountUnit = parseInt((limit * 0.01), 10);
+      const increment = parseInt((amountUnit / totalViewWidth) * offset, 10);
+      setUtilizedLimit(utilizedLimit + (increment));
+      //   console.log(totalViewWidth, amountUnit, increment);
+      setSliderLeftOffset(offset - utilizedWidth);
+    }
+  };
+
+  const onMoveSlider = (gestureState) => {
+    // console.log(gestureState);
+    calculateLeftOffset(gestureState.moveX);
+  };
+
+  const panResponder = PanResponder.create({
+    onMoveShouldSetPanResponderCapture: () => true,
+    onPanResponderMove: (_, gestureState) => onMoveSlider(gestureState),
+    onPanResponderRelease: () => {},
+    onPanResponderTerminate: () => {}
+  });
+
   useEffect(() => {
     if (utilizedLimit <= limit) { animateWidth(calculateWidth(totalViewWidth)); }
   }, [utilizedLimit, totalViewWidth]);
 
-  const generateMarks = () => {
-    const marks = [];
-    let left = -1;
-    const increment = totalViewWidth / 10;
-    for (let i = 0; i <= 11; i++) {
-      marks.push((
-        <View key={i} style={[styles.scaleMarks, { left }]} />
-      ));
-      left += increment;
-    }
-
-    return marks;
-  };
 
   return (
     <View style={styles.rootContainer}>
@@ -124,7 +127,7 @@ const Limit = ({
                 colors={gradientColors.gradientSecondary}
               />
             </Animated.View>
-            <Animated.View style={{ ...styles.meter, transform: [{ translateX }] }}>
+            <Animated.View {...panResponder.panHandlers} style={{ ...styles.slider, left: sliderLeftOffset, transform: [{ translateX }] }}>
 
             </Animated.View>
 
@@ -144,9 +147,6 @@ const Limit = ({
           </View>
         </LinearGradient>
       </BoxShadow>
-      <View style={styles.scale}>
-        {generateMarks()}
-      </View>
     </View>
   );
 };
