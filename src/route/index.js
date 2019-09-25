@@ -1,4 +1,4 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 import App from '../../App';
 import TestRoute from './testRoute/TestRoute';
 import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
