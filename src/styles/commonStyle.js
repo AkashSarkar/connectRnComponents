@@ -87,6 +87,9 @@ export const ph15 = {
 export const ph20 = {
   paddingHorizontal: 20
 };
+export const ph60 = {
+  paddingHorizontal: 60
+};
 export const ph80 = {
   paddingHorizontal: 80
 };
@@ -110,6 +113,9 @@ export const pl10 = {
 };
 export const pl15 = {
   paddingLeft: 15
+};
+export const pr15 = {
+  paddingRight: 15
 };
 
 export const pb6 = {
