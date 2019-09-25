@@ -36,8 +36,8 @@ export {
   InputLogin,
   InputLabeled,
   InputTabbed,
+  InputMiddleLabeled,
   DateRange,
   DatePick,
-  CardTitleWidget,
-  InputMiddleLabeled
+  CardTitleWidget
 };
