@@ -1,10 +1,12 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {array, func, number, string} from 'prop-types';
-import {colors, fonts} from '../../../styles/baseStyle';
-import TextComponent from '../typography/TextComponent';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import {
+  array, func, number, string
+} from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
-import {pv10} from '../../../styles/commonStyle';
+import { colors, fonts } from '../../../styles/baseStyle';
+import TextComponent from '../typography/TextComponent';
+import { pv10 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   buttonWrapper: {
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
       height: 3
     },
     shadowRadius: 6,
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.1
   },
   buttonGradient: {
     width: '100%',
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'stretch',
+    alignSelf: 'stretch'
   },
   hitSlop: {
     top: 5,
@@ -51,16 +53,38 @@ const styles = StyleSheet.create({
   }
 });
 
-const ButtonDouble = ({content, contentRight, buttonColor, textColorLeft, textColorRight, fontSize, onPress}) => (
+const ButtonDouble = ({
+  content,
+  contentRight,
+  buttonColor,
+  textColorLeft,
+  textColorRight,
+  fontSize,
+  onPress
+}) => (
   <TouchableOpacity onPress={onPress}>
     <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
       <View style={styles.leftWrapper}>
-        <LinearGradient colors={buttonColor} style={styles.buttonGradient} hitSlop={styles.hitSlop}>
-          <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColorLeft}/>
+        <LinearGradient
+          colors={buttonColor}
+          style={styles.buttonGradient}
+          hitSlop={styles.hitSlop}
+        >
+          <TextComponent
+            content={content}
+            family={fonts.regular}
+            size={fontSize}
+            color={textColorLeft}
+          />
         </LinearGradient>
       </View>
       <View style={styles.rightWrapper}>
-        <TextComponent content={contentRight} family={fonts.regular} size={fontSize} color={textColorRight}/>
+        <TextComponent
+          content={contentRight}
+          family={fonts.regular}
+          size={fontSize}
+          color={textColorRight}
+        />
       </View>
     </View>
   </TouchableOpacity>
@@ -73,7 +97,7 @@ ButtonDouble.propTypes = {
   textColorLeft: string.isRequired,
   textColorRight: string.isRequired,
   fontSize: number,
-  onPress: func,
+  onPress: func
 };
 
 

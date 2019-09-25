@@ -13,7 +13,7 @@ import image from '../../../assets';
 const styles = StyleSheet.create({
   buttonWrapper: {
     width: 100,
-    height: 36,
+    height: 40,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,16 +34,16 @@ const styles = StyleSheet.create({
     right: 5
   },
   leftWrapper: {
-    marginRight: 5
+    paddingLeft: 15
   },
   rightWrapper: {
-    marginRight: 18
+    paddingRight: 20,
+    paddingLeft: 5
   },
   imageStyle: {
     resizeMode: 'contain',
     height: 26,
-    width: 26,
-    margin: 7
+    width: 26
   }
 });
 
@@ -51,7 +51,10 @@ const ButtonBrand = ({
   content, buttonColor, textColor, logo, onPress
 }) => (
   <TouchableOpacity onPress={onPress}>
-    <View style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]} hitSlop={styles.hitSlop}>
+    <View
+      style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+      hitSlop={styles.hitSlop}
+    >
       <View style={styles.leftWrapper}>
         <Image
           style={styles.imageStyle}
@@ -59,7 +62,12 @@ const ButtonBrand = ({
         />
       </View>
       <View style={styles.rightWrapper}>
-        <TextComponent content={content} family={fonts.regular} size={fonts.fs10} color={colors[textColor]} />
+        <TextComponent
+          content={content}
+          family={fonts.regular}
+          size={fonts.fs10}
+          color={colors[textColor]}
+        />
       </View>
     </View>
   </TouchableOpacity>

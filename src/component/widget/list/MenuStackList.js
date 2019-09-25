@@ -29,8 +29,8 @@ const MenuStackList = ({
       items.map((item, index) => (
         <View key={item.id} style={mr10}>
           <MenuItem
-            content="Cash & Account"
-            buttonLogo={image.LogoConnect}
+            content={item.content}
+            buttonLogo={image.Check}
             buttonColor={colors.white1}
             textColor={colors.text2}
             fontSize={fonts.fs10}

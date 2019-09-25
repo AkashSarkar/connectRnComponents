@@ -10,7 +10,7 @@ import {
   Scan,
   ExpenseItem,
   TripType,
-  HotelItem
+  HotelItem, InputLogin, InputLabeled, InputTabbed, InputMiddleLabeled
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -22,13 +22,8 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const CardTest = ({ navigation }) => (
+const CardTest = () => (
   <ScrollView contentContainerStyle={screenContainer}>
-    <TouchableOpacity
-      onPress={() => navigation.navigate('SwipeableWrapperTest')}
-    >
-      <Text> Button Test</Text>
-    </TouchableOpacity>
     <View style={mb20}>
       <SeatListItem
         title="Desh Travels"
@@ -89,6 +84,28 @@ const CardTest = ({ navigation }) => (
         people="340"
         rating="4"
       />
+    </View>
+    <View style={mb20}>
+      <HotelItem
+        url="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+        title="Hotel Name"
+        subtitle="Dhaka"
+        price="1002"
+        people="340"
+        rating="4"
+      />
+    </View>
+    <View style={mb20}>
+      <InputLogin/>
+    </View>
+    <View style={mb20}>
+      <InputLabeled/>
+    </View>
+    <View style={mb20}>
+      <InputTabbed/>
+    </View>
+    <View style={mb20}>
+      <InputMiddleLabeled/>
     </View>
   </ScrollView>
 );

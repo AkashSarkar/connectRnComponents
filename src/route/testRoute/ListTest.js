@@ -1,6 +1,8 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
-import { 
+import {
+  ScrollView, TouchableOpacity, Text, View
+} from 'react-native';
+import {
   HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
