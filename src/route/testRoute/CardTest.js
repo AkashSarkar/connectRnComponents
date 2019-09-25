@@ -11,9 +11,9 @@ import {
   PopUpMessage,
   Amount,
   VerifiedInfo,
-  InputLogin
+  InputLogin, InputLabeled, InputTabbed
 } from '../../component/widget';
-import { mb20 } from '../../styles/commonStyle';
+import { mb20, p10 } from '../../styles/commonStyle';
 
 const screenContainer = {
   height: '100%',
@@ -24,14 +24,9 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const CardTest = ({ navigation }) => (
-  <ScrollView contentContainerStyle={screenContainer}>
+const CardTest = () => (
+  <ScrollView>
     <KeyboardAvoidingView>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SwipeableWrapperTest')}
-      >
-        <Text> Button Test</Text>
-      </TouchableOpacity>
       <View style={mb20}>
         <SeatListItem/>
       </View>
@@ -47,6 +42,14 @@ const CardTest = ({ navigation }) => (
 
       <View style={mb20}>
         <InputLogin/>
+      </View>
+
+      <View style={[mb20, p10]}>
+        <InputLabeled/>
+      </View>
+
+      <View style={[mb20]}>
+        <InputTabbed/>
       </View>
     </KeyboardAvoidingView>
   </ScrollView>

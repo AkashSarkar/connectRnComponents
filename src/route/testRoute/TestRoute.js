@@ -1,5 +1,7 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity} from 'react-native';
+import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import { ButtonPrimary } from "../../component/ui";
+import { colors, gradientColors } from "../../styles/baseStyle";
 
 const screenContainer = {
   height: '100%',
@@ -10,50 +12,56 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const TestRoute = ({navigation}) => (
+const TestRoute = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
-    <TouchableOpacity
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Swipeable Test"
       onPress={() => navigation.navigate('SwipeableWrapperTest')}
-    >
-      <Text> Swipeable Test</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="ButtonTest"
       onPress={() => navigation.navigate('ButtonTest')}
-    >
-      <Text> Button Test</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Test Account Slider Item"
       onPress={() => navigation.navigate('TestAccountSliderItem')}
-    >
-      <Text>Account Slider item</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="TabTest"
       onPress={() => navigation.navigate('TabTest')}
-    >
-      <Text> Tab Test</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="PickerTest"
       onPress={() => navigation.navigate('PickerTest')}
-    >
-      <Text> Picker Test</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity onPress={() => navigation.navigate('CardTest')}>
-      <Text>Card Details</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="CardTest"
+      onPress={() => navigation.navigate('CardTest')}
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="InputTest"
       onPress={() => navigation.navigate('InputTest')}
-    >
-      <Text>Input Field</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="SwitchTest"
       onPress={() => navigation.navigate('SwitchTest')}
-    >
-      <Text>Switch Test</Text>
-    </TouchableOpacity>
+    />
   </ScrollView>
 );
 

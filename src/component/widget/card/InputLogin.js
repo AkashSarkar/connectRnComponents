@@ -48,7 +48,7 @@ const InputLogin = () => {
           placeholder="Type here"
           placeholderTextColor={colors.grey1}
           keyboardType="numeric"
-          maxLength={11}
+          maxLength={6}
           returnKeyType="next"
           secureTextEntry
           onChangeText={(text) => {
