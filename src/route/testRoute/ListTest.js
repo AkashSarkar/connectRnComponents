@@ -89,7 +89,7 @@ const expense = [
     id: 1,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '90',
+    topValue: '100',
     bottomValue: '10%',
     logo: 'Check'
 
@@ -98,7 +98,7 @@ const expense = [
     id: 2,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '90',
+    topValue: '10',
     bottomValue: '10%',
     logo: 'Check'
   },
@@ -106,7 +106,7 @@ const expense = [
     id: 3,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '90',
+    topValue: '0',
     bottomValue: '10%',
     logo: 'Check'
   },
@@ -114,7 +114,7 @@ const expense = [
     id: 4,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '90',
+    topValue: '30',
     bottomValue: '10%',
     logo: 'Check'
   }
@@ -206,13 +206,13 @@ const ListTest = ({ navigation }) => (
       />
     </View>
     <View style={mb20}>
+      <ExpenseList items={expense} />
+    </View>
+    <View style={mb20}>
       <HotelList items={hotels} />
     </View>
     <View style={mb20}>
       <TripTypeList items={trips} />
-    </View>
-    <View style={mb20}>
-      <ExpenseList items={expense} />
     </View>
   </ScrollView>
 );
