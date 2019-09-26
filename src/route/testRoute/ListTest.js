@@ -89,8 +89,8 @@ const expense = [
     id: 1,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '100',
-    bottomValue: '10%',
+    topValue: '900',
+    bottomValue: '100%',
     logo: 'Check'
 
   },
@@ -98,24 +98,24 @@ const expense = [
     id: 2,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '10',
-    bottomValue: '10%',
+    topValue: '100',
+    bottomValue: '0%',
     logo: 'Check'
   },
   {
     id: 3,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '0',
-    bottomValue: '10%',
+    topValue: '2.2',
+    bottomValue: '30%',
     logo: 'Check'
   },
   {
     id: 4,
     title: 'Transport',
     subtitle: '5 Transaction',
-    topValue: '30',
-    bottomValue: '10%',
+    topValue: '34',
+    bottomValue: '70%',
     logo: 'Check'
   }
 ];

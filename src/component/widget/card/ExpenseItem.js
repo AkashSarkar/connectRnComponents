@@ -50,7 +50,7 @@ const ExpenseItem = ({
   title, subtitle, topValue, bottomValue, logo
 }) => (
   <View style={styles.wrapper}>
-    <View style={[styles.backgroundWrapper, { width: `${parseInt(topValue, 10)}%` }]} />
+    <View style={[styles.backgroundWrapper, { width: bottomValue }]} />
     <View style={[styles.contentwrapper]}>
       <View style={styles.leftWrapper}>
         <View style={pr10}>
@@ -77,7 +77,7 @@ const ExpenseItem = ({
       <View style={styles.rightWrapper}>
         <TextComponent
           content={topValue}
-          color={colors.secondary}
+          color={colors.primary2}
           family={fonts.semiBold}
           size={fonts.fs14}
         />
