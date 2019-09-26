@@ -1,7 +1,7 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
-import {ButtonPrimary} from "../../component/ui";
-import {colors, gradientColors} from "../../styles/baseStyle";
+import { ScrollView } from 'react-native';
+import { ButtonGradientPrimary, ButtonPrimary } from '../../component/ui';
+import { colors, gradientColors } from '../../styles/baseStyle';
 
 const screenContainer = {
   height: '100%',
@@ -12,7 +12,7 @@ const screenContainer = {
   paddingVertical: 10
 };
 
-const TestRoute = ({navigation}) => (
+const TestRoute = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
 
     <ButtonPrimary
@@ -26,7 +26,7 @@ const TestRoute = ({navigation}) => (
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
       content="Interactive"
-      onPress={() => navigation.navigate('UIComponentTest')}
+      onPress={() => navigation.navigate('InteractiveTest')}
     />
 
     <ButtonPrimary
@@ -49,7 +49,24 @@ const TestRoute = ({navigation}) => (
       content="Widget L/3"
       onPress={() => navigation.navigate('WidgetL3Test')}
     />
-
+    <ButtonGradientPrimary
+      buttonColor={gradientColors.gradientPrimary}
+      content="Limit Test"
+      onPress={() => navigation.navigate('LimitTest')}
+      textColor={colors.white1}
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Header Test"
+      onPress={() => navigation.navigate('HeaderTest')}
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="List Test"
+      onPress={() => navigation.navigate('ListTest')}
+    />
   </ScrollView>
 );
 

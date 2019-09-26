@@ -22,6 +22,8 @@ import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
 import AmountChange from './input/AmountChange';
+import SplitItem from './interactive/SplitItem';
+import SplitList from './interactive/SplitList';
 
 export {
   SeatListItem,
@@ -47,5 +49,7 @@ export {
   DateRange,
   DatePick,
   CardTitleWidget,
-  CTA
+  CTA,
+  SplitItem,
+  SplitList
 };
