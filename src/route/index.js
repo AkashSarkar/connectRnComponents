@@ -12,6 +12,7 @@ import ListTest from './testRoute/ListTest';
 import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
 import SplitTest from './testRoute/SplitTest';
+import FnfTest from './testRoute/FnfTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -27,7 +28,8 @@ const AppNavigator = createStackNavigator(
     ListTest,
     InputTest,
     SwitchTest,
-    SplitTest
+    SplitTest,
+    FnfTest
   },
   {
     initialRouteName: 'TestRoute',

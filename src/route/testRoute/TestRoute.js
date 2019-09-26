@@ -80,6 +80,12 @@ const TestRoute = ({ navigation }) => (
       content="Split Test"
       onPress={() => navigation.navigate('SplitTest')}
     />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Fnf Test"
+      onPress={() => navigation.navigate('FnfTest')}
+    />
   </ScrollView>
 );
 
