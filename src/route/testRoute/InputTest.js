@@ -4,6 +4,7 @@ import InputField from '../../component/widget/input/InputField';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import assets from '../../assets';
 import { p10 } from '../../styles/commonStyle';
+import { AmountChange } from '../../component/widget';
 
 const InputTest = () => {
   const [id, setId] = useState('');
@@ -17,7 +18,6 @@ const InputTest = () => {
         <View style={{ padding: 15 }}>
           <InputField
             value={name}
-            autoFocus
             keyboardType="numeric"
             maxLength={11}
             returnKeyType="next"
@@ -128,6 +128,12 @@ const InputTest = () => {
             isIcon
             iconSource={assets.Search}
           />
+        </View>
+      </BoxShadow>
+
+      <BoxShadow>
+        <View style={{ padding: 15 }}>
+          <AmountChange title="Adults"/>
         </View>
       </BoxShadow>
     </View>
