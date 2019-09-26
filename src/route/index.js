@@ -14,6 +14,7 @@ import SwitchTest from './testRoute/SwitchTest';
 import LimitTest from './testRoute/LimitTest';
 import SplitTest from './testRoute/SplitTest';
 import NotificationTest from './testRoute/NotificationTest';
+import FnfTest from './testRoute/FnfTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -31,10 +32,11 @@ const AppNavigator = createStackNavigator(
     SwitchTest,
     LimitTest,
     SplitTest,
-    NotificationTest
+    NotificationTest,
+    FnfTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'TestRoute',
     headerMode: 'none'
   },
 );

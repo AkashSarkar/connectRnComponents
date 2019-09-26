@@ -6,7 +6,7 @@ import { mb10 } from '../../../styles/commonStyle';
 
 const SplitList = ({ items }) => (
   items.map(item => (
-    <View style={mb10}>
+    <View style={mb10} key={item.id}>
       <SplitItem avatar={item.avatar} name={item.name} amount={item.amount}/>
     </View>
   ))
