@@ -50,6 +50,8 @@ export const fonts = {
   fs18: 18,
   fs20: 20,
   fs24: 24,
+  fs26: 26,
+  fs30: 30,
   fs32: 32,
   fs50: 50,
   fs52: 52,

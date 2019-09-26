@@ -9,7 +9,7 @@ const AnimatedTextComponent = (
   }
 ) => (
   <AnimateOpacity animateOnState={content} duration={350}>
-    <TextComponent family={family} size={size} color={color} content={content}/>
+    <TextComponent family={family} size={size} color={color} content={content} />
   </AnimateOpacity>
 );
 

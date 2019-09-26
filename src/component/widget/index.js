@@ -21,6 +21,8 @@ import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
+import Avatar from './card/Avatar';
+import AvatarList from './list/AvatarList';
 import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
 
@@ -49,5 +51,7 @@ export {
   CardTitleWidget,
   CTA,
   AmountChange,
-  ModalSecondary
+  ModalSecondary,
+  Avatar,
+  AvatarList
 };

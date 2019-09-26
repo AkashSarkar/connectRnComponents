@@ -3,7 +3,7 @@ import {
   ScrollView, TouchableOpacity, Text, View
 } from 'react-native';
 import {
-  HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList
+  HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList, AvatarList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -91,7 +91,8 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '900',
     bottomValue: '100%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
 
   },
   {
@@ -100,7 +101,8 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '100',
     bottomValue: '0%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
   },
   {
     id: 3,
@@ -108,7 +110,8 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '2.2',
     bottomValue: '30%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
   },
   {
     id: 4,
@@ -116,7 +119,26 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '34',
     bottomValue: '70%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
+  },
+  {
+    id: 5,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '',
+    bottomValue: '',
+    logo: 'Check',
+    disabled: true
+  },
+  {
+    id: 6,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '',
+    bottomValue: '',
+    logo: 'Check',
+    disabled: true
   }
 ];
 
@@ -181,6 +203,96 @@ const menus = [
     buttonColor: 'yellow1',
     textColor: 'primary2',
     logo: 'LogoConnect'
+  },
+  {
+    id: 5,
+    content: 'Transport',
+    buttonColor: 'success',
+    textColor: 'primary2',
+    logo: 'Check'
+
+  },
+  {
+    id: 6,
+    content: 'Transport',
+    buttonColor: 'error',
+    textColor: 'primary2',
+    logo: 'Check'
+  },
+  {
+    id: 7,
+    content: 'Transport',
+    buttonColor: 'white1',
+    textColor: 'primary2',
+    logo: 'Check'
+  },
+  {
+    id: 8,
+    content: 'Transport',
+    buttonColor: 'yellow1',
+    textColor: 'primary2',
+    logo: 'LogoConnect'
+  },
+  {
+    id: 9,
+    content: 'Transport',
+    buttonColor: 'error',
+    textColor: 'primary2',
+    logo: 'Check'
+  }
+];
+
+const avater = [
+  {
+    id: 1,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48322.png',
+    status: 'success',
+    disabled: false
+  },
+  {
+    id: 2,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48324.png',
+    status: 'pending',
+    disabled: false
+  },
+  {
+    id: 3,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/39867.png',
+    status: 'pending',
+    disabled: false
+  },
+  {
+    id: 4,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/56053.png',
+
+    disabled: false
+  }
+];
+
+const avater2 = [
+  {
+    id: 1,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48322.png',
+    status: 'success',
+    disabled: true
+  },
+  {
+    id: 2,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48324.png',
+    status: 'failed',
+    disabled: true
+  },
+  {
+    id: 3,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/39867.png',
+    status: 'pending',
+    disabled: true
+  },
+  {
+    id: 4,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/56053.png',
+
+    disabled: true
   }
 ];
 
@@ -206,13 +318,34 @@ const ListTest = ({ navigation }) => (
       />
     </View>
     <View style={mb20}>
-      <ExpenseList items={expense} />
+      <AvatarList
+        items={avater}
+        onPress={id => console.log(id)}
+      />
     </View>
     <View style={mb20}>
-      <HotelList items={hotels} />
+      <AvatarList
+        items={avater2}
+        onPress={id => console.log(id)}
+      />
     </View>
     <View style={mb20}>
-      <TripTypeList items={trips} />
+      <ExpenseList
+        items={expense}
+        onPress={id => console.log(id)}
+      />
+    </View>
+    <View style={mb20}>
+      <HotelList
+        items={hotels}
+        onPress={id => console.log(id)}
+      />
+    </View>
+    <View style={mb20}>
+      <TripTypeList
+        items={trips}
+        onPress={id => console.log(id)}
+      />
     </View>
   </ScrollView>
 );

@@ -1,22 +1,22 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import {
-  arrayOf, shape, number, string, func
+  arrayOf, shape, number, string, func, bool
 } from 'prop-types';
 import { mr10 } from '../../../styles/commonStyle';
 import { colors } from '../../../styles/baseStyle';
-import TripType from '../card/TripType';
+import Avatar from '../card/Avatar';
 
 const styles = {
   wrapper: {
     width: '100%',
-    height: 160,
+    height: 70,
     flexDirection: 'row',
     backgroundColor: colors.white1
   }
 };
 
-const TripTypeList = ({
+const AvatarList = ({
   items, onPress
 }) => (
   <ScrollView
@@ -27,10 +27,11 @@ const TripTypeList = ({
     {
       items.map((item, index) => (
         <View key={item.id} style={mr10}>
-          <TripType
+          <Avatar
             logo={item.logo}
-            title={item.title}
             onPress={() => onPress(index)}
+            status={item.status}
+            disabled={item.disabled}
           />
         </View>
       ))
@@ -38,15 +39,16 @@ const TripTypeList = ({
   </ScrollView>
 );
 
-TripTypeList.propTypes = {
+AvatarList.propTypes = {
   items: arrayOf(
     shape({
       id: number.isRequired,
-      title: string.isRequired,
-      logo: string.isRequired
+      logo: string.isRequired,
+      status: string,
+      disabled: bool
     })
   ).isRequired,
   onPress: func
 };
 
-export default TripTypeList;
+export default AvatarList;

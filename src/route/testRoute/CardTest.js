@@ -10,7 +10,13 @@ import {
   Scan,
   ExpenseItem,
   TripType,
-  HotelItem, InputLogin, InputLabeled, InputTabbed, InputMiddleLabeled, CTA
+  HotelItem,
+  InputLogin,
+  InputLabeled,
+  InputTabbed,
+  InputMiddleLabeled,
+  CTA,
+  Avatar
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -26,6 +32,12 @@ const CardTest = () => (
   <ScrollView contentContainerStyle={screenContainer}>
     <View style={mb20}>
       <CTA
+        title="Send"
+        subtitle="Money"
+      />
+    </View>
+    <View style={mb20}>
+      <Avatar
         title="Send"
         subtitle="Money"
       />
@@ -72,28 +84,18 @@ const CardTest = () => (
         title="Hotel Name"
         subtitle="Dhaka"
         topValue="1002"
-        bottomValue="340"
+        bottomValue="12%"
       />
     </View>
     <View style={mb20}>
       <TripType
-        url="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+        logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
         title="Hotel Name"
       />
     </View>
     <View style={mb20}>
       <HotelItem
-        url="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
-        title="Hotel Name"
-        subtitle="Dhaka"
-        price="1002"
-        people="340"
-        rating="4"
-      />
-    </View>
-    <View style={mb20}>
-      <HotelItem
-        url="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+        logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
         title="Hotel Name"
         subtitle="Dhaka"
         price="1002"
