@@ -17,6 +17,7 @@ import ButtonDouble from './button/ButtonDouble';
 import HeaderPrimary from './header/HeaderPrimary';
 import HeaderTop from './header/HeaderTop';
 import BoxShadow from './wrapper/BoxShadow';
+import CarouselWrapper from './wrapper/CarouselWrapper';
 import Input from './input/Input';
 
 export {
@@ -39,5 +40,6 @@ export {
   HeaderPrimary,
   HeaderTop,
   Input,
-  BoxShadow
+  BoxShadow,
+  CarouselWrapper
 };

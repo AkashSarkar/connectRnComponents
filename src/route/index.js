@@ -13,6 +13,7 @@ import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
 import LimitTest from './testRoute/LimitTest';
 import SplitTest from './testRoute/SplitTest';
+import NotificationTest from './testRoute/NotificationTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -29,7 +30,8 @@ const AppNavigator = createStackNavigator(
     InputTest,
     SwitchTest,
     LimitTest,
-    SplitTest
+    SplitTest,
+    NotificationTest
   },
   {
     initialRouteName: 'Home',

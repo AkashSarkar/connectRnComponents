@@ -86,6 +86,12 @@ const TestRoute = ({ navigation }) => (
       content="Split Test"
       onPress={() => navigation.navigate('SplitTest')}
     />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Notification Test"
+      onPress={() => navigation.navigate('NotificationTest')}
+    />
   </ScrollView>
 );
 

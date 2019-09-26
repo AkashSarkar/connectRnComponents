@@ -32,6 +32,7 @@ export const gradientColors = {
   gradientGrey: ['#C2C2C2', '#939393'],
   gradientSecondary: ['#00D1DA', '#14438F'],
   gradientYellow: ['#FFF500', '#FFB100'],
+  gradientWhite: ['#f2f2f2', '#ffffff'],
   gradient1: ['#002880', '#FF005B'],
   gradient2: ['#B50041', '#14143C'],
   gradient3: ['#C2C2C2', '#939393'],
