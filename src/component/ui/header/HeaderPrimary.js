@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { ButtonSecondaryBadge } from '..';
+import ButtonSecondaryBadge from '../button/ButtonSecondaryBadge';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 

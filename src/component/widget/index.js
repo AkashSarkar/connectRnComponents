@@ -21,7 +21,7 @@ import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
-
+import Avatar from './card/Avatar';
 
 export {
   SeatListItem,
@@ -46,5 +46,6 @@ export {
   DateRange,
   DatePick,
   CardTitleWidget,
-  CTA
+  CTA,
+  Avatar
 };
