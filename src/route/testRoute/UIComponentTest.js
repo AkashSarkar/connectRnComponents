@@ -47,6 +47,23 @@ const UIComponentTest = ({navigation}) => {
         />
       </View>
 
+      <View style={[p10]}>
+        <View style={[pb10]}>
+          <TextComponent
+            size={fonts.fs30}
+            color={colors.black0}
+            content="Header"
+            family={fonts.bold}
+          />
+        </View>
+        <ButtonPrimary
+          buttonColor={gradientColors.gradient5}
+          textColor={colors.bgPrimary}
+          content="Button Test"
+          onPress={() => navigation.navigate('HeaderTest')}
+        />
+      </View>
+
     </ScrollView>
   )
 };

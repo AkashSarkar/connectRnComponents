@@ -1,24 +1,23 @@
 import React from 'react';
+import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 import {
-  Text, View, SafeAreaView, StyleSheet, ScrollView
-} from 'react-native';
-import {
-  ButtonPrimary,
-  ButtonGradientPrimary,
-  ButtonPrimaryBadge,
-  ButtonGrey,
-  ButtonConnect,
-  ButtonCenter,
-  ButtonBrand,
-  MenuItem,
-  ButtonQuickAmount,
-  ButtonCommunication,
   ButtonAdd,
-  ButtonTag,
+  ButtonBrand,
+  ButtonCenter,
+  ButtonCommunication,
+  ButtonConnect,
+  ButtonDouble,
+  ButtonGradientPrimary,
+  ButtonGrey,
+  ButtonPrimary,
+  ButtonPrimaryBadge,
+  ButtonQuickAmount,
   ButtonSecondaryBadge,
-  ButtonDouble, TextComponent
+  ButtonTag,
+  MenuItem,
+  TextComponent
 } from '../../component/ui';
-import { colors, fonts, gradientColors } from '../../styles/baseStyle';
+import {colors, fonts, gradientColors} from '../../styles/baseStyle';
 import assets from '../../assets';
 import {p10} from "../../styles/commonStyle";
 
@@ -36,8 +35,8 @@ const styles = StyleSheet.create({
 
 
 const ButtonTest = ({
-  params
-}) => (
+                      params
+                    }) => (
   <ScrollView>
     <SafeAreaView style={styles.container}>
       <View style={p10}>
