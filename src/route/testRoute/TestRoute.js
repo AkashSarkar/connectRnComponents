@@ -47,7 +47,7 @@ const TestRoute = ({navigation}) => (
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
       content="Widget L/3"
-      onPress={() => navigation.navigate('UIComponentTest')}
+      onPress={() => navigation.navigate('WidgetL3Test')}
     />
 
   </ScrollView>

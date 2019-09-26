@@ -13,6 +13,7 @@ import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
 import UIComponentTest from "./testRoute/UIComponentTest";
 import WidgetL1Test from "./testRoute/WidgetL1Test";
+import WidgetL3Test from "./testRoute/WidgetL3Test";
 
 const AppNavigator = createStackNavigator(
   {
@@ -29,7 +30,8 @@ const AppNavigator = createStackNavigator(
     InputTest,
     SwitchTest,
     UIComponentTest,
-    WidgetL1Test
+    WidgetL1Test,
+    WidgetL3Test
   },
   {
     initialRouteName: 'TestRoute',
