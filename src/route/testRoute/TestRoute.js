@@ -1,79 +1,57 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import { ButtonPrimary } from "../../component/ui";
-import { colors, gradientColors } from "../../styles/baseStyle";
+import {ScrollView} from 'react-native';
+import {ButtonPrimary} from "../../component/ui";
+import { createAppContainer, createStackNavigator } from 'react-navigation';
+import {colors, gradientColors} from "../../styles/baseStyle";
+import {ph10, pv10} from "../../styles/commonStyle";
 
 const screenContainer = {
   height: '100%',
-  flexDirection: 'column',
+  // flexDirection: 'column',
   paddingLeft: 10,
   paddingRight: 10,
   justifyContent: 'space-between',
   paddingVertical: 10
 };
 
-const TestRoute = ({ navigation }) => (
+const TestRoute = ({navigation}) => (
   <ScrollView contentContainerStyle={screenContainer}>
+
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
-      content="Swipeable Test"
-      onPress={() => navigation.navigate('SwipeableWrapperTest')}
+      content="UI Component"
+      onPress={() => navigation.navigate('UIComponentTest')}
     />
+
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
-      content="ButtonTest"
-      onPress={() => navigation.navigate('ButtonTest')}
+      content="Interactive"
+      onPress={() => navigation.navigate('UIComponentTest')}
     />
+
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
-      content="Test Account Slider Item"
-      onPress={() => navigation.navigate('TestAccountSliderItem')}
+      content="Widget L/1"
+      onPress={() => navigation.navigate('UIComponentTest')}
     />
+
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
-      content="TabTest"
-      onPress={() => navigation.navigate('TabTest')}
+      content="Widget L/2"
+      onPress={() => navigation.navigate('UIComponentTest')}
     />
+
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
-      content="PickerTest"
-      onPress={() => navigation.navigate('PickerTest')}
+      content="Widget L/3"
+      onPress={() => navigation.navigate('UIComponentTest')}
     />
-    <ButtonPrimary
-      buttonColor={gradientColors.gradient5}
-      textColor={colors.bgPrimary}
-      content="CardTest"
-      onPress={() => navigation.navigate('CardTest')}
-    />
-    <ButtonPrimary
-      buttonColor={gradientColors.gradient5}
-      textColor={colors.bgPrimary}
-      content="InputTest"
-      onPress={() => navigation.navigate('InputTest')}
-    />
-    <ButtonPrimary
-      buttonColor={gradientColors.gradient5}
-      textColor={colors.bgPrimary}
-      content="SwitchTest"
-      onPress={() => navigation.navigate('SwitchTest')}
-    />
-    <ButtonPrimary
-      buttonColor={gradientColors.gradient5}
-      textColor={colors.bgPrimary}
-      content="Header Test"
-      onPress={() => navigation.navigate('HeaderTest')}
-    />
-    <ButtonPrimary
-      buttonColor={gradientColors.gradient5}
-      textColor={colors.bgPrimary}
-      content="List Test"
-      onPress={() => navigation.navigate('ListTest')}
-    />
+
   </ScrollView>
 );
 
