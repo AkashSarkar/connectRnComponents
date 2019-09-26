@@ -91,7 +91,8 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '900',
     bottomValue: '100%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
 
   },
   {
@@ -100,7 +101,8 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '100',
     bottomValue: '0%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
   },
   {
     id: 3,
@@ -108,7 +110,8 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '2.2',
     bottomValue: '30%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
   },
   {
     id: 4,
@@ -116,7 +119,26 @@ const expense = [
     subtitle: '5 Transaction',
     topValue: '34',
     bottomValue: '70%',
-    logo: 'Check'
+    logo: 'Check',
+    disabled: false
+  },
+  {
+    id: 5,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '',
+    bottomValue: '',
+    logo: 'Check',
+    disabled: true
+  },
+  {
+    id: 6,
+    title: 'Transport',
+    subtitle: '5 Transaction',
+    topValue: '',
+    bottomValue: '',
+    logo: 'Check',
+    disabled: true
   }
 ];
 

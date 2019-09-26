@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import {
-  arrayOf, shape, number, string
+  arrayOf, shape, number, string, bool
 } from 'prop-types';
 import { mb10 } from '../../../styles/commonStyle';
 import { colors } from '../../../styles/baseStyle';
@@ -27,6 +27,7 @@ const ExpenseList = ({
             topValue={item.topValue}
             bottomValue={item.bottomValue}
             logo={item.logo}
+            disabled={item.disabled}
           />
         </View>
       ))
@@ -42,7 +43,8 @@ ExpenseList.propTypes = {
       subtitle: string.isRequired,
       topValue: string.isRequired,
       bottomValue: string.isRequired,
-      logo: string.isRequired
+      logo: string.isRequired,
+      disabled: bool
     })
   ).isRequired
 };
