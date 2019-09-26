@@ -22,6 +22,7 @@ import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
 import AmountChange from './input/AmountChange';
+import ModalSecondary from './modal/ModalSecondary';
 
 export {
   SeatListItem,
@@ -43,9 +44,10 @@ export {
   InputLabeled,
   InputTabbed,
   InputMiddleLabeled,
-  AmountChange,
   DateRange,
   DatePick,
   CardTitleWidget,
-  CTA
+  CTA,
+  AmountChange,
+  ModalSecondary
 };

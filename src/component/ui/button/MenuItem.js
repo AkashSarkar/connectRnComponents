@@ -51,7 +51,10 @@ const MenuItem = ({
   content, buttonColor, textColor, logo, onPress
 }) => (
   <TouchableOpacity onPress={onPress}>
-    <View style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]} hitSlop={styles.hitSlop}>
+    <View
+      style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+      hitSlop={styles.hitSlop}
+    >
       <View style={styles.leftWrapper}>
         <Image
           style={styles.imageStyle}
@@ -59,7 +62,12 @@ const MenuItem = ({
         />
       </View>
       <View style={styles.rightWrapper}>
-        <TextComponent content={content} family={fonts.regular} size={fonts.fs10} color={colors[textColor]} />
+        <TextComponent
+          content={content}
+          family={fonts.regular}
+          size={fonts.fs10}
+          color={colors[textColor]}
+        />
       </View>
     </View>
   </TouchableOpacity>

@@ -11,6 +11,7 @@ import PickerTest from './testRoute/PickerTest';
 import ListTest from './testRoute/ListTest';
 import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
+import ModalTest from './testRoute/ModalTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -25,10 +26,11 @@ const AppNavigator = createStackNavigator(
     PickerTest,
     ListTest,
     InputTest,
-    SwitchTest
+    SwitchTest,
+    ModalTest
   },
   {
-    initialRouteName: 'ListTest',
+    initialRouteName: 'ModalTest',
     headerMode: 'none'
   },
 );

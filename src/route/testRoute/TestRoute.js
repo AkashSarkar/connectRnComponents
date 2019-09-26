@@ -1,13 +1,12 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { ButtonPrimary } from "../../component/ui";
-import { colors, gradientColors } from "../../styles/baseStyle";
+import { ButtonPrimary } from '../../component/ui';
+import { colors, gradientColors } from '../../styles/baseStyle';
 
 const screenContainer = {
   height: '100%',
   flexDirection: 'column',
-  paddingLeft: 10,
-  paddingRight: 10,
+  paddingHorizontal: 10,
   justifyContent: 'space-between',
   paddingVertical: 10
 };
@@ -73,6 +72,12 @@ const TestRoute = ({ navigation }) => (
       textColor={colors.bgPrimary}
       content="List Test"
       onPress={() => navigation.navigate('ListTest')}
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
+      content="Modal Test"
+      onPress={() => navigation.navigate('ModalTest')}
     />
   </ScrollView>
 );
