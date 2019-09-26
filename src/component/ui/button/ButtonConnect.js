@@ -1,40 +1,45 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { func, array, number } from 'prop-types';
+import { func, array, string } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
+import image from '../../../assets';
 
 const styles = StyleSheet.create({
-    buttonWrapper: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 25
-    },
-    hitSlop: {
-      top: 5,
-      bottom: 5,
-      left: 5,
-      right: 5
-    }
-  });
+  buttonWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 25
+  },
+  hitSlop: {
+    top: 5,
+    bottom: 5,
+    left: 5,
+    right: 5
+  }
+});
 
 const ButtonConnect = ({
-    buttonColor, onPress, buttonLogo
+  buttonColor, onPress, logo
 }) => (
-    <TouchableOpacity onPress={onPress}>
-        <LinearGradient colors={buttonColor} style={styles.buttonWrapper} hitSlop={styles.hitSlop}>
-        <Image
-          style={{resizeMode:'center'}}
-          source={buttonLogo}
-        />
-        </LinearGradient>
-    </TouchableOpacity>
+  <TouchableOpacity onPress={onPress}>
+    <LinearGradient
+      colors={buttonColor}
+      style={styles.buttonWrapper}
+      hitSlop={styles.hitSlop}
+    >
+      <Image
+        style={{ resizeMode: 'center' }}
+        source={image[logo]}
+      />
+    </LinearGradient>
+  </TouchableOpacity>
 );
 
 ButtonConnect.propTypes = {
-    buttonLogo: number.isRequired,
-    buttonColor: array.isRequired,
-    onPress: func,
-  };
-  
+  logo: string.isRequired,
+  buttonColor: array.isRequired,
+  onPress: func
+};
+
 
 export default ButtonConnect;

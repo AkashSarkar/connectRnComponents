@@ -1,7 +1,9 @@
 import React, {
   forwardRef, useImperativeHandle, useRef, useState
 } from 'react';
-import { StyleSheet, TextInput, View, Image } from 'react-native';
+import {
+  StyleSheet, TextInput, View, Image
+} from 'react-native';
 import {
   any, bool, func, number, string
 } from 'prop-types';

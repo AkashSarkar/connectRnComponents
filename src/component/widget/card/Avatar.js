@@ -1,41 +1,95 @@
-import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
-import { string, func } from 'prop-types';
+import React, { useState } from 'react';
+import { Image, TouchableOpacity } from 'react-native';
+import { string, func, bool } from 'prop-types';
 import { colors } from '../../../styles/baseStyle';
-import image from '../../../assets';
 
 const styles = {
   wrapper: {
-    width: 65,
-    height: 65,
-    borderWidth: 2,
+    width: 60,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: colors.secondary,
     borderRadius: 50,
+    backgroundColor: colors.white1,
     elevation: 1,
-    shadowColor: colors.secondary,
-    shadowOffset: { width: 3, height: 3 },
-    shadowRadius: 6,
-    shadowOpacity: 0.8
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5
   },
   imageStyle: {
     width: 60,
-    height: 60
+    height: 60,
+    borderWidth: 2,
+    borderRadius: 50
   }
 };
 
+const colorBorder = (status) => {
+  let color;
+  switch (status) {
+    case 'success':
+      color = colors.secondary;
+      break;
+    case 'pending':
+      color = 'transparent';
+      break;
+    case 'failed':
+      color = colors.red1;
+      break;
+    default:
+      color = 'transparent';
+  }
+  return color;
+};
+
+const colorShadow = (status) => {
+  let color;
+  switch (status) {
+    case 'success':
+      color = colors.secondary;
+      break;
+    case 'pending':
+      color = colors.black0;
+      break;
+    case 'failed':
+      color = colors.red1;
+      break;
+    default:
+      color = colors.black0;
+  }
+  return color;
+};
+
 const Avatar = ({
-  logo, onPress
-}) => (
-  <TouchableOpacity onPress={onPress} style={styles.wrapper}>
-    <Image style={styles.imageStyle} source={image.Check} />
-  </TouchableOpacity>
-);
+  logo, status, disabled, onPress
+}) => {
+  const [active, setActive] = useState(false);
+  console.log(active);
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        setActive(!active);
+        onPress();
+      }}
+      disabled={disabled}
+      style={[styles.wrapper, {
+        shadowColor: !disabled ? active ? colors.secondary : colors.black0 : colorShadow(status)
+      }]}
+    >
+      <Image
+        style={[styles.imageStyle, {
+          borderColor: !disabled ? active ? colors.secondary : 'transparent' : colorBorder(status)
+        }]}
+        source={{ url: logo }}
+      />
+    </TouchableOpacity>
+  );
+};
 
 Avatar.propTypes = {
   logo: string.isRequired,
-  onPress: func.isRequired
+  onPress: func.isRequired,
+  status: string,
+  disabled: bool
 };
 
 export default Avatar;

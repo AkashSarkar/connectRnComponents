@@ -18,11 +18,7 @@ const styles = {
     height: 50,
     backgroundColor: colors.secondary,
     borderRadius: 8,
-    elevation: 1,
-    shadowColor: colors.black0,
-    opecity: 0.1,
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2
+    opecity: 0.1
   },
   contentwrapper: {
     width: '100%',

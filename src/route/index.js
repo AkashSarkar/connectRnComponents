@@ -11,6 +11,9 @@ import PickerTest from './testRoute/PickerTest';
 import ListTest from './testRoute/ListTest';
 import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
+import UIComponentTest from './testRoute/UIComponentTest';
+import WidgetL1Test from './testRoute/WidgetL1Test';
+import WidgetL3Test from './testRoute/WidgetL3Test';
 
 const AppNavigator = createStackNavigator(
   {
@@ -25,10 +28,13 @@ const AppNavigator = createStackNavigator(
     PickerTest,
     ListTest,
     InputTest,
-    SwitchTest
+    SwitchTest,
+    UIComponentTest,
+    WidgetL1Test,
+    WidgetL3Test
   },
   {
-    initialRouteName: 'CardTest',
+    initialRouteName: 'ListTest',
     headerMode: 'none'
   },
 );

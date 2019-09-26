@@ -3,7 +3,7 @@ import {
   ScrollView, TouchableOpacity, Text, View
 } from 'react-native';
 import {
-  HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList
+  HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList, AvatarList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -242,6 +242,60 @@ const menus = [
   }
 ];
 
+const avater = [
+  {
+    id: 1,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48322.png',
+    status: 'success',
+    disabled: false
+  },
+  {
+    id: 2,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48324.png',
+    status: 'pending',
+    disabled: false
+  },
+  {
+    id: 3,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/39867.png',
+    status: 'pending',
+    disabled: false
+  },
+  {
+    id: 4,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/56053.png',
+
+    disabled: false
+  }
+];
+
+const avater2 = [
+  {
+    id: 1,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48322.png',
+    status: 'success',
+    disabled: true
+  },
+  {
+    id: 2,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/48324.png',
+    status: 'failed',
+    disabled: true
+  },
+  {
+    id: 3,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/39867.png',
+    status: 'pending',
+    disabled: true
+  },
+  {
+    id: 4,
+    logo: 'https://www.rugbyworldcup.com/default/rwc-person-images-site/1200/56053.png',
+
+    disabled: true
+  }
+];
+
 
 const ListTest = ({ navigation }) => (
   <ScrollView contentContainerStyle={screenContainer}>
@@ -260,6 +314,18 @@ const ListTest = ({ navigation }) => (
     <View style={mb20}>
       <MenuStackList
         items={menus}
+        onPress={id => console.log(id)}
+      />
+    </View>
+    <View style={mb20}>
+      <AvatarList
+        items={avater}
+        onPress={id => console.log(id)}
+      />
+    </View>
+    <View style={mb20}>
+      <AvatarList
+        items={avater2}
         onPress={id => console.log(id)}
       />
     </View>
