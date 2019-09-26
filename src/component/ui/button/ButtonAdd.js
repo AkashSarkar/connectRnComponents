@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: 26,
     width: 26,
-    margin: 7
+    padding: 7
   },
   coverImageStyle: {
     position: 'absolute',
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     left: 0,
     height: '100%',
-    width: '25%'
+    width: '30%'
   }
 });
 
