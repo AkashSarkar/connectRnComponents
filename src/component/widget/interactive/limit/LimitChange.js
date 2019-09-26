@@ -63,11 +63,11 @@ const Limit = ({
   const animateWidth = (toWidth) => {
     Animated.timing(limitWidth, {
       toValue: toWidth,
-      duration: 500
+      duration: 200
     }).start();
     Animated.timing(translateX, {
       toValue: toWidth > 15 ? toWidth - 15 : toWidth + 15,
-      duration: 500
+      duration: 200
     }).start();
   };
 
