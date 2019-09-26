@@ -26,7 +26,7 @@ const AppNavigator = createStackNavigator(
     LimitTest
   },
   {
-    initialRouteName: 'LimitTest',
+    initialRouteName: 'Home',
     headerMode: 'none'
   },
 );
