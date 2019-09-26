@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Title from '../title/Title';
 import {p20} from "../../../styles/commonStyle";
 import BoxShadow from "../../ui/wrapper/BoxShadow";
@@ -17,11 +17,6 @@ const styles = StyleSheet.create({
 });
 
 const AccountDetails = ({handleShareButton}) => {
-
-  handleShareButton = () => {
-    alert("hello")
-  };
-
   return (
     <BoxShadow>
       <View style={styles.contentWrapper}>

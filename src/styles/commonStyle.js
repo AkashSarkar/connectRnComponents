@@ -52,6 +52,9 @@ export const mh10 = {
 // END
 
 // common padding sizes
+export const p5 = {
+  padding: 5
+};
 export const p10 = {
   padding: 10
 };
@@ -86,6 +89,9 @@ export const ph15 = {
 };
 export const ph20 = {
   paddingHorizontal: 20
+};
+export const ph60 = {
+  paddingHorizontal: 60
 };
 export const ph80 = {
   paddingHorizontal: 80
@@ -132,4 +138,23 @@ export const pb25 = {
   paddingBottom: 25
 };
 
+export const pr5 = {
+  paddingRight: 5
+};
+
+export const pr10 = {
+  paddingRight: 10
+};
+
+export const pr15 = {
+  paddingRight: 15
+};
+
+export const pr20 = {
+  paddingRight: 20
+};
+
+export const pr25 = {
+  paddingRight: 25
+};
 // END

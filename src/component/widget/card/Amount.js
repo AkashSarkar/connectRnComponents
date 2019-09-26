@@ -22,21 +22,21 @@ const styles = {
 };
 
 const Amount = ({
-  content, family, size, color
+  title, subtitle
 }) => (
   <View style={styles.wrapper}>
     <View style={mb10}>
       <TextComponent
-        content="Due Amount"
-        color={colors.black1}
+        content={title}
+        color={colors.primary2}
         family={fonts.regular}
         size={fonts.fs10}
       />
     </View>
     <View>
       <TextComponent
-        content="Tk. 3,600.00"
-        color={colors.black1}
+        content={subtitle}
+        color={colors.primary2}
         family={fonts.semiBold}
         size={fonts.fs16}
       />
@@ -45,10 +45,8 @@ const Amount = ({
 );
 
 Amount.propTypes = {
-//   content: string.isRequired,
-//   family: string.isRequired,
-//   size: number.isRequired,
-//   color: string.isRequired
+  title: string.isRequired,
+  subtitle: string.isRequired
 };
 
 export default Amount;

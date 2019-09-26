@@ -9,10 +9,13 @@
   },
   "scripts": {
     "start": "react-native start",
+    "runandroid": "react-native run-android",
+    "runios": "react-native run-ios --simulator='iPhone 8'",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "16.8.6",
     "react-native": "0.60.5",
     "react-native-gesture-handler": "^1.4.1",

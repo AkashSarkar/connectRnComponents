@@ -10,22 +10,34 @@ import MenuItem from './button/MenuItem';
 import ButtonQuickAmount from './button/ButtonQuickAmount';
 import ButtonCommunication from './button/ButtonCommunication';
 import ButtonAdd from './button/ButtonAdd';
+import ButtonPrimaryBadge from './button/ButtonPrimaryBadge';
+import ButtonTag from './button/ButtonTag';
+import ButtonSecondaryBadge from './button/ButtonSecondaryBadge';
+import ButtonDouble from './button/ButtonDouble';
+import HeaderPrimary from './header/HeaderPrimary';
+import HeaderTop from './header/HeaderTop';
 import BoxShadow from './wrapper/BoxShadow';
 import Input from './input/Input';
 
 export {
   TextComponent,
   AnimatedTextComponent,
+  ButtonPrimary,
   ButtonGradientPrimary,
   ButtonGrey,
   ButtonConnect,
   ButtonCenter,
   ButtonBrand,
-  Input,
   MenuItem,
   ButtonQuickAmount,
   ButtonCommunication,
   ButtonAdd,
-  ButtonPrimary,
+  ButtonPrimaryBadge,
+  ButtonTag,
+  ButtonSecondaryBadge,
+  ButtonDouble,
+  HeaderPrimary,
+  HeaderTop,
+  Input,
   BoxShadow
-}
+};

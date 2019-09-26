@@ -122,7 +122,7 @@ const InputField = forwardRef(
         {errorMsg.length > 0 ? (
           <View style={mb5}>
             <AnimatedTextComponent
-              color={colors.red}
+              color={colors.red1}
               content={errorMsg}
               family={fonts.regular}
               size={fonts.fs12}
@@ -153,7 +153,7 @@ InputField.propTypes = {
   onChangeText: func.isRequired,
   validations: array.isRequired,
   setIsValid: func.isRequired,
-  iconSource: string,
+  iconSource: number,
   isIcon: bool,
   secureTextEntry: bool
 };

@@ -1,7 +1,9 @@
 import React, {
   forwardRef, useImperativeHandle, useRef, useState
 } from 'react';
-import { StyleSheet, TextInput, View, Image } from 'react-native';
+import {
+  StyleSheet, TextInput, View, Image
+} from 'react-native';
 import {
   any, bool, func, number, string
 } from 'prop-types';
@@ -22,7 +24,7 @@ const style = StyleSheet.create({
   },
   wrapperStyle: {
     flexDirection: 'row',
-    borderBottomColor: colors.grey,
+    borderBottomColor: colors.grey1,
     borderBottomWidth: 1
   },
   iconStyle: {
@@ -76,10 +78,10 @@ const Input = forwardRef(
     // };
 
     const borderStyle = () => {
-      let color = colors.grey;
+      let color = colors.grey1;
 
       if (isError) {
-        color = colors.red;
+        color = colors.red1;
       } else if (onInputFocus) {
         color = colors.primary;
       }
@@ -147,7 +149,7 @@ Input.propTypes = {
   multiline: bool,
   numberOfLines: number,
   isError: bool.isRequired,
-  iconSource: string,
+  iconSource: number,
   isIcon: bool,
   secureTextEntry: bool
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
+import {fonts} from '../../../styles/baseStyle';
 import {number, object, string} from 'prop-types';
 
 const TextComponent = ({content, family, size, color, extraStyle = {}}) => {
@@ -7,9 +8,9 @@ const TextComponent = ({content, family, size, color, extraStyle = {}}) => {
   return (
     <Text
       style={{
-        fontFamily: family,
+        fontFamily: family || fonts.light,
         fontSize: size,
-        color,
+        color
       }}
     >
       {content}
@@ -19,9 +20,10 @@ const TextComponent = ({content, family, size, color, extraStyle = {}}) => {
 
 TextComponent.propTypes = {
   content: string.isRequired,
-  family: string.isRequired,
+  family: string,
   size: number.isRequired,
   color: string.isRequired,
+  textDecorationLine: string,
   extraStyle: object
 };
 

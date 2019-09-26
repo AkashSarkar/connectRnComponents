@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
     buttonWrapper: {
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 20
+      borderRadius: 25
     },
     hitSlop: {
-      top: 10,
-      bottom: 10,
-      left: 10,
-      right: 10
+      top: 5,
+      bottom: 5,
+      left: 5,
+      right: 5
     }
   });
 
