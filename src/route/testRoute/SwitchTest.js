@@ -10,7 +10,7 @@ const SwitchTest = () => {
         value={false}
         onChange={value => console.log(value)}
         thumbColor={colors.secondary}
-        trackColor={colors.grey1}
+        trackColor={colors.grey2}
       />
     </View>
   );
