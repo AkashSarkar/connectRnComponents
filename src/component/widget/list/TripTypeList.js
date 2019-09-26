@@ -28,7 +28,7 @@ const TripTypeList = ({
       items.map(item => (
         <View key={item.id} style={mr10}>
           <TripType
-            url={item.url}
+            logo={item.logo}
             title={item.title}
           />
         </View>
@@ -42,7 +42,7 @@ TripTypeList.propTypes = {
     shape({
       id: number.isRequired,
       title: string.isRequired,
-      url: string.isRequired
+      logo: string.isRequired
     })
   ).isRequired
 };

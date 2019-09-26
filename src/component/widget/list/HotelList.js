@@ -22,7 +22,7 @@ const Hotellist = ({
       items.map(item => (
         <HotelItem
           key={item.id}
-          url={item.url}
+          logo={item.logo}
           title={item.title}
           subtitle={item.subtitle}
           price={item.price}
@@ -38,7 +38,7 @@ Hotellist.propTypes = {
   items: arrayOf(
     shape({
       id: number.isRequired,
-      url: string.isRequired,
+      logo: string.isRequired,
       title: string.isRequired,
       subtitle: string.isRequired,
       price: string.isRequired,

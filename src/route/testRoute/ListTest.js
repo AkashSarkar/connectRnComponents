@@ -26,7 +26,7 @@ const hotels = [
   {
     id: 1,
     title: 'Sonargao',
-    url: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
+    logo: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
     subtitle: 'Dhaka, Bangladesh',
     price: '11000 per night',
     people: '360',
@@ -35,7 +35,7 @@ const hotels = [
   {
     id: 2,
     title: 'Hotel name',
-    url: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
+    logo: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
     subtitle: 'Area, Country',
     price: 'Price/night',
     people: '360',
@@ -44,7 +44,7 @@ const hotels = [
   {
     id: 3,
     title: 'Hotel name',
-    url: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
+    logo: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
     subtitle: 'Area, Country',
     price: 'Price/night',
     people: '360',
@@ -53,7 +53,7 @@ const hotels = [
   {
     id: 4,
     title: 'Hotel name',
-    url: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
+    logo: 'https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048',
     subtitle: 'Area, Country',
     price: 'Price/night',
     people: '360',
@@ -65,22 +65,22 @@ const trips = [
   {
     id: 1,
     title: 'Hotel name',
-    url: 'https://facebook.github.io/react-native/img/tiny_logo.png'
+    logo: 'https://facebook.github.io/react-native/img/tiny_logo.png'
   },
   {
     id: 2,
     title: 'software',
-    url: 'https://facebook.github.io/react-native/img/tiny_logo.png'
+    logo: 'https://facebook.github.io/react-native/img/tiny_logo.png'
   },
   {
     id: 3,
     title: 'software',
-    url: 'https://facebook.github.io/react-native/img/tiny_logo.png'
+    logo: 'https://facebook.github.io/react-native/img/tiny_logo.png'
   },
   {
     id: 4,
     title: 'software',
-    url: 'https://facebook.github.io/react-native/img/tiny_logo.png'
+    logo: 'https://facebook.github.io/react-native/img/tiny_logo.png'
   }
 ];
 
@@ -90,7 +90,8 @@ const expense = [
     title: 'Transport',
     subtitle: '5 Transaction',
     topValue: '90',
-    bottomValue: '10%'
+    bottomValue: '10%',
+    logo: 'Check'
 
   },
   {
@@ -98,21 +99,24 @@ const expense = [
     title: 'Transport',
     subtitle: '5 Transaction',
     topValue: '90',
-    bottomValue: '10%'
+    bottomValue: '10%',
+    logo: 'Check'
   },
   {
     id: 3,
     title: 'Transport',
     subtitle: '5 Transaction',
     topValue: '90',
-    bottomValue: '10%'
+    bottomValue: '10%',
+    logo: 'Check'
   },
   {
     id: 4,
     title: 'Transport',
     subtitle: '5 Transaction',
     topValue: '90',
-    bottomValue: '10%'
+    bottomValue: '10%',
+    logo: 'Check'
   }
 ];
 

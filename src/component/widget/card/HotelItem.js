@@ -3,7 +3,9 @@ import { View, Image } from 'react-native';
 import { string } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
-import { mb10, mb20, mr5, mb5 } from '../../../styles/commonStyle';
+import {
+ mb10, mb20, mr5, mb5 
+} from '../../../styles/commonStyle';
 import image from '../../../assets';
 
 const styles = {
@@ -44,13 +46,13 @@ const styles = {
 };
 
 const HotelItem = ({
-  url, title, subtitle, price, people, rating, 
+  logo, title, subtitle, price, people, rating
 }) => (
   <View style={[styles.wrapper, mb10]}>
     <View style={[styles.topWrapper, mb20]}>
       <Image
         style={styles.imagestyle}
-        source={{ url }}
+        source={{ url: logo }}
       />
     </View>
     <View style={styles.bottomWrapper}>
@@ -80,9 +82,7 @@ const HotelItem = ({
       </View>
       <View style={styles.ratingStyle}>
         <View style={[styles.ratingImageListStyle, mr5]}>
-          {Array.from(Array(parseInt(rating, 10)), (i) => {
-            return <Image key={i} style={styles.ratingImageStyle} source={image.Check} />;
-          })
+          {Array.from(Array(parseInt(rating, 10)), (i) => <Image key={i} style={styles.ratingImageStyle} source={image.Check} />)
           }
         </View>
         <TextComponent
@@ -97,7 +97,7 @@ const HotelItem = ({
 );
 
 HotelItem.propTypes = {
-  url: string.isRequired,
+  logo: string.isRequired,
   title: string.isRequired,
   subtitle: string.isRequired,
   price: string.isRequired,

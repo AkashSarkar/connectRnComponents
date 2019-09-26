@@ -35,14 +35,14 @@ const styles = {
 };
 
 const ExpenseItem = ({
-  title, subtitle, topValue, bottomValue
+  title, subtitle, topValue, bottomValue, logo
 }) => (
   <View style={[styles.wrapper]}>
     <View style={styles.leftWrapper}>
       <View style={pr10}>
         <Image
           style={styles.imagestyle}
-          source={image['Check']}
+          source={image[logo]}
         />
       </View>
       <View>
@@ -81,7 +81,8 @@ ExpenseItem.propTypes = {
   title: string.isRequired,
   subtitle: string.isRequired,
   topValue: string.isRequired,
-  bottomValue: string.isRequired
+  bottomValue: string.isRequired,
+  logo: string.isRequired
 };
 
 export default ExpenseItem;

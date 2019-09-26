@@ -26,6 +26,7 @@ const ExpenseList = ({
             subtitle={item.subtitle}
             topValue={item.topValue}
             bottomValue={item.bottomValue}
+            logo={item.logo}
           />
         </View>
       ))
@@ -40,7 +41,8 @@ ExpenseList.propTypes = {
       title: string.isRequired,
       subtitle: string.isRequired,
       topValue: string.isRequired,
-      bottomValue: string.isRequired
+      bottomValue: string.isRequired,
+      logo: string.isRequired
     })
   ).isRequired
 };
