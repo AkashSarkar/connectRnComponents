@@ -79,7 +79,7 @@ class ModalTest extends Component {
         <SafeAreaView style={styles.container}>
           <View style={styles.viewWrapper}>
             <ButtonPrimary
-              content="Button Primary"
+              content="Modal Secondary"
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
