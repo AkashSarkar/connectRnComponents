@@ -35,13 +35,13 @@ const styles = {
 };
 
 const TripType = ({
-  url, title
+  logo, title
 }) => (
   <View style={styles.wrapper}>
     <View style={styles.topWrapper}>
       <Image
         style={styles.imagestyle}
-        source={{ url }}
+        source={{ url: logo }}
       />
     </View>
     <View style={styles.bottomWrapper}>
@@ -56,7 +56,7 @@ const TripType = ({
 );
 
 TripType.propTypes = {
-  url: string.isRequired,
+  logo: string.isRequired,
   title: string.isRequired
 };
 
