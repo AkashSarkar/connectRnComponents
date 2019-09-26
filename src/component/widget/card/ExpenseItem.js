@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Image } from 'react-native';
-import { string } from 'prop-types';
+import {
+  View, Image, TouchableOpacity, bool
+} from 'react-native';
+import { string, func } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { p15, pr10 } from '../../../styles/commonStyle';
@@ -16,11 +18,7 @@ const styles = {
     height: 50,
     backgroundColor: colors.secondary,
     borderRadius: 8,
-    elevation: 1,
-    shadowColor: colors.black0,
-    opecity: 0.1,
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2
+    opecity: 0.1
   },
   contentwrapper: {
     width: '100%',
@@ -47,10 +45,10 @@ const styles = {
 };
 
 const ExpenseItem = ({
-  title, subtitle, topValue, bottomValue, logo
+  title, subtitle, topValue, bottomValue, logo, onPress, disabled
 }) => (
-  <View style={styles.wrapper}>
-    <View style={[styles.backgroundWrapper, { width: bottomValue }]} />
+  <TouchableOpacity onPress={onPress} style={styles.wrapper} disabled={disabled}>
+    <View style={[styles.backgroundWrapper, { width: bottomValue || 0 }]} />
     <View style={[styles.contentwrapper]}>
       <View style={styles.leftWrapper}>
         <View style={pr10}>
@@ -62,7 +60,7 @@ const ExpenseItem = ({
         <View>
           <TextComponent
             content={title}
-            color={colors.primary2}
+            color={disabled ? colors.grey1 : colors.primary2}
             family={fonts.semiBold}
             size={fonts.fs12}
           />
@@ -75,21 +73,29 @@ const ExpenseItem = ({
         </View>
       </View>
       <View style={styles.rightWrapper}>
-        <TextComponent
-          content={topValue}
-          color={colors.primary2}
-          family={fonts.semiBold}
-          size={fonts.fs14}
-        />
-        <TextComponent
-          content={bottomValue}
-          color={colors.grey1}
-          family={fonts.regular}
-          size={fonts.fs12}
-        />
+        {
+         topValue !== '' && (
+         <TextComponent
+           content={topValue}
+           color={colors.primary2}
+           family={fonts.semiBold}
+           size={fonts.fs14}
+         />
+         )
+       }
+        {
+          bottomValue !== '' && (
+          <TextComponent
+            content={bottomValue}
+            color={colors.grey1}
+            family={fonts.regular}
+            size={fonts.fs12}
+          />
+          )
+        }
       </View>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 ExpenseItem.propTypes = {
@@ -97,7 +103,9 @@ ExpenseItem.propTypes = {
   subtitle: string.isRequired,
   topValue: string.isRequired,
   bottomValue: string.isRequired,
-  logo: string.isRequired
+  logo: string.isRequired,
+  onPress: func,
+  disabled: bool
 };
 
 export default ExpenseItem;

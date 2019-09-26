@@ -21,6 +21,8 @@ import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
+import Avatar from './card/Avatar';
+import AvatarList from './list/AvatarList';
 import AmountChange from './input/AmountChange';
 import SplitItem from './interactive/SplitItem';
 import SplitList from './interactive/SplitList';
@@ -50,6 +52,8 @@ export {
   DatePick,
   CardTitleWidget,
   CTA,
+  Avatar,
+  AvatarList,
   SplitItem,
   SplitList
 };

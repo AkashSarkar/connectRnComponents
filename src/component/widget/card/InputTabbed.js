@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { TabWrapper } from '../index';
+import TabWrapper from '../tab/TabWrapper';
 import InputField from '../input/InputField';
 import { mb10, p10 } from '../../../styles/commonStyle';
 
@@ -151,7 +151,7 @@ const InputTabbed = () => {
         </View>
       </View>
     );
-  }
+  };
   return (
     <TabWrapper
       tabTitle1="Bank Account"

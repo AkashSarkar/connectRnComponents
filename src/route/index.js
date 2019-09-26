@@ -19,6 +19,9 @@ import SplitTest from './testRoute/SplitTest';
 import FnfTest from './testRoute/FnfTest';
 import InteractiveTest from './testRoute/InteractiveTest';
 import WidgetInputTest from './testRoute/WidgetInputTest';
+import UIComponentTest from './testRoute/UIComponentTest';
+import WidgetL1Test from './testRoute/WidgetL1Test';
+import WidgetL3Test from './testRoute/WidgetL3Test';
 
 const AppNavigator = createStackNavigator(
   {
