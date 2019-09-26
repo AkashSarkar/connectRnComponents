@@ -11,6 +11,7 @@ import PickerTest from './testRoute/PickerTest';
 import ListTest from './testRoute/ListTest';
 import InputTest from './testRoute/InputTest';
 import SwitchTest from './testRoute/SwitchTest';
+import LimitTest from './testRoute/LimitTest';
 import SplitTest from './testRoute/SplitTest';
 import FnfTest from './testRoute/FnfTest';
 
@@ -29,7 +30,8 @@ const AppNavigator = createStackNavigator(
     InputTest,
     SwitchTest,
     SplitTest,
-    FnfTest
+    FnfTest,
+    LimitTest
   },
   {
     initialRouteName: 'TestRoute',

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Animated, StyleSheet, Text, View, Image } from 'react-native';
+import {
+  Animated, StyleSheet, Text, View, Image
+} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { colors } from "../../styles/baseStyle";
+import { colors } from '../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -28,12 +30,12 @@ const styles = StyleSheet.create({
   rightAction: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   }
 });
 export default class SwipeableWrapper extends Component {
   renderLeftActions = (progress) => {
-    const { leftActions } = this.props
+    const { leftActions } = this.props;
     if (leftActions) {
       const trans = progress.interpolate({
         inputRange: [0, 1],
@@ -41,20 +43,19 @@ export default class SwipeableWrapper extends Component {
       });
       return (
         <View style={{ width: 50, flexDirection: 'row' }}>
-          {leftActions.map((action) => {
-            return (
-              <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }} key={action.id}>
-                <RectButton style={styles.leftAction} onPress={action.pressHandler}>
-                  <Image source={action.icon} style={{ height: 40, width: 40 }}/>
+          {leftActions.map(action => (
+            <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }} key={action.id}>
+              <RectButton style={styles.leftAction} onPress={action.pressHandler}>
+                  <Image source={action.icon} style={{ height: 40, width: 40 }} />
                 </RectButton>
-              </Animated.View>
-            );
-          })}
+            </Animated.View>
+          ))}
         </View>
       );
     }
     return null;
   };
+
   renderRightAction = (action, progress) => {
     const trans = progress.interpolate({
       inputRange: [0, 1],
@@ -75,7 +76,7 @@ export default class SwipeableWrapper extends Component {
           style={[styles.rightAction]}
           onPress={onPressHandler}
         >
-          <Image source={action.icon} style={{ height: 30, width: 30 }}/>
+          <Image source={action.icon} style={{ height: 30, width: 30 }} />
         </RectButton>
       </Animated.View>
     );
@@ -90,9 +91,7 @@ export default class SwipeableWrapper extends Component {
           flexDirection: 'row'
         }}
         >
-          {rightActions.map((action) => {
-            return this.renderRightAction(action, progress)
-          })}
+          {rightActions.map(action => this.renderRightAction(action, progress))}
         </View>
       );
     }
@@ -125,4 +124,3 @@ export default class SwipeableWrapper extends Component {
     );
   }
 }
-
