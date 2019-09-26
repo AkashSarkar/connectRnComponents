@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import {
-  arrayOf, shape, number, string, bool
+  arrayOf, shape, number, string, bool, func
 } from 'prop-types';
 import { mb10 } from '../../../styles/commonStyle';
 import { colors } from '../../../styles/baseStyle';
@@ -15,11 +15,11 @@ const styles = {
 };
 
 const ExpenseList = ({
-  items
+  items, onPress
 }) => (
   <View style={styles.wrapper}>
     {
-      items.map(item => (
+      items.map((item, index) => (
         <View key={item.id} style={mb10}>
           <ExpenseItem
             title={item.title}
@@ -28,6 +28,7 @@ const ExpenseList = ({
             bottomValue={item.bottomValue}
             logo={item.logo}
             disabled={item.disabled}
+            onPress={() => onPress(index)}
           />
         </View>
       ))
@@ -46,7 +47,8 @@ ExpenseList.propTypes = {
       logo: string.isRequired,
       disabled: bool
     })
-  ).isRequired
+  ).isRequired,
+  onPress: func
 };
 
 export default ExpenseList;

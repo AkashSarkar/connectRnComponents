@@ -264,13 +264,22 @@ const ListTest = ({ navigation }) => (
       />
     </View>
     <View style={mb20}>
-      <ExpenseList items={expense} />
+      <ExpenseList
+        items={expense}
+        onPress={id => console.log(id)}
+      />
     </View>
     <View style={mb20}>
-      <HotelList items={hotels} />
+      <HotelList
+        items={hotels}
+        onPress={id => console.log(id)}
+      />
     </View>
     <View style={mb20}>
-      <TripTypeList items={trips} />
+      <TripTypeList
+        items={trips}
+        onPress={id => console.log(id)}
+      />
     </View>
   </ScrollView>
 );

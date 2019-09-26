@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import {
-  arrayOf, shape, number, string
+  arrayOf, shape, number, string, func
 } from 'prop-types';
 import { mr10 } from '../../../styles/commonStyle';
 import { colors } from '../../../styles/baseStyle';
@@ -17,7 +17,7 @@ const styles = {
 };
 
 const TripTypeList = ({
-  items
+  items, onPress
 }) => (
   <ScrollView
     style={styles.wrapper}
@@ -25,11 +25,12 @@ const TripTypeList = ({
     showsHorizontalScrollIndicator={false}
   >
     {
-      items.map(item => (
+      items.map((item, index) => (
         <View key={item.id} style={mr10}>
           <TripType
             logo={item.logo}
             title={item.title}
+            onPress={() => onPress(index)}
           />
         </View>
       ))
@@ -44,7 +45,8 @@ TripTypeList.propTypes = {
       title: string.isRequired,
       logo: string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  onPress: func
 };
 
 export default TripTypeList;
