@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, StyleSheet, PanResponder, Animated
+  View, StyleSheet, TouchableOpacity, Animated
 } from 'react-native';
 import { string } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
-import { TextComponent, BoxShadow } from '../../ui';
-import { fonts, gradientColors, colors } from '../../../styles/baseStyle';
+import { TextComponent, BoxShadow } from '../../../ui';
+import { fonts, gradientColors, colors } from '../../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   rootContainer: {
@@ -22,6 +22,14 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     borderRadius: 16
+  },
+  meter: {
+    position: 'absolute',
+    height: '120%',
+    top: 15,
+    left: 0,
+    borderWidth: 1,
+    borderColor: colors.red1
   },
   utilizedLimitWrapper: {
     minWidth: '50%',
@@ -41,24 +49,28 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 16
   },
-  slider: {
+  scale: {
+    width: '100%',
+    borderWidth: 1,
+    borderColor: colors.colorSecondery,
+    position: 'relative'
+  },
+  scaleMarks: {
     position: 'absolute',
-    height: 35,
-    top: '25%',
-    width: 35,
-    backgroundColor: colors.white1,
-    borderRadius: 50
+    height: 12,
+    top: 0,
+    borderLeftWidth: 1,
+    borderColor: colors.colorSecondery
   }
 });
 
 const Limit = ({
-  title1, title2, utilizedLimit, limit, setUtilizedLimit
+  title1, title2, utilizedLimit, limit
 }) => {
   const [utilizedWidth, setUtilizedWidth] = useState(0);
   const [limitWidth, setLimitWidth] = useState(new Animated.Value(0));
   const [translateX, setTranslateX] = useState(new Animated.Value(0));
   const [totalViewWidth, setTotalViewWidth] = useState(0);
-  const [sliderLeftOffset, setSliderLeftOffset] = useState(0);
 
   const animateWidth = (toWidth) => {
     Animated.timing(limitWidth, {
@@ -66,7 +78,7 @@ const Limit = ({
       duration: 500
     }).start();
     Animated.timing(translateX, {
-      toValue: toWidth - 15,
+      toValue: toWidth < totalViewWidth - 10 ? toWidth + 10 : toWidth,
       duration: 500
     }).start();
   };
@@ -80,38 +92,23 @@ const Limit = ({
     return utilizedWidthValue;
   };
 
-  const calculateLeftOffset = (xPos) => {
-    if (xPos < totalViewWidth - 12 && xPos > utilizedWidth) {
-      let offset = xPos;
-      if (offset < sliderLeftOffset) {
-        console.log('negative');
-        offset *= -1;
-      }
-      //   console.log('offset', offset);
-      const amountUnit = parseInt((limit * 0.01), 10);
-      const increment = parseInt((amountUnit / totalViewWidth) * offset, 10);
-      setUtilizedLimit(utilizedLimit + (increment));
-      //   console.log(totalViewWidth, amountUnit, increment);
-      setSliderLeftOffset(offset - utilizedWidth);
-    }
-  };
-
-  const onMoveSlider = (gestureState) => {
-    // console.log(gestureState);
-    calculateLeftOffset(gestureState.moveX);
-  };
-
-  const panResponder = PanResponder.create({
-    onMoveShouldSetPanResponderCapture: () => true,
-    onPanResponderMove: (_, gestureState) => onMoveSlider(gestureState),
-    onPanResponderRelease: () => {},
-    onPanResponderTerminate: () => {}
-  });
-
   useEffect(() => {
     if (utilizedLimit <= limit) { animateWidth(calculateWidth(totalViewWidth)); }
   }, [utilizedLimit, totalViewWidth]);
 
+  const generateMarks = () => {
+    const marks = [];
+    let left = -1;
+    const increment = totalViewWidth / 10;
+    for (let i = 0; i <= 11; i++) {
+      marks.push((
+        <View key={i} style={[styles.scaleMarks, { left }]} />
+      ));
+      left += increment;
+    }
+
+    return marks;
+  };
 
   return (
     <View style={styles.rootContainer}>
@@ -127,7 +124,7 @@ const Limit = ({
                 colors={gradientColors.gradientSecondary}
               />
             </Animated.View>
-            <Animated.View {...panResponder.panHandlers} style={{ ...styles.slider, left: sliderLeftOffset, transform: [{ translateX }] }}>
+            <Animated.View style={{ ...styles.meter, transform: [{ translateX }] }}>
 
             </Animated.View>
 
@@ -147,13 +144,16 @@ const Limit = ({
           </View>
         </LinearGradient>
       </BoxShadow>
+      <View style={styles.scale}>
+        {generateMarks()}
+      </View>
     </View>
   );
 };
 
 Limit.defaultProps = {
-  title1: 'Budget Amount',
-  title2: 'Total Amount'
+  title1: 'Utilized Limit',
+  title2: 'Available Limit'
 };
 
 Limit.propTypes = {

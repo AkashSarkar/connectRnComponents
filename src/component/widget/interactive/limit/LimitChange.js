@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, StyleSheet, TouchableOpacity, Animated
+  View, StyleSheet, PanResponder, Animated
 } from 'react-native';
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
-import { TextComponent, BoxShadow } from '../../ui';
-import { fonts, gradientColors, colors } from '../../../styles/baseStyle';
+import { TextComponent, BoxShadow } from '../../../ui';
+import { fonts, gradientColors, colors } from '../../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   rootContainer: {
@@ -22,14 +22,6 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     borderRadius: 16
-  },
-  meter: {
-    position: 'absolute',
-    height: '120%',
-    top: 15,
-    left: 0,
-    borderWidth: 1,
-    borderColor: colors.red1
   },
   utilizedLimitWrapper: {
     minWidth: '50%',
@@ -49,23 +41,19 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 16
   },
-  scale: {
-    width: '100%',
-    borderWidth: 1,
-    borderColor: colors.colorSecondery,
-    position: 'relative'
-  },
-  scaleMarks: {
+  slider: {
     position: 'absolute',
-    height: 12,
-    top: 0,
-    borderLeftWidth: 1,
-    borderColor: colors.colorSecondery
+    height: 35,
+    top: '25%',
+    width: 35,
+    backgroundColor: colors.white1,
+    borderRadius: 50,
+    left: 0
   }
 });
 
 const Limit = ({
-  title1, title2, utilizedLimit, limit
+  title1, title2, utilizedLimit, limit, setUtilizedLimit
 }) => {
   const [utilizedWidth, setUtilizedWidth] = useState(0);
   const [limitWidth, setLimitWidth] = useState(new Animated.Value(0));
@@ -78,7 +66,7 @@ const Limit = ({
       duration: 500
     }).start();
     Animated.timing(translateX, {
-      toValue: toWidth < totalViewWidth - 10 ? toWidth + 10 : toWidth,
+      toValue: toWidth > 15 ? toWidth - 15 : toWidth + 15,
       duration: 500
     }).start();
   };
@@ -92,23 +80,34 @@ const Limit = ({
     return utilizedWidthValue;
   };
 
+  const calculateLeftOffset = (xPos) => {
+    const unit = (limit / totalViewWidth);
+    const amountUnit = parseInt((unit * (xPos - utilizedWidth)), 10);
+    if (xPos < (utilizedWidth)) {
+      setUtilizedLimit(utilizedLimit + amountUnit, 10);
+    }
+    if (xPos <= totalViewWidth) {
+      if (xPos > (utilizedWidth + 15)) {
+        setUtilizedLimit(utilizedLimit + (amountUnit));
+      }
+    }
+  };
+
+  const onMoveSlider = (gestureState) => {
+    calculateLeftOffset(gestureState.moveX);
+  };
+
+  const panResponder = PanResponder.create({
+    onMoveShouldSetPanResponderCapture: () => true,
+    onPanResponderMove: (_, gestureState) => onMoveSlider(gestureState),
+    onPanResponderRelease: () => {},
+    onPanResponderTerminate: () => {}
+  });
+
   useEffect(() => {
     if (utilizedLimit <= limit) { animateWidth(calculateWidth(totalViewWidth)); }
   }, [utilizedLimit, totalViewWidth]);
 
-  const generateMarks = () => {
-    const marks = [];
-    let left = -1;
-    const increment = totalViewWidth / 10;
-    for (let i = 0; i <= 11; i++) {
-      marks.push((
-        <View key={i} style={[styles.scaleMarks, { left }]} />
-      ));
-      left += increment;
-    }
-
-    return marks;
-  };
 
   return (
     <View style={styles.rootContainer}>
@@ -124,7 +123,7 @@ const Limit = ({
                 colors={gradientColors.gradientSecondary}
               />
             </Animated.View>
-            <Animated.View style={{ ...styles.meter, transform: [{ translateX }] }}>
+            <Animated.View {...panResponder.panHandlers} style={{ ...styles.slider, transform: [{ translateX }] }}>
 
             </Animated.View>
 
@@ -144,23 +143,21 @@ const Limit = ({
           </View>
         </LinearGradient>
       </BoxShadow>
-      <View style={styles.scale}>
-        {generateMarks()}
-      </View>
     </View>
   );
 };
 
 Limit.defaultProps = {
-  title1: 'Utilized Limit',
-  title2: 'Available Limit'
+  title1: 'Budget Amount',
+  title2: 'Total Amount'
 };
 
 Limit.propTypes = {
   title1: string,
   title2: string,
   utilizedLimit: string.isRequired,
-  limit: string.isRequired
+  limit: string.isRequired,
+  setUtilizedLimit: func.isRequired
 };
 
 export default Limit;
