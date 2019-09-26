@@ -25,6 +25,8 @@ import Avatar from './card/Avatar';
 import AvatarList from './list/AvatarList';
 import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
+import SplitItem from './interactive/SplitItem';
+import SplitList from './interactive/SplitList';
 
 export {
   SeatListItem,
@@ -53,5 +55,7 @@ export {
   AmountChange,
   ModalSecondary,
   Avatar,
-  AvatarList
+  AvatarList,
+  SplitItem,
+  SplitList
 };

@@ -1,8 +1,8 @@
 import React from 'react';
-import {ScrollView, View} from "react-native";
-import {colors, fonts, gradientColors} from "../../styles/baseStyle";
-import {ButtonPrimary, TextComponent} from "../../component/ui";
-import {p10, pb10} from "../../styles/commonStyle";
+import { ScrollView, View } from 'react-native';
+import { colors, fonts, gradientColors } from '../../styles/baseStyle';
+import { ButtonPrimary, TextComponent } from '../../component/ui';
+import { p10, pb10 } from '../../styles/commonStyle';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -10,7 +10,7 @@ const screenContainer = {
   justifyContent: 'space-between'
 };
 
-const UIComponentTest = ({navigation}) => {
+const UIComponentTest = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={screenContainer}>
       <View style={[p10]}>

@@ -1,32 +1,34 @@
-import React from 'react';
-import {ScrollView, View} from "react-native";
-import {colors, fonts, gradientColors} from "../../styles/baseStyle";
-import {TextComponent} from "../../component/ui";
-import {mb10, pb10} from "../../styles/commonStyle";
-import AccountSliderItem from "../../component/widget/card/AccountSliderItem";
-import AccountListItem from "../../component/widget/card/AccountListItem";
-import AccountDetails from "../../component/widget/card/AccountDetails";
-import Ad from "../../component/widget/card/Ad";
+import React, { useState } from 'react';
+import { ScrollView, View } from 'react-native';
+import { colors, fonts, gradientColors } from '../../styles/baseStyle';
+import { ButtonPrimary, TextComponent } from '../../component/ui';
+import { mb10, p10, pb10 } from '../../styles/commonStyle';
+import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
+import AccountListItem from '../../component/widget/card/AccountListItem';
+import AccountDetails from '../../component/widget/card/AccountDetails';
+import Ad from '../../component/widget/card/Ad';
+import InputField from '../../component/widget/input/InputField';
+import assets from '../../assets';
 
-const WidgetL1Test = ({navigation}) => {
-
+const WidgetL1Test = ({ navigation }) => {
+  const [search, setSearch] = useState('');
   const handleAccountSliderItem = () => {
-    alert("AccountSliderItem");
+    alert('AccountSliderItem');
   };
 
   const accountListonSwitchChange = () => {
-    alert("accountListonSwitchChange");
+    alert('accountListonSwitchChange');
   };
 
   const handleAccountDetailsShareButton = () => {
-    alert("handleShareButton");
+    alert('handleShareButton');
   };
 
   const handleOnAdChange = () => {
-    alert("handleOnAdChange");
+    alert('handleOnAdChange');
   };
 
-  let accountListItemInformation = {
+  const accountListItemInformation = {
     accountName: 'Jamuna Bank',
     suffix: '23',
     accountNo: '4829 888888 9090 99',
@@ -60,11 +62,12 @@ const WidgetL1Test = ({navigation}) => {
         <AccountSliderItem
           handleInformation={handleAccountSliderItem}
           gradient={gradientColors.gradientYellow}
-          suffixNo="12" amount={`125897.00`}
-          connectAcc={`0002-90909-90909`}
+          suffixNo="12"
+          amount="125897.00"
+          connectAcc="0002-90909-90909"
         />
       </View>
-      {/*widget/card/AccountSliderItem*/}
+      {/* widget/card/AccountSliderItem */}
 
       <View style={[pb10]}>
         <TextComponent
@@ -77,7 +80,7 @@ const WidgetL1Test = ({navigation}) => {
           onSwitchChange={accountListonSwitchChange}
           accountInformation={accountListItemInformation}/>
       </View>
-      {/*widget/card/AccountListItem*/}
+      {/* widget/card/AccountListItem */}
 
       <View style={[pb10]}>
         <TextComponent
@@ -89,7 +92,7 @@ const WidgetL1Test = ({navigation}) => {
         <AccountDetails
           handleShareButton={handleAccountDetailsShareButton}/>
       </View>
-      {/*widget/card/AccountDetails*/}
+      {/* widget/card/AccountDetails */}
 
       <View style={[pb10]}>
         <TextComponent
@@ -101,13 +104,29 @@ const WidgetL1Test = ({navigation}) => {
         <Ad
           handleCloseAd={handleOnAdChange}
           title="Lorem ipsum dolor sit amet"
-          details="consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."/>
+          details="consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+        />
       </View>
-      {/*widget/card/Ad*/}
+      {/* widget/card/Ad */}
 
-
+      <View style={[p10]}>
+        <View style={mb10}>
+          <TextComponent
+            size={fonts.fs30}
+            color={colors.black0}
+            content="Card Input Widget"
+            family={fonts.bold}
+          />
+        </View>
+        <ButtonPrimary
+          buttonColor={gradientColors.gradient5}
+          textColor={colors.bgPrimary}
+          content="Input Widget Test"
+          onPress={() => navigation.navigate('WidgetInputTest')}
+        />
+      </View>
     </ScrollView>
-  )
+  );
 };
 
-export default WidgetL1Test
+export default WidgetL1Test;

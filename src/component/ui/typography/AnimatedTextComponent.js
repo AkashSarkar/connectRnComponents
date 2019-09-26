@@ -1,6 +1,6 @@
 import React from 'react';
 import { string, number } from 'prop-types';
-import AnimateOpacity from '../animation/AnimateOpacity';
+import AnimateOpacity from '../wrapper/animation/AnimateOpacity';
 import TextComponent from './TextComponent';
 
 const AnimatedTextComponent = (

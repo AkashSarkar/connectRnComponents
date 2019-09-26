@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {ScrollView, View} from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, View } from 'react-native';
 import InputField from '../../component/widget/input/InputField';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import assets from '../../assets';
-import {p10} from '../../styles/commonStyle';
-import {AmountChange} from '../../component/widget';
-import {TextComponent} from "../../component/ui";
-import {colors, fonts} from "../../styles/baseStyle";
+import { p10 } from '../../styles/commonStyle';
+import { AmountChange } from '../../component/widget';
+import { TextComponent } from "../../component/ui";
+import { colors, fonts } from "../../styles/baseStyle";
 import Switch from "../../component/ui/input/Switch";
 
 const InputTest = () => {
@@ -26,7 +26,7 @@ const InputTest = () => {
           family={fonts.bold}
         />
         <BoxShadow>
-          <View style={{padding: 15}}>
+          <View style={{ padding: 15 }}>
             <InputField
               value={name}
               keyboardType="numeric"
@@ -61,7 +61,7 @@ const InputTest = () => {
           family={fonts.bold}
         />
         <BoxShadow>
-          <View style={{padding: 15}}>
+          <View style={{ padding: 15 }}>
             <InputField
               value={number}
               placeholder="+880"
@@ -99,7 +99,7 @@ const InputTest = () => {
           family={fonts.bold}
         />
         <BoxShadow>
-          <View style={{padding: 15}}>
+          <View style={{ padding: 15 }}>
             <InputField
               value={id}
               label="6 Digit PIN Code"
@@ -135,7 +135,7 @@ const InputTest = () => {
           family={fonts.bold}
         />
         <BoxShadow>
-          <View style={{padding: 15}}>
+          <View style={{ padding: 15 }}>
             <AmountChange title="Adults"/>
           </View>
         </BoxShadow>
@@ -148,7 +148,7 @@ const InputTest = () => {
           family={fonts.bold}
         />
         <BoxShadow>
-          <View style={{padding: 15}}>
+          <View style={{ padding: 15 }}>
             <InputField
               value={search}
               placeholder="Type here"
@@ -186,12 +186,12 @@ const InputTest = () => {
           content="input/Switch"
           family={fonts.bold}
         />
-        <View style={{marginLeft: 10}}>
+        <View style={{ marginLeft: 10 }}>
           <Switch
             value={false}
             onChange={value => console.log(value)}
             thumbColor={colors.secondary}
-            trackColor={colors.grey1}
+            trackColor={colors.grey2}
           />
         </View>
         {/*input/Switch*/}

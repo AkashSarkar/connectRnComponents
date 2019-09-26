@@ -103,18 +103,7 @@ const CardTest = () => (
         rating="4"
       />
     </View>
-    <View style={mb20}>
-      <InputLogin />
-    </View>
-    <View style={mb20}>
-      <InputLabeled />
-    </View>
-    <View style={mb20}>
-      <InputTabbed />
-    </View>
-    <View style={mb20}>
-      <InputMiddleLabeled />
-    </View>
+
   </ScrollView>
 );
 
