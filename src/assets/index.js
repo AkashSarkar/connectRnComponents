@@ -15,7 +15,8 @@ const assets = {
   LeftArrow: require('./icons/LeftArrow.png'),
   Search: require('./icons/search.png'),
   Plus: require('./icons/plus.png'),
-  Minus: require('./icons/minus.png')
+  Minus: require('./icons/minus.png'),
+  Lock: require('./icons/lock.png')
 };
 
 export default assets;

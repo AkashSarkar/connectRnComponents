@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SwipeableWrapper from '../../component/swipeable/SwipeableWrapper';
 import assets from '../../assets';
+import { colors } from "../../styles/baseStyle";
 
 const style = StyleSheet.create({
   boxShadow: {
@@ -86,6 +87,8 @@ const SwipeableWrapperTest = () => {
       <SwipeableWrapper
         rightActions={mapRightActions()}
         leftActions={mapLeftActions()}
+        rightSwiperWidth={192}
+        RightSwiperBackgroundColor={colors.grey1}
         ref={refs.swipeableRef}
       >
         <View style={{
