@@ -36,6 +36,14 @@ const InteractiveTest = ({ navigation }) => (
         onPress={() => navigation.navigate('NotificationTest')}
       />
     </View>
+    <View style={mb10}>
+      <ButtonPrimary
+        buttonColor={gradientColors.gradient5}
+        textColor={colors.bgPrimary}
+        content="Limit Test"
+        onPress={() => navigation.navigate('LimitTest')}
+      />
+    </View>
   </ScrollView>
 );
 

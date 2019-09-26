@@ -54,12 +54,6 @@ const TestRoute = ({ navigation }) => (
       content="Modal Test"
       onPress={() => navigation.navigate('ModalTest')}
     />
-    <ButtonGradientPrimary
-      buttonColor={gradientColors.gradientPrimary}
-      content="Limit Test"
-      onPress={() => navigation.navigate('LimitTest')}
-      textColor={colors.white1}
-    />
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
