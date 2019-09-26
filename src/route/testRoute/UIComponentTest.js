@@ -59,7 +59,7 @@ const UIComponentTest = ({navigation}) => {
         <ButtonPrimary
           buttonColor={gradientColors.gradient5}
           textColor={colors.bgPrimary}
-          content="Button Test"
+          content="Header Test"
           onPress={() => navigation.navigate('HeaderTest')}
         />
       </View>

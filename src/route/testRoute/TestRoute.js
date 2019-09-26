@@ -1,9 +1,7 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
 import {ButtonPrimary} from "../../component/ui";
-import { createAppContainer, createStackNavigator } from 'react-navigation';
 import {colors, gradientColors} from "../../styles/baseStyle";
-import {ph10, pv10} from "../../styles/commonStyle";
 
 const screenContainer = {
   height: '100%',
@@ -35,7 +33,7 @@ const TestRoute = ({navigation}) => (
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
       content="Widget L/1"
-      onPress={() => navigation.navigate('UIComponentTest')}
+      onPress={() => navigation.navigate('WidgetL1Test')}
     />
 
     <ButtonPrimary

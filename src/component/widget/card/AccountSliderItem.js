@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {colors, fonts} from '../../../styles/baseStyle';
-import {mb10, mr20, mt5, p20, pb25, pt20} from '../../../styles/commonStyle';
+import {mb10, mr20, mt5, p20, pb15, pb25, ph20, pt10, pt20, pv10} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
@@ -17,13 +17,13 @@ const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, conne
 
   let decimalStyle = {
     fontFamily: fonts.regular,
-    size: fonts.fs26,
+    size: fonts.fs30,
     color: colors.black0
   };
 
   return (
-    <LinearGradient colors={gradient} style={[styles.cardBg, mt5, pt20, pb25]}>
-      <View style={[p20]}>
+    <LinearGradient colors={gradient} style={[styles.cardBg, mt5, pt10, pb15]}>
+      <View style={[ph20, pv10]}>
         <View style={styles.header}>
           {/*TODO have to change icon   */}
           <TouchableOpacity onPress={handleInformation}>
