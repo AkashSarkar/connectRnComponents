@@ -8,7 +8,8 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv5 } from '../../../styles/commonStyle';
+import image from '../../../assets';
+
 
 const styles = StyleSheet.create({
   buttonWrapper: {
@@ -64,8 +65,8 @@ const ButtonAdd = (
     textColor,
     fontSize,
     onPress,
-    buttonLogoLeft,
-    buttonLogoRight
+    logoLeft,
+    logoRight
   }
 ) => (
   <TouchableOpacity onPress={onPress}>
@@ -77,13 +78,13 @@ const ButtonAdd = (
       {/* <View style={styles.leftImageWrapper}> */}
       <Image
         style={styles.coverImageStyle}
-        source={buttonLogoLeft}
+        source={image[logoLeft]}
       />
       {/* </View> */}
       <View style={styles.leftWrapper}>
         <Image
           style={styles.imageStyle}
-          source={buttonLogoRight}
+          source={image[logoRight]}
         />
       </View>
       <View style={styles.rightWrapper}>
@@ -103,8 +104,8 @@ ButtonAdd.propTypes = {
   buttonColor: array.isRequired,
   textColor: string.isRequired,
   fontSize: number,
-  buttonLogoLeft: number.isRequired,
-  buttonLogoRight: number.isRequired,
+  logoLeft: string.isRequired,
+  logoRight: string.isRequired,
   onPress: func
 };
 

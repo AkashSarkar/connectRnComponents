@@ -19,7 +19,6 @@ import {
   ButtonDouble
 } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import assets from '../../assets';
 
 
 const styles = StyleSheet.create({
@@ -90,7 +89,7 @@ const ButtonTest = ({
       </View>
       <View style={styles.viewWrapper}>
         <ButtonConnect
-          buttonLogo={assets.LogoConnect}
+          logo="LogoConnect"
           buttonColor={gradientColors.gradient6}
           onPress={() => console.warn('Button Brand')}
         />
@@ -98,7 +97,7 @@ const ButtonTest = ({
       <View style={styles.viewWrapper}>
         <ButtonCenter
           content="Button Center"
-          buttonLogo={assets.Check}
+          logo="Check"
           buttonColor={colors.white1}
           textColor={colors.text1}
           fontSize={fonts.fs14}
@@ -108,8 +107,8 @@ const ButtonTest = ({
       <View style={styles.viewWrapper}>
         <ButtonAdd
           content="Button Add"
-          buttonLogoLeft={assets.Check}
-          buttonLogoRight={assets.Check}
+          logoLeft="Check"
+          logoRight="Check"
           buttonColor={gradientColors.gradient4}
           textColor={colors.text1}
           fontSize={fonts.fs14}
@@ -168,7 +167,7 @@ const ButtonTest = ({
       </View>
       <View style={styles.viewWrapper}>
         <ButtonCommunication
-          buttonLogo={assets.Check}
+          logo="Check"
           buttonColor={colors.white1}
           textColor={colors.text2}
           fontSize={fonts.fs14}
