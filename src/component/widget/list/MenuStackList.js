@@ -56,7 +56,7 @@ const MenuStackList = ({
           {bottom.map((item, index) => (
             <View key={item.id} style={mr10}>
               <MenuItem
-                content={`${item.content}dsdksjd`}
+                content={`${item.content}`}
                 logo={item.logo}
                 buttonColor={item.buttonColor}
                 textColor={item.textColor}

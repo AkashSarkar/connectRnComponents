@@ -30,7 +30,9 @@ const assets = {
   JamunaBankLogo1: require('./icons/JamunaBankLogo1.png'),
   JamunaBankLogo2: require('./icons/JamunaBankLogo2.png'),
   ConnectSign: require('./icons/ConnectSign.png'),
-  Add: require('./icons/Add.png')
+  Add: require('./icons/Add.png'),
+  Desco: require('./icons/Desco.png'),
+  CashAndAccount: require('./icons/CashAndAccount.png')
 };
 
 export default assets;

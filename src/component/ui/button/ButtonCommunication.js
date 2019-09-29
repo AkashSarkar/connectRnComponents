@@ -1,8 +1,11 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {func, string} from 'prop-types';
-import {colors} from '../../../styles/baseStyle';
-import {pv5} from '../../../styles/commonStyle';
+import {
+  Image, StyleSheet, TouchableOpacity, View
+} from 'react-native';
+import { func, string } from 'prop-types';
+import { colors } from '../../../styles/baseStyle';
+import { pv5 } from '../../../styles/commonStyle';
+import image from '../../../assets';
 
 
 const styles = StyleSheet.create({
@@ -35,18 +38,19 @@ const styles = StyleSheet.create({
 const ButtonCommunication = (
   {
     buttonColor, buttonWidth, buttonHeight, buttonBorderRadius, iconHeight, iconWidth, logo, onPress
-  }) => (
+  }
+) => (
   <TouchableOpacity onPress={onPress}>
     <View
       style={
         [styles.buttonWrapper,
-          {backgroundColor: buttonColor},
-          {width: buttonWidth, height: buttonHeight, borderRadius: buttonBorderRadius}]}
+          { backgroundColor: buttonColor },
+          { width: buttonWidth, height: buttonHeight, borderRadius: buttonBorderRadius }]}
       hitSlop={styles.hitSlop}
     >
       <Image
-        style={[styles.imageStyle, {height: iconHeight, width: iconWidth}]}
-        source={logo}
+        style={[styles.imageStyle, { height: iconHeight, width: iconWidth }]}
+        source={image[logo]}
       />
     </View>
   </TouchableOpacity>

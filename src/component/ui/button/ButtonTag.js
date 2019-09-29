@@ -11,13 +11,14 @@ import { pv5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    width: 150,
-    height: 46,
+    // width: 150,
+    height: 30,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
     ...pv5,
+    paddingHorizontal: 10,
     elevation: 1,
     shadowColor: colors.black1,
     shadowOffset: {
@@ -25,7 +26,8 @@ const styles = StyleSheet.create({
       height: 3
     },
     shadowRadius: 6,
-    shadowOpacity: 1
+    shadowOpacity: 1,
+    marginRight: 10
   },
   hitSlop: {
     top: 5,
@@ -36,11 +38,16 @@ const styles = StyleSheet.create({
 });
 
 const ButtonTag = ({
-  content, buttonColor, textColor, fontSize, onPress
+  contentL, contentR, buttonColorL, buttonColorR, textColor, fontSize, onPress
 }) => (
   <TouchableOpacity onPress={onPress}>
-    <View style={[styles.buttonWrapper, { backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
-      <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />
+    <View style={{ flexDirection: 'row' }}>
+      <View style={[styles.buttonWrapper, { backgroundColor: buttonColorL }]} hitSlop={styles.hitSlop}>
+        <TextComponent content={contentL} family={fonts.regular} size={fontSize} color={textColor} />
+      </View>
+      <View style={[styles.buttonWrapper, { backgroundColor: buttonColorR }]} hitSlop={styles.hitSlop}>
+        <TextComponent content={contentR} family={fonts.regular} size={fontSize} color={textColor} />
+      </View>
     </View>
   </TouchableOpacity>
 );

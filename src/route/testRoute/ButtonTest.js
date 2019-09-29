@@ -84,7 +84,7 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonGradientPrimary
-          content="Button Gradient Primary"
+          content="Authorize"
           buttonColor={gradientColors.gradient6}
           textColor={colors.bgPrimary}
           fontSize={fonts.fs14}
@@ -101,7 +101,7 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonGrey
-          content="Button Grey"
+          content="Pay Now"
           buttonColor={gradientColors.gradient3}
           textColor={colors.bgPrimary}
           fontSize={fonts.fs14}
@@ -133,8 +133,10 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonTag
-          content="Button Tag"
-          buttonColor={colors.white1}
+          contentL="Basic"
+          contentR="Account Management"
+          buttonColorL={colors.colorSecondery}
+          buttonColorR={colors.white1}
           textColor={colors.text2}
           fontSize={fonts.fs10}
           onPress={() => console.warn('Button Desco')}
@@ -150,7 +152,7 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonCenter
-          content="Button Center"
+          content="Add New Account"
           logo="Plus"
           buttonColor={colors.white1}
           textColor={colors.text1}
@@ -186,7 +188,7 @@ const ButtonTest = ({ params }) => (
         />
         <ButtonBrand
           content="DESCO"
-          logo="Check"
+          logo="Desco"
           buttonColor="yellow1"
           textColor={colors.text2}
           fontSize={fonts.fs10}
@@ -204,7 +206,7 @@ const ButtonTest = ({ params }) => (
         />
         <MenuItem
           content="Cash & Account"
-          logo="Check"
+          logo="CashAndAccount"
           buttonColor="white1"
           textColor={colors.text2}
           fontSize={fonts.fs10}
