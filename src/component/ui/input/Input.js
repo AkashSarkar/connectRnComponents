@@ -8,7 +8,7 @@ import {
   any, bool, func, number, string
 } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { mr5, pv5 } from '../../../styles/commonStyle';
+import { mb5, mr5, pv5 } from '../../../styles/commonStyle';
 
 const style = StyleSheet.create({
   input: {
@@ -24,7 +24,7 @@ const style = StyleSheet.create({
   },
   wrapperStyle: {
     flexDirection: 'row',
-    borderBottomColor: colors.grey1,
+    borderBottomColor: colors.grey3,
     borderBottomWidth: 1
   },
   iconStyle: {
@@ -94,7 +94,7 @@ const Input = forwardRef(
     return (
       <View style={[style.wrapperStyle, borderStyle(), { opacity: disable ? 0.2 : 1.0 }]}>
         {isIcon && (
-          <View style={mr5}>
+          <View style={[mr5, mb5]}>
             <Image source={iconSource} style={style.iconStyle}/>
           </View>
         )}

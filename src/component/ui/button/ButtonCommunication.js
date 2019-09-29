@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3
     },
-    shadowRadius: 6,
     shadowOpacity: 1
   },
   hitSlop: {

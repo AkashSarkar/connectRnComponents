@@ -20,13 +20,14 @@ const styles = {
     shadowOpacity: 0.2
   },
   imageStyle: {
-    width: 100,
-    height: 100
+    width: '100%',
+    height: '100%'
   },
   leftStyle: {
-
+    width: '50%'
   },
   rightStyle: {
+    width: '50%',
     justifyContent: 'center',
     alignItems: 'flex-end',
     ...p15
@@ -38,7 +39,7 @@ const CTA = ({
 }) => (
   <TouchableOpacity onPress={onPress} style={styles.wrapper}>
     <View style={styles.leftStyle}>
-      <Image style={styles.imageStyle} source={image.Check} />
+      <Image style={styles.imageStyle} source={image.SendMoney} />
     </View>
     <View style={[styles.rightStyle, mb10]}>
       <TextComponent

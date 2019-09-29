@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { ButtonGradientPrimary, ButtonPrimary } from '../../component/ui';
+import { ButtonPrimary } from '../../component/ui';
 import { colors, gradientColors } from '../../styles/baseStyle';
 
 const screenContainer = {

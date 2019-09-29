@@ -10,7 +10,7 @@ const styles = {
     height: 100,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: colors.white1,
     borderRadius: 8,
     paddingLeft: 10,
@@ -18,12 +18,14 @@ const styles = {
     elevation: 1,
     shadowColor: colors.black0,
     shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2
+    shadowOpacity: 0.2,
+    paddingBottom: 20
   },
   leftWrapper: {
-
+    justifyContent: 'flex-end'
   },
   rightWrapper: {
+    justifyContent: 'flex-end',
     alignItems: 'flex-end'
   }
 };
@@ -32,7 +34,7 @@ const SeatListItem = ({
   title, subtitle, duration, price, available
 }) => (
   <View style={styles.wrapper}>
-    <View>
+    <View style={styles.leftWrapper}>
       <TextComponent
         content={title}
         color={colors.black1}

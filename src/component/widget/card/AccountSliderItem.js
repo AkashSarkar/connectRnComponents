@@ -1,12 +1,13 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {colors, fonts, gradientColors} from '../../../styles/baseStyle';
-import {mb10, mr20, mt5, pb15, ph20, pt10, pv10} from '../../../styles/commonStyle';
+import {mb15, mr15, ph15, pv15} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
 import {array, func, number, string} from 'prop-types';
 import assets from '../../../assets';
+import {ButtonCommunication} from "../../ui";
 
 const AccountSliderItem = (
   {
@@ -20,7 +21,7 @@ const AccountSliderItem = (
   }) => {
   let amountStyle = {
     fontFamily: fonts.regular,
-    size: fonts.fs52,
+    size: fonts.fs50,
     color: colors.black0
   };
 
@@ -31,20 +32,21 @@ const AccountSliderItem = (
   };
 
   return (
-    <LinearGradient colors={gradient} style={[styles.cardBg, mt5, pt10, pb15]}>
-      <View style={[ph20, pv10]}>
-        <View style={styles.header}>
-          {/*TODO have to change icon   */}
-          <TouchableOpacity onPress={handleInformation}>
-            <Image
-              style={[styles.informationIcon, mb10]}
-              source={InfoImage}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.body}>
-          <View style={mr20}>
-            {/*TODO have to change icon   */}
+    <LinearGradient colors={gradient} style={[styles.cardBg]}>
+      <View style={[ph15, pv15, mb15]}>
+        <ButtonCommunication
+          logo={InfoImage}
+          buttonColor={colors.white1}
+          buttonWidth={20}
+          buttonHeight={20}
+          buttonBorderRadius={10}
+          iconHeight={20}
+          iconWidth={20}
+          textColor={colors.text2}
+          fontSize={fonts.fs14}
+          onPress={handleInformation}/>
+        <View style={[styles.body]}>
+          <View style={mr15}>
             <Image
               style={{width: 35, height: 35}}
               source={connectImage}
@@ -84,10 +86,6 @@ const styles = StyleSheet.create({
     },
     elevation: 1,
     borderRadius: 20
-  },
-  informationIcon: {
-    width: 20,
-    height: 20,
   },
   body: {
     alignItems: "center",

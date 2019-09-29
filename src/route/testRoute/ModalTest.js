@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, SafeAreaView
+  View, StyleSheet, ScrollView, SafeAreaView
 } from 'react-native';
-import { ButtonPrimary } from '../../component/ui';
+import { ButtonPrimary, HeaderTop } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import { ModalSecondary, ModalDouble } from '../../component/widget';
 
@@ -104,7 +104,12 @@ const styles = StyleSheet.create({
   }
 });
 
-class ModalTest extends Component {
+class ModalTest extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    header: <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
+  });
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -141,6 +146,7 @@ class ModalTest extends Component {
     return (
       <ScrollView>
         <SafeAreaView style={styles.container}>
+          <HeaderTop content="Modal Test" onPress={() => this.props.navigation.goBack()} />
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal Secondary"

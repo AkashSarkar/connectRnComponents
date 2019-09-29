@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import {ScrollView, View} from 'react-native';
-import {colors, fonts, gradientColors} from '../../styles/baseStyle';
-import {ButtonPrimary, TextComponent} from '../../component/ui';
-import {mb10, mb20, p10, pb10} from '../../styles/commonStyle';
+import React, { useState } from 'react';
+import { ScrollView, View } from 'react-native';
+import { colors, fonts, gradientColors } from '../../styles/baseStyle';
+import { ButtonPrimary, TextComponent, HeaderTop } from '../../component/ui';
+import {
+  mb10, mb20, p10, pb10
+} from '../../styles/commonStyle';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import AccountListItem from '../../component/widget/card/AccountListItem';
 import AccountDetails from '../../component/widget/card/AccountDetails';
@@ -19,9 +21,9 @@ import {
   SeatListItem,
   TripType,
   VerifiedInfo
-} from "../../component/widget";
+} from '../../component/widget';
 
-const WidgetL1Test = ({navigation}) => {
+const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
   const handleAccountSliderItem = () => {
     alert('AccountSliderItem');
@@ -58,6 +60,7 @@ const WidgetL1Test = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={screenContainer}>
+      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
       <View style={mb10}>
         <TextComponent
           size={fonts.fs30}
@@ -93,7 +96,8 @@ const WidgetL1Test = ({navigation}) => {
         <AccountListItem
           onSwitchChange={accountListonSwitchChange}
           onIconPress={onAccountListIconPress}
-          accountInformation={accountListItemInformation}/>
+          accountInformation={accountListItemInformation}
+        />
       </View>
       {/* widget/card/AccountListItem */}
 
@@ -104,7 +108,7 @@ const WidgetL1Test = ({navigation}) => {
           content="widget/card/AccountDetails"
           family={fonts.bold}
         />
-        <AccountDetails handleShareButton={handleAccountDetailsShareButton}/>
+        <AccountDetails handleShareButton={handleAccountDetailsShareButton} />
       </View>
       {/* widget/card/AccountDetails */}
 
@@ -123,6 +127,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
       {/* widget/card/Ad */}
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/CTA"
+          family={fonts.bold}
+        />
         <CTA
           title="Send"
           subtitle="Money"
@@ -130,6 +140,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Avatar"
+          family={fonts.bold}
+        />
         <Avatar
           title="Send"
           subtitle="Money"
@@ -137,6 +153,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/SeatListItem"
+          family={fonts.bold}
+        />
         <SeatListItem
           title="Desh Travels"
           subtitle="110-DHK-CHAP Non AC"
@@ -147,6 +169,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/PopUpMessage"
+          family={fonts.bold}
+        />
         <PopUpMessage
           icon="Check"
           content="Success message"
@@ -154,6 +182,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Amount"
+          family={fonts.bold}
+        />
         <Amount
           title="Due Amount"
           subtitle="Tk. 3,600.00"
@@ -161,6 +195,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/VerifiedInfo"
+          family={fonts.bold}
+        />
         <VerifiedInfo
           title1="bKash Account Name"
           title2="bKash Account Number"
@@ -170,6 +210,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Scan"
+          family={fonts.bold}
+        />
         <Scan
           title="Scan a valid QR code"
           subtitle="Please scan a valid QR code connect ID from
@@ -179,6 +225,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/ExpenseItem"
+          family={fonts.bold}
+        />
         <ExpenseItem
           title="Hotel Name"
           subtitle="Dhaka"
@@ -188,6 +240,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/TripType"
+          family={fonts.bold}
+        />
         <TripType
           logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
           title="Hotel Name"
@@ -195,6 +253,12 @@ const WidgetL1Test = ({navigation}) => {
       </View>
 
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Hotel"
+          family={fonts.bold}
+        />
         <HotelItem
           logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
           title="Hotel Name"
