@@ -25,6 +25,7 @@ import Avatar from './card/Avatar';
 import AvatarList from './list/AvatarList';
 import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
+import ModalDouble from './modal/ModalDouble';
 import SplitItem from './interactive/SplitItem';
 import SplitList from './interactive/SplitList';
 import PaymentInfo from './list/PaymentInfo';
@@ -57,6 +58,7 @@ export {
   CTA,
   AmountChange,
   ModalSecondary,
+  ModalDouble,
   Avatar,
   AvatarList,
   SplitItem,
