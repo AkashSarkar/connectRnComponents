@@ -22,8 +22,8 @@ import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
 import AmountChange from './input/AmountChange';
-import SplitItem from './interactive/SplitItem';
-import SplitList from './interactive/SplitList';
+import SplitItem from './interactive/split/SplitItem';
+import SplitList from './interactive/split/SplitList';
 
 export {
   SeatListItem,

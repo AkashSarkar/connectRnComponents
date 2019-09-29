@@ -89,6 +89,12 @@ const TestRoute = ({ navigation }) => (
     <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
+      content="Fnf Test"
+      onPress={() => navigation.navigate('FnfTest')}
+    />
+    <ButtonPrimary
+      buttonColor={gradientColors.gradient5}
+      textColor={colors.bgPrimary}
       content="Notification Test"
       onPress={() => navigation.navigate('NotificationTest')}
     />

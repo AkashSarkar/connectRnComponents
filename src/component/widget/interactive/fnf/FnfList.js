@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { array } from 'prop-types';
-import { mb10 } from '../../../styles/commonStyle';
+import { mb10 } from '../../../../styles/commonStyle';
 import FnfMember from './FnfMember';
 
 const FnfList = ({ items }) => (

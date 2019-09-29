@@ -3,11 +3,11 @@ import { View, Image } from 'react-native';
 import {
   any, bool, func, number, string
 } from 'prop-types';
-import SwipeableWrapper from '../../swipeable/SwipeableWrapper';
-import assets from '../../../assets';
-import { BoxShadow, TextComponent } from '../../ui';
-import { mr5, p10 } from '../../../styles/commonStyle';
-import { colors, fonts } from '../../../styles/baseStyle';
+import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
+import assets from '../../../../assets';
+import { BoxShadow, TextComponent } from '../../../ui';
+import { mr5, p10 } from '../../../../styles/commonStyle';
+import { colors, fonts } from '../../../../styles/baseStyle';
 
 const styles = {
   wrapper: {

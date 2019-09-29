@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { array } from 'prop-types';
-import { SplitItem } from '../index';
-import { mb10 } from '../../../styles/commonStyle';
+import { SplitItem } from '../../index';
+import { mb10 } from '../../../../styles/commonStyle';
 
 const SplitList = ({ items }) => (
   items.map(item => (
