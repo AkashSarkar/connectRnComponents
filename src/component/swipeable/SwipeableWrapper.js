@@ -46,7 +46,7 @@ export default class SwipeableWrapper extends Component {
           {leftActions.map(action => (
             <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }} key={action.id}>
               <RectButton style={styles.leftAction} onPress={action.pressHandler}>
-                <Image source={action.icon} style={{ height: 30, width: 30 }}/>
+                <Image source={action.icon} style={{ height: 40, width: 40 }}/>
               </RectButton>
             </Animated.View>
           ))}
@@ -76,7 +76,7 @@ export default class SwipeableWrapper extends Component {
           style={[styles.rightAction]}
           onPress={onPressHandler}
         >
-          <Image source={action.icon} style={{ height: 30, width: 30 }}/>
+          <Image source={action.icon} style={{ height: 40, width: 40 }}/>
         </RectButton>
       </Animated.View>
     );
