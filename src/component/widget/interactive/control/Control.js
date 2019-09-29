@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import {
   View, StyleSheet, Animated, PanResponder
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import { getSwipeDirection, isTap, swipeDirections } from './detectSwipe';
+import { gradientColors } from '../../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   bubble: {
     padding: 30,
     borderRadius: 50,
-    backgroundColor: '#333'
+    maxWidth: 62
   },
   arrowContainer: {
     position: 'relative'
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class ControlBubble extends Component {
+class Control extends Component {
   state = {
     bubblePosition: new Animated.ValueXY(),
     bubbleScale: new Animated.Value(1),
@@ -87,11 +89,12 @@ class ControlBubble extends Component {
   };
 
   movementInit = (e, gestureState) => {
-    this.state.bubblePosition.setOffset({
-      x: this.state.bubblePosition.x._value,
-      y: this.state.bubblePosition.y._value
+    const { bubblePosition } = this.state;
+    bubblePosition.setOffset({
+      x: bubblePosition.x._value,
+      y: bubblePosition.y._value
     });
-    this.state.bubblePosition.setValue({ x: 0, y: 0 });
+    bubblePosition.setValue({ x: 0, y: 0 });
   };
 
   onBubbleMove = (e, gestureState) => Animated.event([
@@ -155,12 +158,16 @@ class ControlBubble extends Component {
         </Animated.View>
         <Animated.View
           {...this.movementController.panHandlers}
-          style={[styles.bubble, transformStyle]}
+          style={[transformStyle]}
         >
+          <LinearGradient
+            style={[styles.bubble, styles.gradient]}
+            colors={gradientColors.gradientPrimary}
+          />
         </Animated.View>
       </View>
     );
   }
 }
 
-export default ControlBubble;
+export default Control;

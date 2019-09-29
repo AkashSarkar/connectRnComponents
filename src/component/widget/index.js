@@ -27,7 +27,7 @@ import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
 import SplitItem from './interactive/SplitItem';
 import SplitList from './interactive/SplitList';
-import Control from './interactive/control';
+import Control from './interactive/control/Control';
 
 export {
   SeatListItem,
