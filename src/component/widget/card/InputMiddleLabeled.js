@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { BoxShadow } from '../../ui';
-import { CardTitleWidget } from '../index';
+import CardTitleWidget from '../title/CardTitleWidget';
 import { mb10, p10, p15 } from '../../../styles/commonStyle';
 import InputField from '../input/InputField';
 import assets from '../../../assets';
@@ -48,5 +48,5 @@ const InputMiddleLabeled = () => {
       </BoxShadow>
     </View>
   );
-}
+};
 export default InputMiddleLabeled;

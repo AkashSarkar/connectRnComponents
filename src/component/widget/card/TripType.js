@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Image } from 'react-native';
-import { string } from 'prop-types';
+import { View, Image, TouchableOpacity } from 'react-native';
+import { string, func } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 
@@ -35,9 +35,9 @@ const styles = {
 };
 
 const TripType = ({
-  logo, title
+  logo, title, onPress
 }) => (
-  <View style={styles.wrapper}>
+  <TouchableOpacity onPress={onPress} style={styles.wrapper}>
     <View style={styles.topWrapper}>
       <Image
         style={styles.imagestyle}
@@ -52,12 +52,13 @@ const TripType = ({
         size={fonts.fs14}
       />
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 TripType.propTypes = {
   logo: string.isRequired,
-  title: string.isRequired
+  title: string.isRequired,
+  onPress: func
 };
 
 export default TripType;

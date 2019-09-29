@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Image } from 'react-native';
-import { string } from 'prop-types';
+import { View, Image, TouchableOpacity } from 'react-native';
+import { string, func } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import {
- mb10, mb20, mr5, mb5 
+  mb10, mb20, mr5, mb5
 } from '../../../styles/commonStyle';
 import image from '../../../assets';
 
@@ -46,9 +46,9 @@ const styles = {
 };
 
 const HotelItem = ({
-  logo, title, subtitle, price, people, rating
+  logo, title, subtitle, price, people, rating, onPress
 }) => (
-  <View style={[styles.wrapper, mb10]}>
+  <TouchableOpacity onPress={onPress} style={[styles.wrapper, mb10]}>
     <View style={[styles.topWrapper, mb20]}>
       <Image
         style={styles.imagestyle}
@@ -82,7 +82,7 @@ const HotelItem = ({
       </View>
       <View style={styles.ratingStyle}>
         <View style={[styles.ratingImageListStyle, mr5]}>
-          {Array.from(Array(parseInt(rating, 10)), (i) => <Image key={i} style={styles.ratingImageStyle} source={image.Check} />)
+          {Array.from(Array(parseInt(rating, 10)), i => <Image key={i} style={styles.ratingImageStyle} source={image.Check} />)
           }
         </View>
         <TextComponent
@@ -93,7 +93,7 @@ const HotelItem = ({
         />
       </View>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 HotelItem.propTypes = {
@@ -102,7 +102,8 @@ HotelItem.propTypes = {
   subtitle: string.isRequired,
   price: string.isRequired,
   people: string.isRequired,
-  rating: string.isRequired
+  rating: string.isRequired,
+  onPress: func
 };
 
 export default HotelItem;

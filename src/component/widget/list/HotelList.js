@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import {
-  arrayOf, shape, number, string
+  arrayOf, shape, number, string, func
 } from 'prop-types';
 import { mb10 } from '../../../styles/commonStyle';
 import { colors } from '../../../styles/baseStyle';
@@ -15,11 +15,11 @@ const styles = {
 };
 
 const Hotellist = ({
-  items
+  items, onPress
 }) => (
   <View style={styles.wrapper}>
     {
-      items.map(item => (
+      items.map((item, index) => (
         <HotelItem
           key={item.id}
           logo={item.logo}
@@ -28,6 +28,7 @@ const Hotellist = ({
           price={item.price}
           people={item.people}
           rating={item.rating}
+          onPress={() => onPress(index)}
         />
       ))
     }
@@ -45,7 +46,8 @@ Hotellist.propTypes = {
       people: string.isRequired,
       rating: string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  onPress: func
 };
 
 export default Hotellist;

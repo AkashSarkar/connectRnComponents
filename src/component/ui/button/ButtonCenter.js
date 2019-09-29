@@ -6,6 +6,8 @@ import { number, string, func } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import { pv10 } from '../../../styles/commonStyle';
+import image from '../../../assets';
+
 
 const styles = StyleSheet.create({
   buttonWrapper: {
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
 
 const ButtonCenter = (
   {
-    content, buttonColor, textColor, fontSize, onPress, buttonLogo
+    content, buttonColor, textColor, fontSize, onPress, logo
   }
 ) => (
   <TouchableOpacity onPress={onPress}>
@@ -56,7 +58,7 @@ const ButtonCenter = (
       <View style={styles.leftWrapper}>
         <Image
           style={styles.imageStyle}
-          source={buttonLogo}
+          source={image[logo]}
         />
       </View>
       <View
@@ -78,7 +80,7 @@ ButtonCenter.propTypes = {
   buttonColor: string.isRequired,
   textColor: string.isRequired,
   fontSize: number,
-  buttonLogo: number.isRequired,
+  logo: string.isRequired,
   onPress: func
 };
 

@@ -1,14 +1,15 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Title from '../title/Title';
-import {p20} from "../../../styles/commonStyle";
+import {p20, ph20, pv10} from "../../../styles/commonStyle";
 import BoxShadow from "../../ui/wrapper/BoxShadow";
 
 const styles = StyleSheet.create({
   contentWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    ...p20
+    ...ph20,
+    ...pv10
   },
   imageStyle: {
     width: 35,

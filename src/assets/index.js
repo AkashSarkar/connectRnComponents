@@ -20,7 +20,9 @@ const assets = {
   Connect: require('./icons/Connect.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
-  Beftn: require('./icons/Beftn.png')
+  Beftn: require('./icons/Beftn.png'),
+  ConnectSign: require('./icons/ConnectSign.png'),
+  Add: require('./icons/Add.png'),
 };
 
 export default assets;
