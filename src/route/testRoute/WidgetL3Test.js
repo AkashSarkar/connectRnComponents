@@ -215,7 +215,7 @@ const WidgetL2Test = ({ navigation }) => {
     {
       id: 1,
       content: 'Transport',
-      buttonColor: 'success',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'Check'
 
@@ -223,7 +223,7 @@ const WidgetL2Test = ({ navigation }) => {
     {
       id: 2,
       content: 'Transport',
-      buttonColor: 'error',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'Check'
     },
@@ -237,14 +237,14 @@ const WidgetL2Test = ({ navigation }) => {
     {
       id: 4,
       content: 'Transport',
-      buttonColor: 'yellow1',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'LogoConnect'
     },
     {
       id: 5,
       content: 'Transport',
-      buttonColor: 'success',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'Check'
 
@@ -252,7 +252,7 @@ const WidgetL2Test = ({ navigation }) => {
     {
       id: 6,
       content: 'Transport',
-      buttonColor: 'error',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'Check'
     },
@@ -266,14 +266,14 @@ const WidgetL2Test = ({ navigation }) => {
     {
       id: 8,
       content: 'Transport',
-      buttonColor: 'yellow1',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'LogoConnect'
     },
     {
       id: 9,
       content: 'Transport',
-      buttonColor: 'error',
+      buttonColor: 'white1',
       textColor: 'primary2',
       logo: 'Check'
     }
