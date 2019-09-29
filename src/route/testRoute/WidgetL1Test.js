@@ -25,6 +25,7 @@ import {
 import BoxShadow from "../../component/ui/wrapper/BoxShadow";
 import InputField from "../../component/widget/input/InputField";
 import assets from "../../assets";
+import Selection from "../../component/widget/card/Selection";
 
 const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
@@ -59,6 +60,9 @@ const WidgetL1Test = ({ navigation }) => {
   const screenContainer = {
     paddingHorizontal: 10,
     paddingVertical: 10
+  };
+  const handleSelectionModal = () => {
+    alert('handleSelectionModal');
   };
 
   return (
@@ -180,6 +184,17 @@ const WidgetL1Test = ({ navigation }) => {
           />
           <InputMiddleLabeled/>
         </View>
+      </View>
+      <View style={[pb10]}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Selection"
+          family={fonts.bold}
+        />
+        <Selection
+          heading="Grameenphone"
+          handleModalOpen={handleSelectionModal}/>
       </View>
 
       <View style={[pb10]}>

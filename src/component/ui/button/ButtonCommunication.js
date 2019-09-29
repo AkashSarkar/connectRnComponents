@@ -36,7 +36,14 @@ const styles = StyleSheet.create({
 
 const ButtonCommunication = (
   {
-    buttonColor, buttonWidth, buttonHeight, buttonBorderRadius, iconHeight, iconWidth, logo, onPress
+    buttonColor,
+    buttonWidth,
+    buttonHeight,
+    buttonBorderRadius,
+    iconHeight,
+    iconWidth,
+    logo,
+    onPress
   }
 ) => (
   <TouchableOpacity onPress={onPress}>
@@ -49,7 +56,7 @@ const ButtonCommunication = (
     >
       <Image
         style={[styles.imageStyle, { height: iconHeight, width: iconWidth }]}
-        source={image[logo]}
+        source={logo}
       />
     </View>
   </TouchableOpacity>
