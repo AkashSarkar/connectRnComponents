@@ -21,7 +21,10 @@ import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
 import InputMiddleLabeled from './card/InputMiddleLabeled';
 import CTA from './card/CTA';
+import Avatar from './card/Avatar';
+import AvatarList from './list/AvatarList';
 import AmountChange from './input/AmountChange';
+import ModalSecondary from './modal/ModalSecondary';
 import SplitItem from './interactive/SplitItem';
 import SplitList from './interactive/SplitList';
 import Control from './interactive/control';
@@ -46,11 +49,14 @@ export {
   InputLabeled,
   InputTabbed,
   InputMiddleLabeled,
-  AmountChange,
   DateRange,
   DatePick,
   CardTitleWidget,
   CTA,
+  AmountChange,
+  ModalSecondary,
+  Avatar,
+  AvatarList,
   SplitItem,
   SplitList,
   Control
