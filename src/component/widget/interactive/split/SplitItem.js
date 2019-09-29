@@ -6,7 +6,7 @@ import {
 import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
 import assets from '../../../../assets';
 import { BoxShadow, TextComponent } from '../../../ui';
-import { mr5, p10 } from '../../../../styles/commonStyle';
+import { mr5, p10, p5 } from '../../../../styles/commonStyle';
 import { colors, fonts } from '../../../../styles/baseStyle';
 
 const styles = {
@@ -28,6 +28,18 @@ const styles = {
     borderColor: colors.grey2,
     borderWidth: 1,
     width: '100%'
+  },
+  avatarShadow: {
+    borderRadius: 30,
+    backgroundColor: colors.white2,
+    shadowColor: 'rgba(0, 0, 0, 0.16)',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    elevation: 1
   }
 }
 const SplitItem = ({ avatar, name, amount }) => {
@@ -56,7 +68,7 @@ const SplitItem = ({ avatar, name, amount }) => {
     return (
       <View style={[styles.wrapper, p10]}>
         <View style={styles.leftChild}>
-          <View style={mr5}>
+          <View style={[mr5, styles.avatarShadow]}>
             <Image source={avatar} style={{ height: 60, width: 60 }}/>
           </View>
           <TextComponent
@@ -67,7 +79,7 @@ const SplitItem = ({ avatar, name, amount }) => {
           />
         </View>
         <View style={styles.rightChild}>
-          <Image source={assets.Lock} style={{ height: 20, width: 20 }}/>
+          <Image source={assets.Lock2} style={{ height: 20, width: 20 }}/>
           <TextComponent
             size={fonts.fs18}
             color={colors.primary2}

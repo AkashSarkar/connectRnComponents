@@ -19,6 +19,7 @@ import InteractiveTest from './testRoute/InteractiveTest';
 import WidgetInputTest from './testRoute/WidgetInputTest';
 import UIComponentTest from './testRoute/UIComponentTest';
 import WidgetL1Test from './testRoute/WidgetL1Test';
+import WidgetL2Test from './testRoute/WidgetL2Test';
 import WidgetL3Test from './testRoute/WidgetL3Test';
 import BudgetTest from './testRoute/BudgetTest';
 
@@ -38,6 +39,7 @@ const AppNavigator = createStackNavigator(
     ModalTest,
     UIComponentTest,
     WidgetL1Test,
+    WidgetL2Test,
     WidgetL3Test,
     SplitTest,
     FnfTest,
