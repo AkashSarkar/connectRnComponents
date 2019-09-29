@@ -19,6 +19,8 @@ export const colors = {
   black3: '#9F9D9D',
   black4: '#707070',
   black5: '#838383',
+  black6: '#c9c9c9',
+  black7: '#c2c2c2',
   text1: '#08205C',
   text2: '#000000',
   yellow1: '#fff500',

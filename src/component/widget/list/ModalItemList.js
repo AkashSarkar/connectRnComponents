@@ -11,16 +11,28 @@ const ModalItemList = ({
 }) => (
   <View style={{
     paddingVertical: 10,
-    paddingHorizontal: 30
+    paddingHorizontal: 20
   }}
   >
     <TouchableOpacity onPress={() => onSelect(item.id)}>
-      <TextComponent
-        content={item.title}
-        size={fonts.fs16}
-        family={fonts.semiBold}
-        color={colors.colorSecondery}
-      />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <TextComponent
+          content={item.title}
+          size={fonts.fs16}
+          family={fonts.semiBold}
+          color={colors.colorSecondery}
+        />
+        {item.cardInfo && (
+        <View style={{ marginHorizontal: 20 }}>
+          <TextComponent
+            content={item.cardInfo}
+            size={fonts.fs14}
+            family={fonts.regular}
+            color={colors.black7}
+          />
+        </View>
+        )}
+      </View>
     </TouchableOpacity>
   </View>
 );

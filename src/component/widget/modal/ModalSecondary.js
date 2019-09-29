@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     width: 35
   },
   listViewWrapper: {
-    alignItems: 'center',
+    // alignItems: 'center',
     height: 200,
     width: '100%'
   }
