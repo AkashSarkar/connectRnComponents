@@ -24,6 +24,7 @@ import CTA from './card/CTA';
 import AmountChange from './input/AmountChange';
 import SplitItem from './interactive/SplitItem';
 import SplitList from './interactive/SplitList';
+import Control from './interactive/control';
 
 export {
   SeatListItem,
@@ -51,5 +52,6 @@ export {
   CardTitleWidget,
   CTA,
   SplitItem,
-  SplitList
+  SplitList,
+  Control
 };
