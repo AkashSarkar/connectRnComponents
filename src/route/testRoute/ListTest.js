@@ -3,7 +3,8 @@ import {
   ScrollView, TouchableOpacity, Text, View
 } from 'react-native';
 import {
-  HotelList, TripTypeList, ExpenseList, BrandStackList, MenuStackList, AvatarList
+  HotelList,
+  TripTypeList, ExpenseList, BrandStackList, MenuStackList, AvatarList
 } from '../../component/widget';
 import { mb20 } from '../../styles/commonStyle';
 
@@ -180,7 +181,7 @@ const menus = [
     content: 'Transport',
     buttonColor: 'success',
     textColor: 'primary2',
-    logo: 'Check'
+    logo: 'CashAndAccount'
 
   },
   {
@@ -188,14 +189,14 @@ const menus = [
     content: 'Transport',
     buttonColor: 'error',
     textColor: 'primary2',
-    logo: 'Check'
+    logo: 'CashAndAccount'
   },
   {
     id: 3,
     content: 'Transport',
     buttonColor: 'white1',
     textColor: 'primary2',
-    logo: 'Check'
+    logo: 'CashAndAccount'
   },
   {
     id: 4,
@@ -209,7 +210,7 @@ const menus = [
     content: 'Transport',
     buttonColor: 'success',
     textColor: 'primary2',
-    logo: 'Check'
+    logo: 'CashAndAccount'
 
   },
   {
@@ -217,14 +218,14 @@ const menus = [
     content: 'Transport',
     buttonColor: 'error',
     textColor: 'primary2',
-    logo: 'Check'
+    logo: 'CashAndAccount'
   },
   {
     id: 7,
     content: 'Transport',
     buttonColor: 'white1',
     textColor: 'primary2',
-    logo: 'Check'
+    logo: 'CashAndAccount'
   },
   {
     id: 8,
@@ -305,7 +306,7 @@ const ListTest = ({ navigation }) => (
     >
       <Text> Button Test</Text>
     </TouchableOpacity>
-    <View style={mb20}>
+    <View style={[mb20, { marginTop: 20 }]}>
       <BrandStackList
         items={brands}
         onPress={id => console.log(id)}

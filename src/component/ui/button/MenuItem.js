@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     right: 5
   },
   leftWrapper: {
-    paddingRight: 10
+    // paddingLeft: 10
   },
   rightWrapper: {
     paddingRight: 13

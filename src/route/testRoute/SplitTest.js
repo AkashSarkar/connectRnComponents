@@ -11,19 +11,19 @@ const SplitTest = () => {
     [
       {
         id: 1,
-        avatar: assets.Check,
+        avatar: assets.Monu,
         name: 'Monu',
         amount: '3,600.00'
       },
       {
         id: 2,
-        avatar: assets.Check,
+        avatar: assets.Monu,
         name: 'Montu',
         amount: '4,800.00'
       },
       {
         id: 3,
-        avatar: assets.Check,
+        avatar: assets.Moni,
         name: 'Moni',
         amount: '3,800.00'
       }
@@ -40,7 +40,7 @@ const SplitTest = () => {
             family={fonts.medium}
           />
         </View>
-        <SplitItem name="Monu" avatar={assets.Check} amount="3,600.00"/>
+        <SplitItem name="Monu" avatar={assets.Monu} amount="3,600.00"/>
       </View>
       <View style={[p10, mt10]}>
         <View style={mb10}>

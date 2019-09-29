@@ -5,7 +5,6 @@ import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
 import CardTest from './testRoute/CardTest';
 import ButtonTest from './testRoute/ButtonTest';
 import HeaderTest from './testRoute/HeaderTest';
-import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
 import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
 import ListTest from './testRoute/ListTest';
@@ -20,8 +19,10 @@ import InteractiveTest from './testRoute/InteractiveTest';
 import WidgetInputTest from './testRoute/WidgetInputTest';
 import UIComponentTest from './testRoute/UIComponentTest';
 import WidgetL1Test from './testRoute/WidgetL1Test';
+import WidgetL2Test from './testRoute/WidgetL2Test';
 import WidgetL3Test from './testRoute/WidgetL3Test';
 import ControlTest from './testRoute/ControlTest';
+import BudgetTest from './testRoute/BudgetTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -31,7 +32,6 @@ const AppNavigator = createStackNavigator(
     ButtonTest,
     HeaderTest,
     CardTest,
-    TestAccountSliderItem,
     TabTest,
     PickerTest,
     ListTest,
@@ -40,6 +40,7 @@ const AppNavigator = createStackNavigator(
     ModalTest,
     UIComponentTest,
     WidgetL1Test,
+    WidgetL2Test,
     WidgetL3Test,
     SplitTest,
     FnfTest,
@@ -47,7 +48,8 @@ const AppNavigator = createStackNavigator(
     InteractiveTest,
     WidgetInputTest,
     NotificationTest,
-    ControlTest
+    ControlTest,
+    BudgetTest
   },
   {
     initialRouteName: 'Home',

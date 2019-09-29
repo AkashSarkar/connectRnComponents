@@ -52,6 +52,14 @@ const InteractiveTest = ({ navigation }) => (
         onPress={() => navigation.navigate('ControlTest')}
       />
     </View>
+    <View style={mb10}>
+      <ButtonPrimary
+        buttonColor={gradientColors.gradient5}
+        textColor={colors.bgPrimary}
+        content="Budget Test"
+        onPress={() => navigation.navigate('BudgetTest')}
+      />
+    </View>
   </ScrollView>
 );
 

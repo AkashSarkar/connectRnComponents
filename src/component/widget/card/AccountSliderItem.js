@@ -1,17 +1,27 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {colors, fonts} from '../../../styles/baseStyle';
-import {mb10, mr20, mt5, p20, pb15, pb25, ph20, pt10, pt20, pv10} from '../../../styles/commonStyle';
+import {Image, StyleSheet, View} from 'react-native';
+import {colors, fonts, gradientColors} from '../../../styles/baseStyle';
+import {mb15, mr15, ph15, pv15} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
+import {array, func, number, string} from 'prop-types';
+import assets from '../../../assets';
+import {ButtonCommunication} from "../../ui";
 
-
-const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, connectAcc}) => {
-
+const AccountSliderItem = (
+  {
+    handleInformation,
+    gradient = gradientColors.gradientYellow,
+    InfoImage = assets.Info,
+    connectImage = assets.ConnectCoin,
+    suffixNo,
+    amount,
+    connectAcc
+  }) => {
   let amountStyle = {
     fontFamily: fonts.regular,
-    size: fonts.fs52,
+    size: fonts.fs50,
     color: colors.black0
   };
 
@@ -22,23 +32,24 @@ const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, conne
   };
 
   return (
-    <LinearGradient colors={gradient} style={[styles.cardBg, mt5, pt10, pb15]}>
-      <View style={[ph20, pv10]}>
-        <View style={styles.header}>
-          {/*TODO have to change icon   */}
-          <TouchableOpacity onPress={handleInformation}>
-            <Image
-              style={[styles.informationIcon, mb10]}
-              source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.body}>
-          <View style={mr20}>
-            {/*TODO have to change icon   */}
+    <LinearGradient colors={gradient} style={[styles.cardBg]}>
+      <View style={[ph15, pv15, mb15]}>
+        <ButtonCommunication
+          logo={InfoImage}
+          buttonColor={colors.white1}
+          buttonWidth={20}
+          buttonHeight={20}
+          buttonBorderRadius={10}
+          iconHeight={20}
+          iconWidth={20}
+          textColor={colors.text2}
+          fontSize={fonts.fs14}
+          onPress={handleInformation}/>
+        <View style={[styles.body]}>
+          <View style={mr15}>
             <Image
               style={{width: 35, height: 35}}
-              source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+              source={connectImage}
             />
           </View>
           <View>
@@ -76,10 +87,6 @@ const styles = StyleSheet.create({
     elevation: 1,
     borderRadius: 20
   },
-  informationIcon: {
-    width: 20,
-    height: 20,
-  },
   body: {
     alignItems: "center",
     flexDirection: "row",
@@ -92,5 +99,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1.8,
   }
 });
+
+AccountSliderItem.propTypes = {
+  handleInformation: func.isRequired,
+  gradient: array,
+  suffixNo: number.isRequired,
+  amount: number.isRequired,
+  connectAcc: string.isRequired
+};
 
 export default AccountSliderItem

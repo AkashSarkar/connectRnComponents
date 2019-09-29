@@ -1,24 +1,43 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-import {TextComponent} from "../../ui";
+import {ButtonCommunication, TextComponent} from "../../ui";
 import {colors, fonts} from "../../../styles/baseStyle";
 import SwitchComponent from "../../ui/input/SwitchComponent";
-import {ph10, pv10} from "../../../styles/commonStyle";
+import {pv10, pv5} from "../../../styles/commonStyle";
 import {func, object} from 'prop-types';
+import assets from '../../../assets';
+import Switch from "../../ui/input/Switch";
 
-const AccountListItem = ({onSwitchChange, accountInformation}) => {
+const AccountListItem = (
+  {
+    onSwitchChange,
+    accountImage,
+    infoIcon,
+    dragIcon,
+    onIconPress,
+    accountInformation
+  }) => {
 
   return (
-    <View style={[styles.wrapper, pv10, ph10]}>
-      <Image
-        style={styles.iconStyle}
-        source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-      />
-      <Image
-        style={styles.AccountLogoStyle}
-        source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-      />
-      <View>
+    <View style={[styles.wrapper, pv10]}>
+      <ButtonCommunication
+        logo={dragIcon}
+        buttonColor={colors.white1}
+        buttonWidth={20}
+        buttonHeight={20}
+        buttonBorderRadius={10}
+        iconHeight={15}
+        iconWidth={15}
+        textColor={colors.text2}
+        fontSize={fonts.fs14}
+        onPress={onIconPress}/>
+      <View style={styles.accountLogoWrapper}>
+        <Image
+          style={styles.AccountLogoStyle}
+          source={accountImage}
+        />
+      </View>
+      <View style={styles.accountInformationWrapper}>
         <TextComponent
           size={fonts.fs12}
           color={colors.black0}
@@ -40,11 +59,24 @@ const AccountListItem = ({onSwitchChange, accountInformation}) => {
           content={accountInformation.accountType}
           family={fonts.bold}/>
       </View>
-      <Image
-        style={styles.iconStyle}
-        source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+      <ButtonCommunication
+        logo={infoIcon}
+        buttonColor={colors.white1}
+        buttonWidth={30}
+        buttonHeight={30}
+        buttonBorderRadius={15}
+        iconHeight={20}
+        iconWidth={20}
+        textColor={colors.text2}
+        fontSize={fonts.fs14}
+        onPress={onIconPress}/>
+      <Switch
+        value={accountInformation.isSwitchOn}
+        onChange={onSwitchChange}
+        thumbColor={colors.secondary}
+        trackColor={colors.white1}
       />
-      <SwitchComponent isOn={accountInformation.isSwitchOn} onValueChange={onSwitchChange}/>
+
     </View>
   )
 };
@@ -55,20 +87,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  iconStyle: {
-    height: 20,
-    width: 20
+  accountInformationWrapper: {
+    marginRight: 5
+  },
+  accountLogoWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.grey2,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    marginHorizontal: 10,
+    ...pv5,
+    elevation: 1,
+    shadowColor: colors.black1,
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 1
   },
   AccountLogoStyle: {
-    height: 70,
-    width: 112
+    height: 50,
+    width: 75,
+    resizeMode: 'contain',
+    padding: 5
   }
 });
 
 AccountListItem.propTypes = {
   accountInformation: object.isRequired,
   onSwitchChange: func.isRequired,
+  onIconPress: func.isRequired
 };
 
+AccountListItem.defaultProps = {
+  accountImage: assets.JamunaBankLogo1,
+  infoIcon: assets.Info2,
+  dragIcon: assets.Drag,
+};
 
 export default AccountListItem;

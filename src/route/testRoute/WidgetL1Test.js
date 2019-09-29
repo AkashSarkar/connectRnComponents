@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ButtonPrimary, TextComponent } from '../../component/ui';
-import { mb10, mb20, p10, pb10 } from '../../styles/commonStyle';
+import { ButtonPrimary, TextComponent, HeaderTop } from '../../component/ui';
+import {
+  mb10, mb20, mt10, p10, pb10
+} from '../../styles/commonStyle';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import AccountListItem from '../../component/widget/card/AccountListItem';
 import AccountDetails from '../../component/widget/card/AccountDetails';
 import Ad from '../../component/widget/card/Ad';
-import InputField from '../../component/widget/input/InputField';
-import assets from '../../assets';
+
 import {
   Amount,
   Avatar,
-  CTA,
-  ExpenseItem, HotelItem,
+  CTA, DatePick, DateRange,
+  ExpenseItem,
+  HotelItem, InputLabeled, InputLogin, InputMiddleLabeled, InputTabbed,
   PopUpMessage,
   Scan,
-  SeatListItem, TripType,
+  SeatListItem, TimePick,
+  TripType,
   VerifiedInfo
-} from "../../component/widget";
+} from '../../component/widget';
+import BoxShadow from "../../component/ui/wrapper/BoxShadow";
+import InputField from "../../component/widget/input/InputField";
+import assets from "../../assets";
+import Selection from "../../component/widget/card/Selection";
 
 const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
@@ -38,10 +45,14 @@ const WidgetL1Test = ({ navigation }) => {
     alert('handleOnAdChange');
   };
 
+  const onAccountListIconPress = () => {
+    alert('onAccountListIconPress');
+  };
+
   const accountListItemInformation = {
     accountName: 'Jamuna Bank',
     suffix: '23',
-    accountNo: '4829 888888 9090 99',
+    accountNo: '4829 8888 9090 9999',
     accountType: 'Salary A/C',
     isSwitchOn: true
   };
@@ -50,9 +61,13 @@ const WidgetL1Test = ({ navigation }) => {
     paddingHorizontal: 10,
     paddingVertical: 10
   };
+  const handleSelectionModal = () => {
+    alert('handleSelectionModal');
+  };
 
   return (
     <ScrollView contentContainerStyle={screenContainer}>
+      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()}/>
       <View style={mb10}>
         <TextComponent
           size={fonts.fs30}
@@ -61,23 +76,126 @@ const WidgetL1Test = ({ navigation }) => {
           family={fonts.bold}
         />
       </View>
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/SeatListItem"
+          family={fonts.bold}
+        />
+        <SeatListItem
+          title="Desh Travels"
+          subtitle="110-DHK-CHAP Non AC"
+          duration="5:45 AM  1:30 PM"
+          available="32 Seats Available"
+          price="BDT Tk. 450.00"
+        />
+      </View>
 
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/PopUpMessage"
+          family={fonts.bold}
+        />
+        <PopUpMessage
+          icon="Check"
+          content="Success message"
+        />
+      </View>
+
+      <View style={{ marginLeft: 10 }}>
+        <View style={mb10}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="widget/card/InputSearch"
+            family={fonts.bold}
+          />
+        </View>
+        <BoxShadow>
+          <View style={{ padding: 15 }}>
+            <InputField
+              value={search}
+              placeholder="Type here"
+              keyboardType="default"
+              maxLength={11}
+              returnKeyType="next"
+              onChangeText={(text) => {
+                setSearch(text);
+              }}
+              setIsValid={(validity) => {
+              }}
+              validations={[
+                {
+                  validationType: 'required',
+                  value: true,
+                  msg: 'This field is required'
+                },
+                {
+                  validationType: 'type',
+                  value: 'number',
+                  msg: 'This field must be number'
+                }
+              ]}
+              isIcon
+              iconSource={assets.Search}
+            />
+          </View>
+        </BoxShadow>
+        {/* widget/card/InputSearch */}
+      </View>
+
+      <View>
+        <View style={[mb20, p10, mt10]}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="widget/card/InputLogin"
+            family={fonts.bold}
+          />
+          <InputLogin/>
+        </View>
+        <View style={[mb20, p10, mt10]}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="widget/card/InputLabeled"
+            family={fonts.bold}
+          />
+          <InputLabeled/>
+        </View>
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="widget/card/InputTabbed"
+            family={fonts.bold}
+          />
+          <InputTabbed/>
+        </View>
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="widget/card/InputMiddleLabeled"
+            family={fonts.bold}
+          />
+          <InputMiddleLabeled/>
+        </View>
+      </View>
       <View style={[pb10]}>
         <TextComponent
           size={fonts.fs20}
           color={colors.secondary}
-          content="widget/card/AccountSliderItem"
+          content="widget/card/Selection"
           family={fonts.bold}
         />
-        <AccountSliderItem
-          handleInformation={handleAccountSliderItem}
-          gradient={gradientColors.gradientYellow}
-          suffixNo="12"
-          amount="125897.00"
-          connectAcc="0002-90909-90909"
-        />
+        <Selection
+          heading="Grameenphone"
+          handleModalOpen={handleSelectionModal}/>
       </View>
-      {/* widget/card/AccountSliderItem */}
 
       <View style={[pb10]}>
         <TextComponent
@@ -88,9 +206,26 @@ const WidgetL1Test = ({ navigation }) => {
         />
         <AccountListItem
           onSwitchChange={accountListonSwitchChange}
-          accountInformation={accountListItemInformation}/>
+          onIconPress={onAccountListIconPress}
+          accountInformation={accountListItemInformation}
+        />
       </View>
       {/* widget/card/AccountListItem */}
+      <View style={[pb10]}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/AccountSliderItem"
+          family={fonts.bold}
+        />
+        <AccountSliderItem
+          handleInformation={handleAccountSliderItem}
+          suffixNo={12}
+          amount={12589997.88888}
+          connectAcc="0002-90909-90909"
+        />
+      </View>
+      {/* widget/card/AccountSliderItem */}
 
       <View style={[pb10]}>
         <TextComponent
@@ -99,8 +234,7 @@ const WidgetL1Test = ({ navigation }) => {
           content="widget/card/AccountDetails"
           family={fonts.bold}
         />
-        <AccountDetails
-          handleShareButton={handleAccountDetailsShareButton}/>
+        <AccountDetails handleShareButton={handleAccountDetailsShareButton}/>
       </View>
       {/* widget/card/AccountDetails */}
 
@@ -118,48 +252,62 @@ const WidgetL1Test = ({ navigation }) => {
         />
       </View>
       {/* widget/card/Ad */}
+
       <View style={mb20}>
-        <CTA
-          title="Send"
-          subtitle="Money"
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/AmountChange"
+          family={fonts.bold}
+        />
+        {/* Amount change component goes here */}
+      </View>
+
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/TimePick"
+          family={fonts.bold}
+        />
+        <TimePick/>
+      </View>
+
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/DateRange"
+          family={fonts.bold}
+        />
+        <DateRange
+          onEndDateSelected={(date) => {
+            console.log(date);
+          }}
+          onStartDateSelected={(date) => {
+            console.log(date);
+          }}
+          onSubmitPress={() => console.log()}
+          buttonTitle="See Results"
         />
       </View>
       <View style={mb20}>
-        <Avatar
-          title="Send"
-          subtitle="Money"
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/DatePick"
+          family={fonts.bold}
         />
+        <DatePick title="Journey Date"/>
       </View>
+
       <View style={mb20}>
-        <SeatListItem
-          title="Desh Travels"
-          subtitle="110-DHK-CHAP Non AC"
-          duration="5:45 AM  1:30 PM"
-          available="32 Seats Available"
-          price="BDT Tk. 450.00"
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Scan"
+          family={fonts.bold}
         />
-      </View>
-      <View style={mb20}>
-        <PopUpMessage
-          icon="Check"
-          content="Success message"
-        />
-      </View>
-      <View style={mb20}>
-        <Amount
-          title="Due Amount"
-          subtitle="Tk. 3,600.00"
-        />
-      </View>
-      <View style={mb20}>
-        <VerifiedInfo
-          title1="bKash Account Name"
-          title2="bKash Account Number"
-          subtitle1="Mehzabi Chaudhry"
-          subtitle2="01755 666 777"
-        />
-      </View>
-      <View style={mb20}>
         <Scan
           title="Scan a valid QR code"
           subtitle="Please scan a valid QR code connect ID from
@@ -167,21 +315,67 @@ const WidgetL1Test = ({ navigation }) => {
           content="Scan now"
         />
       </View>
+
       <View style={mb20}>
-        <ExpenseItem
-          title="Hotel Name"
-          subtitle="Dhaka"
-          topValue="1002"
-          bottomValue="12%"
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Amount"
+          family={fonts.bold}
+        />
+        <Amount
+          title="Due Amount"
+          subtitle="Tk. 3,600.00"
+        />
+      </View>
+
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/VerifiedInfo"
+          family={fonts.bold}
+        />
+        <VerifiedInfo
+          title1="bKash Account Name"
+          title2="bKash Account Number"
+          subtitle1="Mehzabi Chaudhry"
+          subtitle2="01755 666 777"
+        />
+      </View>
+
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/CTA"
+          family={fonts.bold}
+        />
+        <CTA
+          title="Send"
+          subtitle="Money"
         />
       </View>
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/TripType"
+          family={fonts.bold}
+        />
         <TripType
           logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
           title="Hotel Name"
         />
       </View>
+
       <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/Hotel"
+          family={fonts.bold}
+        />
         <HotelItem
           logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
           title="Hotel Name"
@@ -191,21 +385,18 @@ const WidgetL1Test = ({ navigation }) => {
           rating="4"
         />
       </View>
-
-      <View style={[p10]}>
-        <View style={mb10}>
-          <TextComponent
-            size={fonts.fs30}
-            color={colors.black0}
-            content="Card Input Widget"
-            family={fonts.bold}
-          />
-        </View>
-        <ButtonPrimary
-          buttonColor={gradientColors.gradient5}
-          textColor={colors.bgPrimary}
-          content="Input Widget Test"
-          onPress={() => navigation.navigate('WidgetInputTest')}
+      <View style={mb20}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/ExpenseItem"
+          family={fonts.bold}
+        />
+        <ExpenseItem
+          title="Hotel Name"
+          subtitle="Dhaka"
+          topValue="1002"
+          bottomValue="12%"
         />
       </View>
     </ScrollView>

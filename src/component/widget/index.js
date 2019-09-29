@@ -25,9 +25,14 @@ import Avatar from './card/Avatar';
 import AvatarList from './list/AvatarList';
 import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
-import SplitItem from './interactive/SplitItem';
-import SplitList from './interactive/SplitList';
 import Control from './interactive/control/Control';
+import SplitItem from './interactive/split/SplitItem';
+import SplitList from './interactive/split/SplitList';
+import ModalDouble from './modal/ModalDouble';
+import PaymentInfo from './list/PaymentInfo';
+import Checkout from './list/Checkout';
+import QuickAmount from './list/QuickAmount';
+import HeaderTop from '../ui/header/HeaderTop';
 
 export {
   SeatListItem,
@@ -55,9 +60,14 @@ export {
   CTA,
   AmountChange,
   ModalSecondary,
+  ModalDouble,
   Avatar,
   AvatarList,
   SplitItem,
   SplitList,
-  Control
+  Control,
+  PaymentInfo,
+  Checkout,
+  QuickAmount,
+  HeaderTop
 };

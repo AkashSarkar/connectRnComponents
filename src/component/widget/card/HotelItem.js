@@ -33,7 +33,8 @@ const styles = {
     alignItems: 'flex-start'
   },
   ratingStyle: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   ratingImageListStyle: {
     flexDirection: 'row'
@@ -82,7 +83,7 @@ const HotelItem = ({
       </View>
       <View style={styles.ratingStyle}>
         <View style={[styles.ratingImageListStyle, mr5]}>
-          {Array.from(Array(parseInt(rating, 10)), i => <Image key={i} style={styles.ratingImageStyle} source={image.Check} />)
+          {Array.from(Array(parseInt(rating, 10)), i => <Image key={i} style={styles.ratingImageStyle} source={image.Star} />)
           }
         </View>
         <TextComponent

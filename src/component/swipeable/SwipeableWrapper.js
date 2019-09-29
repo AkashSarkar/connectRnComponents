@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
   },
   leftAction: {
     flex: 1,
-    backgroundColor: '#497AFC',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   actionText: {
     backgroundColor: 'transparent',
@@ -35,19 +35,19 @@ const styles = StyleSheet.create({
 });
 export default class SwipeableWrapper extends Component {
   renderLeftActions = (progress) => {
-    const { leftActions } = this.props;
+    const { leftActions, leftSwiperWidth } = this.props;
     if (leftActions) {
       const trans = progress.interpolate({
         inputRange: [0, 1],
         outputRange: [-50, 0]
       });
       return (
-        <View style={{ width: 50, flexDirection: 'row' }}>
+        <View style={{ width: leftSwiperWidth, flexDirection: 'row' }}>
           {leftActions.map(action => (
             <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }} key={action.id}>
               <RectButton style={styles.leftAction} onPress={action.pressHandler}>
-                  <Image source={action.icon} style={{ height: 40, width: 40 }} />
-                </RectButton>
+                <Image source={action.icon} style={{ height: 40, width: 40 }}/>
+              </RectButton>
             </Animated.View>
           ))}
         </View>
@@ -76,7 +76,7 @@ export default class SwipeableWrapper extends Component {
           style={[styles.rightAction]}
           onPress={onPressHandler}
         >
-          <Image source={action.icon} style={{ height: 30, width: 30 }} />
+          <Image source={action.icon} style={{ height: 40, width: 40 }}/>
         </RectButton>
       </Animated.View>
     );

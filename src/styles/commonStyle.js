@@ -5,6 +5,9 @@ export const mb5 = {
 export const mb10 = {
   marginBottom: 10
 };
+export const mb15 = {
+  marginBottom: 15
+};
 export const mb20 = {
   marginBottom: 20
 };
@@ -107,6 +110,9 @@ export const pv10 = {
 };
 export const pv15 = {
   paddingVertical: 15
+};
+export const pv20 = {
+  paddingVertical: 20
 };
 export const pv25 = {
   paddingVertical: 25

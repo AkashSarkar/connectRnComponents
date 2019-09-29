@@ -11,8 +11,9 @@ const styles = {
   wrapper: {
     width: '100%',
     height: 50,
-    flexDirection: 'row',
-    backgroundColor: colors.white1
+    flexDirection: 'row'
+    // backgroundColor: colors.white1
+    // backgroundColor: 'red'
   }
 };
 

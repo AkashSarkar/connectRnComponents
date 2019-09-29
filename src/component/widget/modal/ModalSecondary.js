@@ -1,28 +1,45 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, ScrollView, FlatList
+  Text, View, Image, TouchableOpacity, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
+import {
+  arrayOf, shape, number, string, func, bool
+} from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
+import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
 
-const renderItem = item => (
-  <View style={{
-    paddingVertical: 10,
-    paddingHorizontal: 30
-  }}
-  >
-    <TouchableOpacity onPress={() => console.warn(item.id)}>
-      <TextComponent
-        content={item.title}
-        size={fonts.fs16}
-        family={fonts.semiBold}
-        color={colors.colorSecondery}
-      />
-    </TouchableOpacity>
-  </View>
-);
+
+const styles = StyleSheet.create({
+  container: {
+    height: 300,
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 16,
+    borderColor: 'black'
+  },
+  viewWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 20
+  },
+  closeModalContainer: {
+    position: 'absolute',
+    right: 0
+  },
+  closeImageStyle: {
+    height: 35,
+    width: 35
+  },
+  listViewWrapper: {
+    // alignItems: 'center',
+    height: 200,
+    width: '100%'
+  }
+});
 
 const ModalSecondary = ({
   modalTitle,
@@ -45,60 +62,49 @@ const ModalSecondary = ({
     backdropTransitionInTiming={300}
     backdropTransitionOutTiming={600}
   >
-    <View style={{
-      height: 300,
-      backgroundColor: 'white',
-      padding: 20,
-      borderRadius: 16,
-      borderColor: 'black'
-    }}
-    >
-      <View style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 20
-      }}
-      >
+    <View style={styles.container}>
+      <View style={styles.viewWrapper}>
         <TextComponent
           content={modalTitle}
           size={fonts.fs16}
           family={fonts.semiBold}
         />
-        <View style={{
-          position: 'absolute',
-          right: 0
-        }}
-        >
+        <View style={styles.closeModalContainer}>
           <TouchableOpacity onPress={onClose}>
             <Image
-              style={{
-                height: 35,
-                width: 35
-              }}
+              style={styles.closeImageStyle}
               source={image.Check}
             />
           </TouchableOpacity>
         </View>
       </View>
       <View
-        style={{
-          alignItems: 'center',
-          height: 200,
-          width: '100%'
-        }}
+        style={styles.listViewWrapper}
       >
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            renderItem(item)
+            <ModalItemList item={item} onSelect={onSelect} />
           )}
           keyExtractor={item => item.id.toString()}
           showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </View>
   </Modal>
 );
+
+ModalSecondary.propTypes = {
+  modalTitle: string.isRequired,
+  isVisible: bool,
+  onBackButtonPress: func,
+  onClose: func,
+  items: shape({
+    id: number.isRequired,
+    title: string.isRequired
+  }).isRequired,
+  onSelect: func
+};
 
 export default ModalSecondary;

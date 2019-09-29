@@ -2,11 +2,13 @@ export const colors = {
   primary: '#14438f',
   primary2: '#000632',
   secondary: '#00d1da',
+  secondary2: '#e5f5f5',
   red1: '#e15073',
   offWhite: '#fefefe',
   black: '#000',
   grey1: '#939393',
   grey2: '#F2F2F2',
+  grey3: '#c9c9c9',
   success: '#32D769',
   error: '#D22D37',
   warning: '#FFCD2D',
@@ -19,6 +21,8 @@ export const colors = {
   black3: '#9F9D9D',
   black4: '#707070',
   black5: '#838383',
+  black6: '#c9c9c9',
+  black7: '#c2c2c2',
   text1: '#08205C',
   text2: '#000000',
   yellow1: '#fff500',
@@ -41,6 +45,32 @@ export const gradientColors = {
   gradient6: ['#00d1da', '#14438f'],
   gradientInputLogin: ['#08205c', '#000630']
 };
+export const budgetMultiShades = [
+  {
+    color: colors.primary
+  },
+  {
+    color: '#115598'
+  },
+  {
+    color: '#0f67a2'
+  },
+  {
+    color: '#0c78ab'
+  },
+  {
+    color: '#0a8ab5'
+  },
+  {
+    color: '#079cbe'
+  },
+  {
+    color: '#05aec7'
+  },
+  {
+    color: '#02bfd1'
+  }
+];
 
 export const fonts = {
   fs8: 8,

@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { View, Image } from 'react-native';
 import { array, bool, string } from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
-import { BoxShadow } from '../../ui';
-import SwipeableWrapper from '../../swipeable/SwipeableWrapper';
-import assets from '../../../assets';
-import TextComponent from '../../ui/typography/TextComponent';
-import { p10 } from '../../../styles/commonStyle';
+import { colors, fonts } from '../../../../styles/baseStyle';
+import { BoxShadow } from '../../../ui';
+import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
+import assets from '../../../../assets';
+import TextComponent from '../../../ui/typography/TextComponent';
+import { p10 } from '../../../../styles/commonStyle';
 
 const FnfMember = (
   {
@@ -98,9 +98,11 @@ const FnfMember = (
           }
         </View>
       </View>
-      <View style={styles.rightChild}>
-        <Image source={assets.AppIcon} style={{ width: 60, height: 60 }}/>
-      </View>
+      {isConnect && (
+        <View style={styles.rightChild}>
+          <Image source={assets.Connect} style={{ width: 60, height: 60 }}/>
+        </View>
+      )}
     </View>
   )
   return (
