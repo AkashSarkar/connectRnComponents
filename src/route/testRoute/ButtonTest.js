@@ -279,7 +279,7 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonCommunication
-          logo="Check"
+          logo={assets.Check}
           buttonColor={colors.white1}
           textColor={colors.text2}
           fontSize={fonts.fs14}

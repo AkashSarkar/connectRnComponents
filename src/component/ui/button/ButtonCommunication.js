@@ -49,7 +49,7 @@ const ButtonCommunication = (
     >
       <Image
         style={[styles.imageStyle, { height: iconHeight, width: iconWidth }]}
-        source={image[logo]}
+        source={logo}
       />
     </View>
   </TouchableOpacity>

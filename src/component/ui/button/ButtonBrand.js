@@ -49,25 +49,23 @@ const styles = StyleSheet.create({
 const ButtonBrand = ({
   content, buttonColor, textColor, logo, onPress
 }) => (
-  <TouchableOpacity onPress={onPress}>
-    <View
-      style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
-      hitSlop={styles.hitSlop}
-    >
-      <View style={styles.leftWrapper}>
-        <Image
-          style={styles.imageStyle}
-          source={image[logo]}
-        />
-      </View>
-      <View style={styles.rightWrapper}>
-        <TextComponent
-          content={content}
-          family={fonts.regular}
-          size={fonts.fs10}
-          color={colors[textColor]}
-        />
-      </View>
+  <TouchableOpacity
+    onPress={onPress}
+    style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+  >
+    <View style={styles.leftWrapper} hitSlop={styles.hitSlop}>
+      <Image
+        style={styles.imageStyle}
+        source={image[logo]}
+      />
+    </View>
+    <View style={styles.rightWrapper}>
+      <TextComponent
+        content={content}
+        family={fonts.regular}
+        size={fonts.fs10}
+        color={colors[textColor]}
+      />
     </View>
   </TouchableOpacity>
 );

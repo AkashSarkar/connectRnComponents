@@ -304,7 +304,7 @@ const ListTest = ({ navigation }) => (
       style={mb20}
       onPress={() => navigation.navigate('SwipeableWrapperTest')}
     >
-      <Text> Button Test</Text>
+      {/* <Text> Button Test</Text> */}
     </TouchableOpacity>
     <View style={[mb20, { marginTop: 20 }]}>
       <BrandStackList
