@@ -69,7 +69,7 @@ const Switch = (
         <TextComponent
           size={fonts.fs14}
           color={!active ? colors.white1 : colors.primary2}
-          content="off"
+          content="Off"
           family={fonts.medium}
         />
       </View>
@@ -77,7 +77,7 @@ const Switch = (
         <TextComponent
           size={fonts.fs14}
           color={active ? colors.white1 : colors.primary2}
-          content="on"
+          content="On"
           family={fonts.medium}
         />
       </View>

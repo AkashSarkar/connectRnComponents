@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { View, Image } from 'react-native';
-import {
-  any, bool, func, number, string
-} from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { Image, View, TouchableOpacity } from 'react-native';
+import { string } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { Input, TextComponent } from '../../ui';
-import { p5, pr10, pr20, pr25 } from '../../../styles/commonStyle';
+import { TextComponent } from '../../ui';
+import { pr25 } from '../../../styles/commonStyle';
 import assets from '../../../assets';
 import InputField from './InputField';
 
 const styles = {
   wrapperStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   borderBottom: {
     borderBottomColor: colors.grey1,
@@ -25,8 +24,20 @@ const styles = {
     width: '15%'
   }
 }
-const AmountChange = ({ title }) => {
+const AmountChange = ({ title, value }) => {
   const [amount, setAmount] = useState(0);
+  useEffect(() => {
+    setAmount(parseInt(value, 10));
+    console.log(value);
+  }, [value]);
+  const increment = () => {
+    setAmount(amount + 1);
+  }
+  const decrement = () => {
+    if (!amount < 0) {
+      setAmount(amount - 1);
+    }
+  }
   return (
     <View style={[styles.wrapperStyle]}>
       <TextComponent
@@ -36,7 +47,11 @@ const AmountChange = ({ title }) => {
         family={fonts.medium}
       />
       <View style={[styles.amountWrapper, pr25]}>
-        <Image source={assets.Minus} style={{ height: 30, width: 30 }}/>
+        <TouchableOpacity
+          onPress={() => decrement()}
+        >
+          <Image source={assets.Minus} style={{ height: 30, width: 30 }}/>
+        </TouchableOpacity>
         <InputField
           value={amount}
           keyboardType="numeric"
@@ -60,12 +75,17 @@ const AmountChange = ({ title }) => {
             }
           ]}
         />
-        <Image source={assets.Plus} style={{ height: 30, width: 30 }}/>
+        <TouchableOpacity
+          onPress={() => increment()}
+        >
+          <Image source={assets.Plus} style={{ height: 30, width: 30 }}/>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
 AmountChange.propTypes = {
-  title: string
+  title: string,
+  value: string
 }
 export default AmountChange;
