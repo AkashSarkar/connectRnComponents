@@ -27,6 +27,9 @@ import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
 import SplitItem from './interactive/SplitItem';
 import SplitList from './interactive/SplitList';
+import PaymentInfo from './list/PaymentInfo';
+import Checkout from './list/Checkout';
+import QuickAmount from './list/QuickAmount';
 
 export {
   SeatListItem,
@@ -57,5 +60,8 @@ export {
   Avatar,
   AvatarList,
   SplitItem,
-  SplitList
+  SplitList,
+  PaymentInfo,
+  Checkout,
+  QuickAmount
 };
