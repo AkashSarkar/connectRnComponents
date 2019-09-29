@@ -26,7 +26,8 @@ const assets = {
   DownIndicator: require('./icons/DownIndicator.png'),
   LeftIndicator: require('./icons/LeftIndicator.png'),
   RightIndicator: require('./icons/RightIndicator.png'),
-  ControlButton: require('./icons/FAB_BTN.png')
+  ControlButton: require('./icons/FAB_BTN.png'),
+  SliderIcon: require('./icons/Freeze.png')
 };
 
 export default assets;
