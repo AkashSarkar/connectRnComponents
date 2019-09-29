@@ -5,7 +5,6 @@ import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
 import CardTest from './testRoute/CardTest';
 import ButtonTest from './testRoute/ButtonTest';
 import HeaderTest from './testRoute/HeaderTest';
-import TestAccountSliderItem from './testRoute/TestAccountSliderItem';
 import TabTest from './testRoute/TabTest';
 import PickerTest from './testRoute/PickerTest';
 import ListTest from './testRoute/ListTest';
@@ -30,7 +29,6 @@ const AppNavigator = createStackNavigator(
     ButtonTest,
     HeaderTest,
     CardTest,
-    TestAccountSliderItem,
     TabTest,
     PickerTest,
     ListTest,

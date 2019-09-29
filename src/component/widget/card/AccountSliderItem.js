@@ -1,14 +1,23 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {colors, fonts} from '../../../styles/baseStyle';
-import {mb10, mr20, mt5, p20, pb15, pb25, ph20, pt10, pt20, pv10} from '../../../styles/commonStyle';
+import {colors, fonts, gradientColors} from '../../../styles/baseStyle';
+import {mb10, mr20, mt5, pb15, ph20, pt10, pv10} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
+import {array, func, number, string} from 'prop-types';
+import assets from '../../../assets';
 
-
-const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, connectAcc}) => {
-
+const AccountSliderItem = (
+  {
+    handleInformation,
+    gradient = gradientColors.gradientYellow,
+    InfoImage = assets.Info,
+    connectImage = assets.ConnectCoin,
+    suffixNo,
+    amount,
+    connectAcc
+  }) => {
   let amountStyle = {
     fontFamily: fonts.regular,
     size: fonts.fs52,
@@ -29,7 +38,7 @@ const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, conne
           <TouchableOpacity onPress={handleInformation}>
             <Image
               style={[styles.informationIcon, mb10]}
-              source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+              source={InfoImage}
             />
           </TouchableOpacity>
         </View>
@@ -38,7 +47,7 @@ const AccountSliderItem = ({handleInformation, gradient, suffixNo, amount, conne
             {/*TODO have to change icon   */}
             <Image
               style={{width: 35, height: 35}}
-              source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+              source={connectImage}
             />
           </View>
           <View>
@@ -92,5 +101,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1.8,
   }
 });
+
+AccountSliderItem.propTypes = {
+  handleInformation: func.isRequired,
+  gradient: array,
+  suffixNo: number.isRequired,
+  amount: number.isRequired,
+  connectAcc: string.isRequired
+};
 
 export default AccountSliderItem
