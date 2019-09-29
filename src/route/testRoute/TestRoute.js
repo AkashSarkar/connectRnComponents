@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { ButtonGradientPrimary, ButtonPrimary } from '../../component/ui';
+import { ButtonPrimary } from '../../component/ui';
 import { colors, gradientColors } from '../../styles/baseStyle';
 
 const screenContainer = {
@@ -53,12 +53,6 @@ const TestRoute = ({ navigation }) => (
       textColor={colors.bgPrimary}
       content="Modal Test"
       onPress={() => navigation.navigate('ModalTest')}
-    />
-    <ButtonPrimary
-      buttonColor={gradientColors.gradient5}
-      textColor={colors.bgPrimary}
-      content="List Test"
-      onPress={() => navigation.navigate('ListTest')}
     />
   </ScrollView>
 );
