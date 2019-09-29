@@ -7,7 +7,7 @@ const SwitchComponent = ({ isOn, onValueChange }) => (
   <Switch
     value={isOn}
     onValueChange={onValueChange}
-    trackColor={{ false: colors.black3, true: colors.brandPrimary }}
+    trackColor={{ false: colors.black3, true: colors.primary }}
     thumbColor={colors.white1}
     ios_backgroundColor={colors.black3}
   />
