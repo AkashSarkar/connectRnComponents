@@ -4,7 +4,7 @@ import {pb6} from "../styles/commonStyle";
 import TextComponent from '../component/ui/typography/TextComponent';
 import {number, object} from 'prop-types';
 
-const AmountWidget = ({amount = 0, amountStyle, decimalStyle}) => {
+const AmountWidget = ({amount = 0, amountStyle = {}, decimalStyle = {}}) => {
 
   const styles = StyleSheet.create({
     amountTextWrapper: {
@@ -15,9 +15,10 @@ const AmountWidget = ({amount = 0, amountStyle, decimalStyle}) => {
       alignSelf: 'flex-end',
     }
   });
-  let givenAmount = amount.toLocaleString(undefined, {maximumFractionDigits: 2});
+  
+  let givenAmount = parseFloat(amount).toFixed(2);
   givenAmount = givenAmount.split('.');
-  let _amount = givenAmount[0];
+  let _amount = (givenAmount[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   let _decimal = givenAmount[1];
 
   return (

@@ -72,8 +72,8 @@ const WidgetL1Test = ({ navigation }) => {
         <AccountSliderItem
           handleInformation={handleAccountSliderItem}
           gradient={gradientColors.gradientYellow}
-          suffixNo="12"
-          amount="125897.00"
+          suffixNo={12}
+          amount={12589997.88888}
           connectAcc="0002-90909-90909"
         />
       </View>
