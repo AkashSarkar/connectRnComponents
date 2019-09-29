@@ -1,19 +1,30 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import TextComponent from "../../ui/typography/TextComponent";
 import {colors, fonts} from "../../../styles/baseStyle";
-import {BoxShadow} from "../../ui";
+import {BoxShadow, ButtonCommunication} from "../../ui";
 import {ml15, ph10, pv25} from "../../../styles/commonStyle";
+import {func, string} from 'prop-types';
+import assets from "../../../assets";
 
-const Selection = ({handleModalOpen, heading}) => {
-
+const Selection = ({handleModalOpen, heading, operatorLogo, logo}) => {
   return (
     <BoxShadow>
       <View style={[styles.selectionWrapper, pv25, ph10]}>
-        <Image
-          style={styles.imageStyle}
-          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-        />
+        <ButtonCommunication
+          logo={operatorLogo}
+          buttonColor={colors.primary}
+          buttonWidth={34}
+          buttonHeight={34}
+          buttonBorderRadius={17}
+          iconHeight={20}
+          iconWidth={20}
+          textColor={colors.text2}
+          fontSize={fonts.fs14}
+          onPress={() => {
+            console.log("'hello")
+          }}/>
+
         <View style={[styles.contentWrapper, ml15]}>
           <TextComponent
             size={fonts.fs18}
@@ -22,12 +33,17 @@ const Selection = ({handleModalOpen, heading}) => {
             family={fonts.bold}
           />
         </View>
-        <TouchableOpacity onPress={handleModalOpen}>
-          <Image
-            style={styles.modalImage}
-            source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-          />
-        </TouchableOpacity>
+        <ButtonCommunication
+          logo={logo}
+          buttonColor={colors.white1}
+          textColor={colors.text2}
+          fontSize={fonts.fs14}
+          buttonWidth={60}
+          buttonHeight={60}
+          buttonBorderRadius={30}
+          iconHeight={30}
+          iconWidth={30}
+          onPress={handleModalOpen}/>
       </View>
     </BoxShadow>
   )
@@ -44,11 +60,17 @@ const styles = StyleSheet.create({
   imageStyle: {
     height: 25,
     width: 25
-  },
-  modalImage: {
-    height: 50,
-    width: 50
   }
 });
+
+Selection.propTypes = {
+  handleModalOpen: func.isRequired,
+  heading: string.isRequired
+};
+
+Selection.defaultProps = {
+  logo: assets.Change,
+  operatorLogo: assets.Operator
+};
 
 export default Selection;
