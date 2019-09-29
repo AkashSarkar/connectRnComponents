@@ -1,23 +1,15 @@
 import React from 'react';
-import {
-  TouchableOpacity, StyleSheet, View, Image
-} from 'react-native';
-import {
-  string, func, array, number
-} from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
-import { pv5 } from '../../../styles/commonStyle';
-import image from '../../../assets';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {func, string} from 'prop-types';
+import {colors} from '../../../styles/baseStyle';
+import {pv5} from '../../../styles/commonStyle';
 
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    width: 50,
-    height: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 25,
     ...pv5,
     elevation: 1,
     shadowColor: colors.black1,
@@ -36,23 +28,25 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     resizeMode: 'contain',
-    height: 30,
-    width: 30,
     padding: 10
   }
 });
 
-const ButtonCommunication = ({
-  buttonColor, logo, onPress
-}) => (
+const ButtonCommunication = (
+  {
+    buttonColor, buttonWidth, buttonHeight, buttonBorderRadius, iconHeight, iconWidth, logo, onPress
+  }) => (
   <TouchableOpacity onPress={onPress}>
     <View
-      style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
+      style={
+        [styles.buttonWrapper,
+          {backgroundColor: buttonColor},
+          {width: buttonWidth, height: buttonHeight, borderRadius: buttonBorderRadius}]}
       hitSlop={styles.hitSlop}
     >
       <Image
-        style={styles.imageStyle}
-        source={image[logo]}
+        style={[styles.imageStyle, {height: iconHeight, width: iconWidth}]}
+        source={logo}
       />
     </View>
   </TouchableOpacity>
@@ -60,8 +54,15 @@ const ButtonCommunication = ({
 
 ButtonCommunication.propTypes = {
   buttonColor: string.isRequired,
-  logo: string.isRequired,
   onPress: func
+};
+
+ButtonCommunication.defaultProps = {
+  buttonWidth: 50,
+  buttonHeight: 50,
+  buttonBorderRadius: 25,
+  iconHeight: 30,
+  iconWidth: 30
 };
 
 

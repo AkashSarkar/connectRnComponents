@@ -39,10 +39,14 @@ const WidgetL1Test = ({navigation}) => {
     alert('handleOnAdChange');
   };
 
+  const onAccountListIconPress = () => {
+    alert('onAccountListIconPress');
+  };
+
   const accountListItemInformation = {
     accountName: 'Jamuna Bank',
     suffix: '23',
-    accountNo: '4829 888888 9090 99',
+    accountNo: '4829 8888 9090 9999',
     accountType: 'Salary A/C',
     isSwitchOn: true
   };
@@ -88,6 +92,7 @@ const WidgetL1Test = ({navigation}) => {
         />
         <AccountListItem
           onSwitchChange={accountListonSwitchChange}
+          onIconPress={onAccountListIconPress}
           accountInformation={accountListItemInformation}/>
       </View>
       {/* widget/card/AccountListItem */}
