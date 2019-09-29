@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { ButtonPrimary } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ModalSecondary } from '../../component/widget';
+import { ModalSecondary, ModalDouble } from '../../component/widget';
 
 
 const DATA = [
@@ -61,16 +61,23 @@ class ModalTest extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isModalVisible: false
+      isModalSecondaryVisible: false,
+      isModalDoubleVisible: false
     };
   }
 
   toggleModal = () => {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
+    this.setState({
+      isModalSecondaryVisible: !this.state.isModalSecondaryVisible,
+      isModalDoubleVisible: !this.state.isModalDoubleVisible
+    });
   };
 
   handleClose = () => {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
+    this.setState({
+      isModalSecondaryVisible: !this.state.isModalSecondaryVisible,
+      isModalDoubleVisible: !this.state.isModalDoubleVisible
+    });
   };
 
   render() {
@@ -87,11 +94,28 @@ class ModalTest extends Component {
             />
             <ModalSecondary
               modalTitle="Select Operator"
-              isVisible={this.state.isModalVisible}
+              isVisible={this.state.isModalSecondaryVisible}
               onBackButtonPress={this.handleClose}
               onClose={this.handleClose}
               items={DATA}
-              onSelect={id => console.warn(id)}
+              onSelect={id => console.warn(`from top ${id}`)}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Double"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModal}
+            />
+            <ModalDouble
+              modalTitle="Select Operator"
+              isVisible={this.state.isModalDoubleVisible}
+              onBackButtonPress={this.handleClose}
+              onClose={this.handleClose}
+              items={DATA}
+              onSelect={id => console.warn(`from top ${id}`)}
             />
           </View>
         </SafeAreaView>

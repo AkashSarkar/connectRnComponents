@@ -38,10 +38,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 200,
     width: '100%'
+  },
+  lineStyle: {
+    borderWidth: 0.5,
+    borderColor: 'black',
+    margin: 10
   }
 });
 
-const ModalSecondary = ({
+const ModalDouble = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
@@ -78,6 +83,7 @@ const ModalSecondary = ({
           </TouchableOpacity>
         </View>
       </View>
+      <View style ={styles.lineStyle} />
       <View
         style={styles.listViewWrapper}
       >
@@ -95,7 +101,7 @@ const ModalSecondary = ({
   </Modal>
 );
 
-ModalSecondary.propTypes = {
+ModalDouble.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
@@ -107,4 +113,4 @@ ModalSecondary.propTypes = {
   onSelect: func
 };
 
-export default ModalSecondary;
+export default ModalDouble;
