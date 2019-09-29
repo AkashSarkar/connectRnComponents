@@ -27,6 +27,7 @@ const assets = {
   Info2: require('./icons/Info2.png'),
   Drag: require('./icons/Drag.png'),
   Share: require('./icons/Share.png'),
+  Cross: require('./icons/Cross.png'),
   JamunaBankLogo1: require('./icons/JamunaBankLogo1.png'),
   JamunaBankLogo2: require('./icons/JamunaBankLogo2.png'),
 };
