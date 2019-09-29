@@ -20,6 +20,7 @@ import WidgetInputTest from './testRoute/WidgetInputTest';
 import UIComponentTest from './testRoute/UIComponentTest';
 import WidgetL1Test from './testRoute/WidgetL1Test';
 import WidgetL3Test from './testRoute/WidgetL3Test';
+import BudgetTest from './testRoute/BudgetTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -43,7 +44,8 @@ const AppNavigator = createStackNavigator(
     LimitTest,
     InteractiveTest,
     WidgetInputTest,
-    NotificationTest
+    NotificationTest,
+    BudgetTest
   },
   {
     initialRouteName: 'TestRoute',

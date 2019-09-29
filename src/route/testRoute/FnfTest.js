@@ -4,8 +4,8 @@ import { mb10, mt10, p10 } from '../../styles/commonStyle';
 import assets from '../../assets';
 import { TextComponent } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
-import FnfMember from '../../component/widget/interactive/FnfMember';
-import FnfList from '../../component/widget/interactive/FnfList';
+import FnfMember from '../../component/widget/interactive/fnf/FnfMember';
+import FnfList from '../../component/widget/interactive/fnf/FnfList';
 
 const FnfTest = () => {
   const mapFnfs = () => (
@@ -41,6 +41,7 @@ const FnfTest = () => {
         id: 2,
         name: 'Anisur Rahman',
         number: '0173654885',
+        isConnect: true,
         channels: [
           {
             id: 1,
@@ -68,6 +69,7 @@ const FnfTest = () => {
         id: 3,
         name: 'Anisur Rahman',
         number: '0173654885',
+        isConnect: true,
         channels: [
           {
             id: 1,
