@@ -16,7 +16,7 @@ const styles = {
   },
   backgroundWrapper: {
     height: 50,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.secondary2,
     borderRadius: 8,
     opecity: 0.1
   },

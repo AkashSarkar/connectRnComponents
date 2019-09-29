@@ -20,14 +20,15 @@ const styles = {
     shadowOpacity: 0.2
   },
   imageStyle: {
-    width: 50,
-    height: 50
+    width: '100%',
+    height: '90%'
   },
   leftStyle: {
-    width: '30%'
+    width: '35%',
+    justifyContent: 'flex-end'
   },
   rightStyle: {
-    width: '70%',
+    width: '65%',
     justifyContent: 'space-around',
     ...p15
   }
@@ -38,7 +39,7 @@ const Scan = ({
 }) => (
   <View onPress={onPress} style={styles.wrapper}>
     <View style={styles.leftStyle}>
-      <Image style={styles.imageStyle} source={image.Check} />
+      <Image style={styles.imageStyle} source={image.HandQRCode} />
     </View>
     <View style={[styles.rightStyle, mb10]}>
       <View>

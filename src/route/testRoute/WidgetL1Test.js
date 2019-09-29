@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ButtonPrimary, TextComponent } from '../../component/ui';
+import { ButtonPrimary, TextComponent, HeaderTop } from '../../component/ui';
 import {
   mb10, mb20, p10, pb10
 } from '../../styles/commonStyle';
@@ -60,6 +60,7 @@ const WidgetL1Test = ({ navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={screenContainer}>
+      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
       <View style={mb10}>
         <TextComponent
           size={fonts.fs30}

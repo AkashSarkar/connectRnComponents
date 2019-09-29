@@ -32,7 +32,10 @@ const assets = {
   ConnectSign: require('./icons/ConnectSign.png'),
   Add: require('./icons/Add.png'),
   Back: require('./icons/Back.png'),
-  FlagBd: require('./icons/Flag BD.png')
+  FlagBd: require('./icons/Flag BD.png'),
+  HandQRCode: require('./icons/HandQRCode.png'),
+  Star: require('./icons/Star.png'),
+  SendMoney: require('./icons/SendMoney.png')
 };
 
 export default assets;

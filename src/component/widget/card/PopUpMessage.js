@@ -12,7 +12,7 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: colors.white1,
+    backgroundColor: colors.grey2,
     borderRadius: 8,
     ...p15,
     elevation: 1,
@@ -29,7 +29,7 @@ const styles = {
     height: 30
   },
   rightWrapper: {
-    
+
   }
 };
 
