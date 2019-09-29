@@ -14,7 +14,7 @@ import image from '../../../assets';
 
 const styles = StyleSheet.create({
   container: {
-    height: 300,
+    height: 350,
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 16,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 20
+    paddingVertical: 15
   },
   closeModalContainer: {
     position: 'absolute',
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     width: 35
   },
   listViewWrapper: {
-    alignItems: 'center',
-    height: 200,
+    // alignContent: 'center',
+    height: 235,
     width: '100%'
   },
   lineStyle: {
-    borderWidth: 0.5,
-    borderColor: 'black',
+    borderWidth: 1,
+    borderColor: colors.black5,
     margin: 10
   }
 });
@@ -83,7 +83,7 @@ const ModalDouble = ({
           </TouchableOpacity>
         </View>
       </View>
-      <View style ={styles.lineStyle} />
+      {/* <View style={styles.lineStyle} /> */}
       <View
         style={styles.listViewWrapper}
       >

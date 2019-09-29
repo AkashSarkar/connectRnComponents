@@ -7,18 +7,18 @@ import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import { ModalSecondary, ModalDouble } from '../../component/widget';
 
 
-const DATA = [
+const DataModalSecondary = [
   {
     id: '1',
-    title: 'First Item'
+    title: 'Connect'
   },
   {
     id: '2',
-    title: 'Second Item'
+    title: 'Jamuna Bank'
   },
   {
     id: '3',
-    title: 'Third Item'
+    title: 'Dmoney'
   },
   {
     id: '4',
@@ -26,7 +26,7 @@ const DATA = [
   },
   {
     id: '5',
-    title: 'Second Item'
+    title: 'Credit Card'
   },
   {
     id: '58694a0f-3da1-471f-',
@@ -45,6 +45,53 @@ const DATA = [
     title: 'Third Item'
   }
 ];
+const DataModalDouble = [
+  {
+    id: '1',
+    title: 'Connect',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '2',
+    title: 'Jamuna Bank',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '3',
+    title: 'Dmoney',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '4',
+    title: 'First Item',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '5',
+    title: 'Credit Card',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '58694a0f-3da1-471f-',
+    title: 'Third Item',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed53abb28ba',
+    title: 'First Item',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '3ac68af5-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+    cardInfo: 'VISA *1564'
+  },
+  {
+    id: '5864a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    cardInfo: 'VISA *1564'
+  }
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -53,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   viewWrapper: {
-    marginBottom: 10
+    marginBottom: 40
   }
 });
 
@@ -66,16 +113,26 @@ class ModalTest extends Component {
     };
   }
 
-  toggleModal = () => {
+  toggleModalSecondary = () => {
     this.setState({
-      isModalSecondaryVisible: !this.state.isModalSecondaryVisible,
+      isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  toggleModalDouble = () => {
+    this.setState({
       isModalDoubleVisible: !this.state.isModalDoubleVisible
     });
   };
 
-  handleClose = () => {
+  handleCloseModalSecondary = () => {
     this.setState({
-      isModalSecondaryVisible: !this.state.isModalSecondaryVisible,
+      isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  handleCloseModalDouble = () => {
+    this.setState({
       isModalDoubleVisible: !this.state.isModalDoubleVisible
     });
   };
@@ -90,14 +147,14 @@ class ModalTest extends Component {
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
-              onPress={this.toggleModal}
+              onPress={this.toggleModalSecondary}
             />
             <ModalSecondary
-              modalTitle="Select Operator"
+              modalTitle="Modal Secondary"
               isVisible={this.state.isModalSecondaryVisible}
-              onBackButtonPress={this.handleClose}
-              onClose={this.handleClose}
-              items={DATA}
+              onBackButtonPress={this.handleCloseModalSecondary}
+              onClose={this.handleCloseModalSecondary}
+              items={DataModalSecondary}
               onSelect={id => console.warn(`from top ${id}`)}
             />
           </View>
@@ -107,14 +164,14 @@ class ModalTest extends Component {
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
-              onPress={this.toggleModal}
+              onPress={this.toggleModalDouble}
             />
             <ModalDouble
-              modalTitle="Select Operator"
+              modalTitle="Modal Double"
               isVisible={this.state.isModalDoubleVisible}
-              onBackButtonPress={this.handleClose}
-              onClose={this.handleClose}
-              items={DATA}
+              onBackButtonPress={this.handleCloseModalDouble}
+              onClose={this.handleCloseModalDouble}
+              items={DataModalDouble}
               onSelect={id => console.warn(`from top ${id}`)}
             />
           </View>
