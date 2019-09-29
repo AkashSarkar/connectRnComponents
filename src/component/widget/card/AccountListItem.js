@@ -6,6 +6,7 @@ import SwitchComponent from "../../ui/input/SwitchComponent";
 import {pv10, pv5} from "../../../styles/commonStyle";
 import {func, object} from 'prop-types';
 import assets from '../../../assets';
+import Switch from "../../ui/input/Switch";
 
 const AccountListItem = (
   {
@@ -69,7 +70,13 @@ const AccountListItem = (
         textColor={colors.text2}
         fontSize={fonts.fs14}
         onPress={onIconPress}/>
-      <SwitchComponent isOn={accountInformation.isSwitchOn} onValueChange={onSwitchChange}/>
+      <Switch
+        value={accountInformation.isSwitchOn}
+        onChange={onSwitchChange}
+        thumbColor={colors.secondary}
+        trackColor={colors.white1}
+      />
+
     </View>
   )
 };
@@ -101,10 +108,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 1
   },
   AccountLogoStyle: {
-    height: 70,
-    width: 100,
+    height: 50,
+    width: 75,
     resizeMode: 'contain',
-    padding: 10
+    padding: 5
   }
 });
 
