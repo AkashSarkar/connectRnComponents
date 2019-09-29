@@ -41,7 +41,7 @@ const InputMiddleLabeled = () => {
                 }
               ]}
               isIcon
-              iconSource={assets.Check}
+              iconSource={assets.FlagBd}
             />
           </View>
         </View>

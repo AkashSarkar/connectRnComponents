@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {colors, fonts, gradientColors} from '../../../styles/baseStyle';
-import {mb10, mr20, mt5, pb15, ph20, pt10, pv10} from '../../../styles/commonStyle';
+import {mb10, mr20, mt5, pb15, ph15, pt10, pv10} from '../../../styles/commonStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import TextComponent from '../../ui/typography/TextComponent';
 import AmountWidget from "../../../utils/AmountWidget";
@@ -20,7 +20,7 @@ const AccountSliderItem = (
   }) => {
   let amountStyle = {
     fontFamily: fonts.regular,
-    size: fonts.fs52,
+    size: fonts.fs50,
     color: colors.black0
   };
 
@@ -32,7 +32,7 @@ const AccountSliderItem = (
 
   return (
     <LinearGradient colors={gradient} style={[styles.cardBg, mt5, pt10, pb15]}>
-      <View style={[ph20, pv10]}>
+      <View style={[ph15, pv10]}>
         <View style={styles.header}>
           {/*TODO have to change icon   */}
           <TouchableOpacity onPress={handleInformation}>
@@ -44,7 +44,6 @@ const AccountSliderItem = (
         </View>
         <View style={styles.body}>
           <View style={mr20}>
-            {/*TODO have to change icon   */}
             <Image
               style={{width: 35, height: 35}}
               source={connectImage}

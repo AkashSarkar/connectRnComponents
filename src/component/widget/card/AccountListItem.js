@@ -98,12 +98,11 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3
     },
-    shadowRadius: 6,
     shadowOpacity: 1
   },
   AccountLogoStyle: {
     height: 70,
-    width: 112,
+    width: 100,
     resizeMode: 'contain',
     padding: 10
   }

@@ -7,6 +7,7 @@ export const colors = {
   black: '#000',
   grey1: '#939393',
   grey2: '#F2F2F2',
+  grey3: '#c9c9c9',
   success: '#32D769',
   error: '#D22D37',
   warning: '#FFCD2D',
