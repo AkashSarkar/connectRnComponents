@@ -5,9 +5,9 @@ import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import assets from '../../assets';
 import { p10 } from '../../styles/commonStyle';
 import { AmountChange } from '../../component/widget';
-import { TextComponent } from "../../component/ui";
-import { colors, fonts } from "../../styles/baseStyle";
-import Switch from "../../component/ui/input/Switch";
+import { TextComponent } from '../../component/ui';
+import { colors, fonts } from '../../styles/baseStyle';
+import Switch from '../../component/ui/input/Switch';
 
 const InputTest = () => {
   const [id, setId] = useState('');
@@ -52,7 +52,7 @@ const InputTest = () => {
             />
           </View>
         </BoxShadow>
-        {/*end UI/Input*/}
+        {/* end UI/Input */}
 
         <TextComponent
           size={fonts.fs20}
@@ -90,7 +90,7 @@ const InputTest = () => {
             />
           </View>
         </BoxShadow>
-        {/*ui/Input [Variation]*/}
+        {/* ui/Input [Variation] */}
 
         <TextComponent
           size={fonts.fs20}
@@ -126,7 +126,7 @@ const InputTest = () => {
             />
           </View>
         </BoxShadow>
-        {/*ui/InputLabeled [Variation] */}
+        {/* ui/InputLabeled [Variation] */}
 
         <TextComponent
           size={fonts.fs20}
@@ -136,10 +136,10 @@ const InputTest = () => {
         />
         <BoxShadow>
           <View style={{ padding: 15 }}>
-            <AmountChange title="Adults"/>
+            <AmountChange title="Adults" />
           </View>
         </BoxShadow>
-        {/*input/AmountChange*/}
+        {/* input/AmountChange */}
 
         <TextComponent
           size={fonts.fs20}
@@ -177,7 +177,7 @@ const InputTest = () => {
             />
           </View>
         </BoxShadow>
-        {/*widget/card/InputSearch*/}
+        {/* widget/card/InputSearch */}
 
 
         <TextComponent
@@ -194,10 +194,10 @@ const InputTest = () => {
             trackColor={colors.grey2}
           />
         </View>
-        {/*input/Switch*/}
+        {/* input/Switch */}
       </View>
     </ScrollView>
   );
-}
+};
 
 export default InputTest;

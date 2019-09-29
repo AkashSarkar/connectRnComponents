@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import {ScrollView, View} from 'react-native';
-import {colors, fonts, gradientColors} from '../../styles/baseStyle';
-import {ButtonPrimary, TextComponent} from '../../component/ui';
-import {mb10, mb20, p10, pb10} from '../../styles/commonStyle';
+import React, { useState } from 'react';
+import { ScrollView, View } from 'react-native';
+import { colors, fonts, gradientColors } from '../../styles/baseStyle';
+import { ButtonPrimary, TextComponent } from '../../component/ui';
+import {
+  mb10, mb20, p10, pb10
+} from '../../styles/commonStyle';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import AccountListItem from '../../component/widget/card/AccountListItem';
 import AccountDetails from '../../component/widget/card/AccountDetails';
@@ -19,9 +21,9 @@ import {
   SeatListItem,
   TripType,
   VerifiedInfo
-} from "../../component/widget";
+} from '../../component/widget';
 
-const WidgetL1Test = ({navigation}) => {
+const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
   const handleAccountSliderItem = () => {
     alert('AccountSliderItem');
@@ -93,7 +95,8 @@ const WidgetL1Test = ({navigation}) => {
         <AccountListItem
           onSwitchChange={accountListonSwitchChange}
           onIconPress={onAccountListIconPress}
-          accountInformation={accountListItemInformation}/>
+          accountInformation={accountListItemInformation}
+        />
       </View>
       {/* widget/card/AccountListItem */}
 
@@ -104,7 +107,7 @@ const WidgetL1Test = ({navigation}) => {
           content="widget/card/AccountDetails"
           family={fonts.bold}
         />
-        <AccountDetails handleShareButton={handleAccountDetailsShareButton}/>
+        <AccountDetails handleShareButton={handleAccountDetailsShareButton} />
       </View>
       {/* widget/card/AccountDetails */}
 

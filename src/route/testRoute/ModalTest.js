@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class ModalTest extends Component {
+class ModalTest extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
   });
@@ -89,6 +89,7 @@ class ModalTest extends Component {
     return (
       <ScrollView>
         <SafeAreaView style={styles.container}>
+          <HeaderTop content="Modal Test" onPress={() => this.props.navigation.goBack()} />
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal Secondary"
