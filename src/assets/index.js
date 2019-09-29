@@ -34,10 +34,12 @@ const assets = {
   Desco: require('./icons/Desco.png'),
   CashAndAccount: require('./icons/CashAndAccount.png'),
   Back: require('./icons/Back.png'),
-  FlagBd: require('./icons/Flag BD.png'),
   HandQRCode: require('./icons/HandQRCode.png'),
   Star: require('./icons/Star.png'),
-  SendMoney: require('./icons/SendMoney.png')
+  SendMoney: require('./icons/SendMoney.png'),
+  FlagBd: require('./icons/Flag BD.png'),
+  Change: require('./icons/Change.png'),
+  Operator: require('./icons/Operator.png'),
 };
 
 export default assets;
