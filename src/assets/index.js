@@ -21,7 +21,15 @@ const assets = {
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
   Beftn: require('./icons/Beftn.png'),
-  ConnectSign: require('./icons/ConnectSign.png')
+  ConnectSign: require('./icons/ConnectSign.png'),
+  ConnectCoin: require('./icons/ConnectCoin.png'),
+  Info: require('./icons/Info.png'),
+  Info2: require('./icons/Info2.png'),
+  Drag: require('./icons/Drag.png'),
+  Share: require('./icons/Share.png'),
+  Cross: require('./icons/Cross.png'),
+  JamunaBankLogo1: require('./icons/JamunaBankLogo1.png'),
+  JamunaBankLogo2: require('./icons/JamunaBankLogo2.png'),
 };
 
 export default assets;
