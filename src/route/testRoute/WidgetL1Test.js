@@ -104,8 +104,7 @@ const WidgetL1Test = ({navigation}) => {
           content="widget/card/AccountDetails"
           family={fonts.bold}
         />
-        <AccountDetails
-          handleShareButton={handleAccountDetailsShareButton}/>
+        <AccountDetails handleShareButton={handleAccountDetailsShareButton}/>
       </View>
       {/* widget/card/AccountDetails */}
 

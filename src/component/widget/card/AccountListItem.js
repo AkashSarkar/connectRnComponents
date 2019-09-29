@@ -10,9 +10,9 @@ import assets from '../../../assets';
 const AccountListItem = (
   {
     onSwitchChange,
-    accountImage = assets.JamunaBankLogo1,
-    infoIcon = assets.Info2,
-    dragIcon = assets.Drag,
+    accountImage,
+    infoIcon,
+    dragIcon,
     onIconPress,
     accountInformation
   }) => {
@@ -113,6 +113,12 @@ AccountListItem.propTypes = {
   accountInformation: object.isRequired,
   onSwitchChange: func.isRequired,
   onIconPress: func.isRequired
+};
+
+AccountListItem.defaultProps = {
+  accountImage: assets.JamunaBankLogo1,
+  infoIcon: assets.Info2,
+  dragIcon: assets.Drag,
 };
 
 export default AccountListItem;

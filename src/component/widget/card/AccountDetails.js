@@ -1,8 +1,12 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Title from '../title/Title';
-import {p20, ph20, pv10} from "../../../styles/commonStyle";
+import {ph20, pv10} from "../../../styles/commonStyle";
 import BoxShadow from "../../ui/wrapper/BoxShadow";
+import {colors, fonts} from "../../../styles/baseStyle";
+import {ButtonCommunication} from "../../ui";
+import {func} from 'prop-types';
+import assets from "../../../assets";
 
 const styles = StyleSheet.create({
   contentWrapper: {
@@ -10,24 +14,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     ...ph20,
     ...pv10
-  },
-  imageStyle: {
-    width: 35,
-    height: 35
   }
 });
 
-const AccountDetails = ({handleShareButton}) => {
+const AccountDetails = ({handleShareButton, shareIcon}) => {
   return (
     <BoxShadow>
       <View style={styles.contentWrapper}>
         <Title subTitle="Account Name" title="Anisur Rahman"/>
-        <TouchableOpacity onPress={handleShareButton}>
-          <Image
-            style={styles.imageStyle}
-            source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-          />
-        </TouchableOpacity>
+        <ButtonCommunication
+          logo={shareIcon}
+          buttonColor={colors.white1}
+          iconHeight={35}
+          iconWidth={35}
+          textColor={colors.text2}
+          fontSize={fonts.fs14}
+          onPress={handleShareButton}/>
       </View>
       <View style={styles.contentWrapper}>
         <Title subTitle="Account No" title="0000 1234 5678 9"/>
@@ -38,6 +40,14 @@ const AccountDetails = ({handleShareButton}) => {
       </View>
     </BoxShadow>
   )
+};
+
+AccountDetails.propTypes = {
+  handleShareButton: func.isRequired
+};
+
+AccountDetails.defaultProps = {
+  shareIcon: assets.Share
 };
 
 export default AccountDetails
