@@ -47,13 +47,14 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonDouble
-          content="Button Double"
-          contentRight="Type here"
+          content="Pay Now"
+          contentRight="Scheduled / Repeat"
           buttonColor={gradientColors.gradient5}
           textColorLeft={colors.bgPrimary}
           textColorRight={colors.black1}
           fontSize={fonts.fs14}
-          onPress={() => console.warn('Button Primary')}
+          onPressLeft={() => console.warn('Left')}
+          onPressRight={() => console.warn('Right')}
         />
       </View>
       {/* ui/button/ButtonDouble */}

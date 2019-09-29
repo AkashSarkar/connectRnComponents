@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     borderRadius: 25,
     elevation: 1,
     backgroundColor: colors.white1,
@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
     ...pv10
   },
   leftWrapper: {
-    width: '50%',
+    width: 200,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch'
   },
   rightWrapper: {
-    width: '50%',
+    width: 187,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch'
@@ -60,10 +60,12 @@ const ButtonDouble = ({
   textColorLeft,
   textColorRight,
   fontSize,
-  onPress
+  onPressLeft,
+  onPressRight
 }) => (
-  <TouchableOpacity onPress={onPress}>
-    <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
+  // <TouchableOpacity onPress={onPress}>
+  <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
+    <TouchableOpacity onPress={onPressLeft}>
       <View style={styles.leftWrapper}>
         <LinearGradient
           colors={buttonColor}
@@ -78,6 +80,8 @@ const ButtonDouble = ({
           />
         </LinearGradient>
       </View>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPressRight}>
       <View style={styles.rightWrapper}>
         <TextComponent
           content={contentRight}
@@ -86,8 +90,9 @@ const ButtonDouble = ({
           color={textColorRight}
         />
       </View>
-    </View>
-  </TouchableOpacity>
+    </TouchableOpacity>
+  </View>
+  // </TouchableOpacity>
 );
 
 ButtonDouble.propTypes = {
