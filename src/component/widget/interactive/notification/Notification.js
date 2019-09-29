@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     paddingHorizontal: 15,
-    borderRadius: 16
+    borderRadius: 16,
+    marginBottom: 10
   },
   title: {
     alignItems: 'center',

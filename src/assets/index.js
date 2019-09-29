@@ -21,7 +21,12 @@ const assets = {
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
   Beftn: require('./icons/Beftn.png'),
-  ConnectSign: require('./icons/ConnectSign.png')
+  ConnectSign: require('./icons/ConnectSign.png'),
+  UpIndicator: require('./icons/UpIndicator.png'),
+  DownIndicator: require('./icons/DownIndicator.png'),
+  LeftIndicator: require('./icons/LeftIndicator.png'),
+  RightIndicator: require('./icons/RightIndicator.png'),
+  ControlButton: require('./icons/FAB_BTN.png')
 };
 
 export default assets;

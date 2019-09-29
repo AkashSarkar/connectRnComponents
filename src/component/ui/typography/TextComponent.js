@@ -4,16 +4,16 @@ import { number, object, string } from 'prop-types';
 import { fonts, colors } from '../../../styles/baseStyle';
 
 const TextComponent = ({
-  content, family, size, color, extraStyle = {}
+  content, family, size, color, extraStyle
 }) =>
   // TODO have to make extra style work
   (
     <Text
-      style={{
+      style={[{
         fontFamily: family,
         fontSize: size,
         color
-      }}
+      }, extraStyle]}
     >
       {content}
     </Text>
@@ -28,7 +28,8 @@ TextComponent.propTypes = {
 
 TextComponent.defaultProps = {
   family: fonts.light,
-  color: colors.text2
+  color: colors.text2,
+  extraStyle: {}
 };
 
 export default TextComponent;

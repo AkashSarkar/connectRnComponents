@@ -1,88 +1,251 @@
 import React, { Component } from 'react';
 import {
-  View, StyleSheet, Animated, PanResponder
+  View, StyleSheet, Animated, PanResponder, Image
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { string, func } from 'prop-types';
 import { getSwipeDirection, isTap, swipeDirections } from './detectSwipe';
-import { gradientColors } from '../../../../styles/baseStyle';
+import { fonts, colors } from '../../../../styles/baseStyle';
+import assets from '../../../../assets';
+import { TextComponent } from '../../../ui';
 
 const styles = StyleSheet.create({
   bubble: {
-    padding: 30,
     borderRadius: 50,
-    maxWidth: 62
+    maxWidth: 62,
+    maxHeight: 62
   },
   arrowContainer: {
     position: 'relative'
   },
   arrow: {
-    borderTopColor: 'blue',
-    borderTopWidth: 3,
-    position: 'absolute',
-    padding: 2
+    position: 'absolute'
+  },
+  arrowIcon: {
+    width: 10,
+    height: 10
   },
   upArrow: {
-    bottom: 25,
-    left: 29
+    bottom: 13,
+    left: 25
   },
   leftArrow: {
-    top: 30,
-    right: 88
+    top: 22,
+    right: 75,
+    flexDirection: 'row'
   },
   rightArrow: {
-    left: 88,
-    top: 30
+    left: 70,
+    top: 21,
+    flexDirection: 'row'
   },
   downArrow: {
-    top: 90,
-    left: 29
+    top: 65,
+    left: 25
+  },
+  verticalLabel: {
+    marginLeft: -8,
+    paddingVertical: 5,
+    alignSelf: 'center'
+  },
+  horizontalLabel: {
+    justifyContent: 'center',
+    // paddingHorizontal: 5,
+    marginTop: -2,
+    marginRight: 5
   }
 });
+
+const BUBBLE_SCALE_TO = 1.1;
+const INDICATOR_SCALE_TO = 1.2;
 
 class Control extends Component {
   state = {
     bubblePosition: new Animated.ValueXY(),
     bubbleScale: new Animated.Value(1),
-    arrowOpacity: new Animated.Value(0),
-    arrowOpacityToValue: 1,
-    scaleToValue: 1.2
+    upArrowOpacity: new Animated.Value(0),
+    downArrowOpacity: new Animated.Value(0),
+    leftArrowOpacity: new Animated.Value(0),
+    rightArrowOpacity: new Animated.Value(0),
+    upArrowPosition: new Animated.Value(0),
+    downArrowPosition: new Animated.Value(0),
+    leftArrowPosition: new Animated.Value(0),
+    rightArrowPosition: new Animated.Value(0),
+    indicatorScale: new Animated.Value(1),
+    indicatorScaleToValue: INDICATOR_SCALE_TO,
+    scaleToValue: BUBBLE_SCALE_TO,
+    firstTap: true
   };
+
+  setIndicatorVisibility = (direction, toValue = 1, duration = 150) => {
+    const {
+      SWIPE_LEFT, SWIPE_RIGHT, SWIPE_DOWN, SWIPE_UP
+    } = swipeDirections;
+    console.warn(direction);
+    switch (direction) {
+      case SWIPE_LEFT:
+        this.changeLeftArrowOpacity(toValue, duration);
+        break;
+
+      case SWIPE_RIGHT:
+        this.changeRightArrowOpacity(toValue, duration);
+        break;
+      case SWIPE_UP:
+        this.changeUpArrowOpacity(toValue, duration);
+        break;
+      case SWIPE_DOWN:
+        this.changeDownArrowOpacity(toValue, duration);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  scaleBubble = () => {
+    const {
+      scaleToValue,
+      bubbleScale,
+      firstTap
+    } = this.state;
+
+    let toScale = scaleToValue;
+
+    if (firstTap) {
+      toScale = BUBBLE_SCALE_TO;
+    } else if (toScale > 1) {
+      toScale = 1;
+    } else {
+      toScale = BUBBLE_SCALE_TO;
+    }
+
+    Animated.timing(bubbleScale, {
+      toValue: toScale,
+      friction: 3,
+      duration: 150
+    }).start();
+
+    let nextScaleValue = 1;
+    if (firstTap) {
+      nextScaleValue = BUBBLE_SCALE_TO;
+    }
+    if (!firstTap && scaleToValue === 1) {
+      nextScaleValue = BUBBLE_SCALE_TO;
+    }
+    if (!firstTap && scaleToValue === BUBBLE_SCALE_TO) {
+      nextScaleValue = 1;
+    }
+    this.setState({ scaleToValue: nextScaleValue, firstTap: false });
+  }
+
+  changeUpArrowOpacity = (toValue, duration) => {
+    const {
+      upArrowOpacity
+    } = this.state;
+    Animated.timing(upArrowOpacity, {
+      duration,
+      toValue
+    }).start();
+    // let nextOpacityValue = 0;
+    // if (arrowOpacityToValue === 0) {
+    //   nextOpacityValue = 1;
+    // }
+    // this.setState({ arrowOpacityToValue: nextOpacityValue });
+  }
+
+  changeDownArrowOpacity = (toValue, duration) => {
+    const {
+      downArrowOpacity
+    } = this.state;
+    Animated.timing(downArrowOpacity, {
+      duration,
+      toValue
+    }).start();
+  }
+
+  changeLeftArrowOpacity = (toValue, duration) => {
+    const {
+      leftArrowOpacity
+    } = this.state;
+    Animated.timing(leftArrowOpacity, {
+      duration,
+      toValue
+    }).start();
+  }
+
+  changeRightArrowOpacity = (toValue, duration) => {
+    const {
+      rightArrowOpacity
+    } = this.state;
+    Animated.timing(rightArrowOpacity, {
+      duration,
+      toValue
+    }).start();
+  }
+
+  scaleIndicator = () => {
+    const {
+      indicatorScale,
+      indicatorScaleToValue
+    } = this.state;
+
+    Animated.timing(indicatorScale, {
+      toValue: indicatorScaleToValue,
+      friction: 3,
+      duration: 200
+    }).start();
+
+
+    let nextIndicatorScaleValue = 1;
+    if (indicatorScaleToValue === 1) {
+      nextIndicatorScaleValue = INDICATOR_SCALE_TO;
+    }
+    this.setState({ indicatorScaleToValue: nextIndicatorScaleValue });
+  }
+
+  handleTap = () => {
+    const { scaleToValue, firstTap } = this.state;
+
+    let opacityTo = 1;
+
+    if (!firstTap && scaleToValue > 1) {
+      opacityTo = 0;
+    }
+
+    let opacityDuration = 80;
+
+    if (opacityTo === 0) {
+      opacityDuration = 150;
+    }
+
+    this.changeUpArrowOpacity(opacityTo, opacityDuration);
+    this.changeDownArrowOpacity(opacityTo, opacityDuration);
+    this.changeLeftArrowOpacity(opacityTo, opacityDuration);
+    this.changeRightArrowOpacity(opacityTo, opacityDuration);
+
+    this.scaleIndicator();
+    this.scaleBubble();
+  }
 
   onBubbleRelease = (e, gestureState) => {
     const direction = getSwipeDirection(gestureState);
-    // console.warn(direction);
+
+    this.setIndicatorVisibility(direction, 1);
 
     const {
       bubblePosition,
-      scaleToValue,
-      bubbleScale,
-      arrowOpacity,
-      arrowOpacityToValue
+      scaleToValue
     } = this.state;
 
     if (direction === swipeDirections.TAP) {
-      Animated.spring(bubbleScale, {
-        toValue: scaleToValue,
-        friction: 3
-      }).start();
-      Animated.timing(arrowOpacity, {
-        duration: 200,
-        toValue: arrowOpacityToValue
-      }).start();
-      let nextScaleValue = 1;
-      if (scaleToValue === 1) {
-        nextScaleValue = 1.2;
-      }
-      this.setState({ scaleToValue: nextScaleValue });
-      let nextOpacityValue = 0;
-      if (arrowOpacityToValue === 0) {
-        nextOpacityValue = 1;
-      }
-      this.setState({ arrowOpacityToValue: nextOpacityValue });
+      this.handleTap();
     } else {
-      Animated.spring(bubblePosition, {
-        toValue: 0
+      Animated.timing(bubblePosition, {
+        toValue: 0,
+        duration: 150
       }).start();
+      setTimeout(() => {
+        if (scaleToValue === 1) { this.setIndicatorVisibility(direction, 0, 350); }
+      }, 700);
     }
 
     bubblePosition.flattenOffset();
@@ -97,13 +260,17 @@ class Control extends Component {
     bubblePosition.setValue({ x: 0, y: 0 });
   };
 
-  onBubbleMove = (e, gestureState) => Animated.event([
-    null,
-    {
-      dx: this.state.bubblePosition.x,
-      dy: this.state.bubblePosition.y
-    }
-  ]);
+  onBubbleMove = (e, gestureState) =>
+    // this.setIndicatorVisibility(getSwipeDirection(gestureState));
+    (
+      Animated.event([
+        null,
+        {
+          dx: Math.abs(gestureState.dx) > Math.abs(gestureState.dy) ? this.state.bubblePosition.x : 0,
+          dy: Math.abs(gestureState.dy) > Math.abs(gestureState.dx) ? this.state.bubblePosition.y : 0
+        }
+      ])(e, gestureState))
+
 
   handleShouldSetResponder = (e, gestureState) => {
     if (isTap(gestureState)) {
@@ -120,25 +287,45 @@ class Control extends Component {
     onMoveShouldSetPanResponder: this.handleShouldSetResponder,
     onStartShouldSetPanResponderCapture: () => true,
     onPanResponderGrant: this.movementInit,
-    onPanResponderMove: this.onBubbleMove(),
+    onPanResponderMove: (e, gestureState) => this.onBubbleMove(e, gestureState),
     onPanResponderRelease: this.onBubbleRelease
   });
 
   render() {
-    const { bubblePosition, bubbleScale, arrowOpacity } = this.state;
+    const {
+      bubblePosition, bubbleScale, arrowOpacity, indicatorScale, upArrowOpacity, downArrowOpacity, leftArrowOpacity, rightArrowOpacity
+    } = this.state;
+    const {
+      topLabel, bottomLabel, leftLabel, rightLabel
+    } = this.props;
 
     const translateX = bubblePosition.x.interpolate({
-      inputRange: [-20, 20],
-      outputRange: [-20, 20],
+      inputRange: [-15, 15],
+      outputRange: [-15, 15],
       extrapolate: 'clamp'
     });
     const translateY = bubblePosition.y.interpolate({
-      inputRange: [-20, 20],
-      outputRange: [-20, 20],
+      inputRange: [-15, 15],
+      outputRange: [-15, 15],
       extrapolate: 'clamp'
     });
 
-    const opacity = arrowOpacity.interpolate({
+    const upOpacity = upArrowOpacity.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1],
+      extrapolate: 'clamp'
+    });
+    const downOpacity = downArrowOpacity.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1],
+      extrapolate: 'clamp'
+    });
+    const leftOpacity = leftArrowOpacity.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1],
+      extrapolate: 'clamp'
+    });
+    const rightOpacity = rightArrowOpacity.interpolate({
       inputRange: [0, 1],
       outputRange: [0, 1],
       extrapolate: 'clamp'
@@ -148,26 +335,83 @@ class Control extends Component {
       transform: [{ translateX }, { translateY }, { scale: bubbleScale }]
     };
 
+    const indicatorTransformStyle = {
+      transform: [{ scale: indicatorScale }]
+    };
+
     return (
       <View style={styles.arrowContainer}>
-        <Animated.View style={[{ opacity }]}>
-          <View style={[styles.arrow, styles.upArrow]} />
-          <View style={[styles.arrow, styles.leftArrow]} />
-          <View style={[styles.arrow, styles.rightArrow]} />
-          <View style={[styles.arrow, styles.downArrow]} />
+        <Animated.View style={[{ opacity: upOpacity }, indicatorTransformStyle]}>
+          <View style={[styles.arrow, styles.upArrow]}>
+            <TextComponent
+              extraStyle={styles.verticalLabel}
+              content={topLabel}
+              size={fonts.fs10}
+              color={colors.primary}
+              family={fonts.medium}
+            />
+            <Image style={styles.arrowIcon} source={assets.UpIndicator} />
+          </View>
         </Animated.View>
-        <Animated.View
+        <Animated.View style={[{ opacity: leftOpacity }, indicatorTransformStyle]}>
+          <View style={[styles.arrow, styles.leftArrow]}>
+            <TextComponent
+              extraStyle={styles.horizontalLabel}
+              content={leftLabel}
+              size={fonts.fs10}
+              color={colors.primary}
+              family={fonts.medium}
+            />
+            <Image style={styles.arrowIcon} source={assets.LeftIndicator} />
+          </View>
+        </Animated.View>
+        <Animated.View style={[{ opacity: rightOpacity }, indicatorTransformStyle]}>
+          <View style={[styles.arrow, styles.rightArrow]}>
+            <TextComponent
+              extraStyle={styles.horizontalLabel}
+              content={rightLabel}
+              size={fonts.fs10}
+              color={colors.primary}
+              family={fonts.medium}
+            />
+            <Image style={styles.arrowIcon} source={assets.RightIndicator} />
+          </View>
+        </Animated.View>
+        <Animated.View style={[{ opacity: downOpacity }, indicatorTransformStyle]}>
+          <View style={[styles.arrow, styles.downArrow]}>
+            <Image style={styles.arrowIcon} source={assets.DownIndicator} />
+            <TextComponent
+              extraStyle={styles.verticalLabel}
+              content={bottomLabel}
+              size={fonts.fs10}
+              color={colors.primary}
+              family={fonts.medium}
+            />
+          </View>
+        </Animated.View>
+        <Animated.Image
+          source={assets.ControlButton}
           {...this.movementController.panHandlers}
-          style={[transformStyle]}
+          style={[styles.bubble, transformStyle]}
         >
-          <LinearGradient
-            style={[styles.bubble, styles.gradient]}
-            colors={gradientColors.gradientPrimary}
-          />
-        </Animated.View>
+        </Animated.Image>
       </View>
     );
   }
 }
+
+Control.defaultProps = {
+  topLabel: 'Scan',
+  bottomLabel: 'Back',
+  leftLabel: 'Menu',
+  rightLabel: ''
+};
+
+Control.propTypes = {
+  topLabel: string,
+  bottomLabel: string,
+  leftLabel: string,
+  rightLabel: string
+};
 
 export default Control;

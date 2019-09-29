@@ -8,7 +8,7 @@ export const swipeDirections = {
 
 const swipeConfig = {
   velocityThreshold: 0.0,
-  directionalOffsetThreshold: 110,
+  directionalOffsetThreshold: 60,
   gestureIsClickThreshold: 5
 };
 
