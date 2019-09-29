@@ -3,8 +3,35 @@ import {ph20, pv10, pv25} from "../../../styles/commonStyle";
 import TextComponent from "../../ui/typography/TextComponent";
 import {colors, fonts} from "../../../styles/baseStyle";
 import {StyleSheet, View} from "react-native";
+import AmountWidget from "../../../utils/AmountWidget";
 
 const PaymentInfo = ({paymentInformation, title, paymentDate, totalAmount}) => {
+
+  let amountStyle = {
+    fontFamily: fonts.regular,
+    size: fonts.fs14,
+    color: colors.grey1
+  };
+
+  let decimalStyle = {
+    fontFamily: fonts.regular,
+    size: fonts.fs14,
+    color: colors.grey1
+  };
+
+  let totalAmountStyle = {
+    fontFamily: fonts.bold,
+    size: fonts.fs14,
+    color: colors.black0
+  };
+
+  let totalDecimalStyle = {
+    fontFamily: fonts.bold,
+    size: fonts.fs14,
+    color: colors.black0
+  };
+
+
   let renderInformation = paymentInformation.map((info, index) => {
     return <View key={index} style={[styles.wrapper]}>
       <TextComponent
@@ -12,11 +39,10 @@ const PaymentInfo = ({paymentInformation, title, paymentDate, totalAmount}) => {
         family={fonts.regular}
         size={fonts.fs14}
         color={colors.black0}/>
-      <TextComponent
-        content={info.amount}
-        family={fonts.regular}
-        size={fonts.fs14}
-        color={colors.grey1}/>
+      <AmountWidget
+        amount={info.amount}
+        amountStyle={amountStyle}
+        decimalStyle={decimalStyle}/>
     </View>
   });
 
@@ -45,11 +71,10 @@ const PaymentInfo = ({paymentInformation, title, paymentDate, totalAmount}) => {
           family={fonts.bold}
           size={fonts.fs14}
           color={colors.black0}/>
-        <TextComponent
-          content={totalAmount}
-          family={fonts.bold}
-          size={fonts.fs14}
-          color={colors.black0}/>
+        <AmountWidget
+          amount={totalAmount}
+          decimalStyle={totalAmountStyle}
+          amountStyle={totalAmountStyle}/>
       </View>
 
     </View>

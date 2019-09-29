@@ -83,7 +83,7 @@ const WidgetL2Test = ({navigation}) => {
           paymentInformation={paymentInformation}
           title="Pizza Hut"
           paymentDate="24-06-2019"
-          totalAmount="12000"/>
+          totalAmount={12000}/>
       </View>
       {/*list/PaymentInfo*/}
 
@@ -91,7 +91,7 @@ const WidgetL2Test = ({navigation}) => {
         <TextComponent
           size={fonts.fs20}
           color={colors.secondary}
-          content="list/PaymentInfo"
+          content="list/Checkout"
           family={fonts.bold}
         />
         <Checkout
@@ -100,7 +100,7 @@ const WidgetL2Test = ({navigation}) => {
           checkoutSummary={checkoutSummary}
           totalQuantity={3}/>
       </View>
-      {/*list/PaymentInfo*/}
+      {/*list/Checkout*/}
 
       <View style={[pb10]}>
         <TextComponent
