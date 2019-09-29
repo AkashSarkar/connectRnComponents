@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { array } from 'prop-types';
 import SplitItem from './SplitItem';
-import { mb10 } from '../../../styles/commonStyle';
+import { mb10 } from '../../../../styles/commonStyle';
 
 const SplitList = ({ items }) => (
   items.map(item => (

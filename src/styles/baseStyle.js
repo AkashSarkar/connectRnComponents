@@ -41,6 +41,32 @@ export const gradientColors = {
   gradient6: ['#00d1da', '#14438f'],
   gradientInputLogin: ['#08205c', '#000630']
 };
+export const budgetMultiShades = [
+  {
+    color: colors.primary
+  },
+  {
+    color: '#115598'
+  },
+  {
+    color: '#0f67a2'
+  },
+  {
+    color: '#0c78ab'
+  },
+  {
+    color: '#0a8ab5'
+  },
+  {
+    color: '#079cbe'
+  },
+  {
+    color: '#05aec7'
+  },
+  {
+    color: '#02bfd1'
+  }
+];
 
 export const fonts = {
   fs8: 8,
