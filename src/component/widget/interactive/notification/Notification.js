@@ -6,13 +6,13 @@ import {
   BoxShadow, TextComponent, ButtonPrimary
 } from '../../../ui';
 import { gradientColors, fonts, colors } from '../../../../styles/baseStyle';
+import { mb10 } from '../../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     paddingHorizontal: 15,
-    borderRadius: 16,
-    marginBottom: 10
+    borderRadius: 16
   },
   title: {
     alignItems: 'center',
@@ -42,23 +42,25 @@ const styles = StyleSheet.create({
 const Notification = ({
   logo, content, footer, buttonTitle, onButtonPress
 }) => (
-  <BoxShadow>
-    <LinearGradient style={styles.container} colors={gradientColors.gradientWhite}>
-      <View style={styles.title}>
-        <Image resizeMode="contain" source={logo} style={styles.logo} />
-      </View>
-      <View style={styles.content}>
-        <TextComponent content={content} size={fonts.fs14} color={colors.black1} family={fonts.medium} />
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.footerLine} />
-        <TextComponent content={footer} size={fonts.fs14} color={colors.black1} family={fonts.medium} />
-      </View>
-      <View>
-        <ButtonPrimary buttonColor={gradientColors.gradientGrey} content={buttonTitle} onPress={onButtonPress} textColor={colors.white1} />
-      </View>
-    </LinearGradient>
-  </BoxShadow>
+  <View style={mb10}>
+    <BoxShadow>
+      <LinearGradient style={styles.container} colors={gradientColors.gradientWhite}>
+        <View style={styles.title}>
+          <Image resizeMode="contain" source={logo} style={styles.logo} />
+        </View>
+        <View style={styles.content}>
+          <TextComponent content={content} size={fonts.fs14} color={colors.black1} family={fonts.medium} />
+        </View>
+        <View style={styles.footer}>
+          <View style={styles.footerLine} />
+          <TextComponent content={footer} size={fonts.fs14} color={colors.black1} family={fonts.medium} />
+        </View>
+        <View>
+          <ButtonPrimary buttonColor={gradientColors.gradientGrey} content={buttonTitle} onPress={onButtonPress} textColor={colors.white1} />
+        </View>
+      </LinearGradient>
+    </BoxShadow>
+  </View>
 );
 
 Notification.propTypes = {
