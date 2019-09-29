@@ -6,8 +6,21 @@ import {ButtonCommunication} from "../../ui";
 import assets from "../../../assets";
 import {mr10, ph20, ph60, pt15, pt20, pv10, pv15, pv5} from "../../../styles/commonStyle";
 import BoxShadow from "../../ui/wrapper/BoxShadow";
+import AmountWidget from "../../../utils/AmountWidget";
 
 const Checkout = ({onPressQuantity, totalAmount, checkoutSummary, totalQuantity}) => {
+
+  let amountStyle = {
+    fontFamily: fonts.bold,
+    size: fonts.fs18,
+    color: colors.black0
+  };
+
+  let decimalStyle = {
+    fontFamily: fonts.bold,
+    size: fonts.fs18,
+    color: colors.black0
+  };
 
   let renderInformation = checkoutSummary.map((info, index) => {
     return <View key={index} style={[styles.borderStyle, styles.wrapper, ph20, pv10]}>
@@ -42,8 +55,13 @@ const Checkout = ({onPressQuantity, totalAmount, checkoutSummary, totalQuantity}
                 color={colors.grey1}/>
             </View>
             <ButtonCommunication
-              buttonLogo={assets.Check}
+              logo={assets.Check}
               buttonColor={colors.white1}
+              buttonWidth={30}
+              buttonHeight={30}
+              buttonBorderRadius={15}
+              iconHeight={30}
+              iconWidth={30}
               textColor={colors.text2}
               fontSize={fonts.fs14}
               onPress={onPressQuantity}/>
@@ -53,11 +71,11 @@ const Checkout = ({onPressQuantity, totalAmount, checkoutSummary, totalQuantity}
       <View style={[pt20, ph60]}>
         {renderInformation}
         <View style={[styles.totalAmount, pt15]}>
-          <TextComponent
-            size={fonts.fs18}
-            color={colors.black0}
-            content={`BDT ${totalAmount}`}
-            family={fonts.bold}/>
+          <AmountWidget
+            amountStyle={amountStyle}
+            decimalStyle={decimalStyle}
+            amount={totalAmount}
+            appendText="BDT "/>
         </View>
 
       </View>

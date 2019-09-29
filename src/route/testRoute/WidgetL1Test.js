@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
-import { ScrollView, View } from 'react-native';
-import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ButtonPrimary, TextComponent } from '../../component/ui';
-import { mb10, mb20, p10, pb10 } from '../../styles/commonStyle';
+import React, {useState} from 'react';
+import {ScrollView, View} from 'react-native';
+import {colors, fonts, gradientColors} from '../../styles/baseStyle';
+import {ButtonPrimary, TextComponent} from '../../component/ui';
+import {mb10, mb20, p10, pb10} from '../../styles/commonStyle';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import AccountListItem from '../../component/widget/card/AccountListItem';
 import AccountDetails from '../../component/widget/card/AccountDetails';
 import Ad from '../../component/widget/card/Ad';
-import InputField from '../../component/widget/input/InputField';
-import assets from '../../assets';
+
 import {
   Amount,
   Avatar,
   CTA,
-  ExpenseItem, HotelItem,
+  ExpenseItem,
+  HotelItem,
   PopUpMessage,
   Scan,
-  SeatListItem, TripType,
+  SeatListItem,
+  TripType,
   VerifiedInfo
 } from "../../component/widget";
 
-const WidgetL1Test = ({ navigation }) => {
+const WidgetL1Test = ({navigation}) => {
   const [search, setSearch] = useState('');
   const handleAccountSliderItem = () => {
     alert('AccountSliderItem');
@@ -38,10 +39,14 @@ const WidgetL1Test = ({ navigation }) => {
     alert('handleOnAdChange');
   };
 
+  const onAccountListIconPress = () => {
+    alert('onAccountListIconPress');
+  };
+
   const accountListItemInformation = {
     accountName: 'Jamuna Bank',
     suffix: '23',
-    accountNo: '4829 888888 9090 99',
+    accountNo: '4829 8888 9090 9999',
     accountType: 'Salary A/C',
     isSwitchOn: true
   };
@@ -71,9 +76,8 @@ const WidgetL1Test = ({ navigation }) => {
         />
         <AccountSliderItem
           handleInformation={handleAccountSliderItem}
-          gradient={gradientColors.gradientYellow}
-          suffixNo="12"
-          amount="125897.00"
+          suffixNo={12}
+          amount={12589997.88888}
           connectAcc="0002-90909-90909"
         />
       </View>
@@ -88,6 +92,7 @@ const WidgetL1Test = ({ navigation }) => {
         />
         <AccountListItem
           onSwitchChange={accountListonSwitchChange}
+          onIconPress={onAccountListIconPress}
           accountInformation={accountListItemInformation}/>
       </View>
       {/* widget/card/AccountListItem */}
@@ -99,8 +104,7 @@ const WidgetL1Test = ({ navigation }) => {
           content="widget/card/AccountDetails"
           family={fonts.bold}
         />
-        <AccountDetails
-          handleShareButton={handleAccountDetailsShareButton}/>
+        <AccountDetails handleShareButton={handleAccountDetailsShareButton}/>
       </View>
       {/* widget/card/AccountDetails */}
 
@@ -124,12 +128,14 @@ const WidgetL1Test = ({ navigation }) => {
           subtitle="Money"
         />
       </View>
+
       <View style={mb20}>
         <Avatar
           title="Send"
           subtitle="Money"
         />
       </View>
+
       <View style={mb20}>
         <SeatListItem
           title="Desh Travels"
@@ -139,18 +145,21 @@ const WidgetL1Test = ({ navigation }) => {
           price="BDT Tk. 450.00"
         />
       </View>
+
       <View style={mb20}>
         <PopUpMessage
           icon="Check"
           content="Success message"
         />
       </View>
+
       <View style={mb20}>
         <Amount
           title="Due Amount"
           subtitle="Tk. 3,600.00"
         />
       </View>
+
       <View style={mb20}>
         <VerifiedInfo
           title1="bKash Account Name"
@@ -159,6 +168,7 @@ const WidgetL1Test = ({ navigation }) => {
           subtitle2="01755 666 777"
         />
       </View>
+
       <View style={mb20}>
         <Scan
           title="Scan a valid QR code"
@@ -167,6 +177,7 @@ const WidgetL1Test = ({ navigation }) => {
           content="Scan now"
         />
       </View>
+
       <View style={mb20}>
         <ExpenseItem
           title="Hotel Name"
@@ -175,12 +186,14 @@ const WidgetL1Test = ({ navigation }) => {
           bottomValue="12%"
         />
       </View>
+
       <View style={mb20}>
         <TripType
           logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
           title="Hotel Name"
         />
       </View>
+
       <View style={mb20}>
         <HotelItem
           logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
