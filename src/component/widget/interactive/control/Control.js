@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   downArrow: {
-    top: 65,
     left: 25
   },
   verticalLabel: {
@@ -80,7 +79,7 @@ class Control extends Component {
     const {
       SWIPE_LEFT, SWIPE_RIGHT, SWIPE_DOWN, SWIPE_UP
     } = swipeDirections;
-    console.warn(direction);
+    // console.warn(direction);
     switch (direction) {
       case SWIPE_LEFT:
         this.changeLeftArrowOpacity(toValue, duration);
@@ -94,6 +93,37 @@ class Control extends Component {
         break;
       case SWIPE_DOWN:
         this.changeDownArrowOpacity(toValue, duration);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  handleSwipe = (direction) => {
+    const {
+      SWIPE_LEFT, SWIPE_RIGHT, SWIPE_DOWN, SWIPE_UP
+    } = swipeDirections;
+    // console.warn(direction);
+    const {
+      onSwipeLeft,
+      onSwipeRight,
+      onSwipeUp,
+      onSwipeDown
+    } = this.props;
+    switch (direction) {
+      case SWIPE_LEFT:
+        onSwipeLeft();
+        break;
+
+      case SWIPE_RIGHT:
+        onSwipeRight();
+        break;
+      case SWIPE_UP:
+        onSwipeUp();
+        break;
+      case SWIPE_DOWN:
+        onSwipeDown();
         break;
 
       default:
@@ -228,8 +258,8 @@ class Control extends Component {
 
   onBubbleRelease = (e, gestureState) => {
     const direction = getSwipeDirection(gestureState);
-
-    this.setIndicatorVisibility(direction, 1);
+    this.handleSwipe(direction);
+    // this.setIndicatorVisibility(direction, 1);
 
     const {
       bubblePosition,
@@ -243,9 +273,9 @@ class Control extends Component {
         toValue: 0,
         duration: 150
       }).start();
-      setTimeout(() => {
-        if (scaleToValue === 1) { this.setIndicatorVisibility(direction, 0, 350); }
-      }, 700);
+      // setTimeout(() => {
+      //   if (scaleToValue === 1) { this.setIndicatorVisibility(direction, 0, 350); }
+      // }, 700);
     }
 
     bubblePosition.flattenOffset();
@@ -260,17 +290,25 @@ class Control extends Component {
     bubblePosition.setValue({ x: 0, y: 0 });
   };
 
-  onBubbleMove = (e, gestureState) =>
-    // this.setIndicatorVisibility(getSwipeDirection(gestureState));
-    (
+  onBubbleMove = (e, gestureState) => {
+    const {
+      scaleToValue,
+      firstTap
+    } = this.state;
+    const direction = getSwipeDirection(gestureState);
+    this.setIndicatorVisibility(direction, 1, 150);
+    setTimeout(() => {
+      if ((!firstTap && scaleToValue === 1) || firstTap) { this.setIndicatorVisibility(direction, 0, 150); }
+    }, 700);
+    return (
       Animated.event([
         null,
         {
           dx: Math.abs(gestureState.dx) > Math.abs(gestureState.dy) ? this.state.bubblePosition.x : 0,
           dy: Math.abs(gestureState.dy) > Math.abs(gestureState.dx) ? this.state.bubblePosition.y : 0
         }
-      ])(e, gestureState))
-
+      ])(e, gestureState));
+  }
 
   handleShouldSetResponder = (e, gestureState) => {
     if (isTap(gestureState)) {
@@ -293,7 +331,7 @@ class Control extends Component {
 
   render() {
     const {
-      bubblePosition, bubbleScale, arrowOpacity, indicatorScale, upArrowOpacity, downArrowOpacity, leftArrowOpacity, rightArrowOpacity
+      bubblePosition, bubbleScale, scaleToValue, indicatorScale, upArrowOpacity, downArrowOpacity, leftArrowOpacity, rightArrowOpacity, firstTap
     } = this.state;
     const {
       topLabel, bottomLabel, leftLabel, rightLabel
@@ -305,8 +343,8 @@ class Control extends Component {
       extrapolate: 'clamp'
     });
     const translateY = bubblePosition.y.interpolate({
-      inputRange: [-15, 15],
-      outputRange: [-15, 15],
+      inputRange: [-10, 15],
+      outputRange: [-10, 15],
       extrapolate: 'clamp'
     });
 
@@ -378,7 +416,7 @@ class Control extends Component {
           </View>
         </Animated.View>
         <Animated.View style={[{ opacity: downOpacity }, indicatorTransformStyle]}>
-          <View style={[styles.arrow, styles.downArrow]}>
+          <View style={[styles.arrow, styles.downArrow, { top: (!firstTap && scaleToValue === 1) || firstTap ? 80 : 67 }]}>
             <Image style={styles.arrowIcon} source={assets.DownIndicator} />
             <TextComponent
               extraStyle={styles.verticalLabel}
@@ -411,7 +449,11 @@ Control.propTypes = {
   topLabel: string,
   bottomLabel: string,
   leftLabel: string,
-  rightLabel: string
+  rightLabel: string,
+  onSwipeDown: func.isRequired,
+  onSwipeUp: func.isRequired,
+  onSwipeLeft: func.isRequired,
+  onSwipeRight: func.isRequired
 };
 
 export default Control;

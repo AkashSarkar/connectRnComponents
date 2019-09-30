@@ -52,7 +52,7 @@ const AppNavigator = createStackNavigator(
     BudgetTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'ControlTest',
     headerMode: 'none'
   },
 );
