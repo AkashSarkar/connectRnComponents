@@ -7,7 +7,7 @@ export const swipeDirections = {
 };
 
 const swipeConfig = {
-  velocityThreshold: 0.0,
+  velocityThreshold: 0.5,
   directionalOffsetThreshold: 60,
   gestureIsClickThreshold: 5
 };
@@ -18,8 +18,8 @@ const isValidSwipe = (
   directionalOffset,
   directionalOffsetThreshold,
 ) => (
-  // Math.abs(velocity) > velocityThreshold &&
-  Math.abs(directionalOffset) < directionalOffsetThreshold
+  Math.abs(velocity) > velocityThreshold
+  && Math.abs(directionalOffset) < directionalOffsetThreshold
 );
 
 export const isTap = gestureState => (
