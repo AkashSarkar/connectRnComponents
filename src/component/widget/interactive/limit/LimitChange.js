@@ -199,10 +199,10 @@ onMoveSlider = (e, gestureState) => {
       extrapolate: 'clamp'
     });
 
-    const left = 0;
+    const leftOffset = {};
 
     // if (firstRender) {
-    //   left = sliderLeftOffset - 35;
+    //   leftOffset.left = sliderLeftOffset - 35;
     //   console.log('left');
     // }
 
@@ -226,7 +226,7 @@ onMoveSlider = (e, gestureState) => {
               </Animated.View>
               <Animated.View
                 {...this.panResponder.panHandlers}
-                style={{ ...styles.slider, left, transform: [{ translateX }] }}
+                style={{ ...styles.slider, ...leftOffset, transform: [{ translateX }] }}
               >
                 <View pointerEvents="none" />
               </Animated.View>

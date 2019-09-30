@@ -12,7 +12,7 @@ const LimitTest = () => {
       flex: 1, justifyContent: 'center', padding: 10, paddingHorizontal: 20
     }}
     >
-      {/* <Limit utilizedLimit={utilizedLimit} limit={500000} /> */}
+      <Limit utilizedLimit={utilizedLimit} limit={500000} />
       <ButtonPrimary textColor={colors.white1} buttonColor={gradientColors.gradientPrimary} content="Set Limit" onPress={() => setUtilizedLimit(utilizedLimit + 20000)} />
       <View style={{ marginBottom: 15 }} />
       <LimitChange initialUtilized={50000} limit={500000} />
