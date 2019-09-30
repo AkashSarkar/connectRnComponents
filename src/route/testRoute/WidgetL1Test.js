@@ -204,10 +204,7 @@ const WidgetL1Test = ({ navigation }) => {
           content="widget/card/AccountListItem"
           family={fonts.bold}
         />
-        <AccountListItem
-          onSwitchChange={accountListonSwitchChange}
-          onIconPress={onAccountListIconPress}
-          accountInformation={accountListItemInformation}
+        <AccountListItem accountInformation={accountListItemInformation}
         />
       </View>
       {/* widget/card/AccountListItem */}
