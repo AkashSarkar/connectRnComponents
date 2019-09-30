@@ -13,9 +13,9 @@ const assets = {
   Transfer: require('./icons/Transfer.png'),
   LogoConnect: require('./icons/LogoConnect.png'),
   LeftArrow: require('./icons/LeftArrow.png'),
-  Search: require('./icons/search.png'),
-  Plus: require('./icons/plus.png'),
-  Minus: require('./icons/minus.png'),
+  Search: require('./icons/SearchIcon.png'),
+  Plus: require('./icons/Plus.png'),
+  Minus: require('./icons/Minus.png'),
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
   Connect: require('./icons/Connect.png'),
@@ -55,6 +55,7 @@ const assets = {
   Visa2: require('./icons/Visa2.png'),
   Mastercard1: require('./icons/Mastercard1.png'),
   Dmoney2: require('./icons/Dmoney2.png'),
+  Pause: require('./icons/Pause.png')
 };
 
 export default assets;

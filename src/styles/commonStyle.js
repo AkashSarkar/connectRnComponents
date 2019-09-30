@@ -123,6 +123,13 @@ export const pl10 = {
 export const pl15 = {
   paddingLeft: 15
 };
+export const pl20 = {
+  paddingLeft: 20
+};
+
+export const pl25 = {
+  paddingLeft: 25
+};
 
 export const pb6 = {
   paddingBottom: 6
