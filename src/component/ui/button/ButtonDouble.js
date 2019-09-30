@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
     ...pv10
   },
   leftWrapper: {
-    width: 200,
+    width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch'
   },
   rightWrapper: {
-    width: 187,
+    width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch'
@@ -65,34 +65,29 @@ const ButtonDouble = ({
 }) => (
   // <TouchableOpacity onPress={onPress}>
   <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
-    <TouchableOpacity onPress={onPressLeft}>
-      <View style={styles.leftWrapper}>
-        <LinearGradient
-          colors={buttonColor}
-          style={styles.buttonGradient}
-          hitSlop={styles.hitSlop}
-        >
-          <TextComponent
-            content={content}
-            family={fonts.regular}
-            size={fontSize}
-            color={textColorLeft}
-          />
-        </LinearGradient>
-      </View>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={onPressRight}>
-      <View style={styles.rightWrapper}>
+    <TouchableOpacity onPress={onPressLeft} style={styles.leftWrapper}>
+      <LinearGradient
+        colors={buttonColor}
+        style={styles.buttonGradient}
+        hitSlop={styles.hitSlop}
+      >
         <TextComponent
-          content={contentRight}
+          content={content}
           family={fonts.regular}
           size={fontSize}
-          color={textColorRight}
+          color={textColorLeft}
         />
-      </View>
+      </LinearGradient>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPressRight} style={styles.rightWrapper}>
+      <TextComponent
+        content={contentRight}
+        family={fonts.regular}
+        size={fontSize}
+        color={textColorRight}
+      />
     </TouchableOpacity>
   </View>
-  // </TouchableOpacity>
 );
 
 ButtonDouble.propTypes = {
@@ -101,8 +96,7 @@ ButtonDouble.propTypes = {
   buttonColor: array.isRequired,
   textColorLeft: string.isRequired,
   textColorRight: string.isRequired,
-  fontSize: number,
-  onPress: func
+  fontSize: number
 };
 
 

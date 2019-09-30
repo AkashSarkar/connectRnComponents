@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     ...pv5,
+    paddingHorizontal: 5,
     elevation: 1,
     shadowColor: colors.black1,
     shadowOffset: {
@@ -37,38 +38,37 @@ const styles = StyleSheet.create({
     // paddingLeft: 10
   },
   rightWrapper: {
-    paddingRight: 13
+    // paddingRight: 13
   },
   imageStyle: {
     resizeMode: 'contain',
     height: 26,
     width: 26,
-    margin: 7
+    marginHorizontal: 7
   }
 });
 
 const MenuItem = ({
   content, buttonColor, textColor, logo, onPress
 }) => (
-  <TouchableOpacity onPress={onPress}>
-    <View
-      style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
-      hitSlop={styles.hitSlop}
-    >
-      <View style={styles.leftWrapper}>
-        <Image
-          style={styles.imageStyle}
-          source={image[logo]}
-        />
-      </View>
-      <View style={styles.rightWrapper}>
-        <TextComponent
-          content={content}
-          family={fonts.regular}
-          size={fonts.fs10}
-          color={colors[textColor]}
-        />
-      </View>
+  <TouchableOpacity
+    onPress={onPress}
+    style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+    hitSlop={styles.hitSlop}
+  >
+    <View style={styles.leftWrapper}>
+      <Image
+        style={styles.imageStyle}
+        source={image[logo]}
+      />
+    </View>
+    <View style={styles.rightWrapper}>
+      <TextComponent
+        content={content}
+        family={fonts.regular}
+        size={fonts.fs10}
+        color={colors[textColor]}
+      />
     </View>
   </TouchableOpacity>
 );

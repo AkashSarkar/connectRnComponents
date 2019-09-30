@@ -2,26 +2,29 @@ import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {ButtonCommunication, TextComponent} from "../../ui";
 import {colors, fonts} from "../../../styles/baseStyle";
-import SwitchComponent from "../../ui/input/SwitchComponent";
 import {pv10, pv5} from "../../../styles/commonStyle";
-import {func, object} from 'prop-types';
+import {object} from 'prop-types';
 import assets from '../../../assets';
 import Switch from "../../ui/input/Switch";
 
-const AccountListItem = (
-  {
-    onSwitchChange,
-    accountImage,
-    infoIcon,
-    dragIcon,
-    onIconPress,
-    accountInformation
-  }) => {
+const AccountListItem = ({accountInformation}) => {
+
+  const onDrag = () => {
+    console.warn("DRAG")
+  };
+
+  const onSwitchChange = () => {
+    alert("CHANGED");
+  };
+
+  const onInfoIconPress = () => {
+    alert("INFO ICON")
+  };
 
   return (
-    <View style={[styles.wrapper, pv10]}>
+    <View style={[styles.wrapper, pv10]} draggable>
       <ButtonCommunication
-        logo={dragIcon}
+        logo={assets.Drag}
         buttonColor={colors.white1}
         buttonWidth={20}
         buttonHeight={20}
@@ -30,11 +33,11 @@ const AccountListItem = (
         iconWidth={15}
         textColor={colors.text2}
         fontSize={fonts.fs14}
-        onPress={onIconPress}/>
+        onPress={onDrag}/>
       <View style={styles.accountLogoWrapper}>
         <Image
           style={styles.AccountLogoStyle}
-          source={accountImage}
+          source={accountInformation.accountImage}
         />
       </View>
       <View style={styles.accountInformationWrapper}>
@@ -60,7 +63,7 @@ const AccountListItem = (
           family={fonts.bold}/>
       </View>
       <ButtonCommunication
-        logo={infoIcon}
+        logo={assets.Info2}
         buttonColor={colors.white1}
         buttonWidth={30}
         buttonHeight={30}
@@ -69,14 +72,13 @@ const AccountListItem = (
         iconWidth={20}
         textColor={colors.text2}
         fontSize={fonts.fs14}
-        onPress={onIconPress}/>
+        onPress={onInfoIconPress}/>
       <Switch
         value={accountInformation.isSwitchOn}
         onChange={onSwitchChange}
         thumbColor={colors.secondary}
         trackColor={colors.white1}
       />
-
     </View>
   )
 };
@@ -116,15 +118,7 @@ const styles = StyleSheet.create({
 });
 
 AccountListItem.propTypes = {
-  accountInformation: object.isRequired,
-  onSwitchChange: func.isRequired,
-  onIconPress: func.isRequired
-};
-
-AccountListItem.defaultProps = {
-  accountImage: assets.JamunaBankLogo1,
-  infoIcon: assets.Info2,
-  dragIcon: assets.Drag,
+  accountInformation: object.isRequired
 };
 
 export default AccountListItem;

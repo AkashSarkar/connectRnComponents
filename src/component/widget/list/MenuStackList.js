@@ -11,11 +11,15 @@ import image from '../../../assets';
 const styles = {
   wrapper: {
     width: '100%',
-    height: 105,
-    backgroundColor: colors.white1
+    height: 105
+    // backgroundColor: colors.white1
+    // backgroundColor: 'red'
   },
   itemListStyle: {
     flexDirection: 'row'
+    // backgroundColor: 'blue',
+    // paddingTop: 10,
+    // paddingBottom: 10
   }
 };
 
