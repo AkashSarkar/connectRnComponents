@@ -48,7 +48,7 @@ const assets = {
   HandQRCode: require('./icons/HandQRCode.png'),
   Star: require('./icons/Star.png'),
   SendMoney: require('./icons/SendMoney.png'),
-  FlagBd: require('./icons/Flag BD.png'),
+  FlagBd: require('./icons/FlagBD.png'),
   Change: require('./icons/Change.png'),
   Operator: require('./icons/Operator.png')
 };

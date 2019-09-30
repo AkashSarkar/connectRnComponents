@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 25,
     elevation: 1,
+    ...pv5,
+    paddingHorizontal: 5,
     shadowColor: colors.black1,
     shadowOffset: {
       width: 0,
