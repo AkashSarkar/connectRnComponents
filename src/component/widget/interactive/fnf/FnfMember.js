@@ -41,33 +41,33 @@ const FnfMember = (
   }
   const pauseAction = () => {
     refs.swipeableRef.current.close();
-    alert("Pause")
+    alert('Pause');
   }
   const editAction = () => {
     refs.swipeableRef.current.close();
-    alert("Edit")
+    alert('Edit');
   }
   const mapRightActions = () => {
-    const { Delete, Check, LeftArrow } = assets;
+    const { Delete, Pause, Edit } = assets;
     return (
       [
         {
           id: 1,
           icon: Delete,
           color: '#00000029',
-          x: 150,
+          x: 130,
           pressHandler: deleteAction
         },
         {
           id: 2,
-          icon: Check,
+          icon: Pause,
           color: '#ffab00',
-          x: 100,
+          x: 80,
           pressHandler: pauseAction
         },
         {
           id: 3,
-          icon: LeftArrow,
+          icon: Edit,
           color: '#dd2c00',
           x: 50,
           pressHandler: editAction
@@ -108,7 +108,7 @@ const FnfMember = (
   return (
     <SwipeableWrapper
       rightActions={mapRightActions()}
-      rightSwiperWidth={150}
+      rightSwiperWidth={130}
       SwiperBackgroundColor={colors.grey2}
       ref={refs.swipeableRef}
     >
