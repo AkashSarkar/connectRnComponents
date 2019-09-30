@@ -55,9 +55,6 @@ const ButtonCenter = (
     style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
     hitSlop={styles.hitSlop}
   >
-    {/* <View
-
-    > */}
     <View style={styles.leftWrapper}>
       <Image
         style={styles.imageStyle}
@@ -74,7 +71,6 @@ const ButtonCenter = (
         color={textColor}
       />
     </View>
-    {/* </View> */}
   </TouchableOpacity>
 );
 
