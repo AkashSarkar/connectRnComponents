@@ -161,7 +161,10 @@ class ModalTest extends React.Component {
               onBackButtonPress={this.handleCloseModalSecondary}
               onClose={this.handleCloseModalSecondary}
               items={DataModalSecondary}
-              onSelect={id => console.warn(`from top ${id}`)}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalSecondary();
+              }}
             />
           </View>
           <View style={styles.viewWrapper}>
@@ -178,7 +181,10 @@ class ModalTest extends React.Component {
               onBackButtonPress={this.handleCloseModalDouble}
               onClose={this.handleCloseModalDouble}
               items={DataModalDouble}
-              onSelect={id => console.warn(`from top ${id}`)}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalDouble();
+              }}
             />
           </View>
         </SafeAreaView>

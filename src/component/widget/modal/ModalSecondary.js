@@ -8,7 +8,6 @@ import {
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
 
 
@@ -31,15 +30,33 @@ const styles = StyleSheet.create({
     right: 0
   },
   closeImageStyle: {
-    height: 35,
-    width: 35
+    height: 24,
+    width: 24
   },
   listViewWrapper: {
-    // alignItems: 'center',
     height: 200,
     width: '100%'
   }
 });
+
+const renderItem = (item, onSelect) => (
+  <View style={{
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    alignItems: 'center'
+  }}
+  >
+    <TouchableOpacity onPress={() => onSelect(item.id)}>
+      <TextComponent
+        content={item.title}
+        size={fonts.fs16}
+        family={fonts.semiBold}
+        color={colors.colorSecondery}
+      />
+    </TouchableOpacity>
+  </View>
+);
+
 
 const ModalSecondary = ({
   modalTitle,
@@ -69,14 +86,12 @@ const ModalSecondary = ({
           size={fonts.fs16}
           family={fonts.semiBold}
         />
-        <View style={styles.closeModalContainer}>
-          <TouchableOpacity onPress={onClose}>
-            <Image
-              style={styles.closeImageStyle}
-              source={image.Check}
-            />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={onClose} style={styles.closeModalContainer}>
+          <Image
+            style={styles.closeImageStyle}
+            source={image.Cross}
+          />
+        </TouchableOpacity>
       </View>
       <View
         style={styles.listViewWrapper}
@@ -84,7 +99,8 @@ const ModalSecondary = ({
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            <ModalItemList item={item} onSelect={onSelect} />
+            // <ModalItemList item={item} onSelect={onSelect} />
+            renderItem(item, onSelect)
           )}
           keyExtractor={item => item.id.toString()}
           showsHorizontalScrollIndicator={false}

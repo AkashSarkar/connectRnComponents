@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     right: 0
   },
   closeImageStyle: {
-    height: 35,
-    width: 35
+    height: 24,
+    width: 24
   },
   listViewWrapper: {
     // alignContent: 'center',
@@ -74,14 +74,12 @@ const ModalDouble = ({
           size={fonts.fs16}
           family={fonts.semiBold}
         />
-        <View style={styles.closeModalContainer}>
-          <TouchableOpacity onPress={onClose}>
-            <Image
-              style={styles.closeImageStyle}
-              source={image.Check}
-            />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={onClose} style={styles.closeModalContainer}>
+          <Image
+            style={styles.closeImageStyle}
+            source={image.Cross}
+          />
+        </TouchableOpacity>
       </View>
       {/* <View style={styles.lineStyle} /> */}
       <View
