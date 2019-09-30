@@ -19,6 +19,7 @@ const assets = {
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
   Connect: require('./icons/Connect.png'),
+  ConnectIcon: require('./icons/CONNECT.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
   Beftn: require('./icons/Beftn.png'),
@@ -55,7 +56,8 @@ const assets = {
   Visa2: require('./icons/Visa2.png'),
   Mastercard1: require('./icons/Mastercard1.png'),
   Dmoney2: require('./icons/Dmoney2.png'),
-  Pause: require('./icons/Pause.png')
+  Pause: require('./icons/Pause.png'),
+  Hotel: require('./icons/Hotel-1.png')
 };
 
 export default assets;
