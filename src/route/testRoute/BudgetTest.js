@@ -82,7 +82,13 @@ const BudgetTest = ({ navigation }) => {
       mapBudget().map((item, index) => {
         number -= 1;
         return (
-          <Animated.View style={[pl25, mb10]} key={index}>
+          <Animatable.View
+            animation="fadeInDown"
+            duration={300}
+            delay={100}
+            style={[pl25, mb10]}
+            key={index}
+          >
             <Budget
               name={item.name}
               amount={item.amount}
@@ -90,7 +96,7 @@ const BudgetTest = ({ navigation }) => {
               shadeColor={colorsArray[number]}
               isSubBudget
             />
-          </Animated.View>
+          </Animatable.View>
         );
       })
     );
@@ -107,8 +113,9 @@ const BudgetTest = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={mb10}
-        activeOpacity={0.9}
+        activeOpacity={1}
         onPress={() => {
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
           setShouldSubBudgetRender(!shouldSubBudgetRender);
           setRenderAll(!renderAll);
         }}
@@ -130,7 +137,11 @@ const BudgetTest = ({ navigation }) => {
     <ScrollView>
       <HeaderTop content="Modal Test" onPress={() => navigation.goBack()}/>
       {renderAll ? (
-        <View>
+        <Animatable.View
+          animation="slideInDown"
+          duration={300}
+          iterationCount={1}
+        >
           <View style={[p10, mt10]}>
             <View style={mb10}>
               <TextComponent
@@ -148,7 +159,7 @@ const BudgetTest = ({ navigation }) => {
             />
           </View>
           {renderBudgetList()}
-        </View>
+        </Animatable.View>
       ) : (
         renderBudgetList()
       )}

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ButtonPrimary, TextComponent, HeaderTop } from '../../component/ui';
-import {
-  mb10, mb20, mt10, p10, pb10
-} from '../../styles/commonStyle';
+import { colors, fonts } from '../../styles/baseStyle';
+import { HeaderTop, TextComponent } from '../../component/ui';
+import { mb10, mb20, mt10, p10, pb10 } from '../../styles/commonStyle';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import AccountListItem from '../../component/widget/card/AccountListItem';
 import AccountDetails from '../../component/widget/card/AccountDetails';
@@ -12,20 +10,23 @@ import Ad from '../../component/widget/card/Ad';
 
 import {
   Amount,
-  Avatar,
-  CTA, DatePick, DateRange,
+  CTA,
   ExpenseItem,
-  HotelItem, InputLabeled, InputLogin, InputMiddleLabeled, InputTabbed,
+  HotelItem,
+  InputLabeled,
+  InputLogin,
+  InputMiddleLabeled,
+  InputTabbed,
   PopUpMessage,
   Scan,
-  SeatListItem, TimePick,
+  SeatListItem,
   TripType,
   VerifiedInfo
 } from '../../component/widget';
-import BoxShadow from "../../component/ui/wrapper/BoxShadow";
-import InputField from "../../component/widget/input/InputField";
-import assets from "../../assets";
-import Selection from "../../component/widget/card/Selection";
+import BoxShadow from '../../component/ui/wrapper/BoxShadow';
+import InputField from '../../component/widget/input/InputField';
+import assets from '../../assets';
+import Selection from '../../component/widget/card/Selection';
 
 const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
@@ -259,45 +260,6 @@ const WidgetL1Test = ({ navigation }) => {
         />
         {/* Amount change component goes here */}
       </View>
-
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="widget/card/TimePick"
-          family={fonts.bold}
-        />
-        <TimePick/>
-      </View>
-
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="widget/card/DateRange"
-          family={fonts.bold}
-        />
-        <DateRange
-          onEndDateSelected={(date) => {
-            console.log(date);
-          }}
-          onStartDateSelected={(date) => {
-            console.log(date);
-          }}
-          onSubmitPress={() => console.log()}
-          buttonTitle="See Results"
-        />
-      </View>
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="widget/card/DatePick"
-          family={fonts.bold}
-        />
-        <DatePick title="Journey Date"/>
-      </View>
-
       <View style={mb20}>
         <TextComponent
           size={fonts.fs20}
@@ -361,7 +323,7 @@ const WidgetL1Test = ({ navigation }) => {
           family={fonts.bold}
         />
         <TripType
-          logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+          logo={assets.Hotel}
           title="Hotel Name"
         />
       </View>
@@ -374,7 +336,7 @@ const WidgetL1Test = ({ navigation }) => {
           family={fonts.bold}
         />
         <HotelItem
-          logo="https://media.gettyimages.com/photos/hawa-mahal-palace-of-winds-jaipur-rajasthan-india-picture-id596959480?s=2048x2048"
+          logo={assets.Hotel}
           title="Hotel Name"
           subtitle="Dhaka"
           price="1002"
