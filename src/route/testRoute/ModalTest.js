@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { ButtonPrimary, HeaderTop } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ModalSecondary, ModalDouble } from '../../component/widget';
+import { ModalSecondary, ModalDouble, ModalInfo } from '../../component/widget';
 
 
 const DataModalSecondary = [
@@ -92,6 +92,18 @@ const DataModalDouble = [
     cardInfo: 'VISA *1564'
   }
 ];
+const DataModalInfo = [
+  {
+    id: '1',
+    title: 'Location: ',
+    details: 'House# 7, Road# 1, Block# B, Niketon, Gulshan-1, Dhaka 1212'
+  },
+  {
+    id: '2',
+    title: 'Corporate Office: ',
+    details: 'Saimon Center, 4th Floor, House# 4/A, Road# 22, Gulshan-1, Dhaka 1212'
+  }
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -114,7 +126,8 @@ class ModalTest extends React.Component {
     super(props);
     this.state = {
       isModalSecondaryVisible: false,
-      isModalDoubleVisible: false
+      isModalDoubleVisible: false,
+      isModalInfoVisible: false
     };
   }
 
@@ -130,6 +143,12 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalInfo = () => {
+    this.setState({
+      isModalInfoVisible: !this.state.isModalInfoVisible
+    });
+  };
+
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
@@ -139,6 +158,12 @@ class ModalTest extends React.Component {
   handleCloseModalDouble = () => {
     this.setState({
       isModalDoubleVisible: !this.state.isModalDoubleVisible
+    });
+  };
+
+  handleCloseModalInfo = () => {
+    this.setState({
+      isModalInfoVisible: !this.state.isModalInfoVisible
     });
   };
 
@@ -186,6 +211,21 @@ class ModalTest extends React.Component {
                 console.warn('from top ', id);
                 this.handleCloseModalDouble();
               }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Info"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalInfo}
+            />
+            <ModalInfo
+              isVisible={this.state.isModalInfoVisible}
+              onBackButtonPress={this.handleCloseModalInfo}
+              onClose={this.handleCloseModalInfo}
+              items={DataModalInfo}
             />
           </View>
         </SafeAreaView>

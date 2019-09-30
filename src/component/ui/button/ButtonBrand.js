@@ -52,8 +52,9 @@ const ButtonBrand = ({
   <TouchableOpacity
     onPress={onPress}
     style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+    hitSlop={styles.hitSlop}
   >
-    <View style={styles.leftWrapper} hitSlop={styles.hitSlop}>
+    <View style={styles.leftWrapper}>
       <Image
         style={styles.imageStyle}
         source={image[logo]}
