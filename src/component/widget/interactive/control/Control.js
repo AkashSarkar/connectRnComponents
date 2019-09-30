@@ -338,13 +338,13 @@ class Control extends Component {
     } = this.props;
 
     const translateX = bubblePosition.x.interpolate({
-      inputRange: [-15, 15],
-      outputRange: [-15, 15],
+      inputRange: [-10, 10],
+      outputRange: [-10, 10],
       extrapolate: 'clamp'
     });
     const translateY = bubblePosition.y.interpolate({
-      inputRange: [-10, 15],
-      outputRange: [-10, 15],
+      inputRange: [-10, 10],
+      outputRange: [-10, 10],
       extrapolate: 'clamp'
     });
 
