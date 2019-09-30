@@ -36,7 +36,14 @@ const styles = StyleSheet.create({
 
 const ButtonCommunication = (
   {
-    buttonColor, buttonWidth, buttonHeight, buttonBorderRadius, iconHeight, iconWidth, logo, onPress
+    buttonColor,
+    buttonWidth,
+    buttonHeight,
+    buttonBorderRadius,
+    iconHeight,
+    iconWidth,
+    logo,
+    onPress
   }
 ) => (
   <TouchableOpacity onPress={onPress}>

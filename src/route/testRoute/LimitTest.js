@@ -6,16 +6,16 @@ import { gradientColors, fonts, colors } from '../../styles/baseStyle';
 import { LimitChange } from '../../component/widget/interactive';
 
 const LimitTest = () => {
-  const [utilizedLimit, setUtilizedLimit] = useState(100);
+  const [utilizedLimit, setUtilizedLimit] = useState(100000);
   return (
     <View style={{
       flex: 1, justifyContent: 'center', padding: 10, paddingHorizontal: 20
     }}
     >
-      <Limit utilizedLimit={utilizedLimit} limit={5000} />
-      <ButtonPrimary textColor={colors.white1} buttonColor={gradientColors.gradientPrimary} content="Set Limit" onPress={() => setUtilizedLimit(utilizedLimit + 1250)} />
+      <Limit utilizedLimit={utilizedLimit} limit={500000} />
+      <ButtonPrimary textColor={colors.white1} buttonColor={gradientColors.gradientPrimary} content="Set Limit" onPress={() => setUtilizedLimit(utilizedLimit + 20000)} />
       <View style={{ marginBottom: 15 }} />
-      <LimitChange utilizedLimit={utilizedLimit} setUtilizedLimit={setUtilizedLimit} limit={5000} />
+      <LimitChange utilizedLimit={utilizedLimit} setUtilizedLimit={setUtilizedLimit} limit={500000} />
     </View>
   );
 };

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, StyleSheet, PanResponder, Animated
+  View, StyleSheet, PanResponder, Animated, Image
 } from 'react-native';
 import { string, func } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { TextComponent, BoxShadow } from '../../../ui';
 import { fonts, gradientColors, colors } from '../../../../styles/baseStyle';
+import assets from '../../../../assets';
 
 const styles = StyleSheet.create({
   rootContainer: {
@@ -49,6 +50,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white1,
     borderRadius: 50,
     left: 0
+  },
+  sliderIcon: {
+    width: 25,
+    height: 25,
+    marginTop: 5,
+    marginLeft: 4
   }
 });
 
@@ -124,7 +131,7 @@ const Limit = ({
               />
             </Animated.View>
             <Animated.View {...panResponder.panHandlers} style={{ ...styles.slider, transform: [{ translateX }] }}>
-
+              <Image source={assets.SliderIcon} style={styles.sliderIcon} />
             </Animated.View>
 
             <View

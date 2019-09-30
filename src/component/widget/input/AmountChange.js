@@ -20,24 +20,28 @@ const styles = {
   amountWrapper: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'space-around',
     width: '15%'
   }
-}
+};
 const AmountChange = ({ title, value }) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(value);
   useEffect(() => {
-    setAmount(parseInt(value, 10));
-    console.log(value);
-  }, [value]);
+    if (amount < 0) {
+      setAmount(0);
+    }
+  }, [amount]);
   const increment = () => {
     setAmount(amount + 1);
-  }
+  };
   const decrement = () => {
-    if (!amount < 0) {
+    console.log(amount);
+    if (amount < 0) {
+      setAmount(0);
+    } else {
       setAmount(amount - 1);
     }
-  }
+  };
   return (
     <View style={[styles.wrapperStyle]}>
       <TextComponent
@@ -49,11 +53,12 @@ const AmountChange = ({ title, value }) => {
       <View style={[styles.amountWrapper, pr25]}>
         <TouchableOpacity
           onPress={() => decrement()}
+          disabled={amount < 0}
         >
           <Image source={assets.Minus} style={{ height: 30, width: 30 }}/>
         </TouchableOpacity>
         <InputField
-          value={amount}
+          value={String(amount)}
           keyboardType="numeric"
           maxLength={11}
           returnKeyType="next"
@@ -83,9 +88,9 @@ const AmountChange = ({ title, value }) => {
       </View>
     </View>
   );
-}
+};
 AmountChange.propTypes = {
   title: string,
   value: string
-}
+};
 export default AmountChange;

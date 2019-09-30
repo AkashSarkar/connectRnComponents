@@ -100,7 +100,7 @@ const FnfMember = (
       </View>
       {isConnect && (
         <View style={styles.rightChild}>
-          <Image source={assets.AppIcon} style={{ width: 60, height: 60 }}/>
+          <Image source={assets.Connect} style={{ width: 60, height: 60 }}/>
         </View>
       )}
     </View>

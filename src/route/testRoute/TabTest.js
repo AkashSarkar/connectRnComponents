@@ -22,8 +22,6 @@ const TabTest = () => {
 
   return (
     <TabWrapper
-      tab1Components={tab1Components()}
-      tab2Components={tab2Components()}
       tabTitle1="Tab1"
       tabTitle2="Tab2"
     />
