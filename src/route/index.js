@@ -23,6 +23,7 @@ import WidgetL2Test from './testRoute/WidgetL2Test';
 import WidgetL3Test from './testRoute/WidgetL3Test';
 import ControlTest from './testRoute/ControlTest';
 import BudgetTest from './testRoute/BudgetTest';
+import CCMTest from './testRoute/CCMTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -49,10 +50,11 @@ const AppNavigator = createStackNavigator(
     WidgetInputTest,
     NotificationTest,
     ControlTest,
-    BudgetTest
+    BudgetTest,
+    CCMTest
   },
   {
-    initialRouteName: 'TestRoute',
+    initialRouteName: 'Home',
     headerMode: 'none'
   },
 );

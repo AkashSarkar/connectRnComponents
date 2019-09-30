@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { Notification } from '../../component/widget/interactive';
 import { TextComponent, BoxShadow, CarouselWrapper } from '../../component/ui';
-import { fonts, colors } from '../../styles/baseStyle';
+import { fonts, colors, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
 
 const NotificationTest = () => {
@@ -11,33 +11,45 @@ const NotificationTest = () => {
 
     components.push(
       <Notification
-        logo={assets.AUX_Logo}
+        logo={assets.JamunaBankLogo1}
         content={`
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                With Jamuna Bank Credit Card, get  desired home appliances at 5% discount from Rangs Electronics Ltd.
+                Offer valid till August 12, 2019. 
+                Helpline: 16221
                 `}
         buttonTitle="Read More"
-        footer="Jamuna Bank"
-      />
+        footer="Jamuna Bank Ltd."
+        bgColor={gradientColors.gradientPrimary}
+        buttonColor={gradientColors.gradientPrimary}
+        contentColor={colors.white1}
+      />,
     );
     components.push(
       <Notification
-        logo={assets.AUX_Logo}
+        logo={assets.JamunaBankLogo1}
         content={`
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                With Jamuna Bank Credit Card, get  desired home appliances at 5% discount from Rangs Electronics Ltd.
+                Offer valid till August 12, 2019. 
+                Helpline: 16221
                 `}
         buttonTitle="Read More"
-        footer="Jamuna Bank"
-      />
+        footer="Jamuna Bank Ltd."
+
+      />,
     );
     components.push(
       <Notification
-        logo={assets.AUX_Logo}
+        logo={assets.JamunaBankLogo1}
         content={`
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                With Jamuna Bank Credit Card, get  desired home appliances at 5% discount from Rangs Electronics Ltd.
+                Offer valid till August 12, 2019. 
+                Helpline: 16221
                 `}
         buttonTitle="Read More"
-        footer="Jamuna Bank"
-      />
+        footer="Jamuna Bank Ltd."
+        bgColor={gradientColors.gradientYellow}
+        buttonColor={gradientColors.gradientYellow}
+      />,
     );
 
     return components;
@@ -45,9 +57,7 @@ const NotificationTest = () => {
 
   return (
     <View style={{ paddingTop: 15 }}>
-      <CarouselWrapper
-        componentArray={notifications()}
-      />
+      <CarouselWrapper componentArray={notifications()} />
     </View>
   );
 };
