@@ -5,7 +5,11 @@ import {
 import { ButtonPrimary, HeaderTop } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
-  ModalSecondary, ModalDouble, ModalInfo, ModalFamilyList
+  ModalSecondary,
+  ModalDouble,
+  ModalInfo,
+  ModalFamilyList,
+  ModalContact
 } from '../../component/widget';
 
 
@@ -165,7 +169,8 @@ class ModalTest extends React.Component {
       isModalSecondaryVisible: false,
       isModalDoubleVisible: false,
       isModalInfoVisible: false,
-      isModalFamilyList: false
+      isModalFamilyList: false,
+      isModalContact: false
     };
   }
 
@@ -193,6 +198,12 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalContact = () => {
+    this.setState({
+      isModalContact: !this.state.isModalContact
+    });
+  };
+
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
@@ -214,6 +225,12 @@ class ModalTest extends React.Component {
   handleCloseFamilyList = () => {
     this.setState({
       isModalFamilyList: !this.state.isModalFamilyList
+    });
+  };
+
+  handleCloseModalContact = () => {
+    this.setState({
+      isModalContact: !this.state.isModalContact
     });
   };
 
@@ -296,6 +313,26 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseFamilyList();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Contact"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalContact}
+            />
+            <ModalContact
+              modalTitle="Email"
+              isVisible={this.state.isModalContact}
+              onBackButtonPress={this.handleCloseModalContact}
+              onClose={this.handleCloseModalContact}
+              onPress={this.handleCloseModalContact}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalContact();
               }}
             />
           </View>

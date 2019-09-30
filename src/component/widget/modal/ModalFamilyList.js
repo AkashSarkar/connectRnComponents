@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
   container: {
     height: 350,
     backgroundColor: colors.white1,
-    padding: 20,
+    paddingHorizontal: 15,
+    paddingBottom: 10,
     borderRadius: 16,
     borderColor: 'black'
   },
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 15
+    paddingVertical: 20
   },
   closeModalContainer: {
     position: 'absolute',
@@ -38,7 +39,8 @@ const styles = StyleSheet.create({
   listViewWrapper: {
     // alignContent: 'center',
     height: 235,
-    width: '100%'
+    width: '100%',
+    paddingBottom: 15
   },
   lineStyle: {
     borderWidth: 1,
@@ -51,6 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignContent: 'center',
     alignItems: 'center',
+    paddingVertical: 15,
     backgroundColor: colors.white1
   },
   imageList: {
