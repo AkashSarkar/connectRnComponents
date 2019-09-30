@@ -4,7 +4,9 @@ import {
 } from 'react-native';
 import { ButtonPrimary, HeaderTop } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
-import { ModalSecondary, ModalDouble } from '../../component/widget';
+import {
+  ModalSecondary, ModalDouble, ModalInfo, ModalFamilyList
+} from '../../component/widget';
 
 
 const DataModalSecondary = [
@@ -92,6 +94,53 @@ const DataModalDouble = [
     cardInfo: 'VISA *1564'
   }
 ];
+const DataModalInfo = [
+  {
+    id: '1',
+    title: 'Location: ',
+    details: 'House# 7, Road# 1, Block# B, Niketon, Gulshan-1, Dhaka 1212'
+  },
+  {
+    id: '2',
+    title: 'Corporate Office: ',
+    details: 'Saimon Center, 4th Floor, House# 4/A, Road# 22, Gulshan-1, Dhaka 1212'
+  }
+];
+
+const DataModalFamilyList = [
+  {
+    id: '1',
+    title: 'Nabila’s Savings A/C'
+  },
+  {
+    id: '2',
+    title: 'Raya’s Savings A/C'
+  },
+  {
+    id: '3',
+    title: 'Isa’s Savings A/C'
+  },
+  {
+    id: '4',
+    title: 'Friend’s Savings A/C'
+  },
+  {
+    id: '5',
+    title: 'Nabila’s Savings A/C'
+  },
+  {
+    id: '6',
+    title: 'Raya’s Savings A/C'
+  },
+  {
+    id: '7',
+    title: 'Isa’s Savings A/C'
+  },
+  {
+    id: '8',
+    title: 'Friend’s Savings A/C'
+  }
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -114,7 +163,9 @@ class ModalTest extends React.Component {
     super(props);
     this.state = {
       isModalSecondaryVisible: false,
-      isModalDoubleVisible: false
+      isModalDoubleVisible: false,
+      isModalInfoVisible: false,
+      isModalFamilyList: false
     };
   }
 
@@ -130,6 +181,18 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalInfo = () => {
+    this.setState({
+      isModalInfoVisible: !this.state.isModalInfoVisible
+    });
+  };
+
+  toggleFamilyList = () => {
+    this.setState({
+      isModalFamilyList: !this.state.isModalFamilyList
+    });
+  };
+
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
@@ -139,6 +202,18 @@ class ModalTest extends React.Component {
   handleCloseModalDouble = () => {
     this.setState({
       isModalDoubleVisible: !this.state.isModalDoubleVisible
+    });
+  };
+
+  handleCloseModalInfo = () => {
+    this.setState({
+      isModalInfoVisible: !this.state.isModalInfoVisible
+    });
+  };
+
+  handleCloseFamilyList = () => {
+    this.setState({
+      isModalFamilyList: !this.state.isModalFamilyList
     });
   };
 
@@ -161,7 +236,10 @@ class ModalTest extends React.Component {
               onBackButtonPress={this.handleCloseModalSecondary}
               onClose={this.handleCloseModalSecondary}
               items={DataModalSecondary}
-              onSelect={id => console.warn(`from top ${id}`)}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalSecondary();
+              }}
             />
           </View>
           <View style={styles.viewWrapper}>
@@ -173,12 +251,52 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalDouble}
             />
             <ModalDouble
-              modalTitle="Modal Double"
+              modalTitle="Select account"
+              modalTitleBottom="Card payments with"
               isVisible={this.state.isModalDoubleVisible}
               onBackButtonPress={this.handleCloseModalDouble}
               onClose={this.handleCloseModalDouble}
               items={DataModalDouble}
-              onSelect={id => console.warn(`from top ${id}`)}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalDouble();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Info"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalInfo}
+            />
+            <ModalInfo
+              isVisible={this.state.isModalInfoVisible}
+              onBackButtonPress={this.handleCloseModalInfo}
+              onClose={this.handleCloseModalInfo}
+              items={DataModalInfo}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal FamilyList"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleFamilyList}
+            />
+            <ModalFamilyList
+              modalTitle="Select Member"
+              isVisible={this.state.isModalFamilyList}
+              onBackButtonPress={this.handleCloseFamilyList}
+              onClose={this.handleCloseFamilyList}
+              onButtonPress={() => console.warn('add now')}
+              items={DataModalFamilyList}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseFamilyList();
+              }}
             />
           </View>
         </SafeAreaView>

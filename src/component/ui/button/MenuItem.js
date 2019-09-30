@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     ...pv5,
+    paddingHorizontal: 5,
     elevation: 1,
     shadowColor: colors.black1,
     shadowOffset: {
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: 26,
     width: 26,
-    margin: 7
+    marginHorizontal: 7
   }
 });
 
@@ -53,8 +54,9 @@ const MenuItem = ({
   <TouchableOpacity
     onPress={onPress}
     style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+    hitSlop={styles.hitSlop}
   >
-    <View style={styles.leftWrapper} hitSlop={styles.hitSlop}>
+    <View style={styles.leftWrapper}>
       <Image
         style={styles.imageStyle}
         source={image[logo]}

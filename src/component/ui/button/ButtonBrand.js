@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 25,
     elevation: 1,
+    ...pv5,
+    paddingHorizontal: 5,
     shadowColor: colors.black1,
     shadowOffset: {
       width: 0,
@@ -52,8 +54,9 @@ const ButtonBrand = ({
   <TouchableOpacity
     onPress={onPress}
     style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+    hitSlop={styles.hitSlop}
   >
-    <View style={styles.leftWrapper} hitSlop={styles.hitSlop}>
+    <View style={styles.leftWrapper}>
       <Image
         style={styles.imageStyle}
         source={image[logo]}
