@@ -15,7 +15,7 @@ import image from '../../../assets';
 const styles = StyleSheet.create({
   container: {
     height: 350,
-    backgroundColor: 'white',
+    backgroundColor: colors.white1,
     padding: 20,
     borderRadius: 16,
     borderColor: 'black'
@@ -43,11 +43,47 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.black5,
     margin: 10
+  },
+  containerBottom: {
+    height: 115,
+    marginTop: 10,
+    backgroundColor: colors.white1,
+    borderRadius: 16,
+    borderColor: 'black'
+  },
+  imageList: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15
+    // backgroundColor: colors.white1
+  },
+  listImageStyle: {
+    height: 60,
+    width: 60,
+    borderRadius: 16,
+    resizeMode: 'contain'
+  },
+  imageBOxWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 16,
+    // height: 60,
+    // width: 60,
+    elevation: 1,
+    backgroundColor: colors.white1
+  },
+  textWrapper: {
+    alignContent: 'center',
+    alignItems: 'center',
+    padding: 10
   }
 });
 
 const ModalDouble = ({
   modalTitle,
+  modalTitleBottom,
   isVisible,
   onBackButtonPress,
   onClose,
@@ -94,6 +130,43 @@ const ModalDouble = ({
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
         />
+      </View>
+    </View>
+    <View style={styles.containerBottom}>
+      <View style={styles.textWrapper}>
+        <TextComponent
+          content={modalTitleBottom}
+          size={fonts.fs16}
+          family={fonts.semiBold}
+        />
+      </View>
+      <View>
+        <TouchableOpacity onPress={onClose} style={styles.imageList}>
+          <View style={styles.imageBOxWrapper}>
+            <Image
+              style={styles.listImageStyle}
+              source={image.Cross}
+            />
+          </View>
+          <View style={styles.imageBOxWrapper}>
+            <Image
+              style={styles.listImageStyle}
+              source={image.Cross}
+            />
+          </View>
+          <View style={styles.imageBOxWrapper}>
+            <Image
+              style={styles.listImageStyle}
+              source={image.Cross}
+            />
+          </View>
+          <View style={styles.imageBOxWrapper}>
+            <Image
+              style={styles.listImageStyle}
+              source={image.Cross}
+            />
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   </Modal>

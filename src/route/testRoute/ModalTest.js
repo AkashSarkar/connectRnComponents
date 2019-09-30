@@ -176,7 +176,8 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalDouble}
             />
             <ModalDouble
-              modalTitle="Modal Double"
+              modalTitle="Select account"
+              modalTitleBottom="Card payments with"
               isVisible={this.state.isModalDoubleVisible}
               onBackButtonPress={this.handleCloseModalDouble}
               onClose={this.handleCloseModalDouble}
