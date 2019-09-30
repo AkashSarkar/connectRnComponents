@@ -50,7 +50,11 @@ const assets = {
   SendMoney: require('./icons/SendMoney.png'),
   FlagBd: require('./icons/Flag BD.png'),
   Change: require('./icons/Change.png'),
-  Operator: require('./icons/Operator.png')
+  Operator: require('./icons/Operator.png'),
+  Visa1: require('./icons/Visa1.png'),
+  Visa2: require('./icons/Visa2.png'),
+  Mastercard1: require('./icons/Mastercard1.png'),
+  Dmoney2: require('./icons/Dmoney2.png'),
 };
 
 export default assets;

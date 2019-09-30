@@ -1,25 +1,25 @@
 import React from 'react';
 import {View} from 'react-native';
 import AccountListItem from "./AccountListItem";
-import {func, object} from 'prop-types';
+import {object} from 'prop-types';
 
-const AccountList = ({onSwitchChange, accounts}) => {
+const AccountList = ({accounts}) => {
+  console.log(accounts)
   let renderInformation = accounts.map((account, index) => {
     return <View key={index}>
-      <AccountListItem
-        onSwitchChange={onSwitchChange}
-        accountInformation={account}/>
+      <AccountListItem accountInformation={account}/>
     </View>
   });
 
   return (
-    {renderInformation}
+    <View>
+      {renderInformation}
+    </View>
   )
 };
 
 AccountList.propTypes = {
-  accounts: object.isRequired,
-  onSwitchChange: func.isRequired,
+  accounts: object.isRequired
 };
 
 export default AccountList;
