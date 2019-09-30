@@ -17,16 +17,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    alignContent: 'center',
     borderRadius: 8,
     elevation: 1,
     shadowColor: colors.black1,
+    backgroundColor: colors.white1,
     shadowOffset: {
       width: 0,
       height: 3
     },
     shadowRadius: 6,
-    shadowOpacity: 0.1
-    // ...pv5
+    shadowOpacity: 0.1,
+    paddingVertical: 5
   },
   hitSlop: {
     top: 5,
@@ -69,18 +71,26 @@ const ButtonAdd = (
     logoRight
   }
 ) => (
-  <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity
+    onPress={onPress}
+    style={[styles.buttonWrapper]}
+    hitSlop={styles.hitSlop}
+  >
     <LinearGradient
       colors={buttonColor}
-      style={[styles.buttonWrapper]}
-      hitSlop={styles.hitSlop}
+      style={{
+        width: '100%',
+        height: 70,
+        borderRadius: 8,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
     >
-      {/* <View style={styles.leftImageWrapper}> */}
       <Image
         style={styles.coverImageStyle}
         source={image[logoLeft]}
       />
-      {/* </View> */}
       <View style={styles.leftWrapper}>
         <Image
           style={styles.imageStyle}
