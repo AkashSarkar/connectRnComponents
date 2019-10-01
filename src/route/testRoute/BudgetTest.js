@@ -86,7 +86,7 @@ const BudgetTest = ({ navigation }) => {
             animation="fadeInDown"
             duration={300}
             delay={100}
-            style={[pl25, mb10]}
+            style={[pl25, mb10, { zIndex: -1 }]}
             key={index}
           >
             <Budget

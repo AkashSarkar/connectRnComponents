@@ -11,7 +11,7 @@ const styles = {
   wrapperStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'flex-end'
   },
   borderBottom: {
     borderBottomColor: colors.grey1,
