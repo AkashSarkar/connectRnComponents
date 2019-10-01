@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
   container: {
     height: 350,
     backgroundColor: colors.white1,
-    padding: 20,
+    paddingHorizontal: 15,
+    paddingBottom: 10,
     borderRadius: 16,
     borderColor: 'black'
   },
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 15
+    paddingVertical: 20
   },
   closeModalContainer: {
     position: 'absolute',
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
   listViewWrapper: {
     // alignContent: 'center',
-    height: 235,
+    height: 260,
     width: '100%'
   },
   lineStyle: {
