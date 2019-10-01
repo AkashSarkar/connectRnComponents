@@ -9,6 +9,7 @@ import Switch from "../../ui/input/Switch";
 
 const AccountListItem = ({accountInformation}) => {
 
+
   const onDrag = () => {
     console.warn("DRAG")
   };

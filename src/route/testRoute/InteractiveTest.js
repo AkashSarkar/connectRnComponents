@@ -5,6 +5,7 @@ import {ButtonPrimary, TextComponent} from '../../component/ui';
 import {mb10, mb20, ph15} from '../../styles/commonStyle';
 import assets from "../../assets";
 import AccountList from "../../component/widget/card/AccountList";
+import DragInfoTest from "../../component/widget/card/DragInfoTest";
 
 const InteractiveTest = ({navigation}) => {
 
@@ -32,7 +33,7 @@ const InteractiveTest = ({navigation}) => {
       accountNo:'2233 2922 2323 5252',
       accountType:'Salary A/C',
       isSwitchOn: true,
-      accountImage:assets.Visa2
+
     },
     {
       accountName:'Jamuna Bank',
@@ -108,15 +109,26 @@ const InteractiveTest = ({navigation}) => {
           onPress={() => navigation.navigate('BudgetTest')}
         />
       </View>
-      <View style={[mb20, ph15]}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="interactive/AccountList"
-          family={fonts.bold}
-        />
-        <AccountList accounts={accountData}/>
-      </View>
+      {/*<View style={[mb20, ph15]}>*/}
+      {/*  <TextComponent*/}
+      {/*    size={fonts.fs20}*/}
+      {/*    color={colors.secondary}*/}
+      {/*    content="interactive/AccountList"*/}
+      {/*    family={fonts.bold}*/}
+      {/*  />*/}
+      {/*  <AccountList accounts={accountData}/>*/}
+      {/*</View>*/}
+
+      <ButtonPrimary
+        buttonColor={gradientColors.gradient5}
+        textColor={colors.bgPrimary}
+        content="Budget Test"
+        onPress={() => navigation.navigate('DragRouteTest')}
+      />
+
+
+
+
       {/*interactive/AccountList*/}
 
     </ScrollView>

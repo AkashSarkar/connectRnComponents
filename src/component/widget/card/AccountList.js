@@ -4,7 +4,6 @@ import AccountListItem from "./AccountListItem";
 import {object} from 'prop-types';
 
 const AccountList = ({accounts}) => {
-  console.log(accounts)
   let renderInformation = accounts.map((account, index) => {
     return <View key={index}>
       <AccountListItem accountInformation={account}/>
