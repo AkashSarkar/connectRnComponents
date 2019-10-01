@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, StyleSheet, TouchableOpacity, Animated
+  View, StyleSheet, Animated
 } from 'react-native';
-import { string } from 'prop-types';
+import { string, number } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { TextComponent, BoxShadow } from '../../../ui';
 import { fonts, gradientColors, colors } from '../../../../styles/baseStyle';
@@ -65,30 +65,36 @@ const styles = StyleSheet.create({
 });
 
 const Limit = ({
-  title1, title2, utilizedLimit, limit
+  title1, title2, utilizedLimit, totalLimit, budgetLimit
 }) => {
   const [utilizedWidth, setUtilizedWidth] = useState(0);
   const [limitWidth, setLimitWidth] = useState(new Animated.Value(0));
   const [translateX, setTranslateX] = useState(new Animated.Value(0));
   const [totalViewWidth, setTotalViewWidth] = useState(0);
+  const [firstRender, setFirstRender] = useState(true);
 
   const animateWidth = (toWidth) => {
     Animated.timing(limitWidth, {
       toValue: toWidth,
       duration: 500
     }).start();
+  };
+
+  const animateBudget = (toWidth) => {
     Animated.timing(translateX, {
       toValue: toWidth < totalViewWidth - 10 ? toWidth + 10 : toWidth,
       duration: 500
-    }).start();
+    }).start(() => {
+      setFirstRender(false);
+    });
   };
 
-  const calculateWidth = (total) => {
-    if (utilizedLimit > limit) {
+  const calculateWidth = (total, utilized = utilizedLimit) => {
+    if (utilized > totalLimit) {
       setUtilizedWidth(total);
       return total;
     }
-    const utilizedPercent = parseInt((utilizedLimit * 100) / limit, 10);
+    const utilizedPercent = parseInt((utilized * 100) / totalLimit, 10);
 
     const utilizedWidthValue = parseInt((total * utilizedPercent) / 100, 10);
 
@@ -98,6 +104,9 @@ const Limit = ({
 
   useEffect(() => {
     animateWidth(calculateWidth(totalViewWidth));
+    if (firstRender) {
+      animateBudget(calculateWidth(totalViewWidth, budgetLimit));
+    }
   }, [utilizedLimit, totalViewWidth]);
 
   const generateMarks = () => {
@@ -161,7 +170,7 @@ const Limit = ({
                 family={fonts.medium}
               />
               <TextComponent
-                content={`${limit - utilizedLimit}`}
+                content={`${totalLimit - utilizedLimit}`}
                 color={colors.black1}
                 size={fonts.fs14}
                 family={fonts.medium}
@@ -183,8 +192,9 @@ Limit.defaultProps = {
 Limit.propTypes = {
   title1: string,
   title2: string,
-  utilizedLimit: string.isRequired,
-  limit: string.isRequired
+  utilizedLimit: number.isRequired,
+  totalLimit: number.isRequired,
+  budgetLimit: number.isRequired
 };
 
 export default Limit;

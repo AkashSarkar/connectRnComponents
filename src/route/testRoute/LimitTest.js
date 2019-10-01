@@ -16,7 +16,7 @@ const LimitTest = () => {
         paddingHorizontal: 20
       }}
     >
-      <Limit utilizedLimit={utilizedLimit} limit={10000} />
+      <Limit utilizedLimit={utilizedLimit} totalLimit={10000} budgetLimit={3000} />
       <ButtonPrimary
         textColor={colors.white1}
         buttonColor={gradientColors.gradientPrimary}
