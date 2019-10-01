@@ -56,7 +56,7 @@ const AppNavigator = createStackNavigator(
     CCMTest
   },
   {
-    initialRouteName: 'TestRoute',
+    initialRouteName: 'LimitTest',
     headerMode: 'none'
   },
 );

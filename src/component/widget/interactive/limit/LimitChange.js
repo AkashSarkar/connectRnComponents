@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   Animated,
   Dimensions
 } from 'react-native';
-import { string, func } from 'prop-types';
+import { string, func, number } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { TextComponent, BoxShadow } from '../../../ui';
 import { fonts, gradientColors, colors } from '../../../../styles/baseStyle';
@@ -79,16 +79,16 @@ class LimitChange extends Component {
       sliderPosition: new Animated.ValueXY(),
       totalViewWidth: viewWidth,
       firstRender: true,
-      sliderLeftOffset: utilizedWidthValue,
-      utilizedLimit: initialUtilized
+      utilizedLimit: initialUtilized,
+      initialUtilizedWidth: utilizedWidthValue
     };
     this.animateWidth(utilizedWidthValue, 150, true);
   }
 
   animateWidth = (toWidth, duration = 10, translatePos = false) => {
-    const { limitWidth, translateX } = this.state;
+    const { limitWidth, translateX, totalViewWidth } = this.state;
     Animated.timing(limitWidth, {
-      toValue: toWidth - 20,
+      toValue: toWidth === totalViewWidth ? toWidth : toWidth - 20,
       duration
     }).start();
     if (translatePos) {
@@ -101,15 +101,18 @@ class LimitChange extends Component {
 
   calculateWidth = (utilizedLimit) => {
     const { limit } = this.props;
+    const { totalViewWidth } = this.state;
+    if (utilizedLimit >= limit) {
+      return totalViewWidth;
+    }
     const utilizedPercent = parseInt((utilizedLimit * 100) / limit, 10);
 
-    const { totalViewWidth } = this.state;
 
     const utilizedWidthValue = parseInt(
       (totalViewWidth * utilizedPercent) / 100,
       10,
     );
-    this.animateWidth(utilizedWidthValue, 1);
+    return utilizedWidthValue;
   };
 
   setUtilizedLimit = (amount) => {
@@ -120,7 +123,6 @@ class LimitChange extends Component {
     let newLimit = 0;
     const { limit } = this.props;
     const { pageX } = e.nativeEvent;
-    // console.log(e.nativeEvent);
     if (pageX > 30) {
       const { totalViewWidth } = this.state;
       const unit = parseInt(limit / totalViewWidth, 10);
@@ -132,28 +134,33 @@ class LimitChange extends Component {
         newLimit = limit;
       }
     }
-    this.calculateWidth(newLimit);
-    this.setUtilizedLimit(newLimit);
+
+
+    return (newLimit);
   };
 
 onMoveSlider = (e, gestureState) => {
-  this.calculateLimit(e, gestureState);
+  const { sliderPosition } = this.state;
+  const { onChange } = this.props;
+  const newLimit = this.calculateLimit(e, gestureState);
+  this.animateWidth(this.calculateWidth(newLimit), 1);
+  this.setUtilizedLimit(newLimit);
+  onChange(newLimit);
   return (Animated.event([
     null,
     {
-      dx: this.state.sliderPosition.x
+      dx: sliderPosition.x
     }
   ])(e, gestureState));
 }
 
   movementInit = () => {
-    // console.log('init', gestureState);
     const { sliderPosition } = this.state;
     sliderPosition.setOffset({
       x: sliderPosition.x._value
     });
     sliderPosition.setValue({ x: 0, y: 0 });
-    // this.setState({ firstRender: false });
+    this.setState({ firstRender: false });
   };
 
   onSliderRelease = () => {
@@ -187,24 +194,21 @@ onMoveSlider = (e, gestureState) => {
       sliderPosition,
       totalViewWidth,
       utilizedLimit,
-      sliderLeftOffset,
+      initialUtilizedWidth,
       firstRender
     } = this.state;
 
-    // const { width } = Dimensions.get('window');
+    const range = [1, totalViewWidth - 30];
+
+    if (firstRender) {
+      sliderPosition.setValue({ x: initialUtilizedWidth - 35 });
+    }
 
     const translateX = sliderPosition.x.interpolate({
-      inputRange: [1, totalViewWidth - 30],
-      outputRange: [1, totalViewWidth - 30],
+      inputRange: range,
+      outputRange: range,
       extrapolate: 'clamp'
     });
-
-    const leftOffset = {};
-
-    // if (firstRender) {
-    //   leftOffset.left = sliderLeftOffset - 35;
-    //   console.log('left');
-    // }
 
     return (
       <View style={styles.rootContainer}>
@@ -226,7 +230,7 @@ onMoveSlider = (e, gestureState) => {
               </Animated.View>
               <Animated.View
                 {...this.panResponder.panHandlers}
-                style={{ ...styles.slider, ...leftOffset, transform: [{ translateX }] }}
+                style={{ ...styles.slider, transform: [{ translateX }] }}
               >
                 <View pointerEvents="none" />
               </Animated.View>
@@ -270,15 +274,16 @@ onMoveSlider = (e, gestureState) => {
 
 LimitChange.defaultProps = {
   title1: 'Budget Amount',
-  title2: 'Budget left'
+  title2: 'Budget left',
+  initialUtilized: 0
 };
 
 LimitChange.propTypes = {
   title1: string,
   title2: string,
-  initialUtilized: string.isRequired,
-  limit: string.isRequired,
-  setUtilizedLimit: func.isRequired
+  initialUtilized: number,
+  limit: number.isRequired,
+  onChange: func
 };
 
 export default LimitChange;
