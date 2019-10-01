@@ -95,6 +95,43 @@ const FnfTest = () => {
       }
     ]
   )
+  const deleteAction = () => {
+    alert('delete');
+  }
+  const pauseAction = () => {
+    alert('Pause');
+  }
+  const editAction = () => {
+    alert('Edit');
+  }
+  const mapRightActions = () => {
+    const { Delete, Pause, Edit } = assets;
+    return (
+      [
+        {
+          id: 1,
+          icon: Delete,
+          color: '#00000029',
+          x: 130,
+          pressHandler: deleteAction
+        },
+        {
+          id: 2,
+          icon: Pause,
+          color: '#ffab00',
+          x: 80,
+          pressHandler: pauseAction
+        },
+        {
+          id: 3,
+          icon: Edit,
+          color: '#dd2c00',
+          x: 50,
+          pressHandler: editAction
+        }
+      ]
+    );
+  }
   return (
     <View>
       <View style={[p10, mt10]}>
@@ -132,6 +169,8 @@ const FnfTest = () => {
               icon: assets.Bkash
             }
           ]}
+          rightActions={mapRightActions()}
+          leftActions={null}
         />
       </View>
       <View style={[p10, mt10]}>
@@ -143,7 +182,11 @@ const FnfTest = () => {
             family={fonts.medium}
           />
         </View>
-        <FnfList items={mapFnfs()}/>
+        <FnfList
+          items={mapFnfs()}
+          rightActions={mapRightActions()}
+          leftActions={null}
+        />
       </View>
     </View>
   );

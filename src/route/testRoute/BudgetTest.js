@@ -15,6 +15,7 @@ import {
 import { HeaderTop, TextComponent } from '../../component/ui';
 import { budgetMultiShades, colors, fonts } from '../../styles/baseStyle';
 import Budget from '../../component/widget/interactive/budget/Budget';
+import assets from "../../assets";
 
 if (
   Platform.OS === 'android'
@@ -75,6 +76,50 @@ const BudgetTest = ({ navigation }) => {
       }
     ]
   );
+  const deleteAction = () => {
+    alert('delete');
+  }
+  const editAction = () => {
+    alert('Edit');
+  }
+  const addAction = () => {
+    alert('Add');
+  }
+  const mapLeftActions = () => {
+    const { Add2 } = assets;
+    return (
+      [
+        {
+          id: 1,
+          icon: Add2,
+          color: '#00000029',
+          x: -50,
+          pressHandler: addAction
+        }
+      ]
+    );
+  }
+  const mapRightActions = () => {
+    const { Delete, Edit } = assets;
+    return (
+      [
+        {
+          id: 1,
+          icon: Delete,
+          color: '#00000029',
+          x: 150,
+          pressHandler: deleteAction
+        },
+        {
+          id: 2,
+          icon: Edit,
+          color: '#dd2c00',
+          x: 50,
+          pressHandler: editAction
+        }
+      ]
+    );
+  }
   let number = 9;
   const renderSubBudget = () => {
     const colorsArray = [...budgetMultiShades, { color: colors.secondary }]
@@ -95,6 +140,8 @@ const BudgetTest = ({ navigation }) => {
               amountTitle={item.amountTitle}
               shadeColor={colorsArray[number]}
               isSubBudget
+              leftActions={mapLeftActions()}
+              rightActions={mapRightActions()}
             />
           </Animatable.View>
         );
@@ -125,6 +172,8 @@ const BudgetTest = ({ navigation }) => {
           amount="10,000,000"
           amountTitle="Budget Amount"
           shadeColor={budgetMultiShades}
+          leftActions={mapLeftActions()}
+          rightActions={mapRightActions()}
         />
       </TouchableOpacity>
       {
@@ -156,6 +205,8 @@ const BudgetTest = ({ navigation }) => {
               amount="10,000,000"
               amountTitle="Budget Amount"
               shadeColor={budgetMultiShades}
+              leftActions={mapLeftActions()}
+              rightActions={mapRightActions()}
             />
           </View>
           {renderBudgetList()}

@@ -1,12 +1,10 @@
-import React, { useRef } from 'react';
-import { View, Image } from 'react-native';
-import {
-  any, bool, func, number, string
-} from 'prop-types';
+import React from 'react';
+import { Image, View } from 'react-native';
+import { number, object, string } from 'prop-types';
 import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
 import assets from '../../../../assets';
 import { BoxShadow, TextComponent } from '../../../ui';
-import { mr5, p10, p5 } from '../../../../styles/commonStyle';
+import { mr5, p10 } from '../../../../styles/commonStyle';
 import { colors, fonts } from '../../../../styles/baseStyle';
 
 const styles = {
@@ -42,28 +40,11 @@ const styles = {
     elevation: 1
   }
 }
-const SplitItem = ({ avatar, name, amount }) => {
-  const refs = {
-    swipeableRef: useRef(null)
+const SplitItem = (
+  {
+    avatar, name, amount, rightActions, leftActions
   }
-  const deleteAction = () => {
-    refs.swipeableRef.current.close();
-    alert('delete');
-  }
-  const mapRightActions = () => {
-    const { Delete } = assets;
-    return (
-      [
-        {
-          id: 1,
-          icon: Delete,
-          color: '#00000029',
-          x: 50,
-          pressHandler: deleteAction
-        }
-      ]
-    );
-  }
+) => {
   const splitItem = () => {
     return (
       <View style={[styles.wrapper, p10]}>
@@ -93,10 +74,10 @@ const SplitItem = ({ avatar, name, amount }) => {
   }
   return (
     <SwipeableWrapper
-      rightActions={mapRightActions()}
+      rightActions={rightActions}
+      leftActions={leftActions}
       rightSwiperWidth={50}
       SwiperBackgroundColor={colors.grey2}
-      ref={refs.swipeableRef}
     >
       <BoxShadow>
         {splitItem()}
@@ -107,6 +88,8 @@ const SplitItem = ({ avatar, name, amount }) => {
 SplitItem.propTypes = {
   avatar: number,
   name: string,
-  amount: string
+  amount: string,
+  rightActions: object,
+  leftActions: object
 }
 export default SplitItem;

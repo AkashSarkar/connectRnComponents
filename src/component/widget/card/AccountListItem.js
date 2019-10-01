@@ -1,13 +1,13 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import {ButtonCommunication, TextComponent} from "../../ui";
-import {colors, fonts} from "../../../styles/baseStyle";
-import {pv10, pv5} from "../../../styles/commonStyle";
-import {object} from 'prop-types';
+import { Image, StyleSheet, View } from 'react-native';
+import { ButtonCommunication, TextComponent } from "../../ui";
+import { colors, fonts } from "../../../styles/baseStyle";
+import { pv10, pv5 } from "../../../styles/commonStyle";
+import { object } from 'prop-types';
 import assets from '../../../assets';
 import Switch from "../../ui/input/Switch";
 
-const AccountListItem = ({accountInformation}) => {
+const AccountListItem = ({ accountInformation }) => {
 
   const onDrag = () => {
     console.warn("DRAG")
@@ -73,12 +73,14 @@ const AccountListItem = ({accountInformation}) => {
         textColor={colors.text2}
         fontSize={fonts.fs14}
         onPress={onInfoIconPress}/>
-      <Switch
-        value={accountInformation.isSwitchOn}
-        onChange={onSwitchChange}
-        thumbColor={colors.secondary}
-        trackColor={colors.white1}
-      />
+      <View>
+        <Switch
+          value={accountInformation.isSwitchOn}
+          onChange={onSwitchChange}
+          thumbColor={colors.secondary}
+          trackColor={colors.white1}
+        />
+      </View>
     </View>
   )
 };
