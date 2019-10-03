@@ -7,6 +7,7 @@ import { LimitChange } from '../../component/widget/interactive';
 
 const LimitTest = () => {
   const [utilizedLimit, setUtilizedLimit] = useState(1000);
+  const [budgetLimit, setBudgetLimit] = useState(4000);
   return (
     <View
       style={{
@@ -16,12 +17,18 @@ const LimitTest = () => {
         paddingHorizontal: 20
       }}
     >
-      <Limit utilizedLimit={utilizedLimit} totalLimit={10000} budgetLimit={3000} />
+      <Limit utilizedLimit={utilizedLimit} totalLimit={10000} budgetLimit={budgetLimit} />
       <ButtonPrimary
         textColor={colors.white1}
         buttonColor={gradientColors.gradientPrimary}
         content="Set Limit"
         onPress={() => setUtilizedLimit(utilizedLimit + 2000)}
+      />
+      <ButtonPrimary
+        textColor={colors.white1}
+        buttonColor={gradientColors.gradientPrimary}
+        content="Set Budget"
+        onPress={() => setBudgetLimit(budgetLimit + 1000)}
       />
       <View style={{ marginBottom: 15 }} />
       <LimitChange initialUtilized={300000} limit={500000} onChange={currentValue => console.log(currentValue)} />

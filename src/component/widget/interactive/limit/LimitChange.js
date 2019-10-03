@@ -234,7 +234,8 @@ class LimitChange extends Component {
           >
             <View
               style={styles.container}
-              onLayout={event => this.setTotalViewWidth(event.nativeEvent.layout.width)
+              onLayout={
+                event => this.setTotalViewWidth(event.nativeEvent.layout.width)
               }
             >
               <Animated.View style={{ ...styles.overlay, width: limitWidth }}>
@@ -247,7 +248,11 @@ class LimitChange extends Component {
                 {...this.panResponder.panHandlers}
                 style={{ ...styles.slider, transform: [{ translateX }] }}
               >
-                <Image style={styles.sliderIcon} source={assets.SliderIcon} pointerEvents="none" />
+                <Image
+                  style={styles.sliderIcon}
+                  source={assets.SliderIcon}
+                  pointerEvents="none"
+                />
               </Animated.View>
 
               <View style={styles.utilizedLimitWrapper}>

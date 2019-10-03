@@ -109,6 +109,10 @@ const Limit = ({
     }
   }, [utilizedLimit, totalViewWidth]);
 
+  useEffect(() => {
+    animateBudget(calculateWidth(totalViewWidth, budgetLimit));
+  });
+
   const generateMarks = () => {
     const marks = [];
     let left = -1;
