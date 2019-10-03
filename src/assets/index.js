@@ -19,7 +19,7 @@ const assets = {
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
   Connect: require('./icons/Connect.png'),
-  ConnectIcon: require('./icons/CONNECT.png'),
+  ConnectIcon: require('./icons/Connect2.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
   Beftn: require('./icons/Beftn.png'),

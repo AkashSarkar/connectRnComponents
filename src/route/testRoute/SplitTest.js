@@ -29,6 +29,23 @@ const SplitTest = () => {
       }
     ]
   )
+  const deleteAction = () => {
+    alert('Split delete test');
+  }
+  const mapRightActions = () => {
+    const { Delete } = assets;
+    return (
+      [
+        {
+          id: 1,
+          icon: Delete,
+          color: '#00000029',
+          x: 50,
+          pressHandler: deleteAction
+        }
+      ]
+    );
+  }
   return (
     <View>
       <View style={[p10, mt10]}>
@@ -40,7 +57,13 @@ const SplitTest = () => {
             family={fonts.medium}
           />
         </View>
-        <SplitItem name="Monu" avatar={assets.Monu} amount="3,600.00"/>
+        <SplitItem
+          name="Monu"
+          avatar={assets.Monu}
+          amount="3,600.00"
+          rightActions={mapRightActions()}
+          leftActions={null}
+        />
       </View>
       <View style={[p10, mt10]}>
         <View style={mb10}>
@@ -51,7 +74,11 @@ const SplitTest = () => {
             family={fonts.medium}
           />
         </View>
-        <SplitList items={mapSplitItems()}/>
+        <SplitList
+          items={mapSplitItems()}
+          rightActions={mapRightActions()}
+          leftActions={null}
+        />
       </View>
     </View>
   );

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { View } from 'react-native';
 import {
-  any, array, bool, string
+  any, array, bool, string, object
 } from 'prop-types';
 import { colors, fonts } from '../../../../styles/baseStyle';
 import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
@@ -41,59 +41,11 @@ const Budget = (
     amount,
     amountTitle,
     shadeColor,
-    isSubBudget
+    isSubBudget,
+    leftActions,
+    rightActions
   }
 ) => {
-  const refs = {
-    swipeableRef: useRef(null)
-  }
-  const deleteAction = () => {
-    refs.swipeableRef.current.close();
-    alert('delete');
-  }
-  const editAction = () => {
-    refs.swipeableRef.current.close();
-    alert('Edit');
-  }
-  const addAction = () => {
-    refs.swipeableRef.current.close();
-    alert('Add');
-  }
-  const mapLeftActions = () => {
-    const { Add2 } = assets;
-    return (
-      [
-        {
-          id: 1,
-          icon: Add2,
-          color: '#00000029',
-          x: -50,
-          pressHandler: addAction
-        }
-      ]
-    );
-  }
-  const mapRightActions = () => {
-    const { Delete, Edit } = assets;
-    return (
-      [
-        {
-          id: 1,
-          icon: Delete,
-          color: '#00000029',
-          x: 150,
-          pressHandler: deleteAction
-        },
-        {
-          id: 2,
-          icon: Edit,
-          color: '#dd2c00',
-          x: 50,
-          pressHandler: editAction
-        }
-      ]
-    );
-  }
   /**
    *
    * @param color
@@ -175,12 +127,11 @@ const Budget = (
   )
   return (
     <SwipeableWrapper
-      rightActions={mapRightActions()}
-      leftActions={isSubBudget ? null : mapLeftActions()}
+      rightActions={rightActions}
+      leftActions={isSubBudget ? null : leftActions}
       leftSwiperWidth={isSubBudget ? 0 : 80}
       rightSwiperWidth={100}
       SwiperBackgroundColor={colors.grey2}
-      ref={refs.swipeableRef}
     >
       {budget()}
     </SwipeableWrapper>
@@ -191,6 +142,8 @@ Budget.propTypes = {
   amount: string,
   amountTitle: string,
   shadeColor: array || any,
-  isSubBudget: bool
+  isSubBudget: bool,
+  leftActions: object,
+  rightActions: object
 }
 export default Budget;

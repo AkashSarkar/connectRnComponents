@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   container: {
     height: 300,
     backgroundColor: 'white',
-    padding: 20,
+    paddingHorizontal: 15,
+    paddingBottom: 10,
     borderRadius: 16,
     borderColor: 'black'
   },
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     width: 24
   },
   listViewWrapper: {
-    height: 200,
+    height: 210,
     width: '100%'
   }
 });

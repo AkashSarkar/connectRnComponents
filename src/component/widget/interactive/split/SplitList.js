@@ -4,10 +4,15 @@ import { array } from 'prop-types';
 import SplitItem from './SplitItem';
 import { mb10 } from '../../../../styles/commonStyle';
 
-const SplitList = ({ items }) => (
+const SplitList = ({ items, rightActions }) => (
   items.map(item => (
     <View style={mb10} key={item.id}>
-      <SplitItem avatar={item.avatar} name={item.name} amount={item.amount} />
+      <SplitItem
+        avatar={item.avatar}
+        name={item.name}
+        amount={item.amount}
+        rightActions={rightActions}
+      />
     </View>
   ))
 );

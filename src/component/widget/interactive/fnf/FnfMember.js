@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { View, Image } from 'react-native';
-import { array, bool, string } from 'prop-types';
+import {
+  array, bool, string, object
+} from 'prop-types';
 import { colors, fonts } from '../../../../styles/baseStyle';
 import { BoxShadow } from '../../../ui';
 import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
@@ -13,7 +15,9 @@ const FnfMember = (
     name,
     number,
     channels,
-    isConnect
+    isConnect,
+    rightActions,
+    leftActions
   }
 ) => {
   const styles = {
@@ -31,49 +35,6 @@ const FnfMember = (
       justifyContent: 'space-between',
       alignItems: 'center'
     }
-  }
-  const refs = {
-    swipeableRef: useRef(null)
-  }
-  const deleteAction = () => {
-    refs.swipeableRef.current.close();
-    alert('delete');
-  }
-  const pauseAction = () => {
-    refs.swipeableRef.current.close();
-    alert('Pause');
-  }
-  const editAction = () => {
-    refs.swipeableRef.current.close();
-    alert('Edit');
-  }
-  const mapRightActions = () => {
-    const { Delete, Pause, Edit } = assets;
-    return (
-      [
-        {
-          id: 1,
-          icon: Delete,
-          color: '#00000029',
-          x: 130,
-          pressHandler: deleteAction
-        },
-        {
-          id: 2,
-          icon: Pause,
-          color: '#ffab00',
-          x: 80,
-          pressHandler: pauseAction
-        },
-        {
-          id: 3,
-          icon: Edit,
-          color: '#dd2c00',
-          x: 50,
-          pressHandler: editAction
-        }
-      ]
-    );
   }
   const fnfMember = () => (
     <View style={[styles.wrapper, p10]}>
@@ -93,7 +54,11 @@ const FnfMember = (
         <View style={styles.channelStyle}>
           {
             channels.map(channel => (
-              <Image key={channel.id} source={channel.icon} style={{ width: 30, height: 30 }}/>
+              <Image
+                key={channel.id}
+                source={channel.icon}
+                style={{ width: 30, height: 30 }}
+              />
             ))
           }
         </View>
@@ -107,10 +72,10 @@ const FnfMember = (
   )
   return (
     <SwipeableWrapper
-      rightActions={mapRightActions()}
+      rightActions={rightActions}
+      leftActions={leftActions}
       rightSwiperWidth={130}
       SwiperBackgroundColor={colors.grey2}
-      ref={refs.swipeableRef}
     >
       <BoxShadow>
         {fnfMember()}
@@ -122,6 +87,8 @@ FnfMember.propTypes = {
   name: string,
   number: string,
   channels: array,
-  isConnect: bool
+  isConnect: bool,
+  leftActions: object,
+  rightActions: object
 }
 export default FnfMember;
