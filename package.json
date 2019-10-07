@@ -10,9 +10,10 @@
   "scripts": {
     "start": "react-native start",
     "runandroid": "react-native run-android",
-    "runios": "react-native run-ios --simulator='iPhone 8'",
+    "runios": "react-native run-ios --simulator='iPhone X'",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
