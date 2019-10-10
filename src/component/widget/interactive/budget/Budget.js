@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import { View } from 'react-native';
-import { string } from 'prop-types';
-import { budgetMultiShades, colors, fonts } from '../../../../styles/baseStyle';
+import {
+  any, array, bool, string, object
+} from 'prop-types';
+import { colors, fonts } from '../../../../styles/baseStyle';
 import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
 import assets from '../../../../assets';
 import TextComponent from '../../../ui/typography/TextComponent';
@@ -27,65 +29,23 @@ const styles = {
   leftShades: {
     flex: 2,
     flexDirection: 'row'
+  },
+  subBudgetShades: {
+    flex: 1,
+    flexDirection: 'row'
   }
 }
 const Budget = (
   {
     name,
     amount,
-    amountTitle
+    amountTitle,
+    shadeColor,
+    isSubBudget,
+    leftActions,
+    rightActions
   }
 ) => {
-  const refs = {
-    swipeableRef: useRef(null)
-  }
-  const deleteAction = () => {
-    refs.swipeableRef.current.close();
-    alert('delete');
-  }
-  const editAction = () => {
-    refs.swipeableRef.current.close();
-    alert('Edit');
-  }
-  const addAction = () => {
-    refs.swipeableRef.current.close();
-    alert('Add');
-  }
-  const mapLeftActions = () => {
-    const { Add } = assets;
-    return (
-      [
-        {
-          id: 1,
-          icon: Add,
-          color: '#00000029',
-          x: -50,
-          pressHandler: addAction
-        }
-      ]
-    );
-  }
-  const mapRightActions = () => {
-    const { Delete, Check } = assets;
-    return (
-      [
-        {
-          id: 1,
-          icon: Delete,
-          color: '#00000029',
-          x: 150,
-          pressHandler: deleteAction
-        },
-        {
-          id: 2,
-          icon: Check,
-          color: '#dd2c00',
-          x: 50,
-          pressHandler: editAction
-        }
-      ]
-    );
-  }
   /**
    *
    * @param color
@@ -108,6 +68,10 @@ const Budget = (
         index === null ? {
           borderTopRightRadius: 16,
           borderBottomRightRadius: 16
+        } : null,
+        isSubBudget ? {
+          borderTopLeftRadius: 16,
+          borderBottomLeftRadius: 16
         } : null
       ]}
       key={index}
@@ -115,16 +79,26 @@ const Budget = (
   )
   const budget = () => (
     <View>
-      <View style={styles.shadeWrapper}>
-        <View style={styles.leftShades}>
-          {budgetMultiShades.map((item, index) => (
-            shadeComponent(item.color, index)
-          ))}
+      {isSubBudget ? (
+        <View style={styles.shadeWrapper}>
+          <View style={styles.subBudgetShades}>
+            {
+              shadeComponent(shadeColor.color)
+            }
+          </View>
         </View>
-        <View style={{ flex: 1 }}>
-          {shadeComponent(colors.secondary)}
+      ) : (
+        <View style={styles.shadeWrapper}>
+          <View style={styles.leftShades}>
+            {shadeColor.map((item, index) => (
+              shadeComponent(item.color, index)
+            ))}
+          </View>
+          <View style={{ flex: 1 }}>
+            {shadeComponent(colors.secondary)}
+          </View>
         </View>
-      </View>
+      )}
       <View style={[styles.textWrapper, p10]}>
         <View>
           <TextComponent
@@ -153,12 +127,11 @@ const Budget = (
   )
   return (
     <SwipeableWrapper
-      rightActions={mapRightActions()}
-      leftActions={mapLeftActions()}
-      leftSwiperWidth={80}
+      rightActions={rightActions}
+      leftActions={isSubBudget ? null : leftActions}
+      leftSwiperWidth={isSubBudget ? 0 : 80}
       rightSwiperWidth={100}
       SwiperBackgroundColor={colors.grey2}
-      ref={refs.swipeableRef}
     >
       {budget()}
     </SwipeableWrapper>
@@ -167,6 +140,10 @@ const Budget = (
 Budget.propTypes = {
   name: string,
   amount: string,
-  amountTitle: string
+  amountTitle: string,
+  shadeColor: array || any,
+  isSubBudget: bool,
+  leftActions: object,
+  rightActions: object
 }
 export default Budget;

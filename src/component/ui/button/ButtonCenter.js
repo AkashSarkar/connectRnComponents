@@ -50,27 +50,26 @@ const ButtonCenter = (
     content, buttonColor, textColor, fontSize, onPress, logo
   }
 ) => (
-  <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity
+    onPress={onPress}
+    style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
+    hitSlop={styles.hitSlop}
+  >
+    <View style={styles.leftWrapper}>
+      <Image
+        style={styles.imageStyle}
+        source={image[logo]}
+      />
+    </View>
     <View
-      style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
-      hitSlop={styles.hitSlop}
+      style={styles.rightWrapper}
     >
-      <View style={styles.leftWrapper}>
-        <Image
-          style={styles.imageStyle}
-          source={image[logo]}
-        />
-      </View>
-      <View
-        style={styles.rightWrapper}
-      >
-        <TextComponent
-          content={content}
-          family={fonts.regular}
-          size={fontSize}
-          color={textColor}
-        />
-      </View>
+      <TextComponent
+        content={content}
+        family={fonts.regular}
+        size={fontSize}
+        color={textColor}
+      />
     </View>
   </TouchableOpacity>
 );

@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import {
-  View, StyleSheet, PanResponder, Animated, Image
+  View,
+  StyleSheet,
+  PanResponder,
+  Animated,
+  Dimensions,
+  Image
 } from 'react-native';
-import { string, func } from 'prop-types';
+import { string, func, number } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { TextComponent, BoxShadow } from '../../../ui';
 import { fonts, gradientColors, colors } from '../../../../styles/baseStyle';
@@ -25,16 +30,19 @@ const styles = StyleSheet.create({
     borderRadius: 16
   },
   utilizedLimitWrapper: {
+    position: 'absolute',
+    left: '10%',
     minWidth: '50%',
     paddingVertical: 15,
     justifyContent: 'center',
-    paddingLeft: 10,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    zIndex: 1
   },
   availableLimitWrapper: {
     minWidth: '50%',
     paddingVertical: 15,
     paddingRight: 10,
+    marginLeft: '45%',
     justifyContent: 'center',
     alignItems: 'flex-end'
   },
@@ -45,126 +53,257 @@ const styles = StyleSheet.create({
   slider: {
     position: 'absolute',
     height: 35,
-    top: '25%',
+    top: 15,
     width: 35,
     backgroundColor: colors.white1,
     borderRadius: 50,
-    left: 0
+    zIndex: 999,
+    paddingTop: '19%',
+    paddingLeft: '18%',
+    shadowColor: '#00000059',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    elevation: 2
   },
   sliderIcon: {
-    width: 25,
-    height: 25,
-    marginTop: 5,
-    marginLeft: 4
+    height: 22,
+    width: 22,
+    backgroundColor: colors.primary,
+    borderRadius: 50,
+    marginBottom: 10
   }
 });
 
-const Limit = ({
-  title1, title2, utilizedLimit, limit, setUtilizedLimit
-}) => {
-  const [utilizedWidth, setUtilizedWidth] = useState(0);
-  const [limitWidth, setLimitWidth] = useState(new Animated.Value(0));
-  const [translateX, setTranslateX] = useState(new Animated.Value(0));
-  const [totalViewWidth, setTotalViewWidth] = useState(0);
+class LimitChange extends Component {
+  constructor(props) {
+    super(props);
 
-  const animateWidth = (toWidth) => {
+    const { initialUtilized, limit } = props;
+    const utilizedPercent = parseInt((initialUtilized * 100) / limit, 10);
+
+    const viewWidth = Dimensions.get('window').width - 20;
+
+    const utilizedWidthValue = parseInt(
+      (viewWidth * utilizedPercent) / 100,
+      10,
+    );
+
+    this.state = {
+      limitWidth: new Animated.Value(0),
+      translateX: new Animated.Value(0),
+      sliderPosition: new Animated.ValueXY(),
+      totalViewWidth: viewWidth,
+      firstRender: true,
+      utilizedLimit: initialUtilized,
+      initialUtilizedWidth: utilizedWidthValue
+    };
+    this.animateWidth(utilizedWidthValue, 150, true);
+  }
+
+  animateWidth = (toWidth, duration = 10, translatePos = false) => {
+    const { limitWidth, translateX, totalViewWidth } = this.state;
     Animated.timing(limitWidth, {
-      toValue: toWidth,
-      duration: 200
+      toValue: toWidth === totalViewWidth ? toWidth : toWidth - 20,
+      duration
     }).start();
-    Animated.timing(translateX, {
-      toValue: toWidth > 15 ? toWidth - 15 : toWidth + 15,
-      duration: 200
-    }).start();
+    if (translatePos) {
+      Animated.timing(translateX, {
+        toValue: toWidth,
+        duration: 10
+      }).start();
+    }
   };
 
-  const calculateWidth = (total) => {
+  calculateWidth = (utilizedLimit) => {
+    const { limit } = this.props;
+    const { totalViewWidth } = this.state;
+    if (utilizedLimit >= limit) {
+      return totalViewWidth;
+    }
     const utilizedPercent = parseInt((utilizedLimit * 100) / limit, 10);
 
-    const utilizedWidthValue = parseInt((total * utilizedPercent) / 100, 10);
-
-    setUtilizedWidth(utilizedWidthValue);
+    const utilizedWidthValue = parseInt(
+      (totalViewWidth * utilizedPercent) / 100,
+      10,
+    );
     return utilizedWidthValue;
   };
 
-  const calculateLeftOffset = (xPos) => {
-    const unit = (limit / totalViewWidth);
-    const amountUnit = parseInt((unit * (xPos - utilizedWidth)), 10);
-    if (xPos < (utilizedWidth)) {
-      setUtilizedLimit(utilizedLimit + amountUnit, 10);
-    }
-    if (xPos <= totalViewWidth) {
-      if (xPos > (utilizedWidth + 15)) {
-        setUtilizedLimit(utilizedLimit + (amountUnit));
+  setUtilizedLimit = (amount) => {
+    this.setState({ utilizedLimit: amount });
+  };
+
+  calculateLimit = (e) => {
+    let newLimit = 0;
+    const { limit } = this.props;
+    const { pageX } = e.nativeEvent;
+    if (pageX > 30) {
+      const { totalViewWidth } = this.state;
+      const unit = parseInt(limit / totalViewWidth, 10);
+      const amountUnit = parseInt(Math.abs(pageX), 10);
+      newLimit = amountUnit * unit;
+      if (pageX < 5 || newLimit <= 0) {
+        newLimit = 0;
+      } else if (newLimit >= limit) {
+        newLimit = limit;
       }
     }
+
+    return newLimit;
   };
 
-  const onMoveSlider = (gestureState) => {
-    calculateLeftOffset(gestureState.moveX);
+  onMoveSlider = (e, gestureState) => {
+    const { sliderPosition } = this.state;
+    const { onChange } = this.props;
+    const newLimit = this.calculateLimit(e, gestureState);
+    this.animateWidth(this.calculateWidth(newLimit), 1);
+    this.setUtilizedLimit(newLimit);
+    onChange(newLimit);
+    return Animated.event([
+      null,
+      {
+        dx: sliderPosition.x
+      }
+    ])(e, gestureState);
   };
 
-  const panResponder = PanResponder.create({
-    onMoveShouldSetPanResponderCapture: () => true,
-    onPanResponderMove: (_, gestureState) => onMoveSlider(gestureState),
-    onPanResponderRelease: () => {},
+  movementInit = () => {
+    const { sliderPosition } = this.state;
+    sliderPosition.setOffset({
+      x: sliderPosition.x._value
+    });
+    sliderPosition.setValue({ x: 0, y: 0 });
+    this.setState({ firstRender: false });
+  };
+
+  onSliderRelease = () => {
+    const { sliderPosition } = this.state;
+    sliderPosition.flattenOffset();
+  };
+
+  handleShouldSetResponder = () => true;
+
+  panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: this.handleShouldSetResponder,
+    onMoveShouldSetPanResponder: this.handleShouldSetResponder,
+    onPanResponderGrant: this.movementInit,
+    onPanResponderMove: (e, gestureState) => this.onMoveSlider(e, gestureState),
+    onPanResponderRelease: this.onSliderRelease,
     onPanResponderTerminate: () => {}
   });
 
-  useEffect(() => {
-    if (utilizedLimit <= limit) { animateWidth(calculateWidth(totalViewWidth)); }
-  }, [utilizedLimit, totalViewWidth]);
+  setTotalViewWidth = (width) => {
+    this.setState({
+      totalViewWidth: width
+    });
+  };
 
+  render() {
+    const { title1, title2, limit } = this.props;
+    const {
+      limitWidth,
+      sliderPosition,
+      totalViewWidth,
+      utilizedLimit,
+      initialUtilizedWidth,
+      firstRender
+    } = this.state;
 
-  return (
-    <View style={styles.rootContainer}>
-      <BoxShadow>
-        <LinearGradient
-          colors={gradientColors.gradientYellow}
-          style={[styles.gradient]}
-        >
-          <View style={styles.container} onLayout={event => setTotalViewWidth(event.nativeEvent.layout.width)}>
-            <Animated.View style={{ ...styles.overlay, width: limitWidth }}>
-              <LinearGradient
-                style={[styles.overlay, styles.gradient]}
-                colors={gradientColors.gradientSecondary}
-              />
-            </Animated.View>
-            <Animated.View {...panResponder.panHandlers} style={{ ...styles.slider, transform: [{ translateX }] }}>
-              <Image source={assets.SliderIcon} style={styles.sliderIcon} />
-            </Animated.View>
+    const range = [1, totalViewWidth - 30];
 
+    if (firstRender) {
+      sliderPosition.setValue({ x: initialUtilizedWidth - 35 });
+    }
+
+    const translateX = sliderPosition.x.interpolate({
+      inputRange: range,
+      outputRange: range,
+      extrapolate: 'clamp'
+    });
+
+    return (
+      <View style={styles.rootContainer}>
+        <BoxShadow>
+          <LinearGradient
+            colors={gradientColors.gradientYellow}
+            style={[styles.gradient]}
+          >
             <View
-              style={styles.utilizedLimitWrapper}
+              style={styles.container}
+              onLayout={
+                event => this.setTotalViewWidth(event.nativeEvent.layout.width)
+              }
             >
-              <TextComponent content={title1} color={colors.white1} size={fonts.fs8} family={fonts.medium} />
-              <TextComponent content={utilizedLimit} color={colors.white1} size={fonts.fs14} family={fonts.medium} />
-            </View>
+              <Animated.View style={{ ...styles.overlay, width: limitWidth }}>
+                <LinearGradient
+                  style={[styles.overlay, styles.gradient]}
+                  colors={gradientColors.gradientSecondary}
+                />
+              </Animated.View>
+              <Animated.View
+                {...this.panResponder.panHandlers}
+                style={{ ...styles.slider, transform: [{ translateX }] }}
+              >
+                <Image
+                  style={styles.sliderIcon}
+                  source={assets.SliderIcon}
+                  pointerEvents="none"
+                />
+              </Animated.View>
 
-            <View
-              style={styles.availableLimitWrapper}
-            >
-              <TextComponent content={title2} color={colors.black1} size={fonts.fs8} family={fonts.medium} />
-              <TextComponent content={`${limit - utilizedLimit}`} color={colors.black1} size={fonts.fs14} family={fonts.medium} />
-            </View>
-          </View>
-        </LinearGradient>
-      </BoxShadow>
-    </View>
-  );
-};
+              <View style={styles.utilizedLimitWrapper}>
+                <TextComponent
+                  content={title1}
+                  color={colors.white1}
+                  size={fonts.fs8}
+                  family={fonts.medium}
+                />
+                <TextComponent
+                  content={utilizedLimit}
+                  color={colors.white1}
+                  size={fonts.fs14}
+                  family={fonts.medium}
+                />
+              </View>
 
-Limit.defaultProps = {
+              <View style={styles.availableLimitWrapper}>
+                <TextComponent
+                  content={title2}
+                  color={colors.black1}
+                  size={fonts.fs8}
+                  family={fonts.medium}
+                />
+                <TextComponent
+                  content={`${limit - utilizedLimit}`}
+                  color={colors.black1}
+                  size={fonts.fs14}
+                  family={fonts.medium}
+                />
+              </View>
+            </View>
+          </LinearGradient>
+        </BoxShadow>
+      </View>
+    );
+  }
+}
+
+LimitChange.defaultProps = {
   title1: 'Budget Amount',
-  title2: 'Total Amount'
+  title2: 'Budget left',
+  initialUtilized: 0
 };
 
-Limit.propTypes = {
+LimitChange.propTypes = {
   title1: string,
   title2: string,
-  utilizedLimit: string.isRequired,
-  limit: string.isRequired,
-  setUtilizedLimit: func.isRequired
+  initialUtilized: number,
+  limit: number.isRequired,
+  onChange: func
 };
 
-export default Limit;
+export default LimitChange;

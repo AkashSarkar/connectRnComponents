@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 25,
-    ...pv10
+    ...pv10,
+    paddingHorizontal: 10
   },
   hitSlop: {
     top: 5,

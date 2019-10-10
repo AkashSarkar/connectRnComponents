@@ -7,9 +7,10 @@ import {
   arrayOf, shape, number, string, func, bool
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
+import { ButtonPrimary } from '../../ui';
 
 
 const styles = StyleSheet.create({
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     height: 350,
     backgroundColor: colors.white1,
     paddingHorizontal: 15,
-    paddingBottom: 10,
+    paddingBottom: 15,
     borderRadius: 16,
     borderColor: 'black'
   },
@@ -36,21 +37,23 @@ const styles = StyleSheet.create({
     width: 24
   },
   listViewWrapper: {
-    // alignContent: 'center',
-    height: 260,
-    width: '100%'
+    height: 210,
+    width: '100%',
+    paddingBottom: 15
   },
   lineStyle: {
     borderWidth: 1,
     borderColor: colors.black5,
     margin: 10
   },
-  containerBottom: {
-    height: 115,
-    marginTop: 10,
-    backgroundColor: colors.white1,
-    borderRadius: 16,
-    borderColor: 'black'
+  buttonWrapper: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 15,
+    backgroundColor: colors.white1
   },
   imageList: {
     flexDirection: 'row',
@@ -82,12 +85,29 @@ const styles = StyleSheet.create({
   }
 });
 
-const ModalDouble = ({
+const renderItem = (item, onSelect) => (
+  <View style={{
+    paddingVertical: 10,
+    alignItems: 'flex-start'
+  }}
+  >
+    <TouchableOpacity onPress={() => onSelect(item.id)}>
+      <TextComponent
+        content={item.title}
+        size={fonts.fs16}
+        family={fonts.regular}
+        color={colors.black7}
+      />
+    </TouchableOpacity>
+  </View>
+);
+
+const ModalFamilyList = ({
   modalTitle,
-  modalTitleBottom,
   isVisible,
   onBackButtonPress,
   onClose,
+  onButtonPress,
   items,
   onSelect
 }) => (
@@ -118,14 +138,31 @@ const ModalDouble = ({
           />
         </TouchableOpacity>
       </View>
-      {/* <View style={styles.lineStyle} /> */}
+      <View style={styles.buttonWrapper}>
+        <View style={{ width: '60%' }}>
+          <TextComponent
+            content="Not in the list?"
+            size={fonts.fs16}
+            family={fonts.semiBold}
+          />
+        </View>
+        <View style={{ width: '40%' }}>
+          <ButtonPrimary
+            content="Add Now"
+            buttonColor={gradientColors.gradient5}
+            textColor={colors.bgPrimary}
+            fontSize={fonts.fs14}
+            onPress={onButtonPress}
+          />
+        </View>
+      </View>
       <View
         style={styles.listViewWrapper}
       >
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            <ModalItemList item={item} onSelect={onSelect} />
+            renderItem(item, onSelect)
           )}
           keyExtractor={item => item.id.toString()}
           showsHorizontalScrollIndicator={false}
@@ -133,47 +170,11 @@ const ModalDouble = ({
         />
       </View>
     </View>
-    <View style={styles.containerBottom}>
-      <View style={styles.textWrapper}>
-        <TextComponent
-          content={modalTitleBottom}
-          size={fonts.fs16}
-          family={fonts.semiBold}
-        />
-      </View>
-      <View>
-        <TouchableOpacity onPress={onClose} style={styles.imageList}>
-          <View style={styles.imageBOxWrapper}>
-            <Image
-              style={styles.listImageStyle}
-              source={image.Desco}
-            />
-          </View>
-          <View style={styles.imageBOxWrapper}>
-            <Image
-              style={styles.listImageStyle}
-              source={image.Connect}
-            />
-          </View>
-          <View style={styles.imageBOxWrapper}>
-            <Image
-              style={styles.listImageStyle}
-              source={image.FlagBd}
-            />
-          </View>
-          <View style={styles.imageBOxWrapper}>
-            <Image
-              style={styles.listImageStyle}
-              source={image.SliderIcon}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
   </Modal>
 );
 
-ModalDouble.propTypes = {
+
+ModalFamilyList.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
@@ -185,4 +186,4 @@ ModalDouble.propTypes = {
   onSelect: func
 };
 
-export default ModalDouble;
+export default ModalFamilyList;

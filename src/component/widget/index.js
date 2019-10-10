@@ -29,6 +29,9 @@ import Control from './interactive/control/Control';
 import SplitItem from './interactive/split/SplitItem';
 import SplitList from './interactive/split/SplitList';
 import ModalDouble from './modal/ModalDouble';
+import ModalInfo from './modal/ModalInfo';
+import ModalFamilyList from './modal/ModalFamilyList';
+import ModalContact from './modal/ModalContact';
 import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
@@ -61,6 +64,9 @@ export {
   AmountChange,
   ModalSecondary,
   ModalDouble,
+  ModalInfo,
+  ModalFamilyList,
+  ModalContact,
   Avatar,
   AvatarList,
   SplitItem,

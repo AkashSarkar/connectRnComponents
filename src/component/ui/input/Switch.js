@@ -20,7 +20,7 @@ const Switch = (
       justifyContent: 'space-around',
       alignItems: 'center',
       backgroundColor: trackColor || colors.white,
-      width: '18%',
+      width: 70,
       borderRadius: 16,
       shadowColor: 'rgba(0, 0, 0, 0.08)',
       shadowOffset: {

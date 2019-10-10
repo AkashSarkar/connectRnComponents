@@ -153,7 +153,7 @@ const ButtonTest = ({ params }) => (
         />
         <ButtonCenter
           content="Add New Account"
-          logo="Plus"
+          logo="Connect"
           buttonColor={colors.white1}
           textColor={colors.text1}
           fontSize={fonts.fs14}
@@ -170,7 +170,7 @@ const ButtonTest = ({ params }) => (
         <ButtonAdd
           content="Button Add"
           logoLeft="ConnectSign"
-          logoRight="Plus"
+          logoRight="Connect"
           buttonColor={gradientColors.gradient4}
           textColor={colors.text1}
           fontSize={fonts.fs14}

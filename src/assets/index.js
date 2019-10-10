@@ -13,12 +13,13 @@ const assets = {
   Transfer: require('./icons/Transfer.png'),
   LogoConnect: require('./icons/LogoConnect.png'),
   LeftArrow: require('./icons/LeftArrow.png'),
-  Search: require('./icons/search.png'),
+  Search: require('./icons/SearchIcon.png'),
   Plus: require('./icons/plus.png'),
   Minus: require('./icons/minus.png'),
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
   Connect: require('./icons/Connect.png'),
+  ConnectIcon: require('./icons/Connect2.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
   Beftn: require('./icons/Beftn.png'),
@@ -48,13 +49,15 @@ const assets = {
   HandQRCode: require('./icons/HandQRCode.png'),
   Star: require('./icons/Star.png'),
   SendMoney: require('./icons/SendMoney.png'),
-  FlagBd: require('./icons/Flag BD.png'),
+  FlagBd: require('./icons/FlagBD.png'),
   Change: require('./icons/Change.png'),
   Operator: require('./icons/Operator.png'),
   Visa1: require('./icons/Visa1.png'),
   Visa2: require('./icons/Visa2.png'),
   Mastercard1: require('./icons/Mastercard1.png'),
   Dmoney2: require('./icons/Dmoney2.png'),
+  Pause: require('./icons/Pause.png'),
+  Hotel: require('./icons/Hotel-1.png')
 };
 
 export default assets;

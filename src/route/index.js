@@ -1,4 +1,4 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 import App from '../../App';
 import TestRoute from './testRoute/TestRoute';
 import SwipeableWrapperTest from './testRoute/SwipeableWrapperTest';
@@ -23,7 +23,9 @@ import WidgetL2Test from './testRoute/WidgetL2Test';
 import WidgetL3Test from './testRoute/WidgetL3Test';
 import ControlTest from './testRoute/ControlTest';
 import BudgetTest from './testRoute/BudgetTest';
-import DragRouteTest from "./testRoute/DragRouteTest";
+import DragRouteTest from './testRoute/DragRouteTest';
+import AccountListTest from './testRoute/AccountListTest';
+import CCMTest from './testRoute/CCMTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -50,11 +52,13 @@ const AppNavigator = createStackNavigator(
     WidgetInputTest,
     NotificationTest,
     ControlTest,
+    DragRouteTest,
     BudgetTest,
-    DragRouteTest
+    AccountListTest,
+    CCMTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'TestRoute',
     headerMode: 'none'
   },
 );

@@ -26,7 +26,7 @@ import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
 import { AmountChange } from '../../component/widget';
 import Switch from '../../component/ui/input/Switch';
-import TabTest from "./TabTest";
+import TabTest from './TabTest';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -180,7 +180,7 @@ const UIComponentTest = ({ navigation }) => {
             </View>
             <BoxShadow>
               <View style={{ padding: 15 }}>
-                <AmountChange title="Adults" value="0"/>
+                <AmountChange title="Adults" value="0" />
               </View>
             </BoxShadow>
             {/* input/AmountChange */}
@@ -351,8 +351,10 @@ const UIComponentTest = ({ navigation }) => {
               family={fonts.bold}
             />
             <ButtonTag
-              content="Button Tag"
-              buttonColor={colors.white1}
+              contentL="Basic"
+              contentR="Account Management"
+              buttonColorL={colors.colorSecondery}
+              buttonColorR={colors.white1}
               textColor={colors.text2}
               fontSize={fonts.fs10}
               onPress={() => console.warn('Button Desco')}
@@ -369,7 +371,7 @@ const UIComponentTest = ({ navigation }) => {
             />
             <ButtonCenter
               content="Button Center"
-              logo="Plus"
+              logo="Add"
               buttonColor={colors.white1}
               textColor={colors.text1}
               fontSize={fonts.fs14}
@@ -386,7 +388,7 @@ const UIComponentTest = ({ navigation }) => {
             <ButtonAdd
               content="Button Add"
               logoLeft="ConnectSign"
-              logoRight="Plus"
+              logoRight="Add"
               buttonColor={gradientColors.gradient4}
               textColor={colors.text1}
               fontSize={fonts.fs14}
@@ -517,7 +519,7 @@ const UIComponentTest = ({ navigation }) => {
             family={fonts.bold}
           />
         </View>
-        <TabTest/>
+        <TabTest />
         {/* Tab component goes here */}
       </View>
 
@@ -542,7 +544,7 @@ const UIComponentTest = ({ navigation }) => {
               content="Send And Receive"
             />
           </View>
-          {/*ui/HeaderPrimary*/}
+          {/* ui/HeaderPrimary */}
 
           <View>
             <TextComponent
@@ -555,11 +557,11 @@ const UIComponentTest = ({ navigation }) => {
               content="Hotel Booking"
             />
           </View>
-          {/*ui/HeaderTop*/}
+          {/* ui/HeaderTop */}
         </SafeAreaView>
       </View>
 
     </ScrollView>
   );
-}
+};
 export default UIComponentTest;

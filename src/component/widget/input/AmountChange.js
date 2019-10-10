@@ -3,7 +3,7 @@ import { Image, View, TouchableOpacity } from 'react-native';
 import { string } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import { TextComponent } from '../../ui';
-import { pr25 } from '../../../styles/commonStyle';
+import { ml5, mr5, p10, ph10, pr25 } from '../../../styles/commonStyle';
 import assets from '../../../assets';
 import InputField from './InputField';
 
@@ -11,7 +11,7 @@ const styles = {
   wrapperStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'flex-end'
   },
   borderBottom: {
     borderBottomColor: colors.grey1,
@@ -21,7 +21,35 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'space-around',
-    width: '15%'
+    width: '20%'
+  },
+  plusStyle: {
+    height: 20,
+    width: 20,
+    borderRadius: 30,
+    backgroundColor: colors.white1,
+    shadowColor: 'rgba(0, 0, 0, 0.16)',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    elevation: 1
+  },
+  minusStyle: {
+    height: 20,
+    width: 20,
+    borderRadius: 30,
+    backgroundColor: colors.white1,
+    shadowColor: 'rgba(0, 0, 0, 0.16)',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    elevation: 1
   }
 };
 const AmountChange = ({ title, value }) => {
@@ -55,35 +83,37 @@ const AmountChange = ({ title, value }) => {
           onPress={() => decrement()}
           disabled={amount < 0}
         >
-          <Image source={assets.Minus} style={{ height: 30, width: 30 }}/>
+          <Image source={assets.Minus} style={styles.minusStyle}/>
         </TouchableOpacity>
-        <InputField
-          value={String(amount)}
-          keyboardType="numeric"
-          maxLength={11}
-          returnKeyType="next"
-          onChangeText={(text) => {
-            setAmount(text);
-          }}
-          setIsValid={(validity) => {
-          }}
-          validations={[
-            {
-              validationType: 'required',
-              value: true,
-              msg: 'This field is required'
-            },
-            {
-              validationType: 'type',
-              value: 'number',
-              msg: 'This field must be number'
-            }
-          ]}
-        />
+        <View style={ph10}>
+          <InputField
+            value={String(amount)}
+            keyboardType="numeric"
+            maxLength={11}
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setAmount(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
         <TouchableOpacity
           onPress={() => increment()}
         >
-          <Image source={assets.Plus} style={{ height: 30, width: 30 }}/>
+          <Image source={assets.Plus} style={styles.plusStyle}/>
         </TouchableOpacity>
       </View>
     </View>

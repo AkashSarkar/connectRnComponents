@@ -48,12 +48,12 @@ const TestRoute = ({ navigation }) => (
       content="Widget/L3"
       onPress={() => navigation.navigate('WidgetL3Test')}
     />
-    {/* <ButtonPrimary
+    <ButtonPrimary
       buttonColor={gradientColors.gradient5}
       textColor={colors.bgPrimary}
-      content="List Test"
-      onPress={() => navigation.navigate('ListTest')}
-    /> */}
+      content="Picker Test"
+      onPress={() => navigation.navigate('PickerTest')}
+    />
   </ScrollView>
 );
 

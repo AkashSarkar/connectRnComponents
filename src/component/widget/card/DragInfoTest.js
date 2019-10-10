@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {Animated, Dimensions, Easing, Platform, Text, View, StyleSheet} from 'react-native';
-import assets from "../../../assets";
+import React, { Component } from 'react';
+import { Animated, Dimensions, Easing, StyleSheet, Text, View } from 'react-native';
+import assets from '../../../assets';
 import SortableList from 'react-native-sortable-list';
-import AccountListItem from "./AccountListItem";
-import {ph10} from "../../../styles/commonStyle";
+import AccountListItem from './AccountListItem';
+import { ph10 } from '../../../styles/commonStyle';
 
 const window = Dimensions.get('window');
 
 
-let data = [
+const data = [
   {
     accountName: 'Jamuna Bank',
     suffix: '12',
@@ -49,7 +49,7 @@ let data = [
     accountType: 'Dmoney',
     isSwitchOn: true,
     accountImage: assets.Dmoney2
-  },
+  }
 ];
 
 export default class Basic extends Component {
@@ -59,13 +59,13 @@ export default class Basic extends Component {
         <Text>React Native Sortable List</Text>
         <SortableList
           data={data}
-          renderRow={this._renderRow}/>
+          renderRow={this._renderRow} />
       </View>
     );
   }
 
-  _renderRow = ({data, active}) => {
-    return <Row data={data} active={active}/>
+  _renderRow = ({ data, active }) => {
+    return <Row data={data} active={active} />
   }
 }
 
@@ -73,7 +73,6 @@ class Row extends Component {
 
   constructor(props) {
     super(props);
-
     this._active = new Animated.Value(0);
   }
 
@@ -82,7 +81,7 @@ class Row extends Component {
       Animated.timing(this._active, {
         duration: 300,
         easing: Easing.bounce,
-        toValue: Number(nextProps.active),
+        toValue: Number(nextProps.active)
       }).start();
     }
   }
@@ -92,7 +91,7 @@ class Row extends Component {
 
     return (
       <Animated.View style={ph10}>
-        <AccountListItem accountInformation={data}/>
+        <AccountListItem accountInformation={data} />
       </Animated.View>
     );
   }
@@ -102,6 +101,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#eee',
+    backgroundColor: '#eee'
   }
 });

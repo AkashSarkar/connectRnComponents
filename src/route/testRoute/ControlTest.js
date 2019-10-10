@@ -7,7 +7,12 @@ const ControlTest = () => (
     flex: 1, justifyContent: 'center', alignItems: 'center', padding: 60
   }}
   >
-    <Control />
+    <Control
+      onSwipeLeft={() => console.warn('left')}
+      onSwipeRight={() => console.warn('right')}
+      onSwipeUp={() => console.warn('up')}
+      onSwipeDown={() => console.warn('down')}
+    />
   </View>
 );
 
