@@ -30,7 +30,8 @@
     "react-native-svg": "^9.11.1",
     "react-native-wheel-picker-android": "^2.0.5",
     "react-navigation": "^3.11.1",
-    "reanimated-bottom-sheet": "^1.0.0-alpha.14"
+    "reanimated-bottom-sheet": "^1.0.0-alpha.14",
+    "svg-path-properties": "^0.5.2"
   },
   "devDependencies": {
     "@babel/core": "7.6.0",

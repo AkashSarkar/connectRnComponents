@@ -3,7 +3,11 @@ import { View, Text } from 'react-native';
 import { AccountGraph } from '../../component/widget';
 
 const GraphTest = () => (
-  <View>
+  <View style={{
+    paddingTop: 50,
+    paddingHorizontal: 10
+  }}
+  >
     <AccountGraph />
   </View>
 );
