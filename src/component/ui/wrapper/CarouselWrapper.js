@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Dimensions, StyleSheet
 } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { node, bool } from 'prop-types';
+import { node, bool, number } from 'prop-types';
 import { colors } from '../../../styles/baseStyle';
 
 
@@ -42,7 +42,9 @@ const styles = StyleSheet.create({
 });
 
 
-const CarouselWrapper = ({ componentArray, isPagination, isMaxWidth }) => {
+const CarouselWrapper = ({
+  componentArray, isPagination, isMaxWidth, activeIndex
+}) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const renderItem = ({ item, index }) => (
@@ -63,9 +65,18 @@ const CarouselWrapper = ({ componentArray, isPagination, isMaxWidth }) => {
     />
   );
 
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      carouselRef.current.snapToItem(activeIndex);
+    }, 500);
+  }, []);
+
   return (
     <>
       <Carousel
+        ref={carouselRef}
         data={componentArray}
         renderItem={renderItem}
         sliderWidth={sliderWidth}
@@ -81,13 +92,15 @@ const CarouselWrapper = ({ componentArray, isPagination, isMaxWidth }) => {
 
 CarouselWrapper.defaultProps = {
   isPagination: false,
-  isMaxWidth: false
+  isMaxWidth: false,
+  activeIndex: 0
 };
 
 CarouselWrapper.propTypes = {
-  componentArray: node,
+  componentArray: node.isRequired,
   isPagination: bool,
-  isMaxWidth: bool
+  isMaxWidth: bool,
+  activeIndex: number
 };
 
 export default CarouselWrapper;

@@ -27,6 +27,7 @@ import DragRouteTest from './testRoute/DragRouteTest';
 import AccountListTest from './testRoute/AccountListTest';
 import CCMTest from './testRoute/CCMTest';
 import BottomDrawerTest from './testRoute/BottomDrawerTest';
+import GraphTest from './testRoute/GraphTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -57,10 +58,11 @@ const AppNavigator = createStackNavigator(
     BudgetTest,
     AccountListTest,
     CCMTest,
-    BottomDrawerTest
+    BottomDrawerTest,
+    GraphTest
   },
   {
-    initialRouteName: 'TestRoute',
+    initialRouteName: 'CCMTest',
     headerMode: 'none'
   },
 );
