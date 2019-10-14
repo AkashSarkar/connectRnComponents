@@ -1,13 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
-import { object } from 'prop-types';
 import AccountListItem from './AccountListItem';
+import { object } from 'prop-types';
 
 const AccountList = ({ accounts }) => {
   const renderInformation = accounts.map((account, index) => {
     return (
       <View key={index}>
-        <AccountListItem accountInformation={account}/>
+        <AccountListItem accountInformation={account} />
       </View>
     );
   });
