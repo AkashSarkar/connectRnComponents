@@ -2,9 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { string, func, array } from 'prop-types';
-import {
-  BoxShadow, TextComponent, ButtonPrimary
-} from '../../../ui';
+import { BoxShadow, TextComponent, ButtonPrimary } from '../../../ui';
 import { gradientColors, fonts, colors } from '../../../../styles/baseStyle';
 import { mb10 } from '../../../../styles/commonStyle';
 
@@ -47,7 +45,14 @@ const styles = StyleSheet.create({
 });
 
 const Notification = ({
-  logo, content, footer, buttonTitle, onButtonPress, bgColor, contentColor, buttonColor
+  logo,
+  content,
+  footer,
+  buttonTitle,
+  onButtonPress,
+  bgColor,
+  contentColor,
+  buttonColor
 }) => (
   <View style={styles.container}>
     <BoxShadow>
@@ -56,14 +61,29 @@ const Notification = ({
           <Image resizeMode="contain" source={logo} style={styles.logo} />
         </View>
         <View style={styles.content}>
-          <TextComponent content={content} size={fonts.fs14} color={contentColor} family={fonts.medium} />
+          <TextComponent
+            content={content}
+            size={fonts.fs14}
+            color={contentColor}
+            family={fonts.medium}
+          />
         </View>
         <View style={styles.footer}>
           <View style={styles.footerLine} />
-          <TextComponent content={footer} size={fonts.fs14} color={contentColor} family={fonts.medium} />
+          <TextComponent
+            content={footer}
+            size={fonts.fs14}
+            color={contentColor}
+            family={fonts.medium}
+          />
         </View>
         <View>
-          <ButtonPrimary buttonColor={buttonColor} content={buttonTitle} onPress={onButtonPress} textColor={colors.white1} />
+          <ButtonPrimary
+            buttonColor={buttonColor}
+            content={buttonTitle}
+            onPress={onButtonPress}
+            textColor={colors.white1}
+          />
         </View>
       </LinearGradient>
     </BoxShadow>

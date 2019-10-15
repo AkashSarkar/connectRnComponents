@@ -42,7 +42,7 @@ const CCMTest = () => {
   };
   return (
     <View style={{ paddingTop: 15 }}>
-      <CarouselWrapper componentArray={notifications()} isPagination isMaxWidth />
+      <CarouselWrapper activeIndex={2} componentArray={notifications()} isPagination isMaxWidth />
     </View>
   );
 };

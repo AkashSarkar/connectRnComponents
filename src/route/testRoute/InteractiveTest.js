@@ -8,7 +8,6 @@ import AccountList from '../../component/widget/card/AccountList';
 import DragInfoTest from '../../component/widget/card/DragInfoTest';
 
 const InteractiveTest = ({ navigation }) => {
-
   const accountData = [
     {
       accountName: 'Jamuna Bank',
@@ -50,7 +49,7 @@ const InteractiveTest = ({ navigation }) => {
       accountType: 'Dmoney',
       isSwitchOn: true,
       accountImage: assets.Dmoney2
-    },
+    }
   ];
 
   return (
@@ -109,12 +108,26 @@ const InteractiveTest = ({ navigation }) => {
           onPress={() => navigation.navigate('BudgetTest')}
         />
       </View>
+      <View style={mb10}>
+        <ButtonPrimary
+          buttonColor={gradientColors.gradient5}
+          textColor={colors.bgPrimary}
+          content="Graph s"
+          onPress={() => navigation.navigate('GraphTest')}
+        />
+      </View>
 
       <ButtonPrimary
         buttonColor={gradientColors.gradient5}
         textColor={colors.bgPrimary}
         content="Budget Test"
         onPress={() => navigation.navigate('DragRouteTest')}
+      />
+      <ButtonPrimary
+        buttonColor={gradientColors.gradient5}
+        textColor={colors.bgPrimary}
+        content="Bottom Drawer Test"
+        onPress={() => navigation.navigate('BottomDrawerTest')}
       />
       <View style={mb10}>
         <ButtonPrimary

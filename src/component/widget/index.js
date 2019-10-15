@@ -36,6 +36,7 @@ import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
 import HeaderTop from '../ui/header/HeaderTop';
+import { BottomDrawer, AccountGraph } from './interactive';
 
 export {
   SeatListItem,
@@ -75,5 +76,7 @@ export {
   PaymentInfo,
   Checkout,
   QuickAmount,
-  HeaderTop
+  HeaderTop,
+  BottomDrawer,
+  AccountGraph
 };
