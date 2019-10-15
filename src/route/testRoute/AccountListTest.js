@@ -58,9 +58,9 @@ const AccountListTest = () => {
         content="interactive/AccountList"
         family={fonts.bold}
       />
-      <AccountList accounts={accountData}/>
+      <AccountList accounts={accountData} />
     </View>
 
   );
-}
+};
 export default AccountListTest;

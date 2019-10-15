@@ -1,25 +1,23 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { ButtonCommunication, TextComponent } from "../../ui";
-import { colors, fonts } from "../../../styles/baseStyle";
-import { pv10, pv5 } from "../../../styles/commonStyle";
 import { object } from 'prop-types';
+import { ButtonCommunication, TextComponent } from '../../ui';
+import { colors, fonts } from '../../../styles/baseStyle';
+import { pv10, pv5 } from '../../../styles/commonStyle';
 import assets from '../../../assets';
-import Switch from "../../ui/input/Switch";
+import Switch from '../../ui/input/Switch';
 
 const AccountListItem = ({ accountInformation }) => {
-
-
   const onDrag = () => {
-    console.warn("DRAG")
+    console.warn('DRAG');
   };
 
   const onSwitchChange = () => {
-    alert("CHANGED");
+    alert('CHANGED');
   };
 
   const onInfoIconPress = () => {
-    alert("INFO ICON")
+    alert('INFO ICON');
   };
 
   return (
@@ -34,7 +32,8 @@ const AccountListItem = ({ accountInformation }) => {
         iconWidth={15}
         textColor={colors.text2}
         fontSize={fonts.fs14}
-        onPress={onDrag}/>
+        onPress={onDrag}
+      />
       <View style={styles.accountLogoWrapper}>
         <Image
           style={styles.AccountLogoStyle}
@@ -46,22 +45,26 @@ const AccountListItem = ({ accountInformation }) => {
           size={fonts.fs12}
           color={colors.black0}
           content={accountInformation.accountName}
-          family={fonts.regular}/>
+          family={fonts.regular}
+        />
         <TextComponent
           size={fonts.fs12}
           color={colors.black0}
           content={`Connect Suffix ${accountInformation.suffix}`}
-          family={fonts.regular}/>
+          family={fonts.regular}
+        />
         <TextComponent
           size={fonts.fs12}
           color={colors.black0}
           content={accountInformation.accountNo}
-          family={fonts.bold}/>
+          family={fonts.bold}
+        />
         <TextComponent
           size={fonts.fs12}
           color={colors.red1}
           content={accountInformation.accountType}
-          family={fonts.bold}/>
+          family={fonts.bold}
+        />
       </View>
       <ButtonCommunication
         logo={assets.Info2}
@@ -73,7 +76,8 @@ const AccountListItem = ({ accountInformation }) => {
         iconWidth={20}
         textColor={colors.text2}
         fontSize={fonts.fs14}
-        onPress={onInfoIconPress}/>
+        onPress={onInfoIconPress}
+      />
       <View>
         <Switch
           value={accountInformation.isSwitchOn}
@@ -83,14 +87,14 @@ const AccountListItem = ({ accountInformation }) => {
         />
       </View>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   accountInformationWrapper: {
     marginRight: 5

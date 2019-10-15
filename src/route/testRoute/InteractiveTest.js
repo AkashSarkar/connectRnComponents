@@ -108,6 +108,14 @@ const InteractiveTest = ({ navigation }) => {
           onPress={() => navigation.navigate('BudgetTest')}
         />
       </View>
+      <View style={mb10}>
+        <ButtonPrimary
+          buttonColor={gradientColors.gradient5}
+          textColor={colors.bgPrimary}
+          content="Graph s"
+          onPress={() => navigation.navigate('GraphTest')}
+        />
+      </View>
 
       <ButtonPrimary
         buttonColor={gradientColors.gradient5}
