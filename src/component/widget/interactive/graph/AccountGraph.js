@@ -14,7 +14,7 @@ import Svg, {
 import * as shape from 'd3-shape';
 import * as path from 'svg-path-properties';
 
-import { array } from 'prop-types';
+import { array, func } from 'prop-types';
 
 import { scaleTime, scaleLinear, scaleQuantile } from 'd3-scale';
 import { colors, fonts } from '../../../../styles/baseStyle';
@@ -68,6 +68,10 @@ const styles = StyleSheet.create({
 });
 
 export class AccountGraph extends Component {
+  static defaultProps = {
+    onCursorMove: () => {}
+  };
+
   constructor(props) {
     super(props);
 
@@ -124,6 +128,8 @@ export class AccountGraph extends Component {
     this.setState({ labelDate, labelAmount });
   };
 
+  getCurrentData = (x, y) => ({ x, y })
+
   moveCursor = (value) => {
     const {
       data,
@@ -132,8 +138,10 @@ export class AccountGraph extends Component {
       scaleAmountLabel,
       scaleDateLabel,
       scaleX,
-      scaleY
+      scaleY,
+      getCurrentData
     } = this;
+    const { onCursorMove } = this.props;
     if (data.length > 1) {
       const { x, y } = properties.getPointAtLength(lineLength - value);
       this.cursor.current.setNativeProps({
@@ -145,6 +153,8 @@ export class AccountGraph extends Component {
       const labelY = scaleAmountLabel(scaleY.invert(y));
 
       this.setLabel(dateString, labelY);
+
+      onCursorMove(getCurrentData(labelX, labelY));
     }
   };
 
@@ -229,7 +239,8 @@ export class AccountGraph extends Component {
 }
 
 AccountGraph.propTypes = {
-  data: array.isRequired
+  data: array.isRequired,
+  onCursorMove: func
 };
 
 export default AccountGraph;
