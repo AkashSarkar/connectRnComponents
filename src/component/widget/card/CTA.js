@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
-import { string, func } from 'prop-types';
+import { string, func, number } from 'prop-types';
 import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { p15, mb10 } from '../../../styles/commonStyle';
@@ -24,10 +24,10 @@ const styles = {
     height: '100%'
   },
   leftStyle: {
-    width: '50%'
+    width: '40%'
   },
   rightStyle: {
-    width: '50%',
+    width: '60%',
     justifyContent: 'center',
     alignItems: 'flex-end',
     ...p15
@@ -35,33 +35,34 @@ const styles = {
 };
 
 const CTA = ({
-  title, subtitle, onPress
+  title, subtitle, onPress, logo
 }) => (
-  <TouchableOpacity onPress={onPress} style={styles.wrapper}>
-    <View style={styles.leftStyle}>
-      <Image style={styles.imageStyle} source={image.SendMoney} />
-    </View>
-    <View style={[styles.rightStyle, mb10]}>
-      <TextComponent
-        content={title}
-        color={colors.primary2}
-        family={fonts.semiBold}
-        size={fonts.fs32}
-      />
-      <TextComponent
-        content={subtitle}
-        color={colors.primary2}
-        family={fonts.regular}
-        size={fonts.fs32}
-      />
-    </View>
-  </TouchableOpacity>
-);
+    <TouchableOpacity onPress={onPress} style={styles.wrapper}>
+      <View style={styles.leftStyle}>
+        <Image style={styles.imageStyle} source={logo || image.SendMoney} />
+      </View>
+      <View style={[styles.rightStyle, mb10]}>
+        <TextComponent
+          content={title}
+          color={colors.primary2}
+          family={fonts.semiBold}
+          size={fonts.fs32}
+        />
+        <TextComponent
+          content={subtitle}
+          color={colors.primary2}
+          family={fonts.regular}
+          size={fonts.fs32}
+        />
+      </View>
+    </TouchableOpacity>
+  );
 
 CTA.propTypes = {
   title: string.isRequired,
   subtitle: string.isRequired,
-  onPress: func
+  onPress: func,
+  logo: number
 };
 
 export default CTA;

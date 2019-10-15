@@ -313,6 +313,7 @@ const WidgetL1Test = ({ navigation }) => {
         <CTA
           title="Send"
           subtitle="Money"
+          logo={assets.SendMoney}
         />
       </View>
       <View style={mb20}>
