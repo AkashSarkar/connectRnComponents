@@ -6,6 +6,7 @@ import {
   Dimensions,
   Animated
 } from 'react-native';
+
 import Svg, {
   Path, Defs, LinearGradient, Stop
 } from 'react-native-svg';
@@ -13,60 +14,31 @@ import Svg, {
 import * as shape from 'd3-shape';
 import * as path from 'svg-path-properties';
 
+import { array } from 'prop-types';
+
 import { scaleTime, scaleLinear, scaleQuantile } from 'd3-scale';
-import { colors } from '../../../../styles/baseStyle';
+import { colors, fonts } from '../../../../styles/baseStyle';
 import { BoxShadow, TextComponent } from '../../../ui';
+import { getMonthAndDay } from '../../../../utils/function';
 
 const height = 100;
-const width = Dimensions.get('window').width - 20;
+const width = Dimensions.get('window').width - 30;
 const verticalPadding = 10;
 const cursorRadius = 7;
-const labelWidth = 100;
+const labelWidth = 145;
 
 const d3 = {
   shape
 };
 
-const data = [
-  { x: new Date(2018, 9, 1), y: 0 },
-  { x: new Date(2018, 9, 16), y: 0 },
-  { x: new Date(2018, 9, 17), y: 200 },
-  { x: new Date(2018, 10, 1), y: 200 },
-  { x: new Date(2018, 10, 2), y: 300 },
-  { x: new Date(2018, 10, 5), y: 300 },
-  { x: new Date(2018, 10, 5), y: 300 }
-];
-
-const scaleX = scaleTime()
-  .domain([new Date(2018, 9, 1), new Date(2018, 10, 5)])
-  .range([0, width - 10]);
-
-const scaleY = scaleLinear()
-  .domain([0, 300])
-  .range([height - verticalPadding, verticalPadding]);
-
-const scaleLabel = scaleQuantile()
-  .domain([0, 300])
-  .range([0, 200, 300]);
-
-const line = d3.shape
-  .line()
-  .x(d => scaleX(d.x))
-  .y(d => scaleY(d.y))
-  .curve(d3.shape.curveBasis)(data);
-
-const properties = path.svgPathProperties(line);
-const lineLength = properties.getTotalLength();
-
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 1
+    flex: 1,
+    paddingTop: 30
   },
   graphContainer: {
     height,
-    width,
-    // marginHorizontal: 10,
-    alignItems: 'center'
+    width
   },
   cursor: {
     width: cursorRadius * 2,
@@ -78,31 +50,103 @@ const styles = StyleSheet.create({
   },
   label: {
     position: 'absolute',
-    top: -45,
+    top: -30,
     left: 0,
     width: labelWidth
+  },
+  labelWrapper: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    paddingVertical: 5
+  },
+  divider: {
+    width: 1,
+    borderLeftColor: colors.black1,
+    borderLeftWidth: 1
   }
 });
 
 export class AccountGraph extends Component {
-  state = {
-    x: new Animated.Value(0)
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      x: new Animated.Value(0),
+      labelDate: getMonthAndDay(props.data[props.data.length - 1].x),
+      labelAmount: props.data[props.data.length - 1].y
+    };
+  }
+
+  data = this.props.data;
+
+  dates = this.data.map(a => a.x);
+
+  amounts = this.data.map(a => a.y);
+
+  maxAmount = Math.max(...this.amounts);
+
+  minAmount = Math.min(...this.amounts);
+
+  maxDate = new Date(Math.max.apply(null, this.dates));
+
+  minDate = new Date(Math.min.apply(null, this.dates));
+
+  scaleX = scaleTime()
+    .domain([this.minDate, this.maxDate])
+    .range([10, width - 5]);
+
+  scaleY = scaleLinear()
+    .domain([this.minAmount, this.maxAmount])
+    .range([height - verticalPadding, verticalPadding]);
+
+  scaleDateLabel = scaleQuantile()
+    .domain([this.minDate, this.maxDate])
+    .range(this.dates);
+
+  scaleAmountLabel = scaleQuantile()
+    .domain([this.minAmount, this.maxAmount])
+    .range(this.amounts);
+
+  line = d3.shape
+    .line()
+    .x(d => this.scaleX(d.x))
+    .y(d => this.scaleY(d.y))
+    .curve(d3.shape.curveBasis)(this.data);
+
+  properties = path.svgPathProperties(this.line);
+
+  lineLength = this.properties.getTotalLength();
 
   cursor = React.createRef();
 
-  label = React.createRef();
+  setLabel = (labelDate, labelAmount) => {
+    this.setState({ labelDate, labelAmount });
+  };
 
-  moveCursor(value) {
-    const { x, y } = properties.getPointAtLength(lineLength - value);
-    this.cursor.current.setNativeProps({
-      top: y - cursorRadius,
-      left: x - cursorRadius
-    });
-    const label = scaleLabel(scaleY.invert(y));
-    console.log(label);
-    this.label.current.setNativeProps({ text: `${label} CHF` });
-  }
+  moveCursor = (value) => {
+    const {
+      data,
+      properties,
+      lineLength,
+      scaleAmountLabel,
+      scaleDateLabel,
+      scaleX,
+      scaleY
+    } = this;
+    if (data.length > 1) {
+      const { x, y } = properties.getPointAtLength(lineLength - value);
+      this.cursor.current.setNativeProps({
+        top: y - cursorRadius,
+        left: x - cursorRadius
+      });
+      const labelX = scaleDateLabel(scaleX.invert(x));
+      const dateString = getMonthAndDay(labelX);
+      const labelY = scaleAmountLabel(scaleY.invert(y));
+
+      this.setLabel(dateString, labelY);
+    }
+  };
 
   componentDidMount() {
     this.state.x.addListener(({ value }) => this.moveCursor(value));
@@ -110,7 +154,8 @@ export class AccountGraph extends Component {
   }
 
   render() {
-    const { x } = this.state;
+    const { x, labelAmount, labelDate } = this.state;
+    const { lineLength, line } = this;
     const translateX = x.interpolate({
       inputRange: [0, lineLength],
       outputRange: [width - labelWidth, 0],
@@ -135,17 +180,29 @@ export class AccountGraph extends Component {
               strokeWidth={5}
             />
             <Path
-              d={`${line} L ${width - 10} ${height} L 0 ${height}`}
+              d={`${line} L ${width - 5} ${height} L 0 ${height}`}
               fill="url(#gradient)"
             />
             <View ref={this.cursor} style={styles.cursor} />
           </Svg>
           <Animated.View style={[styles.label, { transform: [{ translateX }] }]}>
-            <View ref={this.label}>
-              <BoxShadow>
-                <TextComponent content="bla" />
-              </BoxShadow>
-            </View>
+            <BoxShadow borderRadius={4}>
+              <View style={styles.labelWrapper}>
+                <TextComponent
+                  content={labelDate}
+                  size={fonts.fs12}
+                  family={fonts.medium}
+                  color={colors.grey1}
+                />
+                <View style={styles.divider} />
+                <TextComponent
+                  content={labelAmount}
+                  size={fonts.fs12}
+                  family={fonts.medium}
+                  color={colors.black1}
+                />
+              </View>
+            </BoxShadow>
           </Animated.View>
           <Animated.ScrollView
             style={StyleSheet.absoluteFill}
@@ -170,5 +227,9 @@ export class AccountGraph extends Component {
     );
   }
 }
+
+AccountGraph.propTypes = {
+  data: array.isRequired
+};
 
 export default AccountGraph;

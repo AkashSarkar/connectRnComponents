@@ -13,6 +13,8 @@ export const generateDays = () => {
 
 export const generateMonths = () => moment.monthsShort();
 
+export const getMonthAndDay = date => `${moment(date).format('MMM')} ${moment(date).day()}`;
+
 export const generateYears = () => {
   const years = [];
   let currentYearIndex = 0;
