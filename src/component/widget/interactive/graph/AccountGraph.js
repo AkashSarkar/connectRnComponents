@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
 
 export class AccountGraph extends Component {
   static defaultProps = {
-    onCursorMove: () => {}
+    onCursorMove: () => {},
+    onCursorStop: () => {}
   };
 
   constructor(props) {
@@ -78,15 +79,15 @@ export class AccountGraph extends Component {
     this.state = {
       x: new Animated.Value(0),
       labelDate: getMonthAndDay(props.data[props.data.length - 1].x),
-      labelAmount: props.data[props.data.length - 1].y
+      labelAmount: props.data[props.data.length - 1].y,
+      labelX: props.data[props.data.length - 1].x
     };
   }
 
-  data = this.props.data;
 
-  dates = this.data.map(a => a.x);
+  dates = this.props.data.map(a => a.x);
 
-  amounts = this.data.map(a => a.y);
+  amounts = this.props.data.map(a => a.y);
 
   maxAmount = Math.max(...this.amounts);
 
@@ -116,7 +117,7 @@ export class AccountGraph extends Component {
     .line()
     .x(d => this.scaleX(d.x))
     .y(d => this.scaleY(d.y))
-    .curve(d3.shape.curveBasis)(this.data);
+    .curve(d3.shape.curveBasis)(this.props.data);
 
   properties = path.svgPathProperties(this.line);
 
@@ -124,15 +125,29 @@ export class AccountGraph extends Component {
 
   cursor = React.createRef();
 
-  setLabel = (labelDate, labelAmount) => {
-    this.setState({ labelDate, labelAmount });
+  setLabel = (labelDate, labelAmount, labelX) => {
+    this.setState({ labelDate, labelAmount, labelX });
   };
 
   getCurrentData = (x, y) => ({ x, y })
 
+  getCurrentIndex = () => new Promise((res) => {
+    const { labelX: x, labelAmount: y } = this.state;
+    const { data } = this.props;
+    let idx = 0;
+    for (let i = 0; i < data.length; i++) {
+      // console.log(data[i].y, y);
+      // console.log(data[i].x.getTime(), x.getTime());
+      if (data[i].x.getTime() === x.getTime() && data[i].y === y) {
+        idx = i;
+        res(idx);
+        break;
+      }
+    }
+  })
+
   moveCursor = (value) => {
     const {
-      data,
       properties,
       lineLength,
       scaleAmountLabel,
@@ -141,21 +156,20 @@ export class AccountGraph extends Component {
       scaleY,
       getCurrentData
     } = this;
-    const { onCursorMove } = this.props;
-    if (data.length > 1) {
-      const { x, y } = properties.getPointAtLength(lineLength - value);
-      this.cursor.current.setNativeProps({
-        top: y - cursorRadius,
-        left: x - cursorRadius
-      });
-      const labelX = scaleDateLabel(scaleX.invert(x));
-      const dateString = getMonthAndDay(labelX);
-      const labelY = scaleAmountLabel(scaleY.invert(y));
+    const { onCursorMove, data } = this.props;
+    if (data.length < 1) return;
+    const { x, y } = properties.getPointAtLength(lineLength - value);
+    this.cursor.current.setNativeProps({
+      top: y - cursorRadius,
+      left: x - cursorRadius
+    });
+    const labelX = scaleDateLabel(scaleX.invert(x));
+    const dateString = getMonthAndDay(labelX);
+    const labelY = scaleAmountLabel(scaleY.invert(y));
 
-      this.setLabel(dateString, labelY);
+    this.setLabel(dateString, labelY, labelX);
 
-      onCursorMove(getCurrentData(labelX, labelY));
-    }
+    onCursorMove(getCurrentData(labelX, labelY));
   };
 
   componentDidMount() {
@@ -165,7 +179,8 @@ export class AccountGraph extends Component {
 
   render() {
     const { x, labelAmount, labelDate } = this.state;
-    const { lineLength, line } = this;
+    const { lineLength, line, getCurrentIndex } = this;
+    const { onCursorStop } = this.props;
     const translateX = x.interpolate({
       inputRange: [0, lineLength],
       outputRange: [width - labelWidth, 0],
@@ -231,6 +246,14 @@ export class AccountGraph extends Component {
               { useNativeDriver: true },
             )}
             horizontal
+            onMomentumScrollEnd={() => {
+              // TODO FIX
+              setTimeout(() => {
+                getCurrentIndex().then((idx) => {
+                  onCursorStop(idx);
+                });
+              }, 10);
+            }}
           />
         </View>
       </SafeAreaView>
@@ -240,7 +263,8 @@ export class AccountGraph extends Component {
 
 AccountGraph.propTypes = {
   data: array.isRequired,
-  onCursorMove: func
+  onCursorMove: func,
+  onCursorStop: func
 };
 
 export default AccountGraph;
