@@ -1,13 +1,24 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { node } from 'prop-types';
+import { node, string } from 'prop-types';
 import BottomSheet from 'reanimated-bottom-sheet';
 import { colors } from '../../../../styles/baseStyle';
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  header: {
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    borderTopColor: colors.grey1,
+    borderLeftColor: colors.grey1,
+    borderRightColor: colors.grey1,
+    borderTopWidth: 0.2,
+    borderLeftWidth: 0.2,
+    borderRightWidth: 0.2,
+    paddingTop: 8,
+    width: '100%'
   },
   panelHeader: {
     alignItems: 'center'
@@ -21,18 +32,15 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 10,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 5,
-    shadowOpacity: 0.4,
-    elevation: 1,
+    borderLeftColor: colors.grey1,
+    borderRightColor: colors.grey1,
+    borderLeftWidth: 0.5,
+    borderRightWidth: 0.5,
     height: '100%'
   }
 });
 
-const BottomDrawer = ({ children }) => {
+const BottomDrawer = ({ children, firstStoppingPoint, secondStoppingPoint }) => {
   const renderHeader = () => (
     <View style={styles.header}>
       <View style={styles.panelHeader}>
@@ -42,21 +50,29 @@ const BottomDrawer = ({ children }) => {
   );
   const renderInner = () => (
     <View style={styles.contentContainer}>
-      {renderHeader()}
       {children}
     </View>
   );
   return (
     <BottomSheet
-      snapPoints={['60%', '10%']}
+      snapPoints={[secondStoppingPoint, firstStoppingPoint]}
       renderContent={renderInner}
+      renderHeader={renderHeader}
       initialSnap={1}
+      enabledContentGestureInteraction={false}
     />
   );
 };
 
+BottomDrawer.defaultProps = {
+  firstStoppingPoint: '3%',
+  secondStoppingPoint: '60%'
+};
+
 BottomDrawer.propTypes = {
-  children: node
+  children: node,
+  firstStoppingPoint: string,
+  secondStoppingPoint: string
 };
 
 export default BottomDrawer;
