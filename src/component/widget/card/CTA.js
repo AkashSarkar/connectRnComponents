@@ -9,7 +9,7 @@ import image from '../../../assets';
 const styles = {
   wrapper: {
     width: '100%',
-    height: 170,
+    height: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: colors.grey2,
