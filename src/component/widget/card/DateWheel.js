@@ -27,11 +27,10 @@ const styles = StyleSheet.create({
 const DateWheel = ({ onDateSelected }) => {
   const { years: yearsArray, currentYearIndex } = generateYears();
 
-  const daysArray = generateDays();
-
   const monthsArray = generateMonths();
 
   const [dateString, setDateString] = useState(`01-01-${yearsArray[currentYearIndex]}`);
+  const [daysArray, setDaysArray] = useState(generateDays(1));
 
   const setDate = (type, value) => {
     const stringArray = dateString.split('-');
@@ -44,9 +43,11 @@ const DateWheel = ({ onDateSelected }) => {
         break;
       case 'month':
         finalString = `${stringArray[0]}-${value}-${stringArray[2]}`;
+        setDaysArray(generateDays(value));
         break;
       case 'year':
         finalString = `${stringArray[0]}-${stringArray[1]}-${value}`;
+        setDaysArray(generateDays(parseInt(stringArray[1], 10), value));
         break;
 
       default:
@@ -59,7 +60,6 @@ const DateWheel = ({ onDateSelected }) => {
 
     onDateSelected(date);
   };
-
 
   return (
     <View style={styles.container}>
