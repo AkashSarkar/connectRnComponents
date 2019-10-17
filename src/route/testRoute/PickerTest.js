@@ -6,8 +6,8 @@ const PickerTest = () => (
   <View>
     <TimePick />
     <DateRange
-      onEndDateSelected={(date) => { console.log(date); }}
-      onStartDateSelected={(date) => { console.log(date); }}
+      // onEndDateSelected={(date) => { console.log(date); }}
+      // onStartDateSelected={(date) => { console.log(date); }}
       onSubmitPress={() => console.log()}
       buttonTitle="See Results"
     />

@@ -62,7 +62,7 @@ const AppNavigator = createStackNavigator(
     GraphTest
   },
   {
-    initialRouteName: 'GraphTest',
+    initialRouteName: 'TestRoute',
     headerMode: 'none'
   },
 );
