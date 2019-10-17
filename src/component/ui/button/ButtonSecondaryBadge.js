@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, View, Image } from 'react-native';
-import { string, func, array, number } from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { TouchableOpacity, StyleSheet, View } from 'react-native';
+import { string, func, number } from 'prop-types';
+import { fonts, colors } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv8 } from '../../../styles/commonStyle';
+import { pv8, mh10, mh5, ph10, ph5 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
     buttonWrapper: {
@@ -13,54 +13,68 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 8,
-      ...pv8,
+      ...pv8
     },
     hitSlop: {
         top: 5,
         bottom: 5,
         left: 5,
         right: 5
-      },
-    leftViewWrapper: {
-        // marginRight: 10
     },
     rightViewWrapper: {
         alignItems: 'center',
-        height: 14,
-        width: 14,
-        borderRadius: 7,
+        height: 18,
+        width: 18,
+        borderRadius: 9,
         backgroundColor: 'red',
         position: 'absolute',
-        right: 0,
-        bottom: 15
+        right: -3,
+        bottom: 15,
+        padding: 2
       },
   });
 
 const ButtonSecondaryBadge = ({
     content, buttonColor, textColorContent, textColorBadge, fontSizeText,fontSizeBadge, badgeCount, onPress
-}) => (
-    <TouchableOpacity onPress={onPress}>
-        <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
-            <View style={styles.leftViewWrapper}>
-                <TextComponent content={content} family={fonts.regular} size={fontSizeText} color={textColorContent} />
+}) => {
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
+                <View>
+                    <TextComponent 
+                        content={content} 
+                        family={fonts.regular} 
+                        size={fontSizeText} 
+                        color={textColorContent} 
+                    />
+                </View>
+                {badgeCount && 
+                <View style={styles.rightViewWrapper}>
+                    <TextComponent 
+                        content={badgeCount} 
+                        family={fonts.regular} 
+                        size={fontSizeBadge} 
+                        color={textColorBadge}
+                    />
+                </View>}
             </View>
-            {badgeCount && 
-            <View style={styles.rightViewWrapper}>
-            <TextComponent content={badgeCount} family={fonts.regular} size={fontSizeBadge} color={textColorBadge} />
-        </View>}
-        </View>
-    </TouchableOpacity>
-);
+        </TouchableOpacity>
+    )
+};
 
 ButtonSecondaryBadge.propTypes = {
     content: string.isRequired,
-    buttonColor: string.isRequired,
-    textColorContent: string.isRequired,
-    textColorBadge: string.isRequired,
-    fontSizeText: number,
-    fontSizeBadge: number,
-    badgeCount: string,
+    badgeCount: number,
     onPress: func,
+};
+
+ButtonSecondaryBadge.defaultProps = {
+    buttonColor:colors.lightGrey,
+    textColorContent:colors.colorSecondery,
+    textColorBadge:colors.white1,
+    fontSizeText:fonts.fs12,
+    fontSizeBadge:fonts.fs10
+
   };
   
 
