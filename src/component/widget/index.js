@@ -37,6 +37,7 @@ import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
 import HeaderTop from '../ui/header/HeaderTop';
 import { BottomDrawer, AccountGraph } from './interactive';
+import TxnHistory from './card/TxnHistory';
 
 export {
   SeatListItem,
@@ -78,5 +79,6 @@ export {
   QuickAmount,
   HeaderTop,
   BottomDrawer,
-  AccountGraph
+  AccountGraph,
+  TxnHistory
 };

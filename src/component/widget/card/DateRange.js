@@ -66,6 +66,12 @@ const DateRange = ({
   </BoxShadow>
 );
 
+DateRange.defaultProps = {
+  onStartDateSelected: () => {},
+  onEndDateSelected: () => {},
+  onSubmitPress: () => {}
+};
+
 DateRange.propTypes = {
   buttonTitle: stringLiteral.isRequired,
   onStartDateSelected: func.isRequired,

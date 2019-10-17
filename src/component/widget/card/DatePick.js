@@ -34,11 +34,15 @@ const DatePick = ({ onDateSelected, title }) => (
         />
       </View>
       <View style={styles.dateWrapper}>
-        <DateWheel onDateSelected={date => console.log(date)} />
+        <DateWheel onDateSelected={date => onDateSelected(date)} />
       </View>
     </View>
   </BoxShadow>
 );
+
+DatePick.defaultProps = {
+  onDateSelected: () => {}
+};
 
 DatePick.propTypes = {
   onDateSelected: func,
