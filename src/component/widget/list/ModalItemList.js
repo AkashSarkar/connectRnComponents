@@ -6,15 +6,17 @@ import {
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 
-const ModalItemList = ({
-  item, onSelect
-}) => (
+const ModalItemList = (
+  {
+    item, onSelect
+  }
+) => (
   <View style={{
     paddingVertical: 10,
     paddingHorizontal: 20
   }}
   >
-    <TouchableOpacity onPress={() => onSelect(item.id)}>
+    <TouchableOpacity onPress={() => onSelect(item)}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <TextComponent
           content={item.title}
@@ -23,14 +25,14 @@ const ModalItemList = ({
           color={colors.colorSecondery}
         />
         {item.cardInfo && (
-        <View style={{ marginHorizontal: 20 }}>
-          <TextComponent
-            content={item.cardInfo}
-            size={fonts.fs14}
-            family={fonts.regular}
-            color={colors.black7}
-          />
-        </View>
+          <View style={{ marginHorizontal: 20 }}>
+            <TextComponent
+              content={item.cardInfo}
+              size={fonts.fs14}
+              family={fonts.regular}
+              color={colors.black7}
+            />
+          </View>
         )}
       </View>
     </TouchableOpacity>

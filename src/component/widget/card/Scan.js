@@ -35,11 +35,11 @@ const styles = {
 };
 
 const Scan = ({
-  title, subtitle, content, onPress
+  title, subtitle, content, onPress, logo
 }) => (
   <View onPress={onPress} style={styles.wrapper}>
     <View style={styles.leftStyle}>
-      <Image style={styles.imageStyle} source={image.HandQRCode} />
+      <Image resizeMode="contain" style={styles.imageStyle} source={logo} />
     </View>
     <View style={[styles.rightStyle, mb10]}>
       <View>
@@ -69,11 +69,16 @@ const Scan = ({
   </View>
 );
 
+Scan.defaultProps = {
+  logo: image.HandQRCode
+};
+
 Scan.propTypes = {
   title: string.isRequired,
   subtitle: string.isRequired,
   content: string.isRequired,
-  onPress: func.isRequired
+  onPress: func.isRequired,
+  logo: Image.propTypes.source
 };
 
 export default Scan;

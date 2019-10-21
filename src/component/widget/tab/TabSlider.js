@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     position: 'absolute',
-    width: '55%',
+    width: '50%',
     height: '100%',
     top: 0,
     left: 0,
@@ -41,7 +41,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
 
   const slideTab = (tabPosition, tabNo) => {
     Animated.timing(translateX, {
-      toValue: tabNo === 2 ? tabPosition - 15 : tabPosition,
+      toValue: tabNo === 2 ? tabPosition : tabPosition,
       duration: 250
     }).start();
   };

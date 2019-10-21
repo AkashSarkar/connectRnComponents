@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   View, StyleSheet, Animated, PanResponder, Image
 } from 'react-native';
-import { string, func } from 'prop-types';
+import { string, func, number } from 'prop-types';
 import { getSwipeDirection, isTap, swipeDirections } from './detectSwipe';
 import { fonts, colors } from '../../../../styles/baseStyle';
 import assets from '../../../../assets';
@@ -11,8 +11,8 @@ import { TextComponent } from '../../../ui';
 const styles = StyleSheet.create({
   bubble: {
     borderRadius: 50,
-    maxWidth: 62,
-    maxHeight: 62
+    maxWidth: 58,
+    maxHeight: 58
   },
   arrowContainer: {
     position: 'relative'
@@ -25,21 +25,20 @@ const styles = StyleSheet.create({
     height: 10
   },
   upArrow: {
-    bottom: 13,
-    left: 25
+    bottom: 8,
+    left: 24
   },
   leftArrow: {
-    top: 22,
-    right: 75,
+    top: 20,
+    right: 65,
     flexDirection: 'row'
   },
   rightArrow: {
-    left: 70,
-    top: 21,
+    top: 20,
     flexDirection: 'row'
   },
   downArrow: {
-    left: 25
+    left: 24
   },
   verticalLabel: {
     marginLeft: -8,
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const BUBBLE_SCALE_TO = 1.1;
+const BUBBLE_SCALE_TO = 1.07;
 const INDICATOR_SCALE_TO = 1.2;
 
 class Control extends Component {
@@ -98,7 +97,7 @@ class Control extends Component {
       default:
         break;
     }
-  }
+  };
 
   handleSwipe = (direction) => {
     const {
@@ -106,10 +105,7 @@ class Control extends Component {
     } = swipeDirections;
     // console.warn(direction);
     const {
-      onSwipeLeft,
-      onSwipeRight,
-      onSwipeUp,
-      onSwipeDown
+      onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown
     } = this.props;
     switch (direction) {
       case SWIPE_LEFT:
@@ -129,14 +125,10 @@ class Control extends Component {
       default:
         break;
     }
-  }
+  };
 
   scaleBubble = () => {
-    const {
-      scaleToValue,
-      bubbleScale,
-      firstTap
-    } = this.state;
+    const { scaleToValue, bubbleScale, firstTap } = this.state;
 
     let toScale = scaleToValue;
 
@@ -165,12 +157,10 @@ class Control extends Component {
       nextScaleValue = 1;
     }
     this.setState({ scaleToValue: nextScaleValue, firstTap: false });
-  }
+  };
 
   changeUpArrowOpacity = (toValue, duration) => {
-    const {
-      upArrowOpacity
-    } = this.state;
+    const { upArrowOpacity } = this.state;
     Animated.timing(upArrowOpacity, {
       duration,
       toValue
@@ -180,43 +170,34 @@ class Control extends Component {
     //   nextOpacityValue = 1;
     // }
     // this.setState({ arrowOpacityToValue: nextOpacityValue });
-  }
+  };
 
   changeDownArrowOpacity = (toValue, duration) => {
-    const {
-      downArrowOpacity
-    } = this.state;
+    const { downArrowOpacity } = this.state;
     Animated.timing(downArrowOpacity, {
       duration,
       toValue
     }).start();
-  }
+  };
 
   changeLeftArrowOpacity = (toValue, duration) => {
-    const {
-      leftArrowOpacity
-    } = this.state;
+    const { leftArrowOpacity } = this.state;
     Animated.timing(leftArrowOpacity, {
       duration,
       toValue
     }).start();
-  }
+  };
 
   changeRightArrowOpacity = (toValue, duration) => {
-    const {
-      rightArrowOpacity
-    } = this.state;
+    const { rightArrowOpacity } = this.state;
     Animated.timing(rightArrowOpacity, {
       duration,
       toValue
     }).start();
-  }
+  };
 
   scaleIndicator = () => {
-    const {
-      indicatorScale,
-      indicatorScaleToValue
-    } = this.state;
+    const { indicatorScale, indicatorScaleToValue } = this.state;
 
     Animated.timing(indicatorScale, {
       toValue: indicatorScaleToValue,
@@ -224,13 +205,12 @@ class Control extends Component {
       duration: 200
     }).start();
 
-
     let nextIndicatorScaleValue = 1;
     if (indicatorScaleToValue === 1) {
       nextIndicatorScaleValue = INDICATOR_SCALE_TO;
     }
     this.setState({ indicatorScaleToValue: nextIndicatorScaleValue });
-  }
+  };
 
   handleTap = () => {
     const { scaleToValue, firstTap } = this.state;
@@ -254,17 +234,14 @@ class Control extends Component {
 
     this.scaleIndicator();
     this.scaleBubble();
-  }
+  };
 
   onBubbleRelease = (e, gestureState) => {
     const direction = getSwipeDirection(gestureState);
     this.handleSwipe(direction);
     // this.setIndicatorVisibility(direction, 1);
 
-    const {
-      bubblePosition,
-      scaleToValue
-    } = this.state;
+    const { bubblePosition, scaleToValue } = this.state;
 
     if (direction === swipeDirections.TAP) {
       this.handleTap();
@@ -291,24 +268,28 @@ class Control extends Component {
   };
 
   onBubbleMove = (e, gestureState) => {
-    const {
-      scaleToValue,
-      firstTap
-    } = this.state;
+    const { scaleToValue, firstTap } = this.state;
     const direction = getSwipeDirection(gestureState);
     this.setIndicatorVisibility(direction, 1, 150);
     setTimeout(() => {
-      if ((!firstTap && scaleToValue === 1) || firstTap) { this.setIndicatorVisibility(direction, 0, 150); }
+      if ((!firstTap && scaleToValue === 1) || firstTap) {
+        this.setIndicatorVisibility(direction, 0, 150);
+      }
     }, 700);
-    return (
-      Animated.event([
-        null,
-        {
-          dx: Math.abs(gestureState.dx) > Math.abs(gestureState.dy) ? this.state.bubblePosition.x : 0,
-          dy: Math.abs(gestureState.dy) > Math.abs(gestureState.dx) ? this.state.bubblePosition.y : 0
-        }
-      ])(e, gestureState));
-  }
+    return Animated.event([
+      null,
+      {
+        dx:
+          Math.abs(gestureState.dx) > Math.abs(gestureState.dy)
+            ? this.state.bubblePosition.x
+            : 0,
+        dy:
+          Math.abs(gestureState.dy) > Math.abs(gestureState.dx)
+            ? this.state.bubblePosition.y
+            : 0
+      }
+    ])(e, gestureState);
+  };
 
   handleShouldSetResponder = (e, gestureState) => {
     if (isTap(gestureState)) {
@@ -331,20 +312,32 @@ class Control extends Component {
 
   render() {
     const {
-      bubblePosition, bubbleScale, scaleToValue, indicatorScale, upArrowOpacity, downArrowOpacity, leftArrowOpacity, rightArrowOpacity, firstTap
+      bubblePosition,
+      bubbleScale,
+      scaleToValue,
+      indicatorScale,
+      upArrowOpacity,
+      downArrowOpacity,
+      leftArrowOpacity,
+      rightArrowOpacity,
+      firstTap
     } = this.state;
     const {
-      topLabel, bottomLabel, leftLabel, rightLabel
+      topLabel,
+      bottomLabel,
+      leftLabel,
+      rightLabel,
+      movementRadius
     } = this.props;
 
     const translateX = bubblePosition.x.interpolate({
-      inputRange: [-10, 10],
-      outputRange: [-10, 10],
+      inputRange: [movementRadius * -1, movementRadius],
+      outputRange: [movementRadius * -1, movementRadius],
       extrapolate: 'clamp'
     });
     const translateY = bubblePosition.y.interpolate({
-      inputRange: [-10, 10],
-      outputRange: [-10, 10],
+      inputRange: [movementRadius * -1, movementRadius],
+      outputRange: [movementRadius * -1, movementRadius],
       extrapolate: 'clamp'
     });
 
@@ -391,8 +384,18 @@ class Control extends Component {
             <Image style={styles.arrowIcon} source={assets.UpIndicator} />
           </View>
         </Animated.View>
-        <Animated.View style={[{ opacity: leftOpacity }, indicatorTransformStyle]}>
-          <View style={[styles.arrow, styles.leftArrow]}>
+        <Animated.View
+          style={[{ opacity: leftOpacity }, indicatorTransformStyle]}
+        >
+          <View
+            style={[
+              styles.arrow,
+              styles.leftArrow,
+              (!firstTap && scaleToValue === 1) || firstTap
+                ? { right: 64, top: 23 }
+                : { right: 61, top: 19 }
+            ]}
+          >
             <TextComponent
               extraStyle={styles.horizontalLabel}
               content={leftLabel}
@@ -403,8 +406,19 @@ class Control extends Component {
             <Image style={styles.arrowIcon} source={assets.LeftIndicator} />
           </View>
         </Animated.View>
-        <Animated.View style={[{ opacity: rightOpacity }, indicatorTransformStyle]}>
-          <View style={[styles.arrow, styles.rightArrow]}>
+        <Animated.View
+          style={[{ opacity: rightOpacity }, indicatorTransformStyle]}
+        >
+          <View
+            style={[
+              styles.arrow,
+              styles.rightArrow,
+              (!firstTap && scaleToValue === 1) || firstTap
+                ? { left: 59, top: 23 }
+                : { left: 56, top: 19 },
+              { left: (!firstTap && scaleToValue === 1) || firstTap ? 59 : 56 }
+            ]}
+          >
             <TextComponent
               extraStyle={styles.horizontalLabel}
               content={rightLabel}
@@ -415,8 +429,16 @@ class Control extends Component {
             <Image style={styles.arrowIcon} source={assets.RightIndicator} />
           </View>
         </Animated.View>
-        <Animated.View style={[{ opacity: downOpacity }, indicatorTransformStyle]}>
-          <View style={[styles.arrow, styles.downArrow, { top: (!firstTap && scaleToValue === 1) || firstTap ? 80 : 67 }]}>
+        <Animated.View
+          style={[{ opacity: downOpacity }, indicatorTransformStyle]}
+        >
+          <View
+            style={[
+              styles.arrow,
+              styles.downArrow,
+              { top: (!firstTap && scaleToValue === 1) || firstTap ? 67 : 57 }
+            ]}
+          >
             <Image style={styles.arrowIcon} source={assets.DownIndicator} />
             <TextComponent
               extraStyle={styles.verticalLabel}
@@ -442,7 +464,12 @@ Control.defaultProps = {
   topLabel: 'Scan',
   bottomLabel: 'Back',
   leftLabel: 'Menu',
-  rightLabel: ''
+  rightLabel: '',
+  onSwipeDown: () => {},
+  onSwipeUp: () => {},
+  onSwipeLeft: () => {},
+  onSwipeRight: () => {},
+  movementRadius: 8
 };
 
 Control.propTypes = {
@@ -453,7 +480,8 @@ Control.propTypes = {
   onSwipeDown: func.isRequired,
   onSwipeUp: func.isRequired,
   onSwipeLeft: func.isRequired,
-  onSwipeRight: func.isRequired
+  onSwipeRight: func.isRequired,
+  movementRadius: number
 };
 
 export default Control;

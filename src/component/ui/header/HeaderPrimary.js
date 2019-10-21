@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import ButtonSecondaryBadge from '../button/ButtonSecondaryBadge';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
+import { string, array } from 'prop-types';
 
 
 const styles = StyleSheet.create({
@@ -10,46 +11,42 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 10
+    marginBottom: 15
   },
   rightViewWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    flexDirection: 'row'
   }
 });
 
-const HeaderPrimary = ({
-  content
-}) => (
-  <View style={styles.container}>
-    <TextComponent content={content} size={fonts.fs20} color={colors.text1} />
-    <View style={styles.rightViewWrapper}>
-      <View style={{ marginRight: 15 }}>
+const HeaderPrimary = ({content, buttonItems}) => {
+  let _badgeButtons = buttonItems.map((item, index) => {
+    return(
+      <View key={index} style={styles.rightViewWrapper}>
         <ButtonSecondaryBadge
-          content="Pending"
-          buttonColor="#f9f9f9"
-          badgeCount="15"
-          textColorContent={colors.colorSecondery}
-          textColorBadge={colors.white1}
-          fontSizeText={fonts.fs12}
-          fontSizeBadge={fonts.fs10}
-          onPress={() => console.warn('Button Pending')}
-        />
+          content={item.content}
+          buttonColor={item.buttonColor}
+          badgeCount={item.badgeCount}
+          textColorContent={item.textColorContent}
+          textColorBadge={item.textColorBadge}
+          fontSizeText={item.fontSizeText}
+          fontSizeBadge={item.fontSizeBadge}
+          onPress={item.onButtonClick}
+      />
       </View>
-      <View>
-        <ButtonSecondaryBadge
-          content="Search"
-          buttonColor="#f9f9f9"
-          textColorContent={colors.colorSecondery}
-          textColorBadge={colors.white1}
-          fontSizeText={fonts.fs12}
-          fontSizeBadge={fonts.fs10}
-          onPress={() => console.warn('Button Search')}
-        />
-      </View>
+    );
+  });
+
+  return(
+    <View style={styles.container}>
+      <TextComponent content={content} size={fonts.fs20} color={colors.text1} />
+      {_badgeButtons}
     </View>
-  </View>
-);
+  )
+};
+
+HeaderPrimary.propTypes = {
+  content: string.isRequired,
+  buttonItems: array.isRequired
+}
 
 export default HeaderPrimary;

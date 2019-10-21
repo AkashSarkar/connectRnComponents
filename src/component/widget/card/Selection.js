@@ -1,16 +1,25 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import TextComponent from "../../ui/typography/TextComponent";
-import {colors, fonts} from "../../../styles/baseStyle";
-import {BoxShadow, ButtonCommunication} from "../../ui";
-import {ml15, ph10, pv25} from "../../../styles/commonStyle";
-import {func, string} from 'prop-types';
-import assets from "../../../assets";
+import { StyleSheet, View } from 'react-native';
+import TextComponent from '../../ui/typography/TextComponent';
+import { colors, fonts } from '../../../styles/baseStyle';
+import { ButtonCommunication } from '../../ui';
+import { ml15 } from '../../../styles/commonStyle';
+import { func, number, string } from 'prop-types';
+import assets from '../../../assets';
 
-const Selection = ({handleModalOpen, heading, operatorLogo, logo}) => {
+const Selection = (
+  {
+    handleModalOpen,
+    heading,
+    subtitle,
+    operatorLogo,
+    logo,
+    logoText
+  }
+) => {
   return (
-    <BoxShadow>
-      <View style={[styles.selectionWrapper, pv25, ph10]}>
+    <View>
+      <View style={[styles.selectionWrapper]}>
         <ButtonCommunication
           logo={operatorLogo}
           buttonColor={colors.primary}
@@ -22,31 +31,51 @@ const Selection = ({handleModalOpen, heading, operatorLogo, logo}) => {
           textColor={colors.text2}
           fontSize={fonts.fs14}
           onPress={() => {
-            console.log("'hello")
-          }}/>
+            console.log("'hello");
+          }}
+        />
 
         <View style={[styles.contentWrapper, ml15]}>
           <TextComponent
             size={fonts.fs18}
-            color={colors.black0}
+            color={colors.secondary}
             content={heading}
             family={fonts.bold}
           />
+          {subtitle && subtitle.length > 0 && (
+            <TextComponent
+              size={fonts.fs14}
+              color={colors.black7}
+              content={subtitle}
+              family={fonts.regular}
+            />
+          )}
         </View>
-        <ButtonCommunication
-          logo={logo}
-          buttonColor={colors.white1}
-          textColor={colors.text2}
-          fontSize={fonts.fs14}
-          buttonWidth={60}
-          buttonHeight={60}
-          buttonBorderRadius={30}
-          iconHeight={30}
-          iconWidth={30}
-          onPress={handleModalOpen}/>
+        <View style={styles.rightImageWrapper}>
+          <ButtonCommunication
+            logo={logo}
+            buttonColor={colors.white1}
+            textColor={colors.text2}
+            fontSize={fonts.fs14}
+            buttonWidth={60}
+            buttonHeight={60}
+            buttonBorderRadius={30}
+            iconHeight={30}
+            iconWidth={30}
+            onPress={handleModalOpen}
+          />
+          {logoText && logoText.length > 0 && (
+            <TextComponent
+              size={fonts.fs10}
+              color={colors.black}
+              content={logoText}
+              family={fonts.regular}
+            />
+          )}
+        </View>
       </View>
-    </BoxShadow>
-  )
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -60,12 +89,20 @@ const styles = StyleSheet.create({
   imageStyle: {
     height: 25,
     width: 25
+  },
+  rightImageWrapper: {
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 });
 
 Selection.propTypes = {
   handleModalOpen: func.isRequired,
-  heading: string.isRequired
+  heading: string.isRequired,
+  logo: number,
+  operatorLogo: number,
+  subtitle: string,
+  logoText: string
 };
 
 Selection.defaultProps = {

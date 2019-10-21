@@ -28,6 +28,8 @@ import AccountListTest from './testRoute/AccountListTest';
 import CCMTest from './testRoute/CCMTest';
 import BottomDrawerTest from './testRoute/BottomDrawerTest';
 import GraphTest from './testRoute/GraphTest';
+import QRTest from './testRoute/QRTest';
+
 
 const AppNavigator = createStackNavigator(
   {
@@ -59,10 +61,11 @@ const AppNavigator = createStackNavigator(
     AccountListTest,
     CCMTest,
     BottomDrawerTest,
-    GraphTest
+    GraphTest,
+    QRTest
   },
   {
-    initialRouteName: 'TestRoute',
+    initialRouteName: 'QRTest',
     headerMode: 'none'
   },
 );
