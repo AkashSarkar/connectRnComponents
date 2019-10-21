@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 import { number, object, string } from 'prop-types';
-import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
+import SwipeableWrapper from '../../../ui/wrapper/SwipeableWrapper';
 import assets from '../../../../assets';
 import { BoxShadow, TextComponent } from '../../../ui';
 import { mr5, p10 } from '../../../../styles/commonStyle';

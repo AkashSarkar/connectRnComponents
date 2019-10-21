@@ -34,29 +34,31 @@ const styles = {
   }
 };
 
-const CTA = ({
-  title, subtitle, onPress, logo
-}) => (
-    <TouchableOpacity onPress={onPress} style={styles.wrapper}>
-      <View style={styles.leftStyle}>
-        <Image style={styles.imageStyle} source={logo || image.SendMoney} />
-      </View>
-      <View style={[styles.rightStyle, mb10]}>
-        <TextComponent
-          content={title}
-          color={colors.primary2}
-          family={fonts.semiBold}
-          size={fonts.fs32}
-        />
-        <TextComponent
-          content={subtitle}
-          color={colors.primary2}
-          family={fonts.regular}
-          size={fonts.fs32}
-        />
-      </View>
-    </TouchableOpacity>
-  );
+const CTA = (
+  {
+    title, subtitle, onPress, logo
+  }
+) => (
+  <TouchableOpacity onPress={onPress} style={styles.wrapper}>
+    <View style={styles.leftStyle}>
+      <Image style={styles.imageStyle} source={logo || image.SendMoney}/>
+    </View>
+    <View style={[styles.rightStyle, mb10]}>
+      <TextComponent
+        content={title}
+        color={colors.primary2}
+        family={fonts.semiBold}
+        size={fonts.fs32}
+      />
+      <TextComponent
+        content={subtitle}
+        color={colors.primary2}
+        family={fonts.regular}
+        size={fonts.fs32}
+      />
+    </View>
+  </TouchableOpacity>
+);
 
 CTA.propTypes = {
   title: string.isRequired,
