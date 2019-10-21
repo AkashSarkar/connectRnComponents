@@ -9,7 +9,7 @@ const QRTest = ({ navigation }) => (
       onCancel={() => navigation.goBack()}
       onScan={text => console.warn(text)}
     /> */}
-    <NFC onScan={text => console.warn(text)} />
+    <NFC onScan={text => console.warn(text)} onCancel={() => {}} />
   </View>
 );
 

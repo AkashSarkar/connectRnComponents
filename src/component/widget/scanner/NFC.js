@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import {
   View, Text, Platform, TouchableOpacity, Image
 } from 'react-native';
-import NfcManager, { Ndef } from 'react-native-nfc-manager';
+import NfcManager, { Ndef, NfcEvents } from 'react-native-nfc-manager';
 import { func } from 'prop-types';
 import assets from '../../../assets';
+import { TextComponent } from '../../ui';
+import { fonts } from '../../../styles/baseStyle';
 
 const styles = {
   wrapper: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     paddingBottom: 10
   },
 
@@ -85,9 +87,7 @@ class NFC extends Component {
       supported: true,
       enabled: false,
       parsedText: '',
-      tag: {},
-      androidScanning: false,
-      modalVisible: false
+      androidScanning: false
     };
   }
 
@@ -108,46 +108,29 @@ class NFC extends Component {
     })
       .then((result) => {
         console.log('start OK', result);
-        this.startDetection();
       })
       .catch((error) => {
         this.setState({ supported: false });
       });
 
-    if (Platform.OS === 'android') {
-      NfcManager.getLaunchTagEvent()
-        .then((tag) => {
-          if (tag) {
-            this.setState({ tag });
-          }
-        })
-        .catch((err) => {
-          console.log(err);
+    NfcManager.isEnabled()
+      .then((enabled) => {
+        this.setState({ enabled }, () => {
+          this.startDetection();
         });
-      NfcManager.isEnabled()
-        .then((enabled) => {
-          this.setState({ enabled });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   onTagDiscovered = (tag) => {
-    this.setState({ tag, androidScanning: false });
-    // let url = this.parseUri(tag);
-    // if (url) {
-    //     Linking.openURL(url)
-    //         .catch(err => {
-    //             console.warn(err);
-    //         })
-    // }
+    const { onScan } = this.props;
+    this.setState({ androidScanning: false });
     const text = this.parseText(tag);
-    this.props.onScan(text);
-    console.log(text);
+    onScan(text);
     setTimeout(() => {
-      this.setState({ parsedText: text, modalVisible: false }, () => {
+      this.setState({ parsedText: text }, () => {
         this.stopDetection();
       });
     }, 1000);
@@ -166,6 +149,11 @@ class NFC extends Component {
         .catch((error) => {
           console.warn('registerTagEvent fail', error);
         });
+
+      NfcManager.setEventListener(NfcEvents.DiscoverTag, (tag) => {
+        this.onTagDiscovered(tag);
+        NfcManager.unregisterTagEvent().catch(() => 0);
+      });
     }
   };
 
@@ -186,7 +174,7 @@ class NFC extends Component {
 
   goToNfcSetting = () => {
     if (Platform.OS === 'android') {
-      this.setState({ androidScanning: false, modalVisible: false });
+      this.setState({ androidScanning: false });
       NfcManager.goToNfcSetting()
         .then((result) => {
           console.log('goToNfcSetting OK', result);
@@ -219,17 +207,17 @@ class NFC extends Component {
     return null;
   };
 
-  setModalVisible = (bool) => {
-    this.setState({
-      modalVisible: bool
-    });
-  };
+  onCancel = () => {
+    const { onCancel } = this.props;
+    NfcManager.unregisterTagEvent().catch(() => 0);
+    onCancel();
+  }
 
   render() {
     const {
-      supported, enabled, parsedText, androidScanning
+      supported, enabled, androidScanning
     } = this.state;
-    const { onCancel } = this.props;
+    const { onCancel } = this;
     return (
       <View style={{ alignItems: 'center' }}>
         <View>
@@ -256,9 +244,9 @@ class NFC extends Component {
                   </View>
                 )}
 
-                {Platform.OS === 'android' && enabled && supported && (
+                {enabled && supported && (
                   <View style={styles.scanWrapper}>
-                    <Text style={styles.textWrapper}>Ready to Scan</Text>
+                    <TextComponent content="Ready to scan" size={fonts.fs32} family={fonts.medium} />
                     {androidScanning ? (
                       <Image
                         source={assets.Nfc}
@@ -277,7 +265,7 @@ class NFC extends Component {
                   style={styles.buttonWrapper}
                   onPress={onCancel}
                 >
-                  <Text>Cancel</Text>
+                  <TextComponent content="Cancel" size={fonts.fs14} family={fonts.medium} />
                 </TouchableOpacity>
               </View>
             </View>
