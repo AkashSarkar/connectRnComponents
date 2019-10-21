@@ -84,6 +84,9 @@ export const pt20 = {
 export const pt30 = {
   paddingTop: 30
 };
+export const ph5 = {
+  paddingHorizontal: 5
+};
 export const ph10 = {
   paddingHorizontal: 10
 };

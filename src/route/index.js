@@ -64,7 +64,7 @@ const AppNavigator = createStackNavigator(
     AmountCardTest
   },
   {
-    initialRouteName: 'TestRoute',
+    initialRouteName: 'UIComponentTest',
     headerMode: 'none'
   },
 );
