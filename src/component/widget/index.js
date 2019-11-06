@@ -52,6 +52,8 @@ import Selection from './card/Selection';
 import TxnHistory from './card/TxnHistory';
 import QRScanner from './scanner/QRScanner';
 import NFC from './scanner/NFC';
+import MenuOptions from './list/MenuOptions';
+import NotificationList from './list/NotificationList';
 
 
 export {
@@ -106,5 +108,7 @@ export {
   TxnHistory,
   TabSlider,
   QRScanner,
-  NFC
+  NFC,
+  MenuOptions,
+  NotificationList
 };

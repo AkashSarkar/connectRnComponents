@@ -12,8 +12,7 @@ import image from '../../../assets';
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    width: 100,
-    height: 40,
+    height: 36,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -53,13 +52,13 @@ const ButtonBrand = ({
 }) => (
   <TouchableOpacity
     onPress={onPress}
-    style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+    style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
     hitSlop={styles.hitSlop}
   >
     <View style={styles.leftWrapper}>
       <Image
         style={styles.imageStyle}
-        source={image[logo]}
+        source={logo}
       />
     </View>
     <View style={styles.rightWrapper}>
@@ -67,7 +66,7 @@ const ButtonBrand = ({
         content={content}
         family={fonts.regular}
         size={fonts.fs10}
-        color={colors[textColor]}
+        color={textColor}
       />
     </View>
   </TouchableOpacity>

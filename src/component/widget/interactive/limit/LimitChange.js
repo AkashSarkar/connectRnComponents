@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     zIndex: 999,
     paddingTop: '19%',
     paddingLeft: '18%',
-    shadowColor: '#00000059',
+    shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 3

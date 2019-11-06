@@ -6,7 +6,7 @@ import {
   UIManager,
   View
 } from 'react-native';
-import { node, string } from 'prop-types';
+import { node, string, bool } from 'prop-types';
 import { BoxShadow, TextComponent } from '../../ui';
 import TabSlider from './TabSlider';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -29,25 +29,22 @@ const styles = StyleSheet.create({
   tabComponentWrapper: {}
 });
 
-const TabWrapper = (
-  {
-    tab1Components,
-    tab2Components,
-    tabTitle1,
-    tabTitle2,
-    tabSubtitle1,
-    tabSubtitle2
-  }
-) => {
+const TabWrapper = ({
+  tab1Components,
+  tab2Components,
+  tabTitle1,
+  tabTitle2,
+  tabSubtitle1,
+  tabSubtitle2,
+  shadowContainer
+}) => {
   const [activeTab, setActiveTab] = useState(1);
   const [shouldTab1Render, setShouldTab1Render] = useState(true);
   const [shouldTab2Render, setShouldTab2Render] = useState(false);
 
   useEffect(() => {
     LayoutAnimation.configureNext(
-      LayoutAnimation.create(
-        100, 'easeInEaseOut', 'opacity'
-      )
+      LayoutAnimation.create(100, 'easeInEaseOut', 'opacity'),
     );
     if (activeTab === 1) {
       setShouldTab1Render(true);
@@ -58,53 +55,61 @@ const TabWrapper = (
     }
   }, [activeTab]);
 
-  return (
-    <View style={styles.container}>
-      <BoxShadow>
-        <View style={{ padding: 10 }}>
-          <TabSlider
-            title1={tabTitle1}
-            title2={tabTitle2}
-            subtitle1={tabSubtitle1}
-            subtitle2={tabSubtitle2}
-            setCurrentTab={setActiveTab}
-          />
-          {shouldTab1Render && (
-            <View>
-              {tabSubtitle1 && tabSubtitle1.length > 0 && (
-                <View style={p15}>
-                  <TextComponent
-                    size={fonts.fs10}
-                    color={colors.primary2}
-                    content={tabSubtitle1}
-                    family={fonts.regular}
-                  />
-                </View>
-              )}
-              {tab1Components}
+  const innerContents = () => (
+    <View style={{ padding: 10 }}>
+      <TabSlider
+        title1={tabTitle1}
+        title2={tabTitle2}
+        subtitle1={tabSubtitle1}
+        subtitle2={tabSubtitle2}
+        setCurrentTab={setActiveTab}
+      />
+      {shouldTab1Render && (
+        <View>
+          {tabSubtitle1 && tabSubtitle1.length > 0 && (
+            <View style={p15}>
+              <TextComponent
+                size={fonts.fs10}
+                color={colors.primary2}
+                content={tabSubtitle1}
+                family={fonts.regular}
+              />
             </View>
-          )
-          }
-          {shouldTab2Render && (
-            <View>
-              {tabSubtitle2 && tabSubtitle2.length > 0 && (
-                <View style={p15}>
-                  <TextComponent
-                    size={fonts.fs10}
-                    color={colors.primary2}
-                    content={tabSubtitle2}
-                    family={fonts.regular}
-                  />
-                </View>
-              )}
-              {tab2Components}
-            </View>
-          )
-          }
+          )}
+          {tab1Components}
         </View>
-      </BoxShadow>
+      )}
+      {shouldTab2Render && (
+        <View>
+          {tabSubtitle2 && tabSubtitle2.length > 0 && (
+            <View style={p15}>
+              <TextComponent
+                size={fonts.fs10}
+                color={colors.primary2}
+                content={tabSubtitle2}
+                family={fonts.regular}
+              />
+            </View>
+          )}
+          {tab2Components}
+        </View>
+      )}
     </View>
   );
+
+  return (
+    <View style={styles.container}>
+      {shadowContainer ? (
+        <BoxShadow>{innerContents()}</BoxShadow>
+      ) : (
+        <>{innerContents()}</>
+      )}
+    </View>
+  );
+};
+
+TabWrapper.defaultProps = {
+  shadowContainer: true
 };
 
 TabWrapper.propTypes = {
@@ -113,7 +118,8 @@ TabWrapper.propTypes = {
   tabTitle1: string.isRequired,
   tabTitle2: string.isRequired,
   tabSubtitle1: string,
-  tabSubtitle2: string
+  tabSubtitle2: string,
+  shadowContainer: bool
 };
 
 export default TabWrapper;

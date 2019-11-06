@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { node, number } from 'prop-types';
+import { node, number, object } from 'prop-types';
 
 import { colors } from '../../../styles/baseStyle';
-import { mb10 } from '../../../styles/commonStyle';
 
 const style = StyleSheet.create({
   boxShadow: {
@@ -15,18 +14,19 @@ const style = StyleSheet.create({
     },
     shadowRadius: 6,
     shadowOpacity: 1,
-    elevation: 1,
+    elevation: 3,
     width: '100%'
   }
 });
 
-const BoxShadow = ({ children, borderRadius = 16 }) => (
-  <View style={[style.boxShadow, { borderRadius }]}>{children}</View>
+const BoxShadow = ({ children, borderRadius = 16, extraStyle }) => (
+  <View style={[style.boxShadow, { borderRadius }, extraStyle]}>{children}</View>
 );
 
 BoxShadow.propTypes = {
   children: node.isRequired,
-  borderRadius: number
+  borderRadius: number,
+  extraStyle: object
 };
 
 export default BoxShadow;

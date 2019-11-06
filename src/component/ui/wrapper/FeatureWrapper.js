@@ -8,7 +8,7 @@ import { mt20 } from '../../../styles/commonStyle';
 const styles = {
   wrapperStyle: {
     flex: 1,
-    top: 50,
+    top: '8%',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     shadowOffset: {
@@ -31,7 +31,7 @@ const FeatureWrapper = ({ children, title }) => (
           <TextComponent
             content={title}
             size={fonts.fs16}
-            color={colors.primary}
+            color={colors.primary2}
             family={fonts.semiBold}
           />
         </View>

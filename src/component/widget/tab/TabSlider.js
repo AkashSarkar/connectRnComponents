@@ -41,7 +41,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
 
   const slideTab = (tabPosition, tabNo) => {
     Animated.timing(translateX, {
-      toValue: tabNo === 2 ? tabPosition : tabPosition,
+      toValue: tabPosition,
       duration: 250
     }).start();
   };
@@ -59,7 +59,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
   };
 
   return (
-    <BoxShadow>
+    <BoxShadow borderRadius={20}>
       <View style={styles.tabWrapper}>
         <Animated.View style={{ ...styles.overlay, transform: [{ translateX }] }}>
           <LinearGradient

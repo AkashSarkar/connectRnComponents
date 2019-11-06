@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import {
   arrayOf, shape, number, string, func
 } from 'prop-types';
-import { mr10 } from '../../../styles/commonStyle';
+import { mh10, mr10, mh5, ml3 } from '../../../styles/commonStyle';
 import { colors } from '../../../styles/baseStyle';
 import { ButtonBrand } from '../../ui';
 
@@ -27,7 +27,7 @@ const BrandStackList = ({
   >
     {
       items.map((item, index) => (
-        <View key={item.id} style={mr10}>
+        <View key={item.id} style={[index === 0 ? ml3 : mh5]}>
           <ButtonBrand
             content={item.content}
             logo={item.logo}
