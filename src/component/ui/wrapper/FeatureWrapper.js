@@ -8,7 +8,7 @@ import { mt20 } from '../../../styles/commonStyle';
 const styles = {
   wrapperStyle: {
     flex: 1,
-    top: '8%',
+    top: '5%',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     shadowOffset: {
