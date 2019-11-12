@@ -47,6 +47,9 @@ const Budget = (
   }
 ) => {
   /**
+   * This shadeComponent func is for only design purpose..we are using 9 shades.
+   * so we are manually adding border radious for 1st shade,last shade and if there 
+   * is only one shade.
    *
    * @param color
    * @param height
@@ -79,7 +82,7 @@ const Budget = (
   )
   const budget = () => (
     <View>
-      {isSubBudget ? (
+      {isSubBudget ? ( // render single budget
         <View style={styles.shadeWrapper}>
           <View style={styles.subBudgetShades}>
             {
@@ -88,17 +91,21 @@ const Budget = (
           </View>
         </View>
       ) : (
-        <View style={styles.shadeWrapper}>
-          <View style={styles.leftShades}>
-            {shadeColor.map((item, index) => (
-              shadeComponent(item.color, index)
-            ))}
+          // render all subBudget shades mapped from a colors array.
+          <View style={styles.shadeWrapper}>
+            <View style={styles.leftShades}>
+              {shadeColor.map((item, index) => (
+                shadeComponent(item.color, index)
+              ))}
+            </View>
+            <View style={{ flex: 1 }}>
+              {shadeComponent(colors.secondary)}
+            </View>
           </View>
-          <View style={{ flex: 1 }}>
-            {shadeComponent(colors.secondary)}
-          </View>
-        </View>
-      )}
+        )}
+      {/* this part renders the right part of the budget where Name,amount title
+        and amount is shown.
+      */}
       <View style={[styles.textWrapper, p10]}>
         <View>
           <TextComponent
@@ -124,8 +131,11 @@ const Budget = (
         </View>
       </View>
     </View>
-  )
+  );
   return (
+    /** SwipeableWrapper contains the sliding parts of the
+     * budget slider..and accepts all the designs as children.
+    */
     <SwipeableWrapper
       rightActions={rightActions}
       leftActions={isSubBudget ? null : leftActions}
@@ -136,7 +146,7 @@ const Budget = (
       {budget()}
     </SwipeableWrapper>
   );
-}
+};
 Budget.propTypes = {
   name: string,
   amount: string,
