@@ -63,7 +63,7 @@ const Avatar = ({
   logo, status, disabled, onPress
 }) => {
   const [active, setActive] = useState(false);
-  console.log(active);
+  // console.log(active);
   return (
     <TouchableOpacity
       onPress={() => {
