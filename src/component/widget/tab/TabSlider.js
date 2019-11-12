@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     position: 'absolute',
-    width: '55%',
+    width: '50%',
     height: '100%',
     top: 0,
     left: 0,
@@ -41,7 +41,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
 
   const slideTab = (tabPosition, tabNo) => {
     Animated.timing(translateX, {
-      toValue: tabNo === 2 ? tabPosition - 15 : tabPosition,
+      toValue: tabPosition,
       duration: 250
     }).start();
   };
@@ -59,7 +59,7 @@ const Tab = ({ title1, title2, setCurrentTab }) => {
   };
 
   return (
-    <BoxShadow>
+    <BoxShadow borderRadius={20}>
       <View style={styles.tabWrapper}>
         <Animated.View style={{ ...styles.overlay, transform: [{ translateX }] }}>
           <LinearGradient

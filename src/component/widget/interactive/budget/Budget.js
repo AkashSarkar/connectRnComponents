@@ -4,7 +4,7 @@ import {
   any, array, bool, string, object
 } from 'prop-types';
 import { colors, fonts } from '../../../../styles/baseStyle';
-import SwipeableWrapper from '../../../swipeable/SwipeableWrapper';
+import SwipeableWrapper from '../../../ui/wrapper/SwipeableWrapper';
 import assets from '../../../../assets';
 import TextComponent from '../../../ui/typography/TextComponent';
 import { p10 } from '../../../../styles/commonStyle';

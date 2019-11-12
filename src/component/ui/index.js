@@ -19,6 +19,7 @@ import HeaderTop from './header/HeaderTop';
 import BoxShadow from './wrapper/BoxShadow';
 import CarouselWrapper from './wrapper/CarouselWrapper';
 import Input from './input/Input';
+import ControlWrapper from './wrapper/ControlWrapper';
 
 export {
   TextComponent,
@@ -41,5 +42,6 @@ export {
   HeaderTop,
   Input,
   BoxShadow,
-  CarouselWrapper
+  CarouselWrapper,
+  ControlWrapper
 };

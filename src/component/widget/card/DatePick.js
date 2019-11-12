@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { func, string } from 'prop-types';
 import DateWheel from './DateWheel';
-import { BoxShadow, TextComponent } from '../../ui';
+import { TextComponent } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingHorizontal: 20,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
   dateWrapper: {
@@ -23,21 +23,19 @@ const styles = StyleSheet.create({
 });
 
 const DatePick = ({ onDateSelected, title }) => (
-  <BoxShadow>
-    <View style={styles.container}>
-      <View style={styles.label}>
-        <TextComponent
-          color={colors.black}
-          content={title}
-          family={fonts.medium}
-          size={fonts.fs14}
-        />
-      </View>
-      <View style={styles.dateWrapper}>
-        <DateWheel onDateSelected={date => onDateSelected(date)} />
-      </View>
+  <View style={styles.container}>
+    <View style={styles.label}>
+      <TextComponent
+        color={colors.black}
+        content={title}
+        family={fonts.medium}
+        size={fonts.fs14}
+      />
     </View>
-  </BoxShadow>
+    <View style={styles.dateWrapper}>
+      <DateWheel onDateSelected={date => onDateSelected(date)} />
+    </View>
+  </View>
 );
 
 DatePick.defaultProps = {
