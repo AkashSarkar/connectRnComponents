@@ -223,22 +223,15 @@ export class AccountGraph extends Component {
       extrapolate: 'clamp'
     });
 
-    /*
-      Svg is used to draw the whole graph
-      LinearGradient is used to generate the shade along the curve
-      <Path /> is used to draw the line according to calculated line above
-      Cursor view is placed within the graph view
-    */
-    /*
-    Animated.View is used as the label container
-    The container's X position is animated according to cursor's position
-   */
-    /*
-    Aimated.Scrollview is used to move the cursor along the horizontal axis
-  */
     return (
       <SafeAreaView style={styles.rootContainer}>
         <View style={styles.graphContainer}>
+          {
+            /* Svg is used to draw the whole graph
+            LinearGradient is used to generate the shade along the curve
+            <Path /> is used to draw the line according to calculated line above
+            Cursor view is placed within the graph view */
+          }
           <Svg {...{ width, height }}>
             <Defs>
               <LinearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="gradient">
@@ -259,6 +252,12 @@ export class AccountGraph extends Component {
             />
             <View ref={this.cursor} style={styles.cursor} />
           </Svg>
+          {
+            /*
+              Animated.View is used as the label container
+              The container's X position is animated according to cursor's position
+            */
+          }
           <Animated.View style={[styles.label, { transform: [{ translateX }] }]}>
             <BoxShadow borderRadius={4}>
               <View style={styles.labelWrapper}>
@@ -278,6 +277,11 @@ export class AccountGraph extends Component {
               </View>
             </BoxShadow>
           </Animated.View>
+          {
+            /*
+              Aimated.Scrollview is used to move the cursor along the horizontal axis
+            */
+          }
           <Animated.ScrollView
             style={StyleSheet.absoluteFill}
             contentContainerStyle={{ width: lineLength * 2 }}
