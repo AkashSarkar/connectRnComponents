@@ -1,3 +1,14 @@
+/*
+  This is the gamepad controller type component called 'Control'. To simulate the thumb controller like motions and
+  gestures, PanResponder along with RN's Animated API was used. To detect the swipe directions some calculations are needed that
+  can be found in the detectSwipe file.
+
+  The best way to navigate this code is to look at main circle and its movementControllers. The other parts of this components i.e.
+  the indicators are controlled using basic Animated.timing method operations.
+
+  NOTE: To truly understand what's going on, the basice idea of PanResponder has to be clear.
+*/
+
 import React, { Component } from 'react';
 import {
   View, StyleSheet, Animated, PanResponder, Image
@@ -53,45 +64,58 @@ const styles = StyleSheet.create({
   }
 });
 
+// Values to scale to when expanding
 const BUBBLE_SCALE_TO = 1.07;
 const INDICATOR_SCALE_TO = 1.2;
 
 class Control extends Component {
   state = {
-    bubblePosition: new Animated.ValueXY(),
-    bubbleScale: new Animated.Value(1),
-    upArrowOpacity: new Animated.Value(0),
+    bubblePosition: new Animated.ValueXY(), // initializing circle's position value
+    bubbleScale: new Animated.Value(1), // circle's initial scale
+    upArrowOpacity: new Animated.Value(0), // The following 4 states including this one is to control the indicators' visibility
     downArrowOpacity: new Animated.Value(0),
     leftArrowOpacity: new Animated.Value(0),
     rightArrowOpacity: new Animated.Value(0),
-    upArrowPosition: new Animated.Value(0),
+    upArrowPosition: new Animated.Value(0), // The following 4 states including this one is to control the indicators' position
     downArrowPosition: new Animated.Value(0),
     leftArrowPosition: new Animated.Value(0),
     rightArrowPosition: new Animated.Value(0),
-    indicatorScale: new Animated.Value(1),
-    indicatorScaleToValue: INDICATOR_SCALE_TO,
-    scaleToValue: BUBBLE_SCALE_TO,
+    indicatorScale: new Animated.Value(1), // Indicator's intitial scale before expanding
+    indicatorScaleToValue: INDICATOR_SCALE_TO, // The value to scale the indicators to
+    scaleToValue: BUBBLE_SCALE_TO, // The value to scale the circle to
     firstTap: true
   };
 
+  /**
+   * This method is to change the indicator's opacity depending on the swipe direction
+   * @param  { string } direction
+   * @param  { number } toValue=1
+   * @param  { number } duration=150
+   */
   setIndicatorVisibility = (direction, toValue = 1, duration = 150) => {
     const {
       SWIPE_LEFT, SWIPE_RIGHT, SWIPE_DOWN, SWIPE_UP
     } = swipeDirections;
-    // console.warn(direction);
+    const {
+      leftArrowOpacity,
+      rightArrowOpacity,
+      upArrowOpacity,
+      downArrowOpacity
+    } = this.state;
+
     switch (direction) {
       case SWIPE_LEFT:
-        this.changeLeftArrowOpacity(toValue, duration);
+        this.changeArrowOpacity(leftArrowOpacity, toValue, duration);
         break;
 
       case SWIPE_RIGHT:
-        this.changeRightArrowOpacity(toValue, duration);
+        this.changeArrowOpacity(rightArrowOpacity, toValue, duration);
         break;
       case SWIPE_UP:
-        this.changeUpArrowOpacity(toValue, duration);
+        this.changeArrowOpacity(upArrowOpacity, toValue, duration);
         break;
       case SWIPE_DOWN:
-        this.changeDownArrowOpacity(toValue, duration);
+        this.changeArrowOpacity(downArrowOpacity, toValue, duration);
         break;
 
       default:
@@ -99,11 +123,15 @@ class Control extends Component {
     }
   };
 
+  /**
+   * This method is to trigger the corresponding event handlers passed by props for all swipe events
+   * @param  { string } direction
+   */
   handleSwipe = (direction) => {
     const {
       SWIPE_LEFT, SWIPE_RIGHT, SWIPE_DOWN, SWIPE_UP
     } = swipeDirections;
-    // console.warn(direction);
+
     const {
       onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown
     } = this.props;
@@ -127,25 +155,32 @@ class Control extends Component {
     }
   };
 
+  /**
+   * This method handles the circle's expanding and contracting events
+   */
   scaleBubble = () => {
     const { scaleToValue, bubbleScale, firstTap } = this.state;
 
-    let toScale = scaleToValue;
+    let currentScale = scaleToValue;
 
+    // If it's the first time tapping, expand
+    // Else, if currentScale value is in exapnded state, shrink to original value
+    // Otherwise, expand
     if (firstTap) {
-      toScale = BUBBLE_SCALE_TO;
-    } else if (toScale > 1) {
-      toScale = 1;
+      currentScale = BUBBLE_SCALE_TO;
+    } else if (currentScale > 1) {
+      currentScale = 1;
     } else {
-      toScale = BUBBLE_SCALE_TO;
+      currentScale = BUBBLE_SCALE_TO;
     }
 
     Animated.timing(bubbleScale, {
-      toValue: toScale,
+      toValue: currentScale,
       friction: 3,
       duration: 150
     }).start();
 
+    // Determine the next scale value
     let nextScaleValue = 1;
     if (firstTap) {
       nextScaleValue = BUBBLE_SCALE_TO;
@@ -159,43 +194,22 @@ class Control extends Component {
     this.setState({ scaleToValue: nextScaleValue, firstTap: false });
   };
 
-  changeUpArrowOpacity = (toValue, duration) => {
-    const { upArrowOpacity } = this.state;
-    Animated.timing(upArrowOpacity, {
-      duration,
-      toValue
-    }).start();
-    // let nextOpacityValue = 0;
-    // if (arrowOpacityToValue === 0) {
-    //   nextOpacityValue = 1;
-    // }
-    // this.setState({ arrowOpacityToValue: nextOpacityValue });
-  };
-
-  changeDownArrowOpacity = (toValue, duration) => {
-    const { downArrowOpacity } = this.state;
-    Animated.timing(downArrowOpacity, {
+  /**
+   * Change the specified arrow's opacity
+   * @param  { string } arrowDirection
+   * @param  { number } toValue
+   * @param  { number } duration
+   */
+  changeArrowOpacity = (arrowDirection, toValue, duration) => {
+    Animated.timing(arrowDirection, {
       duration,
       toValue
     }).start();
   };
 
-  changeLeftArrowOpacity = (toValue, duration) => {
-    const { leftArrowOpacity } = this.state;
-    Animated.timing(leftArrowOpacity, {
-      duration,
-      toValue
-    }).start();
-  };
-
-  changeRightArrowOpacity = (toValue, duration) => {
-    const { rightArrowOpacity } = this.state;
-    Animated.timing(rightArrowOpacity, {
-      duration,
-      toValue
-    }).start();
-  };
-
+  /**
+   * This handles the scaling of the indicators
+   */
   scaleIndicator = () => {
     const { indicatorScale, indicatorScaleToValue } = this.state;
 
@@ -212,11 +226,22 @@ class Control extends Component {
     this.setState({ indicatorScaleToValue: nextIndicatorScaleValue });
   };
 
+  /**
+   * Handle what happens when the user taps the circle instead of swiping
+   */
   handleTap = () => {
-    const { scaleToValue, firstTap } = this.state;
+    const {
+      scaleToValue,
+      firstTap,
+      leftArrowOpacity,
+      rightArrowOpacity,
+      upArrowOpacity,
+      downArrowOpacity
+    } = this.state;
 
     let opacityTo = 1;
 
+    // For the indicators, if in expanded state, toggle to hidden, else make visible
     if (!firstTap && scaleToValue > 1) {
       opacityTo = 0;
     }
@@ -227,22 +252,29 @@ class Control extends Component {
       opacityDuration = 150;
     }
 
-    this.changeUpArrowOpacity(opacityTo, opacityDuration);
-    this.changeDownArrowOpacity(opacityTo, opacityDuration);
-    this.changeLeftArrowOpacity(opacityTo, opacityDuration);
-    this.changeRightArrowOpacity(opacityTo, opacityDuration);
+    this.changeArrowOpacity(upArrowOpacity, opacityTo, opacityDuration);
+    this.changeArrowOpacity(leftArrowOpacity, opacityTo, opacityDuration);
+    this.changeArrowOpacity(rightArrowOpacity, opacityTo, opacityDuration);
+    this.changeArrowOpacity(downArrowOpacity, opacityTo, opacityDuration);
 
+    // Toggle scale of the indicators and circle
     this.scaleIndicator();
     this.scaleBubble();
   };
 
+  /**
+   * This method is triggered when the circle is released
+   * @param  { object } e
+   * @param  { object } gestureState
+   */
   onBubbleRelease = (e, gestureState) => {
+    // calculate swipe direction depending on the gestureState and call handler
     const direction = getSwipeDirection(gestureState);
     this.handleSwipe(direction);
-    // this.setIndicatorVisibility(direction, 1);
 
-    const { bubblePosition, scaleToValue } = this.state;
-
+    // If the circle was tapped, handle tap event
+    // If it was swiped, animate the circle back to its original position
+    const { bubblePosition } = this.state;
     if (direction === swipeDirections.TAP) {
       this.handleTap();
     } else {
@@ -250,16 +282,16 @@ class Control extends Component {
         toValue: 0,
         duration: 150
       }).start();
-      // setTimeout(() => {
-      //   if (scaleToValue === 1) { this.setIndicatorVisibility(direction, 0, 350); }
-      // }, 700);
     }
 
+    // Turn all the offset values back to their initial values
     bubblePosition.flattenOffset();
   };
 
+  // Initialize the movement controller
   movementInit = (e, gestureState) => {
     const { bubblePosition } = this.state;
+    // Set the circle's offset values to the initial position
     bubblePosition.setOffset({
       x: bubblePosition.x._value,
       y: bubblePosition.y._value
@@ -267,15 +299,29 @@ class Control extends Component {
     bubblePosition.setValue({ x: 0, y: 0 });
   };
 
+  /**
+   * Handle the interaction with the circle, animate the circle position according to the gesture
+   * @param  { object } e
+   * @param  { object } gestureState
+   */
   onBubbleMove = (e, gestureState) => {
+    // Calculate swipe direction according to gesture
     const { scaleToValue, firstTap } = this.state;
     const direction = getSwipeDirection(gestureState);
+
+    // Set indicator's visibility according to swipe direction
     this.setIndicatorVisibility(direction, 1, 150);
     setTimeout(() => {
       if ((!firstTap && scaleToValue === 1) || firstTap) {
         this.setIndicatorVisibility(direction, 0, 150);
       }
     }, 700);
+
+    /*
+      Animate circle's position according to gesture state
+      To try to restrict the circle's movement in a straight line, if the gesture's value inclines
+      towards the x-axis the circle is moved horizontally, else vertically
+    */
     return Animated.event([
       null,
       {
@@ -291,6 +337,11 @@ class Control extends Component {
     ])(e, gestureState);
   };
 
+  /**
+   * If the circle is tapped only, don't initialize PanResponder
+   * @param  { object } e
+   * @param  { object } gestureState
+ */
   handleShouldSetResponder = (e, gestureState) => {
     if (isTap(gestureState)) {
       return false;
@@ -301,6 +352,7 @@ class Control extends Component {
     return true;
   };
 
+  // This is where the PanResponder listener is created and all the corresponding methods and handlers are declared
   movementController = PanResponder.create({
     onStartShouldSetPanResponder: this.handleShouldSetResponder,
     onMoveShouldSetPanResponder: this.handleShouldSetResponder,
@@ -330,6 +382,7 @@ class Control extends Component {
       movementRadius
     } = this.props;
 
+    // Interpolate the movement in X and Y axis to restrict the movement radius to the 'movementRadius' value
     const translateX = bubblePosition.x.interpolate({
       inputRange: [movementRadius * -1, movementRadius],
       outputRange: [movementRadius * -1, movementRadius],
@@ -341,6 +394,7 @@ class Control extends Component {
       extrapolate: 'clamp'
     });
 
+    // Define the opacity range for the indicators
     const upOpacity = upArrowOpacity.interpolate({
       inputRange: [0, 1],
       outputRange: [0, 1],
@@ -362,14 +416,21 @@ class Control extends Component {
       extrapolate: 'clamp'
     });
 
+    // Circle animation values to assin to style atrribute
     const transformStyle = {
       transform: [{ translateX }, { translateY }, { scale: bubbleScale }]
     };
 
+    // Indicator animation values to assin to style atrribute
     const indicatorTransformStyle = {
       transform: [{ scale: indicatorScale }]
     };
 
+
+    /*
+      The arrowContainer contains the indicators
+      The Animated.Image component is the circle
+    */
     return (
       <View style={styles.arrowContainer}>
         <Animated.View style={[{ opacity: upOpacity }, indicatorTransformStyle]}>
