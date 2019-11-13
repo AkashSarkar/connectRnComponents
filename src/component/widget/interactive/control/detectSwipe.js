@@ -35,6 +35,26 @@ export const isTap = gestureState => Math.abs(gestureState.dx) < swipeConfig.ges
   && Math.abs(gestureState.dy) < swipeConfig.gestureIsClickThreshold;
 
 /**
+ * Determines if the gesturestate meets all the parameters in the horizontal direction
+ * @param  { object } gestureState
+*/
+const isValidHorizontalSwipe = (gestureState) => {
+  const { vx, dy } = gestureState;
+  const { velocityThreshold, directionalOffsetThreshold } = swipeConfig;
+  return isValidSwipe(vx, velocityThreshold, dy, directionalOffsetThreshold);
+};
+
+/**
+ * Determines if the gesturestate meets all the parameters in the vertical direction
+ * @param  { object } gestureState
+*/
+const isValidVerticalSwipe = (gestureState) => {
+  const { vy, dx } = gestureState;
+  const { velocityThreshold, directionalOffsetThreshold } = swipeConfig;
+  return isValidSwipe(vy, velocityThreshold, dx, directionalOffsetThreshold);
+};
+
+/**
  * Determine direction of the swipe
  * @param  { object } gestureState
  */
@@ -53,24 +73,4 @@ export const getSwipeDirection = (gestureState) => {
     return dy > 0 ? SWIPE_DOWN : SWIPE_UP; // If swipe is in positive y axis, return up else down
   }
   return null;
-};
-
-/**
- * Determines if the gesturestate meets all the parameters in the horizontal direction
- * @param  { object } gestureState
- */
-const isValidHorizontalSwipe = (gestureState) => {
-  const { vx, dy } = gestureState;
-  const { velocityThreshold, directionalOffsetThreshold } = swipeConfig;
-  return isValidSwipe(vx, velocityThreshold, dy, directionalOffsetThreshold);
-};
-
-/**
- * Determines if the gesturestate meets all the parameters in the vertical direction
- * @param  { object } gestureState
- */
-const isValidVerticalSwipe = (gestureState) => {
-  const { vy, dx } = gestureState;
-  const { velocityThreshold, directionalOffsetThreshold } = swipeConfig;
-  return isValidSwipe(vy, velocityThreshold, dx, directionalOffsetThreshold);
 };
