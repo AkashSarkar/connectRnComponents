@@ -18,11 +18,16 @@ import Budget from '../../component/widget/interactive/budget/Budget';
 import assets from "../../assets";
 
 if (
+  // layout animation is used.
   Platform.OS === 'android'
   && UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
+/**
+ * This component is for showing sub budgets.when budget card is clicked
+ * it expends and shows sub budgets sliding from top.
+ */
 const BudgetTest = ({ navigation }) => {
   const [shouldSubBudgetRender, setShouldSubBudgetRender] = useState(false);
   const [renderAll, setRenderAll] = useState(true);
@@ -78,13 +83,14 @@ const BudgetTest = ({ navigation }) => {
   );
   const deleteAction = () => {
     alert('delete');
-  }
+  };
   const editAction = () => {
     alert('Edit');
-  }
+  };
   const addAction = () => {
     alert('Add');
-  }
+  };
+  // actions and functions for left swipe
   const mapLeftActions = () => {
     const { Add2 } = assets;
     return (
@@ -98,7 +104,8 @@ const BudgetTest = ({ navigation }) => {
         }
       ]
     );
-  }
+  };
+  // actions and functions for right swipe
   const mapRightActions = () => {
     const { Delete, Edit } = assets;
     return (
@@ -121,6 +128,10 @@ const BudgetTest = ({ navigation }) => {
     );
   }
   let number = 9;
+  /**
+   * renders all nine sub budgets
+   * animatable views are used for animation
+   */
   const renderSubBudget = () => {
     const colorsArray = [...budgetMultiShades, { color: colors.secondary }]
     return (
@@ -147,7 +158,8 @@ const BudgetTest = ({ navigation }) => {
         );
       })
     );
-  }
+  };
+  // list of sub budgtes
   const renderBudgetList = () => (
     <View style={[p10, mt10]}>
       <View style={mb10}>
@@ -184,7 +196,7 @@ const BudgetTest = ({ navigation }) => {
   );
   return (
     <ScrollView>
-      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()}/>
+      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
       {renderAll ? (
         <Animatable.View
           animation="slideInDown"
