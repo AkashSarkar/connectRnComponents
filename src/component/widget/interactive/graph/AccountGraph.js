@@ -92,7 +92,6 @@ export class AccountGraph extends Component {
     };
   }
 
-
   dates = this.props.data.map(a => a.x); // extract the dates from the data prop and make an array
 
   amounts = this.props.data.map(a => a.y); // extract the amount from the data prop and make an array
@@ -153,7 +152,7 @@ export class AccountGraph extends Component {
    * @param  { string } x
    * @param  { string } y
    */
-  getCurrentData = (x, y) => ({ x, y })
+  getCurrentData = (x, y) => ({ x, y });
 
   /**
    * Determine the index of the data array that corresponds to the current cursor position
@@ -170,8 +169,7 @@ export class AccountGraph extends Component {
         break;
       }
     }
-  })
-
+  });
 
   /**
    * Handle cursor movement
@@ -218,7 +216,8 @@ export class AccountGraph extends Component {
     const { x, labelAmount, labelDate } = this.state;
     const { lineLength, line, getCurrentIndex } = this;
     const { onCursorStop } = this.props;
-    const translateX = x.interpolate({ // restrict label's movement within the graph view
+    const translateX = x.interpolate({
+      // restrict label's movement within the graph view
       inputRange: [0, lineLength],
       outputRange: [width - labelWidth, 0],
       extrapolate: 'clamp'
