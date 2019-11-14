@@ -30,6 +30,7 @@ import BottomDrawerTest from './testRoute/BottomDrawerTest';
 import GraphTest from './testRoute/GraphTest';
 import AmountCardTest from './testRoute/AmountCardTest';
 import QRTest from './testRoute/QRTest';
+import CameraTest from './testRoute/CameraTest';
 
 
 const AppNavigator = createStackNavigator(
@@ -63,10 +64,11 @@ const AppNavigator = createStackNavigator(
     CCMTest,
     BottomDrawerTest,
     GraphTest,
-    QRTest
+    QRTest,
+    CameraTest
   },
   {
-    initialRouteName: 'QRTest',
+    initialRouteName: 'CameraTest',
     headerMode: 'none'
   },
 );
