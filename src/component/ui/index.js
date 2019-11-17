@@ -3,7 +3,6 @@ import AnimatedTextComponent from './typography/AnimatedTextComponent';
 import ButtonPrimary from './button/ButtonPrimary';
 import ButtonGradientPrimary from './button/ButtonGradientPrimary';
 import ButtonGrey from './button/ButtonGrey';
-import ButtonCapture from './button/ButtonCapture';
 import ButtonConnect from './button/ButtonConnect';
 import ButtonCenter from './button/ButtonCenter';
 import ButtonBrand from './button/ButtonBrand';
@@ -28,7 +27,6 @@ export {
   ButtonPrimary,
   ButtonGradientPrimary,
   ButtonGrey,
-  ButtonCapture,
   ButtonConnect,
   ButtonCenter,
   ButtonBrand,

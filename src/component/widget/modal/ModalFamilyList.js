@@ -91,7 +91,7 @@ const renderItem = (item, onSelect) => (
     alignItems: 'flex-start'
   }}
   >
-    <TouchableOpacity onPress={() => onSelect(item.id)}>
+    <TouchableOpacity onPress={() => onSelect(item)}>
       <TextComponent
         content={item.title}
         size={fonts.fs16}

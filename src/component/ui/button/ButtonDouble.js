@@ -53,21 +53,19 @@ const styles = StyleSheet.create({
   }
 });
 
-const ButtonDouble = (
-  {
-    content,
-    contentRight,
-    buttonColor,
-    textColorLeft,
-    textColorRight,
-    fontSize,
-    onPressLeft,
-    onPressRight
-  }
-) => (
+const ButtonDouble = ({
+  content,
+  contentRight,
+  buttonColor,
+  textColorLeft,
+  textColorRight,
+  fontSize,
+  onPressLeft,
+  onPressRight
+}) => (
   // <TouchableOpacity onPress={onPress}>
   <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
-    <TouchableOpacity onPress={() => onPressLeft()} style={styles.leftWrapper}>
+    <TouchableOpacity onPress={onPressLeft} style={styles.leftWrapper}>
       <LinearGradient
         colors={buttonColor}
         style={styles.buttonGradient}
@@ -81,7 +79,7 @@ const ButtonDouble = (
         />
       </LinearGradient>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => onPressRight()} style={styles.rightWrapper}>
+    <TouchableOpacity onPress={onPressRight} style={styles.rightWrapper}>
       <TextComponent
         content={contentRight}
         family={fonts.regular}

@@ -3,7 +3,7 @@ import {
   View, Dimensions, StyleSheet
 } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { node, bool, number } from 'prop-types';
+import { func, node, bool, number } from 'prop-types';
 import { colors } from '../../../styles/baseStyle';
 
 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
 
 const CarouselWrapper = ({
-  componentArray, isPagination, isMaxWidth, activeIndex
+  componentArray, isPagination, isMaxWidth, activeIndex, onSliderChange
 }) => {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -81,7 +81,10 @@ const CarouselWrapper = ({
         renderItem={renderItem}
         sliderWidth={sliderWidth}
         itemWidth={isMaxWidth ? viewportWidth - 30 : itemWidth}
-        onSnapToItem={idx => setActiveTab(idx)}
+        onBeforeSnapToItem={idx => {
+          setActiveTab(idx);
+          onSliderChange(idx);
+        }}
       />
       {
       isPagination && renderPagination()
@@ -93,14 +96,16 @@ const CarouselWrapper = ({
 CarouselWrapper.defaultProps = {
   isPagination: false,
   isMaxWidth: false,
-  activeIndex: 0
+  activeIndex: 0,
+  onSliderChange: () => {}
 };
 
 CarouselWrapper.propTypes = {
   componentArray: node.isRequired, // array of components that the slider will display
   isPagination: bool, // boolean that specifies whether pagination will be displayed or not
   isMaxWidth: bool, // boolean that specifies whether the slider will take up the whole width of the screen
-  activeIndex: number // initial active index in the component array 
+  activeIndex: number, // initial active index in the component array
+  onSliderChange: func // event handler for swiping the slider, index of item is passed
 };
 
 export default CarouselWrapper;
