@@ -300,7 +300,9 @@ export class AccountGraph extends Component {
             )}
             horizontal
             onMomentumScrollEnd={() => {
-              // TODO FIX
+              // TODO FIX: More reliable way to register index
+              /*  setTimeout is used because this method is called too early for it to register
+               the current index the data point where cursor is stopped corresponds to */
               setTimeout(() => {
                 getCurrentIndex().then((idx) => {
                   onCursorStop(idx);
@@ -315,9 +317,9 @@ export class AccountGraph extends Component {
 }
 
 AccountGraph.propTypes = {
-  data: array.isRequired,
-  onCursorMove: func,
-  onCursorStop: func
+  data: array.isRequired, // data array of the form : [{x: JavaScript Date Object, y: amount}]
+  onCursorMove: func, // event handler called on movement of the cursor
+  onCursorStop: func // event handler called when cursor movement is stopped
 };
 
 export default AccountGraph;

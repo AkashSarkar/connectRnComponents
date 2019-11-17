@@ -299,11 +299,11 @@ LimitChange.defaultProps = {
 };
 
 LimitChange.propTypes = {
-  title1: string,
-  title2: string,
-  initialUtilized: number,
-  limit: number.isRequired,
-  onChange: func
+  title1: string, // label on the left side
+  title2: string, // label on the right side
+  initialUtilized: number, // initial limit out of the total that is used
+  limit: number.isRequired, // total available limit
+  onChange: func // method called when the cursor is being moved, the amount is passed as an argument
 };
 
 export default LimitChange;

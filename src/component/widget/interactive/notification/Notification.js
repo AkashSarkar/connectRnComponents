@@ -93,18 +93,19 @@ const Notification = ({
 Notification.defaultProps = {
   bgColor: gradientColors.gradientWhite,
   contentColor: colors.black1,
-  buttonColor: gradientColors.gradientGrey
+  buttonColor: gradientColors.gradientGrey,
+  buttonTitle: 'Read More'
 };
 
 Notification.propTypes = {
-  content: string.isRequired,
-  buttonTitle: string.isRequired,
-  footer: string,
-  onButtonPress: func.isRequired,
-  logo: Image.propTypes.source.isRequired,
-  bgColor: array,
-  contentColor: string,
-  buttonColor: array
+  content: string.isRequired, // main body of text of the notification
+  buttonTitle: string.isRequired, // title of the button at the bottom
+  footer: string, // string at the bottom after body
+  onButtonPress: func.isRequired, // event handler for the button at the bottom
+  logo: Image.propTypes.source.isRequired, // logo at the top
+  bgColor: array, // background color
+  contentColor: string, // text color
+  buttonColor: array // button color
 };
 
 export default Notification;

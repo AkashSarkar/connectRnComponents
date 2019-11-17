@@ -71,14 +71,28 @@ const Avatar = ({
         onPress();
       }}
       disabled={disabled}
-      style={[styles.wrapper, {
-        shadowColor: !disabled ? active ? colors.secondary : colors.black0 : colorShadow(status)
-      }]}
+      style={[
+        styles.wrapper,
+        {
+          shadowColor: !disabled
+            ? active
+              ? colors.secondary
+              : colors.black0
+            : colorShadow(status)
+        }
+      ]}
     >
       <Image
-        style={[styles.imageStyle, {
-          borderColor: !disabled ? active ? colors.secondary : 'transparent' : colorBorder(status)
-        }]}
+        style={[
+          styles.imageStyle,
+          {
+            borderColor: !disabled
+              ? active
+                ? colors.secondary
+                : 'transparent'
+              : colorBorder(status)
+          }
+        ]}
         source={{ url: logo }}
       />
     </TouchableOpacity>

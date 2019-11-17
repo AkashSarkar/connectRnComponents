@@ -1,3 +1,4 @@
+/* Generates array of notification based on the data object */
 import React from 'react';
 import { Image } from 'react-native';
 import {
@@ -7,6 +8,9 @@ import { Notification } from '..';
 import { CarouselWrapper } from '../../ui';
 import { colors, gradientColors } from '../../../styles/baseStyle';
 
+/* this function determines the color of the current slide based on its index in every three item interval, 
+  grey, black, white if it's in first index, blue(primary) if second, yellow if thrid
+*/
 const generateColor = idx => ({
   bgColor:
     idx % 2 === 0
@@ -59,7 +63,7 @@ NotificationList.propTypes = {
       footer: string.isRequired,
       buttonOnPress: func.isRequired
     }),
-  )
+  ) // array of objects with specified shape
 };
 
 export default NotificationList;

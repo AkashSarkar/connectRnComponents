@@ -1,23 +1,20 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import {func, number, string} from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
-import { colors, fonts } from '../../../styles/baseStyle';
-import { ButtonCommunication } from '../../ui';
-import { ml15 } from '../../../styles/commonStyle';
-import { func, number, string } from 'prop-types';
+import {colors, fonts} from '../../../styles/baseStyle';
+import {ButtonCommunication} from '../../ui';
+import {ml15} from '../../../styles/commonStyle';
 import assets from '../../../assets';
 
-const Selection = (
-  {
-    handleModalOpen,
-    heading,
-    subtitle,
-    operatorLogo,
-    logo,
-    logoText
-  }
-) => {
-  return (
+const Selection = ({
+  handleModalOpen,
+  heading,
+  subtitle,
+  operatorLogo,
+  logo,
+  logoText
+}) => (
     <View>
       <View style={[styles.selectionWrapper]}>
         <ButtonCommunication
@@ -76,7 +73,6 @@ const Selection = (
       </View>
     </View>
   );
-};
 
 const styles = StyleSheet.create({
   selectionWrapper: {

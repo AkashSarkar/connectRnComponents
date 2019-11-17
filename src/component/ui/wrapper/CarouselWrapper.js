@@ -97,10 +97,10 @@ CarouselWrapper.defaultProps = {
 };
 
 CarouselWrapper.propTypes = {
-  componentArray: node.isRequired,
-  isPagination: bool,
-  isMaxWidth: bool,
-  activeIndex: number
+  componentArray: node.isRequired, // array of components that the slider will display
+  isPagination: bool, // boolean that specifies whether pagination will be displayed or not
+  isMaxWidth: bool, // boolean that specifies whether the slider will take up the whole width of the screen
+  activeIndex: number // initial active index in the component array 
 };
 
 export default CarouselWrapper;

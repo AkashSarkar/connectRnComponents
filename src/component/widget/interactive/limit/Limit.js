@@ -194,11 +194,11 @@ Limit.defaultProps = {
 };
 
 Limit.propTypes = {
-  title1: string,
-  title2: string,
-  utilizedLimit: number.isRequired,
-  totalLimit: number.isRequired,
-  budgetLimit: number.isRequired
+  title1: string, // label on the left side
+  title2: string, // label on the right side
+  utilizedLimit: number.isRequired, // initial limit out of the total that is used
+  totalLimit: number.isRequired, // total available limit
+  budgetLimit: number.isRequired // budget restriction out of the total limit, where the scale will be fixed
 };
 
 export default Limit;

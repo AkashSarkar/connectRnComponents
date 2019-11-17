@@ -534,15 +534,15 @@ Control.defaultProps = {
 };
 
 Control.propTypes = {
-  topLabel: string,
-  bottomLabel: string,
-  leftLabel: string,
-  rightLabel: string,
-  onSwipeDown: func.isRequired,
-  onSwipeUp: func.isRequired,
-  onSwipeLeft: func.isRequired,
-  onSwipeRight: func.isRequired,
-  movementRadius: number
+  topLabel: string, // Top indicator label
+  bottomLabel: string, // bottom indicator label
+  leftLabel: string, // left indicator label
+  rightLabel: string, // right indicator label
+  onSwipeDown: func.isRequired, // event handler for swiping downwards
+  onSwipeUp: func.isRequired, // event handler for swiping upwards
+  onSwipeLeft: func.isRequired, // event handler for swiping left
+  onSwipeRight: func.isRequired, // event handler for swiping right
+  movementRadius: number // the radius of the area the circle can move
 };
 
 export default Control;
