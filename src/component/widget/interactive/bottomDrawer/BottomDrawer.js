@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { View, StyleSheet } from 'react-native';
 import { node, string, func } from 'prop-types';
 import BottomSheet from 'reanimated-bottom-sheet';
@@ -59,6 +59,44 @@ const BottomDrawer = ({
   const renderInner = () => (
     <View style={styles.contentContainer}>{children}</View>
   );
+
+  let drawerRef = useRef(null);
+
+  const [firstRender, setFirstRender] = useState(true);
+  const [manualSnap, setManualSnap] = useState(false);
+
+  useEffect(() => {
+    if(drawerRef && !firstRender){
+      setManualSnap(true);
+      drawerRef.current.snapTo(1);
+    }
+  }, [firstStoppingPoint])
+
+  useEffect(() => {
+    setFirstRender(false);
+  }, [])
+
+  const handleDrawer = (event) => {
+    if(manualSnap) {
+      setManualSnap(false);
+      return;
+    }
+
+    switch (event) {
+      case 'open':
+        onDrawerOpen();
+        break;
+      
+      case 'close':
+        onDrawerClose();
+        break;
+
+      default:
+        break;
+    }
+  }
+
+
   return (
     <BottomSheet
       snapPoints={[secondStoppingPoint, firstStoppingPoint]}
@@ -66,11 +104,12 @@ const BottomDrawer = ({
       renderHeader={renderHeader}
       initialSnap={1}
       enabledContentGestureInteraction={false}
-      onOpenStart={onDrawerOpen}
-      onCloseEnd={onDrawerClose}
+      onOpenStart={() => handleDrawer('open')}
+      onCloseEnd={() => onDrawerClose('close')}
+      ref={drawerRef}
     />
   );
-};
+}
 
 BottomDrawer.defaultProps = {
   firstStoppingPoint: '3%',
