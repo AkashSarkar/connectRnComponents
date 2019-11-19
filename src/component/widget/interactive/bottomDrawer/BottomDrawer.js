@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   contentContainer: {
-    padding: 10,
     borderLeftColor: colors.grey1,
     borderRightColor: colors.grey1,
     borderLeftWidth: 0.5,
@@ -44,10 +43,10 @@ const styles = StyleSheet.create({
 
 const BottomDrawer = ({
   children,
-  firstStoppingPoint,
-  secondStoppingPoint,
+  stoppingPoints,
   onDrawerOpen,
-  onDrawerClose
+  onDrawerClose,
+  initialSnap
 }) => {
   const renderHeader = () => (
     <View style={styles.header}>
@@ -68,9 +67,9 @@ const BottomDrawer = ({
   useEffect(() => {
     if(drawerRef && !firstRender){
       setManualSnap(true);
-      drawerRef.current.snapTo(1);
+      drawerRef.current.snapTo(initialSnap);
     }
-  }, [firstStoppingPoint])
+  }, [initialSnap])
 
   useEffect(() => {
     setFirstRender(false);
@@ -99,21 +98,22 @@ const BottomDrawer = ({
 
   return (
     <BottomSheet
-      snapPoints={[secondStoppingPoint, firstStoppingPoint]}
+      snapPoints={stoppingPoints}
       renderContent={renderInner}
       renderHeader={renderHeader}
-      initialSnap={1}
+      initialSnap={initialSnap}
       enabledContentGestureInteraction={false}
       onOpenStart={() => handleDrawer('open')}
-      onCloseEnd={() => onDrawerClose('close')}
+      onCloseEnd={() => handleDrawer('close')}
       ref={drawerRef}
+      callbackThreshold={0.001}
     />
   );
 }
 
 BottomDrawer.defaultProps = {
-  firstStoppingPoint: '3%',
-  secondStoppingPoint: '60%',
+  stoppingPoints: ['3%', '60%'],
+  initialSnap: 1,
   onDrawerOpen: () => {},
   onDrawerClose: () => {}
 };
