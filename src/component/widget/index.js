@@ -54,7 +54,7 @@ import QRScanner from './scanner/QRScanner';
 import NFC from './scanner/NFC';
 import MenuOptions from './list/MenuOptions';
 import NotificationList from './list/NotificationList';
-
+import ToggleSlider from './tab/ToggleSlider';
 
 export {
   SeatListItem,
@@ -110,5 +110,6 @@ export {
   QRScanner,
   NFC,
   MenuOptions,
-  NotificationList
+  NotificationList,
+  ToggleSlider
 };

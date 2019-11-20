@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
   },
   overlay: {
     position: 'absolute',
-    width: '55%',
+    width: '50%',
     height: '100%',
-    top: 0,
+    top: -1,
     left: -1,
-    paddingVertical: 20,
+    paddingVertical: 21,
     borderRadius: 25
   },
   title: {
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
 
 const ToggleSlider = (
   {
-    title1, title2, setCurrentTab, tabColor, borderColor, textColor, initialActiveIndex
+    title1, title2, setCurrentTab, tabColor, borderColor, textColor, initialActiveIndex,
+    activeColor
   }
 ) => {
   const [active, setActive] = useState(1);
@@ -48,7 +49,7 @@ const ToggleSlider = (
 
   const slideTab = (tabPosition, tabNo) => {
     Animated.timing(translateX, {
-      toValue: tabNo === 2 ? tabPosition - 15 : tabPosition - 2,
+      toValue: tabPosition,
       duration: 250
     }).start();
   };
@@ -89,12 +90,11 @@ const ToggleSlider = (
           activeOpacity={0.9}
         >
           <TextComponent
+            content={title1}
+            size={fonts.fs14}
+            color={active === 1 ? activeColor : textColor}
             family={fonts.semiBold}
-            size="small"
-            color={active === 1 ? textColor : textColor}
-          >
-            {title1}
-          </TextComponent>
+          />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -104,12 +104,11 @@ const ToggleSlider = (
           activeOpacity={0.9}
         >
           <TextComponent
+            content={title2}
+            size={fonts.fs14}
+            color={active === 2 ? activeColor : textColor}
             family={fonts.semiBold}
-            size="small"
-            color={active === 2 ? textColor : textColor}
-          >
-            {title2}
-          </TextComponent>
+          />
         </TouchableOpacity>
       </View>
     </View>
