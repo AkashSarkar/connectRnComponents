@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
-  node, array, func, number
+ node, array, func, number 
 } from 'prop-types';
 import BottomSheet from 'reanimated-bottom-sheet';
 import { colors } from '../../../../styles/baseStyle';
@@ -46,8 +46,10 @@ const styles = StyleSheet.create({
 const BottomDrawer = ({
   children,
   stoppingPoints,
-  onDrawerOpen,
-  onDrawerClose,
+  onDrawerOpenStart,
+  onDrawerOpenEnd,
+  onDrawerCloseStart,
+  onDrawerCloseEnd,
   initialSnap
 }) => {
   const renderHeader = () => (
@@ -76,8 +78,10 @@ const BottomDrawer = ({
       renderHeader={renderHeader}
       initialSnap={initialSnap}
       enabledContentGestureInteraction={false}
-      onOpenStart={onDrawerOpen}
-      onCloseEnd={onDrawerClose}
+      onOpenStart={onDrawerOpenStart}
+      onOpenEnd={onDrawerOpenEnd}
+      onCloseStart={onDrawerCloseStart}
+      onCloseEnd={onDrawerCloseEnd}
       ref={drawerRef}
       callbackThreshold={0.001}
     />
@@ -87,14 +91,18 @@ const BottomDrawer = ({
 BottomDrawer.defaultProps = {
   stoppingPoints: ['3%', '60%'],
   initialSnap: 1,
-  onDrawerOpen: () => {},
-  onDrawerClose: () => {}
+  onDrawerOpenStart: () => {},
+  onDrawerCloseStart: () => {},
+  onDrawerOpenEnd: () => {},
+  onDrawerCloseEnd: () => {}
 };
 
 BottomDrawer.propTypes = {
   children: node,
-  onDrawerOpen: func,
-  onDrawerClose: func,
+  onDrawerOpenStart: func,
+  onDrawerCloseStart: func,
+  onDrawerOpenEnd: func,
+  onDrawerCloseEnd: func,
   stoppingPoints: array,
   initialSnap: number
 };
