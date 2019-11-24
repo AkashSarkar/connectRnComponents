@@ -1,6 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { node, string, func } from 'prop-types';
+import {
+ node, array, func, number 
+} from 'prop-types';
 import BottomSheet from 'reanimated-bottom-sheet';
 import { colors } from '../../../../styles/baseStyle';
 
@@ -32,7 +34,6 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   contentContainer: {
-    padding: 10,
     borderLeftColor: colors.grey1,
     borderRightColor: colors.grey1,
     borderLeftWidth: 0.5,
@@ -44,10 +45,12 @@ const styles = StyleSheet.create({
 
 const BottomDrawer = ({
   children,
-  firstStoppingPoint,
-  secondStoppingPoint,
-  onDrawerOpen,
-  onDrawerClose
+  stoppingPoints,
+  onDrawerOpenStart,
+  onDrawerOpenEnd,
+  onDrawerCloseStart,
+  onDrawerCloseEnd,
+  initialSnap
 }) => {
   const renderHeader = () => (
     <View style={styles.header}>
@@ -60,70 +63,48 @@ const BottomDrawer = ({
     <View style={styles.contentContainer}>{children}</View>
   );
 
-  let drawerRef = useRef(null);
-
-  const [firstRender, setFirstRender] = useState(true);
-  const [manualSnap, setManualSnap] = useState(false);
+  const drawerRef = useRef(null);
 
   useEffect(() => {
-    if(drawerRef && !firstRender){
-      setManualSnap(true);
-      drawerRef.current.snapTo(1);
+    if (drawerRef) {
+      drawerRef.current.snapTo(initialSnap);
     }
-  }, [firstStoppingPoint])
-
-  useEffect(() => {
-    setFirstRender(false);
-  }, [])
-
-  const handleDrawer = (event) => {
-    if(manualSnap) {
-      setManualSnap(false);
-      return;
-    }
-
-    switch (event) {
-      case 'open':
-        onDrawerOpen();
-        break;
-      
-      case 'close':
-        onDrawerClose();
-        break;
-
-      default:
-        break;
-    }
-  }
-
+  }, [initialSnap]);
 
   return (
     <BottomSheet
-      snapPoints={[secondStoppingPoint, firstStoppingPoint]}
+      snapPoints={stoppingPoints}
       renderContent={renderInner}
       renderHeader={renderHeader}
-      initialSnap={1}
+      initialSnap={initialSnap}
       enabledContentGestureInteraction={false}
-      onOpenStart={() => handleDrawer('open')}
-      onCloseEnd={() => onDrawerClose('close')}
+      onOpenStart={onDrawerOpenStart}
+      onOpenEnd={onDrawerOpenEnd}
+      onCloseStart={onDrawerCloseStart}
+      onCloseEnd={onDrawerCloseEnd}
       ref={drawerRef}
+      callbackThreshold={0.001}
     />
   );
-}
+};
 
 BottomDrawer.defaultProps = {
-  firstStoppingPoint: '3%',
-  secondStoppingPoint: '60%',
-  onDrawerOpen: () => {},
-  onDrawerClose: () => {}
+  stoppingPoints: ['3%', '60%'],
+  initialSnap: 1,
+  onDrawerOpenStart: () => {},
+  onDrawerCloseStart: () => {},
+  onDrawerOpenEnd: () => {},
+  onDrawerCloseEnd: () => {}
 };
 
 BottomDrawer.propTypes = {
   children: node,
-  firstStoppingPoint: string,
-  secondStoppingPoint: string,
-  onDrawerOpen: func,
-  onDrawerClose: func
+  onDrawerOpenStart: func,
+  onDrawerCloseStart: func,
+  onDrawerOpenEnd: func,
+  onDrawerCloseEnd: func,
+  stoppingPoints: array,
+  initialSnap: number
 };
 
 export default BottomDrawer;

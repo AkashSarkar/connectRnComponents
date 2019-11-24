@@ -20,6 +20,7 @@ import BoxShadow from './wrapper/BoxShadow';
 import CarouselWrapper from './wrapper/CarouselWrapper';
 import Input from './input/Input';
 import ControlWrapper from './wrapper/ControlWrapper';
+import AnimateOpacity from './wrapper/animation/AnimateOpacity';
 
 export {
   TextComponent,
@@ -43,5 +44,6 @@ export {
   Input,
   BoxShadow,
   CarouselWrapper,
-  ControlWrapper
+  ControlWrapper,
+  AnimateOpacity
 };
