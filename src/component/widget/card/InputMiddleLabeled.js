@@ -13,7 +13,9 @@ const InputMiddleLabeled = (
   {
     isInput, isButton,
     onButtonPress, isIcon,
-    placeholder, buttonText
+    placeholder, buttonText,
+    title, subtitle,
+    onTextChange
   }
 ) => {
   const [accountNumber, setAccountNumber] = useState('');
@@ -22,19 +24,20 @@ const InputMiddleLabeled = (
       <BoxShadow>
         <View style={[p15, ph20]}>
           <CardTitleWidget
-            title="Mobile Number"
-            subtitle="Please enter the mobile number that your bank account is registered with"
+            title={title}
+            subtitle={subtitle}
           />
           {isInput && (
             <View style={mb10}>
               <InputField
                 value={accountNumber}
-                placeholder={placeholder}
+                placeholder={placeholder || null}
                 keyboardType="numeric"
                 maxLength={11}
                 returnKeyType="next"
                 onChangeText={(text) => {
                   setAccountNumber(text);
+                  onTextChange(text);
                 }}
                 setIsValid={(validity) => {
                 }}
@@ -78,6 +81,9 @@ InputMiddleLabeled.propTypes = {
   isIcon: bool,
   placeholder: string,
   buttonText: string,
-  onButtonPress: func
+  onButtonPress: func,
+  title: string,
+  subtitle: string,
+  onTextChange: func
 };
 export default InputMiddleLabeled;

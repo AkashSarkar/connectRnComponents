@@ -70,6 +70,10 @@ const WidgetL1Test = ({ navigation }) => {
     console.log("");
   };
 
+  const onTextChange = (val) => {
+    console.log(val);
+  }
+
   return (
     <ScrollView contentContainerStyle={screenContainer}>
       <HeaderTop content="Modal Test" onPress={() => navigation.goBack()}/>
@@ -194,6 +198,9 @@ const WidgetL1Test = ({ navigation }) => {
             placeholder="+880"
             buttonText="Next"
             onButtonPress={onButtonPress}
+            title="Mobile Number"
+            subtitle="Please enter the mobile number that your bank account is registered with"
+            onTextChange={onTextChange}
           />
         </View>
       </View>
