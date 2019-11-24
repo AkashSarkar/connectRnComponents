@@ -23,10 +23,12 @@ const InputMiddleLabeled = (
     <View style={p10}>
       <BoxShadow>
         <View style={[p15, ph20]}>
-          <CardTitleWidget
-            title={title}
-            subtitle={subtitle}
-          />
+          <View style={mb10}>
+            <CardTitleWidget
+              title={title}
+              subtitle={subtitle}
+            />
+          </View>
           {isInput && (
             <View style={mb10}>
               <InputField
