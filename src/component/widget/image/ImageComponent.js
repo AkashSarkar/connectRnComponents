@@ -2,9 +2,10 @@ import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { func } from 'prop-types';
-import { ButtonCapture, ButtonDouble } from '../../ui';
+import { ButtonDouble } from '../../ui';
 import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
+import ButtonCapture from '../../ui/button/ButtonCapture';
 
 const styles = StyleSheet.create({
   container: {
