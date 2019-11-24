@@ -66,6 +66,10 @@ const WidgetL1Test = ({ navigation }) => {
     alert('handleSelectionModal');
   };
 
+  const onButtonPress = () => {
+    console.log("");
+  };
+
   return (
     <ScrollView contentContainerStyle={screenContainer}>
       <HeaderTop content="Modal Test" onPress={() => navigation.goBack()}/>
@@ -183,7 +187,14 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputMiddleLabeled"
             family={fonts.bold}
           />
-          <InputMiddleLabeled/>
+          <InputMiddleLabeled 
+            isInput
+            isButton
+            isIcon
+            placeholder="+880"
+            buttonText="Next"
+            onButtonPress={onButtonPress}
+          />
         </View>
       </View>
       <View style={[pb10]}>

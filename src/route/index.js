@@ -68,7 +68,7 @@ const AppNavigator = createStackNavigator(
     CameraTest
   },
   {
-    initialRouteName: 'CameraTest',
+    initialRouteName: 'Home',
     headerMode: 'none'
   },
 );
