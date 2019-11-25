@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import {
-  string, func, array, number
+  string, func, array, number,bool
 } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -25,9 +25,12 @@ const styles = StyleSheet.create({
 });
 
 const ButtonPrimary = ({
-  content, buttonColor, textColor, fontSize, onPress
+  content, buttonColor, textColor, fontSize, onPress, disabled
 }) => (
-  <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity 
+    onPress={onPress}
+    disabled={disabled}  
+  >
     <LinearGradient
       colors={buttonColor}
       style={styles.buttonWrapper}
@@ -48,7 +51,8 @@ ButtonPrimary.propTypes = {
   buttonColor: array.isRequired,
   textColor: string.isRequired,
   fontSize: number,
-  onPress: func
+  onPress: func,
+  disabled: bool
 };
 
 
