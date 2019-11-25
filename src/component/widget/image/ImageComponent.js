@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { func } from 'prop-types';
+import { func, string, bool } from 'prop-types';
 import { ButtonDouble } from '../../ui';
 import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
-import ButtonCapture from '../../ui/button/ButtonCapture';
+import ButtonCapture from '../../ui/button/ButtonCapture'
 
 const styles = StyleSheet.create({
   container: {
@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: 'transparent',
     borderColor: 'rgba(0.2, 0.2, 0.2, 0.4)',
-    borderTopWidth: 130,
-    borderBottomWidth: 130,
-    borderLeftWidth: 30,
-    borderRightWidth: 30
+    borderTopWidth: 200,
+    borderBottomWidth: 280,
+    borderLeftWidth: 20,
+    borderRightWidth: 20
   },
   imagePreview: {
     flex: 1
@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
   }
 });
 
-const ImageComponent = ({ onImageCapture }) => {
+const ImageComponent = (
+  { onImageCapture, isOverlay, cameraType }
+) => {
   const [imageUri, setImageUri] = useState(null);
   const [isPreview, setIsPreview] = useState(false);
 
@@ -106,13 +108,15 @@ const ImageComponent = ({ onImageCapture }) => {
               camera = ref;
             }}
             style={styles.cameraView}
-            type="back"
+            type={cameraType}
             autoFocus="on"
             whiteBalance="auto"
             ratio="16:9"
             captureAudio={false}
           >
-            <View style={styles.overlayContainer} />
+            {isOverlay && (
+              <View style={styles.overlayContainer} />
+            )}
             <View style={styles.captureBtnWrapper}>
               <ButtonCapture onPress={takePicture} />
             </View>
@@ -124,7 +128,9 @@ const ImageComponent = ({ onImageCapture }) => {
 };
 
 ImageComponent.propTypes = {
-  onImageCapture: func.isRequired
+  onImageCapture: func.isRequired,
+  cameraType: string,
+  isOverlay: bool
 };
 
 export default ImageComponent;
