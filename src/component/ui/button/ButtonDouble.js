@@ -61,34 +61,39 @@ const ButtonDouble = ({
   textColorRight,
   fontSize,
   onPressLeft,
-  onPressRight
+  onPressRight,
+  disabled
 }) => (
-  // <TouchableOpacity onPress={onPress}>
-  <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
-    <TouchableOpacity onPress={onPressLeft} style={styles.leftWrapper}>
-      <LinearGradient
-        colors={buttonColor}
-        style={styles.buttonGradient}
-        hitSlop={styles.hitSlop}
+    // <TouchableOpacity onPress={onPress}>
+    <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
+      <TouchableOpacity
+        onPress={onPressLeft}
+        style={styles.leftWrapper}
+        disabled={disabled}
       >
+        <LinearGradient
+          colors={buttonColor}
+          style={styles.buttonGradient}
+          hitSlop={styles.hitSlop}
+        >
+          <TextComponent
+            content={content}
+            family={fonts.regular}
+            size={fontSize}
+            color={textColorLeft}
+          />
+        </LinearGradient>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={onPressRight} style={styles.rightWrapper}>
         <TextComponent
-          content={content}
+          content={contentRight}
           family={fonts.regular}
           size={fontSize}
-          color={textColorLeft}
+          color={textColorRight}
         />
-      </LinearGradient>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={onPressRight} style={styles.rightWrapper}>
-      <TextComponent
-        content={contentRight}
-        family={fonts.regular}
-        size={fontSize}
-        color={textColorRight}
-      />
-    </TouchableOpacity>
-  </View>
-);
+      </TouchableOpacity>
+    </View>
+  );
 
 ButtonDouble.propTypes = {
   content: string.isRequired,

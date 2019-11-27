@@ -15,7 +15,7 @@ const InputMiddleLabeled = (
     onButtonPress, isIcon,
     placeholder, buttonText,
     title, subtitle,
-    onTextChange
+    onTextChange, buttonDisabled
   }
 ) => {
   const [accountNumber, setAccountNumber] = useState('');
@@ -64,10 +64,11 @@ const InputMiddleLabeled = (
             <View style={mb10}>
               <ButtonPrimary
                 content={buttonText}
-                buttonColor={gradientColors.gradient5}
+                buttonColor={buttonDisabled ? gradientColors.gradient3 : gradientColors.gradient5}
                 textColor={colors.bgPrimary}
                 fontSize={fonts.fs14}
                 onPress={() => onButtonPress()}
+                disabled={buttonDisabled}
               />
             </View>
           )}
@@ -86,6 +87,7 @@ InputMiddleLabeled.propTypes = {
   onButtonPress: func,
   title: string,
   subtitle: string,
-  onTextChange: func
+  onTextChange: func,
+  buttonDisabled: bool
 };
 export default InputMiddleLabeled;
