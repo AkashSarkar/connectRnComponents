@@ -55,6 +55,8 @@ import NFC from './scanner/NFC';
 import MenuOptions from './list/MenuOptions';
 import NotificationList from './list/NotificationList';
 import ToggleSlider from './tab/ToggleSlider';
+import ModalComponent from './modal/ModalComponent';
+import ImageComponent from './image/ImageComponent';
 
 export {
   SeatListItem,
@@ -111,5 +113,7 @@ export {
   NFC,
   MenuOptions,
   NotificationList,
-  ToggleSlider
+  ToggleSlider,
+  ModalComponent,
+  ImageComponent
 };
