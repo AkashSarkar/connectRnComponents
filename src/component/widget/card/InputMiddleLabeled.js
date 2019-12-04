@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { bool, func, string } from 'prop-types';
+import { bool, func, string, array } from 'prop-types';
 import { BoxShadow } from '../../ui';
 import CardTitleWidget from '../title/CardTitleWidget';
 import { mb10, p10, p15, ph15, ph60, ph20 } from '../../../styles/commonStyle';
@@ -15,7 +15,8 @@ const InputMiddleLabeled = (
     onButtonPress, isIcon,
     placeholder, buttonText,
     title, subtitle,
-    onTextChange, buttonDisabled
+    onTextChange,
+    buttonColor
   }
 ) => {
   const [accountNumber, setAccountNumber] = useState('');
@@ -64,11 +65,10 @@ const InputMiddleLabeled = (
             <View style={mb10}>
               <ButtonPrimary
                 content={buttonText}
-                buttonColor={buttonDisabled ? gradientColors.gradient3 : gradientColors.gradient5}
+                buttonColor={buttonColor || gradientColors.gradient5}
                 textColor={colors.bgPrimary}
                 fontSize={fonts.fs14}
-                onPress={() => onButtonPress()}
-                disabled={buttonDisabled}
+                onPress={() => (onButtonPress ? onButtonPress() : null)}
               />
             </View>
           )}
@@ -88,6 +88,6 @@ InputMiddleLabeled.propTypes = {
   title: string,
   subtitle: string,
   onTextChange: func,
-  buttonDisabled: bool
+  buttonColor: array
 };
 export default InputMiddleLabeled;
