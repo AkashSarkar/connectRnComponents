@@ -7,8 +7,8 @@ import { mt20 } from '../../../styles/commonStyle';
 
 const styles = {
   wrapperStyle: {
-    flex: 1,
-    top: '5%',
+    height: '100%',
+    top: '10%',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     shadowOffset: {
@@ -23,10 +23,11 @@ const styles = {
     alignItems: 'center'
   }
 };
-const FeatureWrapper = ({ children, title }) => (
-  <SafeAreaView style={styles.wrapperStyle}>
-    <View style={mt20}>
-      {title && title.length > 0 && (
+const FeatureWrapper = ({ children, title, backgroundColor }) => (
+  <SafeAreaView style={{ backgroundColor: backgroundColor || colors.white1 }}>
+    <View style={[styles.wrapperStyle, { backgroundColor: colors.white1 }]}>
+      <View style={mt20}>
+        {title && title.length > 0 && (
         <View style={styles.titleStyle}>
           <TextComponent
             content={title}
@@ -35,13 +36,15 @@ const FeatureWrapper = ({ children, title }) => (
             family={fonts.semiBold}
           />
         </View>
-      )}
-      {children}
+        )}
+        {children}
+      </View>
     </View>
   </SafeAreaView>
 );
 FeatureWrapper.propTypes = {
   children: node,
-  title: string
+  title: string,
+  backgroundColor: string
 };
 export default FeatureWrapper;
