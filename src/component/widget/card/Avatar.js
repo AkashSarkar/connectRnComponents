@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { string, func, bool } from 'prop-types';
+import { string, func, bool, number } from 'prop-types';
 import { colors } from '../../../styles/baseStyle';
 
 const styles = {
@@ -12,7 +12,10 @@ const styles = {
     borderRadius: 50,
     backgroundColor: colors.white1,
     elevation: 1,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
     shadowOpacity: 0.5
   },
   imageStyle: {
@@ -93,14 +96,14 @@ const Avatar = ({
               : colorBorder(status)
           }
         ]}
-        source={{ url: logo }}
+        source={logo}
       />
     </TouchableOpacity>
   );
 };
 
 Avatar.propTypes = {
-  logo: string.isRequired,
+  logo: number.isRequired,
   onPress: func.isRequired,
   status: string,
   disabled: bool

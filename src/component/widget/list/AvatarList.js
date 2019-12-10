@@ -43,7 +43,7 @@ AvatarList.propTypes = {
   items: arrayOf(
     shape({
       id: number.isRequired,
-      logo: string.isRequired,
+      logo: number.isRequired,
       status: string,
       disabled: bool
     })
