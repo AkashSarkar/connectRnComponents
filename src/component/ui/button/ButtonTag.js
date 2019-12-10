@@ -40,14 +40,12 @@ const styles = StyleSheet.create({
 const ButtonTag = ({
   contentL, contentR, buttonColorL, buttonColorR, textColor, fontSize, onPress
 }) => (
-  <TouchableOpacity onPress={onPress}>
-    <View style={{ flexDirection: 'row' }}>
-      <View style={[styles.buttonWrapper, { backgroundColor: buttonColorL }]} hitSlop={styles.hitSlop}>
-        <TextComponent content={contentL} family={fonts.regular} size={fontSize} color={textColor} />
-      </View>
-      <View style={[styles.buttonWrapper, { backgroundColor: buttonColorR }]} hitSlop={styles.hitSlop}>
-        <TextComponent content={contentR} family={fonts.regular} size={fontSize} color={textColor} />
-      </View>
+  <TouchableOpacity onPress={onPress} style={{ flexDirection: 'row' }}>
+    <View style={[styles.buttonWrapper, { backgroundColor: buttonColorL }]} hitSlop={styles.hitSlop}>
+      <TextComponent content={contentL} family={fonts.regular} size={fontSize} color={textColor} />
+    </View>
+    <View style={[styles.buttonWrapper, { backgroundColor: buttonColorR }]} hitSlop={styles.hitSlop}>
+      <TextComponent content={contentR} family={fonts.regular} size={fontSize} color={textColor} />
     </View>
   </TouchableOpacity>
 );

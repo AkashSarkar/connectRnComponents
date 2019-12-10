@@ -1,15 +1,19 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { func, string, bool } from 'prop-types';
-import { ButtonDouble } from '../../ui';
-import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
+import {
+  func, string, bool, array
+} from 'prop-types';
+import { ButtonDouble, TextComponent } from '../../ui';
+import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
-import ButtonCapture from '../../ui/button/ButtonCapture'
+import ButtonCapture from '../../ui/button/ButtonCapture';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+    // height: 300,
+    // marginTop: 100
   },
   captureBtnWrapper: {
     alignItems: 'center',
@@ -39,12 +43,22 @@ const styles = StyleSheet.create({
   },
   placeholderView: {
     flex: 1,
+    // height: 600,
     backgroundColor: colors.white1
+  },
+  titleBar: {
+    height: 64,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
 const ImageComponent = (
-  { onImageCapture, isOverlay, cameraType }
+  {
+    onImageCapture, isOverlay, cameraType, buttonColor, backgroundTopColor, titleBarColor, title
+  }
 ) => {
   const [imageUri, setImageUri] = useState(null);
   const [isPreview, setIsPreview] = useState(false);
@@ -83,14 +97,14 @@ const ImageComponent = (
         <View style={styles.container}>
           <ImageBackground source={imageUri} style={styles.imagePreview} />
           <ButtonDouble
-            content="Capture"
-            contentRight="Confirm"
-            buttonColor={gradientColors.gradient5}
+            content="Confirm"
+            contentRight="Re/Capture"
+            buttonColor={buttonColor || ['#14438f', '#000632']}
             textColorLeft={colors.bgPrimary}
             textColorRight={colors.black1}
             fontSize={fonts.fs14}
-            onPressLeft={reCapture}
-            onPressRight={confirmPicture}
+            onPressLeft={confirmPicture}
+            onPressRight={reCapture}
           />
           {/* <CTADouble
             contentLeft="Capture"
@@ -100,7 +114,10 @@ const ImageComponent = (
           /> */}
         </View>
       </ModalComponent>
-
+      <View style={{ height: 60, backgroundColor: backgroundTopColor }} />
+      <View style={[styles.titleBar, { backgroundColor: titleBarColor || 'white' }]}>
+        <TextComponent content={title} size={fonts.fs16} />
+      </View>
       <View style={styles.placeholderView}>
         {!isPreview && (
           <RNCamera
@@ -111,7 +128,7 @@ const ImageComponent = (
             type={cameraType}
             autoFocus="on"
             whiteBalance="auto"
-            ratio="16:9"
+            ratio="4:3"
             captureAudio={false}
           >
             {isOverlay && (
@@ -123,6 +140,7 @@ const ImageComponent = (
           </RNCamera>
         )}
       </View>
+
     </View>
   );
 };
@@ -130,7 +148,11 @@ const ImageComponent = (
 ImageComponent.propTypes = {
   onImageCapture: func.isRequired,
   cameraType: string,
-  isOverlay: bool
+  isOverlay: bool,
+  buttonColor: array.isRequired,
+  backgroundTopColor: string.isRequired,
+  titleBarColor: string.isRequired,
+  title: string
 };
 
 export default ImageComponent;

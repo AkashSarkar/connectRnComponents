@@ -27,6 +27,7 @@ import assets from '../../assets';
 import { AmountChange } from '../../component/widget';
 import Switch from '../../component/ui/input/Switch';
 import TabTest from './TabTest';
+import ButtonRectangle from '../../component/ui/button/ButtonRectangle';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -35,7 +36,7 @@ const screenContainer = {
 };
 
 const UIComponentTest = ({ navigation }) => {
-  const [id, setId] = useState('');   
+  const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [search, setSearch] = useState('');
@@ -43,18 +44,18 @@ const UIComponentTest = ({ navigation }) => {
 
   const headerButtonsInformation = [
     {
-      content:"Pending",
-      badgeCount:15,
-      onButtonClick: ()=>{
-        console.warn('Pending from 1')
+      content: 'Pending',
+      badgeCount: 15,
+      onButtonClick: () => {
+        console.warn('Pending from 1');
       }
     },
     {
-      content:"Search",
-      onButtonClick: ()=>{
-        console.warn('search from 1')
+      content: 'Search',
+      onButtonClick: () => {
+        console.warn('search from 1');
       }
-    },
+    }
   ];
 
 
@@ -524,7 +525,23 @@ const UIComponentTest = ({ navigation }) => {
                 onPress={() => console.warn('ButtonCommunication')}
               />
             </View>
-            {/* ui/button/ButtonCommunication */}
+            {/* ui/button/ButtonRectangle */}
+            <View style={p10}>
+              <TextComponent
+                size={fonts.fs20}
+                color={colors.secondary}
+                content="ui/button/ButtonRectangle"
+                family={fonts.bold}
+              />
+              <ButtonRectangle
+                content="Get Payment"
+                textColor={colors.white1}
+                fontSize={fonts.fs14}
+                buttonColor={colors.colorSecondery}
+                onPress={() => console.warn('ButtonRectangle')}
+              />
+            </View>
+            {/* ui/button/ButtonRectangle */}
 
 
           </SafeAreaView>
@@ -577,7 +594,7 @@ const UIComponentTest = ({ navigation }) => {
               content="Hotel Booking"
             />
           </View>
-            {/* ui/HeaderTop */}
+          {/* ui/HeaderTop */}
         </View>
 
       </ScrollView>
