@@ -24,6 +24,7 @@ export const colors = {
   black5: '#838383',
   black6: '#c9c9c9',
   black7: '#c2c2c2',
+  black8: '#1c1c1c',
   text1: '#08205C',
   text2: '#000000',
   yellow1: '#fff500',

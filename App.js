@@ -2,7 +2,6 @@ import React from 'react';
 import { TouchableOpacity, Text, SafeAreaView } from 'react-native';
 
 const App = ({ navigation }) => {
-  console.log(navigation);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <TouchableOpacity

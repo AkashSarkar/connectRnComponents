@@ -27,6 +27,7 @@ import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
 import Selection from '../../component/widget/card/Selection';
+import ProfileCard from '../../component/widget/card/ProfileCard';
 
 const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
@@ -242,6 +243,21 @@ const WidgetL1Test = ({ navigation }) => {
         />
       </View>
       {/* widget/card/AccountSliderItem */}
+      <View style={[pb10]}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/ProfileCard"
+          family={fonts.bold}
+        />
+        <ProfileCard
+          handleInformation={handleAccountSliderItem}
+          suffixNo={12}
+          amount={12589997.88888}
+          connectAcc="0002-90909-90909"
+        />
+      </View>
+      {/* widget/card/ProfileCard */}
 
       <View style={[pb10]}>
         <TextComponent
