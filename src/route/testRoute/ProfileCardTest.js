@@ -6,7 +6,7 @@ import { pb10, p10 } from '../../styles/commonStyle';
 import { fonts, colors, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
 
-const PickerTest = () => {
+const ProfileCardTest = () => {
   const leftPress = () => {
     console.log('left press');
   };
@@ -40,4 +40,4 @@ const PickerTest = () => {
   );
 };
 
-export default PickerTest;
+export default ProfileCardTest;
