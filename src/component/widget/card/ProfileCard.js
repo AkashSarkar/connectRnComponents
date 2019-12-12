@@ -42,7 +42,7 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingBottom: 30
+    paddingBottom: 20
   },
   contentBottomWrapper: {
     flexDirection: 'row'
@@ -94,19 +94,19 @@ const ProfileCard = (
             <View>
               <TextComponent
                 content={title}
-                size={fonts.fs20}
+                size={fonts.fs18}
                 color={colors.black}
                 family={fonts.semiBold}
               />
               <TextComponent
                 content="CONNECT ID:"
-                size={fonts.fs12}
+                size={fonts.fs10}
                 color={colors.black8}
                 family={fonts.medium}
               />
               <TextComponent
                 content={connectId}
-                size={fonts.fs14}
+                size={fonts.fs12}
                 color={colors.black8}
                 family={fonts.medium}
               />
@@ -139,7 +139,7 @@ const ProfileCard = (
           <View style={mb10}>
             <Image
               source={badge}
-              style={{ height: 90, width: 90 }}
+              style={{ height: 80, width: 80 }}
               resizeMode="contain"
             />
           </View>
