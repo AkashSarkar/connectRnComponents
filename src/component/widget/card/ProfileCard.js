@@ -57,8 +57,8 @@ const styles = {
     marginRight: 5
   },
   logo: {
-    height: 80,
-    width: 80
+    height: 60,
+    width: 60
   },
   rightContentWrapper: {
     flex: 1,
@@ -139,7 +139,7 @@ const ProfileCard = (
           <View style={mb10}>
             <Image
               source={badge}
-              style={{ height: 80, width: 80 }}
+              style={{ height: 70, width: 70 }}
               resizeMode="contain"
             />
           </View>
