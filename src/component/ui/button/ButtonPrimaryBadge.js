@@ -9,10 +9,11 @@ import { pv10 } from '../../../styles/commonStyle';
 const styles = StyleSheet.create({
   buttonWrapper: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 25,
-    ...pv10
+    ...pv10,
+    paddingHorizontal: 20
   },
   hitSlop: {
     top: 5,
@@ -25,9 +26,8 @@ const styles = StyleSheet.create({
   },
   rightViewWrapper: {
     alignItems: 'center',
-    width: 35,
-    borderRadius: 20,
-    backgroundColor: 'red'
+    width: 35
+
   }
 });
 
@@ -39,7 +39,8 @@ const ButtonPrimaryBadge = (
     textColor,
     fontSizeText,
     fontSizeBadge,
-    onPress
+    onPress,
+    badgeBackground
   }
 ) => (
   <TouchableOpacity onPress={onPress}>
@@ -56,7 +57,12 @@ const ButtonPrimaryBadge = (
           color={textColor}
         />
       </View>
-      <View style={styles.rightViewWrapper}>
+      <View
+        style={[styles.rightViewWrapper, {
+          backgroundColor: badgeBackground,
+          borderRadius: 20
+        }]}
+      >
         <TextComponent
           content={badgeCount}
           family={fonts.regular}
@@ -74,7 +80,7 @@ ButtonPrimaryBadge.propTypes = {
   textColor: string.isRequired,
   fontSizeText: number,
   fontSizeBadge: number,
-  onPress: func,
+  onPress: func
 };
 
 

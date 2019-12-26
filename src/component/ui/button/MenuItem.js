@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     ...pv5,
-    paddingHorizontal: 5,
+    paddingHorizontal: 20,
     elevation: 1,
     shadowColor: colors.black1,
     shadowOffset: {
@@ -53,13 +53,13 @@ const MenuItem = ({
 }) => (
   <TouchableOpacity
     onPress={onPress}
-    style={[styles.buttonWrapper, { backgroundColor: colors[buttonColor] }]}
+    style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
     hitSlop={styles.hitSlop}
   >
     <View style={styles.leftWrapper}>
       <Image
         style={styles.imageStyle}
-        source={image[logo]}
+        source={logo}
       />
     </View>
     <View style={styles.rightWrapper}>
@@ -67,7 +67,7 @@ const MenuItem = ({
         content={content}
         family={fonts.regular}
         size={fonts.fs10}
-        color={colors[textColor]}
+        color={textColor}
       />
     </View>
   </TouchableOpacity>

@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: 'transparent',
     borderColor: 'rgba(0.2, 0.2, 0.2, 0.4)',
-    borderTopWidth: 200,
-    borderBottomWidth: 280,
+    borderTopWidth: 100,
+    borderBottomWidth: 180,
     borderLeftWidth: 20,
     borderRightWidth: 20
   },
