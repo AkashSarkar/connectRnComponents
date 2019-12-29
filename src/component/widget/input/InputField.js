@@ -6,7 +6,9 @@ import {
   string, bool, func, number, array, any
 } from 'prop-types';
 
-import { Input, TextComponent, AnimatedTextComponent } from '../../ui';
+import {
+  Input, InputV2, TextComponent, AnimatedTextComponent
+} from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 
 import { mb10, mb5 } from '../../../styles/commonStyle';
@@ -36,7 +38,8 @@ const InputField = forwardRef(
       validations,
       iconSource,
       isIcon,
-      secureTextEntry
+      secureTextEntry,
+      v2
     },
     ref,
   ) => {
@@ -101,23 +104,43 @@ const InputField = forwardRef(
           </View>
         )}
         <View style={mb5}>
-          <Input
-            autoFocus={autoFocus}
-            keyboardType={keyboardType}
-            placeholder={placeholder}
-            placeholderTextColor={placeholderTextColor}
-            maxLength={maxLength}
-            disable={disable}
-            onBlur={() => !disable && onValidate()}
-            returnKeyType={returnKeyType}
-            onChangeText={onChangeText}
-            value={value}
-            ref={inputRef}
-            isError={isError}
-            iconSource={iconSource}
-            isIcon={isIcon}
-            secureTextEntry={secureTextEntry}
-          />
+          {v2 ? (
+            <InputV2
+              autoFocus={autoFocus}
+              keyboardType={keyboardType}
+              placeholder={placeholder}
+              placeholderTextColor={placeholderTextColor}
+              maxLength={maxLength}
+              disable={disable}
+              onBlur={() => !disable && onValidate()}
+              returnKeyType={returnKeyType}
+              onChangeText={onChangeText}
+              value={value}
+              ref={inputRef}
+              isError={isError}
+              iconSource={iconSource}
+              isIcon={isIcon}
+              secureTextEntry={secureTextEntry}
+            />
+          ) : (
+            <Input
+              autoFocus={autoFocus}
+              keyboardType={keyboardType}
+              placeholder={placeholder}
+              placeholderTextColor={placeholderTextColor}
+              maxLength={maxLength}
+              disable={disable}
+              onBlur={() => !disable && onValidate()}
+              returnKeyType={returnKeyType}
+              onChangeText={onChangeText}
+              value={value}
+              ref={inputRef}
+              isError={isError}
+              iconSource={iconSource}
+              isIcon={isIcon}
+              secureTextEntry={secureTextEntry}
+            />
+          )}
         </View>
         {errorMsg.length > 0 ? (
           <View style={mb5}>
@@ -155,7 +178,8 @@ InputField.propTypes = {
   setIsValid: func.isRequired,
   iconSource: number,
   isIcon: bool,
-  secureTextEntry: bool
+  secureTextEntry: bool,
+  v2: bool
 };
 
 export default InputField;

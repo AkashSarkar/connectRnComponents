@@ -18,6 +18,7 @@ import FnfTest from './testRoute/FnfTest';
 import InteractiveTest from './testRoute/InteractiveTest';
 import WidgetInputTest from './testRoute/WidgetInputTest';
 import UIComponentTest from './testRoute/UIComponentTest';
+import UIComponentV2Test from './testRoute/UIComponentsV2Test';
 import WidgetL1Test from './testRoute/WidgetL1Test';
 import WidgetL2Test from './testRoute/WidgetL2Test';
 import WidgetL3Test from './testRoute/WidgetL3Test';
@@ -49,6 +50,7 @@ const AppNavigator = createStackNavigator(
     SwitchTest,
     ModalTest,
     UIComponentTest,
+    UIComponentV2Test,
     WidgetL1Test,
     WidgetL2Test,
     WidgetL3Test,
@@ -70,7 +72,7 @@ const AppNavigator = createStackNavigator(
     ProfileCardTest
   },
   {
-    initialRouteName: 'UIComponentTest',
+    initialRouteName: 'UIComponentV2Test',
     headerMode: 'none'
   },
 );

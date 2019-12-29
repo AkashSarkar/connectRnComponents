@@ -115,6 +115,47 @@ const UIComponentTest = ({ navigation }) => {
                 <TextComponent
                   size={fonts.fs20}
                   color={colors.secondary}
+                  content="UI/InputV2"
+                  family={fonts.bold}
+                />
+              </View>
+              <BoxShadow>
+                <View style={{ padding: 15 }}>
+                  <InputField
+                    value={name}
+                    placeholder="Temporary Connect ID"
+                    placeholderTextColor="red"
+                    v2
+                    keyboardType="numeric"
+                    maxLength={11}
+                    returnKeyType="next"
+                    onChangeText={(text) => {
+                      setName(text);
+                    }}
+                    setIsValid={(validity) => {
+                    }}
+                    validations={[
+                      {
+                        validationType: 'required',
+                        value: true,
+                        msg: 'This field is required'
+                      },
+                      {
+                        validationType: 'type',
+                        value: 'number',
+                        msg: 'This field must be number'
+                      }
+                    ]}
+                  />
+                </View>
+              </BoxShadow>
+              {/* end UI/Input */}
+            </View>
+            <View style={{ marginLeft: 10 }}>
+              <View style={mb10}>
+                <TextComponent
+                  size={fonts.fs20}
+                  color={colors.secondary}
                   content="ui/Input [Variation]"
                   family={fonts.bold}
                 />

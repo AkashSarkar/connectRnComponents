@@ -19,6 +19,7 @@ import HeaderTop from './header/HeaderTop';
 import BoxShadow from './wrapper/BoxShadow';
 import CarouselWrapper from './wrapper/CarouselWrapper';
 import Input from './input/Input';
+import InputV2 from './input/InputV2';
 import ControlWrapper from './wrapper/ControlWrapper';
 import AnimateOpacity from './wrapper/animation/AnimateOpacity';
 
@@ -42,6 +43,7 @@ export {
   HeaderPrimary,
   HeaderTop,
   Input,
+  InputV2,
   BoxShadow,
   CarouselWrapper,
   ControlWrapper,
