@@ -34,6 +34,7 @@ import QRTest from './testRoute/QRTest';
 import CameraTest from './testRoute/CameraTest';
 import ProfileCardTest from './testRoute/ProfileCardTest';
 
+import ButtonNidFront from '../component/ui/button/ButtonNidFront';
 
 const AppNavigator = createStackNavigator(
   {
@@ -69,10 +70,11 @@ const AppNavigator = createStackNavigator(
     GraphTest,
     QRTest,
     CameraTest,
-    ProfileCardTest
+    ProfileCardTest,
+    ButtonNidFront
   },
   {
-    initialRouteName: 'UIComponentV2Test',
+    initialRouteName: 'ButtonTest',
     headerMode: 'none'
   },
 );
