@@ -1,20 +1,20 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Platform } from 'react-native';
 import {
-  string, func, array, number,bool
+  string, func, array, number, bool
 } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10 } from '../../../styles/commonStyle';
+import { pv10, pv25 } from '../../../styles/commonStyle';
 
+const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 25,
-    ...pv10,
-    paddingHorizontal: 10
+    // justifyContent: 'flex-start',
+    alignItems: 'center'
+    // borderRadius: 25,
+    // paddingHorizontal: 10
   },
   hitSlop: {
     top: 5,
@@ -25,24 +25,25 @@ const styles = StyleSheet.create({
 });
 
 const ButtonPrimary = ({
-  content, buttonColor, textColor, fontSize, onPress, disabled
+  content, buttonColor = colors.primary, buttonHeight = 80, textColor, fontSize, onPress, disabled
 }) => (
-  <TouchableOpacity 
+  <TouchableOpacity
     onPress={onPress}
-    disabled={disabled}  
+    disabled={disabled}
+    style={[styles.buttonWrapper, {
+      backgroundColor: buttonColor,
+      paddingTop: platform === 'android' ? 0 : 12,
+      height: buttonHeight,
+      justifyContent: platform === 'android' ? 'center' : 'flex-start'
+    }]}
+    hitSlop={styles.hitSlop}
   >
-    <LinearGradient
-      colors={buttonColor}
-      style={styles.buttonWrapper}
-      hitSlop={styles.hitSlop}
-    >
-      <TextComponent
-        content={content}
-        family={fonts.regular}
-        size={fontSize}
-        color={textColor}
-      />
-    </LinearGradient>
+    <TextComponent
+      content={content}
+      family={fonts.regular}
+      size={fontSize}
+      color={textColor}
+    />
   </TouchableOpacity>
 );
 
@@ -51,6 +52,7 @@ ButtonPrimary.propTypes = {
   buttonColor: array.isRequired,
   textColor: string.isRequired,
   fontSize: number,
+  buttonHeight: number,
   onPress: func,
   disabled: bool
 };

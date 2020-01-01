@@ -10,7 +10,7 @@ import {
   ButtonDouble,
   ButtonGradientPrimary,
   ButtonGrey,
-  ButtonPrimary,
+  ButtonPrimaryV2,
   ButtonPrimaryBadge,
   ButtonQuickAmount,
   ButtonSecondaryBadge,
@@ -152,7 +152,10 @@ const UIComponentV2Test = ({ navigation }) => {
                     ]}
                   />
                 </View>
-                <View style={{ borderColor: '#1a1a1a', borderWidth: 1 }} />
+                <View style={{
+                  borderColor: '#1a1a1a',
+                  borderWidth: 1
+                }} />
                 <View style={{ padding: 15 }}>
                   <InputField
                     value={name}
@@ -184,6 +187,31 @@ const UIComponentV2Test = ({ navigation }) => {
               </BoxShadow>
               {/* end UI/Input */}
             </View>
+          </View>
+
+          <View style={p10}>
+            <View style={[pb10]}>
+              <TextComponent
+                size={fonts.fs30}
+                color={colors.black0}
+                content="Buttons"
+                family={fonts.bold}
+              />
+            </View>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonPrimaryV2"
+              family={fonts.bold}
+            />
+            <ButtonPrimaryV2
+              content="Button Primary V2"
+              buttonColor={colors.primary}
+              buttonHeight={80}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Button Primary')}
+            />
           </View>
         </View>
       </ScrollView>
