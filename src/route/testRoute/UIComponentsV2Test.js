@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
+import { SafeAreaView, ScrollView, View, StyleSheet } from 'react-native';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
   ButtonAdd,
@@ -18,13 +18,14 @@ import {
   HeaderPrimary,
   HeaderTop,
   MenuItem,
-  TextComponent
+  TextComponent,
+  InputFieldSeperator
 } from '../../component/ui';
 import { mb10, p10, pb10 } from '../../styles/commonStyle';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
-import { AmountChange } from '../../component/widget';
+import { AmountChange, InputTabbedV2 } from '../../component/widget';
 import Switch from '../../component/ui/input/Switch';
 import TabTest from './TabTest';
 import ButtonRectangle from '../../component/ui/button/ButtonRectangle';
@@ -35,11 +36,326 @@ const screenContainer = {
   justifyContent: 'space-between'
 };
 
+const styles = StyleSheet.create({
+  inputField: {
+    paddingTop: 10,
+    paddingBottom: 10
+  }
+});
+
 const UIComponentV2Test = ({ navigation }) => {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [search, setSearch] = useState('');
+
+  const BankAccountComponent = () => {
+    const [accountHolderName, setAccountHolderName] = useState('');
+    const [bankName, setBankName] = useState('');
+    const [branchName, setBranchName] = useState('');
+    return (
+      <View style={[{ paddingHorizontal: 10 }]}>
+        <View style={styles.inputField}>
+          <InputField
+            value={accountHolderName}
+            placeholder="Account Holder Name"
+            keyboardType="default"
+            v2
+            maxLength={20}
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setAccountHolderName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={bankName}
+            placeholder="Bank Name"
+            keyboardType="default"
+            v2
+            maxLength={14}
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setBankName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={branchName}
+            placeholder="Branch Name"
+            keyboardType="default"
+            v2
+            maxLength={14}
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setBranchName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={bankName}
+            placeholder="Account Number"
+            keyboardType="numeric"
+            v2
+            maxLength={14}
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setBankName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={bankName}
+            placeholder="Mobile Number"
+            keyboardType="phone-pad"
+            v2
+            maxLength={14}
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setBankName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+      </View>
+    );
+  };
+
+  const WalletIDComponent = () => {
+    const [cardNumber, setCardNumber] = useState('');
+    const [cardholderName, setCardholderName] = useState('');
+    const [validity, setValidity] = useState('');
+    const [cvc, setCvc] = useState('');
+    return (
+      <View style={[{ paddingHorizontal: 10 }]}>
+        <View style={styles.inputField}>
+          <InputField
+            value={cardNumber}
+            placeholder="Account Holder Name"
+            keyboardType="default"
+            maxLength={20}
+            placeholderTextColor="#ff3d82"
+            v2
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCardNumber(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={cardholderName}
+            placeholder="Provider Name"
+            keyboardType="default"
+            placeholderTextColor="#ff3d82"
+            v2
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCardholderName(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={validity}
+            placeholder="Wallet Type"
+            keyboardType="default"
+            maxLength={5}
+            v2
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setValidity(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={cvc}
+            placeholder="Account Number"
+            keyboardType="numeric"
+            maxLength={18}
+            v2
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCvc(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+        <InputFieldSeperator />
+        <View style={styles.inputField}>
+          <InputField
+            value={cvc}
+            placeholder="Mobile Number"
+            keyboardType="number-pad"
+            maxLength={18}
+            v2
+            placeholderTextColor="#ff3d82"
+            returnKeyType="next"
+            onChangeText={(text) => {
+              setCvc(text);
+            }}
+            setIsValid={(validity) => {
+            }}
+            validations={[
+              {
+                validationType: 'required',
+                value: true,
+                msg: 'This field is required'
+              },
+              {
+                validationType: 'type',
+                value: 'number',
+                msg: 'This field must be number'
+              }
+            ]}
+          />
+        </View>
+      </View>
+    );
+  };
 
 
   const headerButtonsInformation = [
@@ -155,7 +471,8 @@ const UIComponentV2Test = ({ navigation }) => {
                 <View style={{
                   borderColor: '#1a1a1a',
                   borderWidth: 1
-                }} />
+                }}
+                />
                 <View style={{ padding: 15 }}>
                   <InputField
                     value={name}
@@ -211,6 +528,31 @@ const UIComponentV2Test = ({ navigation }) => {
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
               onPress={() => console.warn('Button Primary')}
+            />
+          </View>
+
+          <View style={[p10, { backgroundColor: '#1a1a1a' }]}>
+            <View style={[pb10]}>
+              <TextComponent
+                size={fonts.fs30}
+                color={colors.black0}
+                content="Tab Sliders Widget"
+                family={fonts.bold}
+              />
+            </View>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/InputTabbed"
+              family={fonts.bold}
+            />
+            <InputTabbedV2
+              leftInputForm={BankAccountComponent}
+              rightInputForm={WalletIDComponent}
+              tabTitle1="Bank Account"
+              tabTitle2="Wallet ID"
+              inputFieldBackground="#000000"
+              tabBackground="transparent"
             />
           </View>
         </View>

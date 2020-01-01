@@ -21,6 +21,7 @@ import BoxShadow from './wrapper/BoxShadow';
 import CarouselWrapper from './wrapper/CarouselWrapper';
 import Input from './input/Input';
 import InputV2 from './input/InputV2';
+import InputFieldSeperator from './uiUtils/InputFieldSeperator';
 import ControlWrapper from './wrapper/ControlWrapper';
 import AnimateOpacity from './wrapper/animation/AnimateOpacity';
 
@@ -44,9 +45,10 @@ export {
   ButtonDouble,
   HeaderPrimary,
   HeaderTop,
+  BoxShadow,
   Input,
   InputV2,
-  BoxShadow,
+  InputFieldSeperator,
   CarouselWrapper,
   ControlWrapper,
   AnimateOpacity

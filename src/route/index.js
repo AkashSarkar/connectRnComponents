@@ -29,7 +29,6 @@ import AccountListTest from './testRoute/AccountListTest';
 import CCMTest from './testRoute/CCMTest';
 import BottomDrawerTest from './testRoute/BottomDrawerTest';
 import GraphTest from './testRoute/GraphTest';
-import AmountCardTest from './testRoute/AmountCardTest';
 import QRTest from './testRoute/QRTest';
 import CameraTest from './testRoute/CameraTest';
 import ProfileCardTest from './testRoute/ProfileCardTest';

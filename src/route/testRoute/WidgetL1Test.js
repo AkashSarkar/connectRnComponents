@@ -21,7 +21,8 @@ import {
   Scan,
   SeatListItem,
   TripType,
-  VerifiedInfo
+  VerifiedInfo,
+  InputTabbedV2
 } from '../../component/widget';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
@@ -183,7 +184,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputTabbed"
             family={fonts.bold}
           />
-          <InputTabbed/>
+          <InputTabbedV2 />
         </View>
         <View style={mb20}>
           <TextComponent
