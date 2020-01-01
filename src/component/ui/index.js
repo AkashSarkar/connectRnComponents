@@ -1,6 +1,7 @@
 import TextComponent from './typography/TextComponent';
 import AnimatedTextComponent from './typography/AnimatedTextComponent';
 import ButtonPrimary from './button/ButtonPrimary';
+import ButtonPrimaryV2 from './button/ButtonPrimaryV2';
 import ButtonGradientPrimary from './button/ButtonGradientPrimary';
 import ButtonGrey from './button/ButtonGrey';
 import ButtonConnect from './button/ButtonConnect';
@@ -28,6 +29,7 @@ export {
   TextComponent,
   AnimatedTextComponent,
   ButtonPrimary,
+  ButtonPrimaryV2,
   ButtonGradientPrimary,
   ButtonGrey,
   ButtonConnect,
