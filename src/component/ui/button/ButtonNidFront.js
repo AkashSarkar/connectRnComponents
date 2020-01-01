@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 const ButtonNidFront = ({
     content, buttonColor, textColor, fontSize, onPress
 }) => (
-    <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity onPress={onPress}>
         <View style={[styles.buttonWrapper, {backgroundColor: buttonColor }]} hitSlop={styles.hitSlop}>
             <View style={styles.viewWrapper}>
                 <TextComponent content={content} family={fonts.regular} size={fontSize} color={textColor} />

@@ -17,11 +17,13 @@ import {
   ButtonSecondaryBadge,
   ButtonTag,
   MenuItem,
-  TextComponent
+  TextComponent,
+  ButtonNidFront,
 } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
 import { p10 } from '../../styles/commonStyle';
+
 
 
 const styles = StyleSheet.create({
@@ -168,6 +170,26 @@ const ButtonTest = ({ params }) => (
           family={fonts.bold}
         />
         <ButtonAdd
+          content="Button Add"
+          logoLeft="ConnectSign"
+          logoRight="Connect"
+          buttonColor={gradientColors.gradient4}
+          textColor={colors.text1}
+          fontSize={fonts.fs14}
+          onPress={() => console.warn('Add New Account')}
+        />
+      </View>
+      {/* ui/button/ButtonAdd */}
+
+
+      <View style={p10}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="ui/button/ButtonNidFront"
+          family={fonts.bold}
+        />
+        <ButtonNidFront
           content="Button Add"
           logoLeft="ConnectSign"
           logoRight="Connect"
