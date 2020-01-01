@@ -11,7 +11,9 @@ import {
 } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 
-import { mb10, mb5, ml15, ml5, mt5 } from '../../../styles/commonStyle';
+import {
+  mb10, mb5, ml15, ml5, mt5
+} from '../../../styles/commonStyle';
 import { validate } from '../../../utils/validation';
 
 const styles = StyleSheet.create({
@@ -123,24 +125,24 @@ const InputField = forwardRef(
               secureTextEntry={secureTextEntry}
             />
           ) : (
-              <Input
-                autoFocus={autoFocus}
-                keyboardType={keyboardType}
-                placeholder={placeholder}
-                placeholderTextColor={placeholderTextColor}
-                maxLength={maxLength}
-                disable={disable}
-                onBlur={() => !disable && onValidate()}
-                returnKeyType={returnKeyType}
-                onChangeText={onChangeText}
-                value={value}
-                ref={inputRef}
-                isError={isError}
-                iconSource={iconSource}
-                isIcon={isIcon}
-                secureTextEntry={secureTextEntry}
-              />
-            )}
+            <Input
+              autoFocus={autoFocus}
+              keyboardType={keyboardType}
+              placeholder={placeholder}
+              placeholderTextColor={placeholderTextColor}
+              maxLength={maxLength}
+              disable={disable}
+              onBlur={() => !disable && onValidate()}
+              returnKeyType={returnKeyType}
+              onChangeText={onChangeText}
+              value={value}
+              ref={inputRef}
+              isError={isError}
+              iconSource={iconSource}
+              isIcon={isIcon}
+              secureTextEntry={secureTextEntry}
+            />
+          )}
         </View>
         {errorMsg.length > 0 ? (
           <View style={[mb5, ml5, mt5]}>
