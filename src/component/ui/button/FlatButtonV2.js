@@ -1,25 +1,18 @@
 import React from 'react';
-import {
-  TouchableOpacity, View, StyleSheet, Platform, Image
-} from 'react-native';
-import {
-  string, func, array, number, bool
-} from 'prop-types';
-import LinearGradient from 'react-native-linear-gradient';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { bool, func, number, string } from 'prop-types';
+import { fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10, pv25, mb10 } from '../../../styles/commonStyle';
-// import assets from '';
+import assets from '../../../assets';
 
-
-const platform = Platform.OS;
 const styles = StyleSheet.create({
+
   buttonWrapper: {
-    // justifyContent: 'flex-start',
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 2,
-    // borderRadius: 25,
-    // paddingHorizontal: 10
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
   },
   hitSlop: {
     top: 5,
@@ -29,26 +22,18 @@ const styles = StyleSheet.create({
   }
 });
 
+
 const FlatButtonV2 = ({
   content,
-  buttonColor = colors.primary,
-  buttonHeight = 30,
   textColor,
-  fontFamily="ProximaNova",
   fontSize,
   onPress,
-  disabled,
-  disabledColor = colors.grey1
+  disabled
 }) => (
   <TouchableOpacity
     onPress={onPress}
     disabled={disabled}
-    style={[styles.buttonWrapper, {
-      // backgroundColor: disabled ? disabledColor : buttonColor,
-      paddingTop: platform === 'android' ? 0 : 12,
-      height: buttonHeight,
-      justifyContent: platform === 'android' ? 'center' : 'flex-start'
-    }]}
+    style={styles.buttonWrapper}
     hitSlop={styles.hitSlop}
   >
     <TextComponent
@@ -57,22 +42,23 @@ const FlatButtonV2 = ({
       size={fontSize}
       color={textColor}
     />
-    {/* <Image source={}/> */}
-    
+    <Image
+      source={assets.TickIcon}
+      style={{
+        height: 20,
+        width: 20
+      }}
+      resizeMode="contain"
+    />
   </TouchableOpacity>
 );
 
 FlatButtonV2.propTypes = {
   content: string.isRequired,
-  buttonColor: array.isRequired,
   textColor: string.isRequired,
   fontSize: number,
-  buttonHeight: number,
   onPress: func,
-  disabled: bool,
-  disabledColor: string,
-  fontFamily: string,
-
+  disabled: bool
 };
 
 

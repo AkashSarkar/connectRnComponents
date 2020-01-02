@@ -3,12 +3,11 @@ import {
   StyleSheet, TouchableOpacity, View, Platform
 } from 'react-native';
 import {
-  array, number, string, func, bool
+  number, string, func, bool
 } from 'prop-types';
-import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10, pv25 } from '../../../styles/commonStyle';
+import { pv10 } from '../../../styles/commonStyle';
 
 const platform = Platform.OS;
 
@@ -51,10 +50,10 @@ const styles = StyleSheet.create({
 const ButtonDoubleV2 = ({
   content,
   contentRight,
-  buttonColor = colors.primary,
+  buttonColor,
   textColorLeft,
   textColorRight,
-  buttonHeight = 80,
+  buttonHeight,
   fontSize,
   onPressLeft,
   onPressRight,
@@ -98,9 +97,10 @@ const ButtonDoubleV2 = ({
 ButtonDoubleV2.propTypes = {
   content: string.isRequired,
   contentRight: string.isRequired,
-  buttonColor: array.isRequired,
+  buttonColor: string.isRequired,
   textColorLeft: string.isRequired,
   textColorRight: string.isRequired,
+  buttonHeight: number,
   fontSize: number,
   onPressLeft: func,
   onPressRight: func,
