@@ -1,14 +1,10 @@
 import React from 'react';
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import {
-  TouchableOpacity, View, StyleSheet, Platform
-} from 'react-native';
-import {
-  string, func, array, number, bool
+  array, bool, func, number, string
 } from 'prop-types';
-import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10, pv25 } from '../../../styles/commonStyle';
 
 const platform = Platform.OS;
 const styles = StyleSheet.create({
