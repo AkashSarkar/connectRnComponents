@@ -24,6 +24,8 @@ import InputV2 from './input/InputV2';
 import ControlWrapper from './wrapper/ControlWrapper';
 import AnimateOpacity from './wrapper/animation/AnimateOpacity';
 import ButtonNidFront from './button/ButtonNidFront';
+import ButtonDoubleV2 from './button/ButtonDoubleV2';
+import FlatButtonV2 from './button/FlatButtonV2';
 
 export {
   TextComponent,
@@ -51,5 +53,7 @@ export {
   CarouselWrapper,
   ControlWrapper,
   AnimateOpacity,
-  ButtonNidFront
+  ButtonNidFront,
+  ButtonDoubleV2,
+  FlatButtonV2
 };

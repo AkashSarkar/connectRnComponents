@@ -58,7 +58,8 @@ const assets = {
   Dmoney2: require('./icons/Dmoney2.png'),
   Pause: require('./icons/Pause.png'),
   Hotel: require('./icons/Hotel-1.png'),
-  Bronze: require('./icons/Bronze.png')
+  Bronze: require('./icons/Bronze.png'),
+  TickIcon: require('./icons/Tick.png')
 };
 
 export default assets;

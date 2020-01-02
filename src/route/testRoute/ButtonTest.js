@@ -19,6 +19,7 @@ import {
   MenuItem,
   TextComponent,
   ButtonNidFront,
+  FlatButton,
 } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
@@ -60,6 +61,7 @@ const ButtonTest = ({ params }) => (
         />
       </View>
       {/* ui/button/ButtonDouble */}
+
 
       <View style={p10}>
         <TextComponent

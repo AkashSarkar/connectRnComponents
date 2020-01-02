@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  TouchableOpacity, View, StyleSheet, Platform
+  TouchableOpacity, View, StyleSheet, Platform, Image
 } from 'react-native';
 import {
   string, func, array, number, bool
@@ -8,13 +8,16 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10, pv25 } from '../../../styles/commonStyle';
+import { pv10, pv25, mb10 } from '../../../styles/commonStyle';
+// import assets from '';
+
 
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
     // justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 2,
     // borderRadius: 25,
     // paddingHorizontal: 10
   },
@@ -26,11 +29,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const ButtonPrimaryV2 = ({
+const FlatButtonV2 = ({
   content,
   buttonColor = colors.primary,
-  buttonHeight = 80,
+  buttonHeight = 30,
   textColor,
+  fontFamily="ProximaNova",
   fontSize,
   onPress,
   disabled,
@@ -40,7 +44,7 @@ const ButtonPrimaryV2 = ({
     onPress={onPress}
     disabled={disabled}
     style={[styles.buttonWrapper, {
-      backgroundColor: disabled ? disabledColor : buttonColor,
+      // backgroundColor: disabled ? disabledColor : buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
       justifyContent: platform === 'android' ? 'center' : 'flex-start'
@@ -53,10 +57,12 @@ const ButtonPrimaryV2 = ({
       size={fontSize}
       color={textColor}
     />
+    {/* <Image source={}/> */}
+    
   </TouchableOpacity>
 );
 
-ButtonPrimaryV2.propTypes = {
+FlatButtonV2.propTypes = {
   content: string.isRequired,
   buttonColor: array.isRequired,
   textColor: string.isRequired,
@@ -64,8 +70,10 @@ ButtonPrimaryV2.propTypes = {
   buttonHeight: number,
   onPress: func,
   disabled: bool,
-  disabledColor: string
+  disabledColor: string,
+  fontFamily: string,
+
 };
 
 
-export default ButtonPrimaryV2;
+export default FlatButtonV2;

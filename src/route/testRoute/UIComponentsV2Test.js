@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
+import { SafeAreaView, ScrollView, View, Image } from 'react-native';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
   ButtonAdd,
@@ -19,9 +19,11 @@ import {
   HeaderPrimary,
   HeaderTop,
   MenuItem,
-  TextComponent
+  TextComponent,
+  ButtonDoubleV2,
+  FlatButtonV2
 } from '../../component/ui';
-import { mb10, p10, pb10 } from '../../styles/commonStyle';
+import { mb10, p10, pb10, mb5 } from '../../styles/commonStyle';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
@@ -29,6 +31,8 @@ import { AmountChange } from '../../component/widget';
 import Switch from '../../component/ui/input/Switch';
 import TabTest from './TabTest';
 import ButtonRectangle from '../../component/ui/button/ButtonRectangle';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -64,6 +68,53 @@ const UIComponentV2Test = ({ navigation }) => {
     <SafeAreaView>
       <ScrollView contentContainerStyle={screenContainer}>
         <View>
+
+          {/* test start */}
+          <View style={{ marginLeft: 10 }}>
+              <View style={mb10}>
+                <TextComponent
+                  size={fonts.fs20}
+                  color={colors.secondary}
+                  content="UI/Scan NID"
+                  family={fonts.bold}
+                />
+              </View>
+              
+              <BoxShadow background= {colors.black}>
+                
+                <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
+                  <FlatButtonV2 
+                    content="Scan NID Front"
+                    marginBottom={mb5}
+                    textColor={colors.red2}
+                    fontSize={fonts.fs16}
+                    onPress={() => console.warn('Button Primary')}
+                  />
+                  <Image source={assets.TickIcon} style={{height: 20, width: 20}}/>
+                </View>
+
+                <View style={{width: '100%', height: '1%', marginBottom: 2, backgroundColor: colors.black9}}></View>
+                
+                <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between',  }}>
+                  <FlatButtonV2 
+                    content="Scan NID Back"
+                    buttonHeight={30}
+                    textColor={colors.red2}
+                    fontSize={fonts.fs16}
+                    onPress={() => console.warn('Button Primary')}
+                  />
+                  <Image source={assets.TickIcon} style={{height: 20, width: 20}}/>
+                </View>
+                
+              </BoxShadow>
+
+              
+              
+              {/* end UI/Input */}
+            </View>
+
+          {/* test ends */}
+
           <View style={[pb10]}>
             <TextComponent
               size={fonts.fs30}
@@ -115,6 +166,7 @@ const UIComponentV2Test = ({ navigation }) => {
               </BoxShadow>
               {/* end UI/Input */}
             </View>
+
             <View style={{ marginLeft: 10 }}>
               <View style={mb10}>
                 <TextComponent
@@ -156,7 +208,8 @@ const UIComponentV2Test = ({ navigation }) => {
                 <View style={{
                   borderColor: '#1a1a1a',
                   borderWidth: 1
-                }} />
+                }}
+                />
                 <View style={{ padding: 15 }}>
                   <InputField
                     value={name}
@@ -188,6 +241,7 @@ const UIComponentV2Test = ({ navigation }) => {
               </BoxShadow>
               {/* end UI/Input */}
             </View>
+
           </View>
 
           <View style={p10}>
@@ -212,6 +266,47 @@ const UIComponentV2Test = ({ navigation }) => {
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
               onPress={() => console.warn('Button Primary')}
+              // disabled
+            />
+          </View>
+
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonDoubleV2"
+              family={fonts.bold}
+            />
+            <ButtonDoubleV2
+              content="Confirm"
+              contentRight="Re-Capture"
+              buttonColor={colors.primary}
+              textColorLeft={colors.white1}
+              textColorRight={colors.grey1}
+              buttonHeight={80}
+              fontSize={fonts.fs16}
+              onPressLeft={() => console.warn('Left')}
+              onPressRight={() => console.warn('Right')}
+            />
+          </View>
+
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonDoubleV2"
+              family={fonts.bold}
+            />
+            <ButtonDoubleV2
+              content="Confirm"
+              contentRight="Re-Capture"
+              buttonColor={colors.primary}
+              textColorLeft={colors.white1}
+              textColorRight={colors.grey1}
+              buttonHeight={80}
+              fontSize={fonts.fs16}
+              onPressLeft={() => console.warn('Left')}
+              onPressRight={() => console.warn('Right')}
             />
           </View>
         </View>
