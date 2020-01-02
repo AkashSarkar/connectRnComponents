@@ -69,52 +69,6 @@ const UIComponentV2Test = ({ navigation }) => {
       <ScrollView contentContainerStyle={screenContainer}>
         <View>
 
-          {/* test start */}
-          <View style={{ marginLeft: 10 }}>
-              <View style={mb10}>
-                <TextComponent
-                  size={fonts.fs20}
-                  color={colors.secondary}
-                  content="UI/Scan NID"
-                  family={fonts.bold}
-                />
-              </View>
-              
-              <BoxShadow background= {colors.black}>
-                
-                <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <FlatButtonV2 
-                    content="Scan NID Front"
-                    marginBottom={mb5}
-                    textColor={colors.red2}
-                    fontSize={fonts.fs16}
-                    onPress={() => console.warn('Button Primary')}
-                  />
-                  <Image source={assets.TickIcon} style={{height: 20, width: 20}}/>
-                </View>
-
-                <View style={{width: '100%', height: '1%', marginBottom: 2, backgroundColor: colors.black9}}></View>
-                
-                <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between',  }}>
-                  <FlatButtonV2 
-                    content="Scan NID Back"
-                    buttonHeight={30}
-                    textColor={colors.red2}
-                    fontSize={fonts.fs16}
-                    onPress={() => console.warn('Button Primary')}
-                  />
-                  <Image source={assets.TickIcon} style={{height: 20, width: 20}}/>
-                </View>
-                
-              </BoxShadow>
-
-              
-              
-              {/* end UI/Input */}
-            </View>
-
-          {/* test ends */}
-
           <View style={[pb10]}>
             <TextComponent
               size={fonts.fs30}
@@ -289,26 +243,50 @@ const UIComponentV2Test = ({ navigation }) => {
               onPressRight={() => console.warn('Right')}
             />
           </View>
+          {/* ends ui/button/ButtonPrimaryV2 */}
+          
+          <View style={{ marginLeft: 10 }}>
+            <View style={mb10}>
+              <TextComponent
+                size={fonts.fs20}
+                color={colors.secondary}
+                content="UI/Scan-NID"
+                family={fonts.bold}
+              />
+            </View>
+            
+            <BoxShadow background= {colors.black}>
+              
+              <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
+                <FlatButtonV2 
+                  content="Scan NID Front"
+                  marginBottom={mb5}
+                  textColor={colors.red2}
+                  fontSize={fonts.fs16}
+                  onPress={() => console.warn('Flat Button')}
+                />
+                <Image source={assets.TickIcon} style={{height: 20, width: 20}}/>
+              </View>
 
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/button/ButtonDoubleV2"
-              family={fonts.bold}
-            />
-            <ButtonDoubleV2
-              content="Confirm"
-              contentRight="Re-Capture"
-              buttonColor={colors.primary}
-              textColorLeft={colors.white1}
-              textColorRight={colors.grey1}
-              buttonHeight={80}
-              fontSize={fonts.fs16}
-              onPressLeft={() => console.warn('Left')}
-              onPressRight={() => console.warn('Right')}
-            />
+              <View style={{width: '100%', height: '1%', marginBottom: 2, backgroundColor: colors.black9}}></View>
+              
+              <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between',  }}>
+                <FlatButtonV2 
+                  content="Scan NID Back"
+                  buttonHeight={30}
+                  textColor={colors.red2}
+                  fontSize={fonts.fs16}
+                  onPress={() => console.warn('Flat Button')}
+                />
+                <Image source={assets.TickIcon} style={{height: 20, width: 20}}/>
+              </View>
+              
+            </BoxShadow>
+            
           </View>
+
+          {/* end UI/ScanNID */}
+
         </View>
       </ScrollView>
     </SafeAreaView>
