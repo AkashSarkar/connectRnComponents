@@ -3,7 +3,6 @@ import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { bool, func, number, string } from 'prop-types';
 import { fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import assets from '../../../assets';
 
 const styles = StyleSheet.create({
 
@@ -28,6 +27,7 @@ const FlatButtonV2 = ({
   textColor,
   fontSize,
   onPress,
+  tickImage,
   disabled
 }) => (
   <TouchableOpacity
@@ -43,7 +43,7 @@ const FlatButtonV2 = ({
       color={textColor}
     />
     <Image
-      source={assets.TickIcon}
+      source={tickImage}
       style={{
         height: 20,
         width: 20

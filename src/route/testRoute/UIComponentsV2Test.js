@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
-  Image, SafeAreaView, ScrollView, View
+  SafeAreaView, ScrollView, View
 } from 'react-native';
 import { colors, fonts } from '../../styles/baseStyle';
 import {
   ButtonDoubleV2,
   ButtonPrimaryV2,
   FlatButtonV2,
-  TextComponent
+  TextComponent,
 } from '../../component/ui';
 import {
   mb10, mb5, p10, pb10
@@ -220,6 +220,7 @@ const UIComponentV2Test = () => {
                 textColor={colors.red2}
                 fontSize={fonts.fs16}
                 buttonColor={colors.primary}
+                tickImage={assets.TickIcon}
                 onPress={() => console.warn('Flat Button')}
               />
             </View>

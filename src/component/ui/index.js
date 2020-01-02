@@ -55,5 +55,5 @@ export {
   AnimateOpacity,
   ButtonNidFront,
   ButtonDoubleV2,
-  FlatButtonV2
+  FlatButtonV2,
 };
