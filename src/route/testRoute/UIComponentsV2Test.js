@@ -5,6 +5,7 @@ import {
 import { colors, fonts } from '../../styles/baseStyle';
 import {
   ButtonDoubleV2,
+  ButtonBorderV2,
   ButtonPrimaryV2,
   FlatButtonV2,
   TextComponent,
@@ -183,6 +184,9 @@ const UIComponentV2Test = () => {
               // disabled
             />
           </View>
+          
+          {/* ends ui/button/ButtonPrimaryV2 */}
+
           <View style={p10}>
             <TextComponent
               size={fonts.fs20}
@@ -202,7 +206,32 @@ const UIComponentV2Test = () => {
               onPressRight={() => console.warn('Right')}
             />
           </View>
-          {/* ends ui/button/ButtonPrimaryV2 */}
+
+          {/* ends ui/button/ButtonDoubleV2 */}
+
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonDoubleV3"
+              family={fonts.bold}
+            />
+            <ButtonBorderV2
+              content="Get Paid Now"
+              contentMiddle="|"
+              contentRight="Get Paid Later"
+              buttonColor={colors.red2}
+              textColorLeft={colors.white1}
+              textColorMiddle={colors.white1}
+              textColorRight={colors.white1}
+              buttonHeight={80}
+              fontSize={fonts.fs16}
+              onPressLeft={() => console.warn('Left')}
+              onPressRight={() => console.warn('Right')}
+            />
+          </View>
+
+          {/* ends ui/button/ButtonBorderV2 */}
 
           <View style={{ marginLeft: 10 }}>
             <View style={mb10}>
