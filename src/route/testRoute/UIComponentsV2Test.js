@@ -19,16 +19,16 @@ import {
   HeaderTop,
   MenuItem,
   TextComponent,
-  InputFieldSeperator
+  InputFieldSeperator,
+  ButtonRectangle
 } from '../../component/ui';
 import { mb10, p10, pb10 } from '../../styles/commonStyle';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
-import { AmountChange, InputTabbedV2 } from '../../component/widget';
+import { AmountChange, InputTabbedV2, KeyboardNumeric } from '../../component/widget';
 import Switch from '../../component/ui/input/Switch';
 import TabTest from './TabTest';
-import ButtonRectangle from '../../component/ui/button/ButtonRectangle';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -555,30 +555,40 @@ const UIComponentV2Test = ({ navigation }) => {
               tabBackground="transparent"
             />
           </View>
+          {/* ui/button/ButtonRectangle */}
           <View style={p10}>
-            <View style={[pb10]}>
-              <TextComponent
-                size={fonts.fs30}
-                color={colors.black0}
-                content="Keyboard Numeric"
-                family={fonts.bold}
-              />
-            </View>
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/ButtonPrimaryV2"
+              content="ui/button/ButtonRectangle"
               family={fonts.bold}
             />
-            <ButtonPrimaryV2
-              content="Button Primary V2"
-              buttonColor={colors.primary}
-              buttonHeight={80}
-              textColor={colors.bgPrimary}
+            <ButtonRectangle
+              content="Get Payment"
+              textColor={colors.white1}
               fontSize={fonts.fs14}
-              onPress={() => console.warn('Button Primary')}
+              buttonColor={colors.colorSecondery}
+              onPress={() => console.warn('ButtonRectangle')}
             />
           </View>
+          {/* ui/button/ButtonRectangle */}
+          {/* ui/button/ButtonRectangle */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonRectangle"
+              family={fonts.bold}
+            />
+            <KeyboardNumeric
+              content="Get Payment"
+              textColor={colors.primary}
+              fontSize={fonts.fs14}
+              buttonColor={colors.colorSecondery}
+              onPress={() => console.warn('ButtonRectangle')}
+            />
+          </View>
+          {/* ui/button/ButtonRectangle */}
         </View>
       </ScrollView>
     </SafeAreaView>

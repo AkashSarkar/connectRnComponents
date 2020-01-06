@@ -6,6 +6,7 @@ import { fonts, colors } from '../../../styles/baseStyle';
 
 const styles = {
   buttonStyle: {
+    // width: '100%',
     padding: 10,
     borderRadius: 6,
     shadowColor: '#00000029',

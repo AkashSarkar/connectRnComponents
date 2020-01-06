@@ -15,6 +15,7 @@ import ButtonPrimaryBadge from './button/ButtonPrimaryBadge';
 import ButtonTag from './button/ButtonTag';
 import ButtonSecondaryBadge from './button/ButtonSecondaryBadge';
 import ButtonDouble from './button/ButtonDouble';
+import ButtonRectangle from './button/ButtonRectangle';
 import HeaderPrimary from './header/HeaderPrimary';
 import HeaderTop from './header/HeaderTop';
 import BoxShadow from './wrapper/BoxShadow';
@@ -43,6 +44,7 @@ export {
   ButtonTag,
   ButtonSecondaryBadge,
   ButtonDouble,
+  ButtonRectangle,
   HeaderPrimary,
   HeaderTop,
   BoxShadow,

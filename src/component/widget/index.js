@@ -59,6 +59,7 @@ import NotificationList from './list/NotificationList';
 import ToggleSlider from './tab/ToggleSlider';
 import ModalComponent from './modal/ModalComponent';
 import ImageComponent from './image/ImageComponent';
+import KeyboardNumeric from './keyboard/KeyboardNumeric';
 
 export {
   SeatListItem,
@@ -119,5 +120,6 @@ export {
   NotificationList,
   ToggleSlider,
   ModalComponent,
-  ImageComponent
+  ImageComponent,
+  KeyboardNumeric
 };
