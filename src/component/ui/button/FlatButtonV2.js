@@ -1,6 +1,11 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { bool, func, number, string } from 'prop-types';
+import {
+  func,
+  bool,
+  number,
+  string
+} from 'prop-types';
 import { fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 
@@ -11,7 +16,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: 10,
-    paddingHorizontal: 15,
+    paddingHorizontal: 15
   },
   hitSlop: {
     top: 5,

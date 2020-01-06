@@ -33,6 +33,7 @@ import AmountCardTest from './testRoute/AmountCardTest';
 import QRTest from './testRoute/QRTest';
 import CameraTest from './testRoute/CameraTest';
 import ProfileCardTest from './testRoute/ProfileCardTest';
+import WrapperTest from './testRoute/WrapperTest';
 
 
 const AppNavigator = createStackNavigator(
@@ -70,9 +71,10 @@ const AppNavigator = createStackNavigator(
     QRTest,
     CameraTest,
     ProfileCardTest,
+    WrapperTest
   },
   {
-    initialRouteName: 'UIComponentV2Test',
+    initialRouteName: 'WrapperTest',
     headerMode: 'none'
   },
 );

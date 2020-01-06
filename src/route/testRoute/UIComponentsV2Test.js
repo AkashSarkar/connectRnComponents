@@ -7,7 +7,7 @@ import {
   ButtonDoubleV2,
   ButtonPrimaryV2,
   FlatButtonV2,
-  TextComponent,
+  TextComponent
 } from '../../component/ui';
 import {
   mb10, mb5, p10, pb10
