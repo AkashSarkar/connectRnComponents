@@ -535,7 +535,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <View style={[pb10]}>
               <TextComponent
                 size={fonts.fs30}
-                color={colors.black0}
+                color={colors.white1}
                 content="Tab Sliders Widget"
                 family={fonts.bold}
               />
@@ -543,7 +543,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="widget/card/InputTabbed"
+              content="widget/card/InputTabbedV2"
               family={fonts.bold}
             />
             <InputTabbedV2
@@ -553,6 +553,30 @@ const UIComponentV2Test = ({ navigation }) => {
               tabTitle2="Wallet ID"
               inputFieldBackground="#000000"
               tabBackground="transparent"
+            />
+          </View>
+          <View style={p10}>
+            <View style={[pb10]}>
+              <TextComponent
+                size={fonts.fs30}
+                color={colors.black0}
+                content="Keyboard Numeric"
+                family={fonts.bold}
+              />
+            </View>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonPrimaryV2"
+              family={fonts.bold}
+            />
+            <ButtonPrimaryV2
+              content="Button Primary V2"
+              buttonColor={colors.primary}
+              buttonHeight={80}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Button Primary')}
             />
           </View>
         </View>
