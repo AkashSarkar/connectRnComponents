@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
-import { string, func } from 'prop-types';
+import { TouchableOpacity, View, Image } from 'react-native';
+import { string, func, number } from 'prop-types';
 import TextComponent from '../typography/TextComponent';
 import { fonts, colors } from '../../../styles/baseStyle';
 
@@ -20,31 +20,59 @@ const styles = {
   textStyle: {
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  imageStyle: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
 const ButtonRectangle = ({
-  content, buttonColor, textColor, onPress
+  content, buttonColor, textColor, onPress, image
 }) => (
   <TouchableOpacity
-    style={[styles.buttonStyle, { backgroundColor: buttonColor || colors.black1 }]}
+    style={[styles.buttonStyle,
+      { backgroundColor: buttonColor || colors.black1 }]}
     onPress={onPress}
   >
-    <View style={styles.textStyle}>
+    {image ? (
+      <View style={styles.imageStyle}>
+        <Image
+          source={image}
+          style={{
+            height: 30,
+            width: 40,
+            resizeMode: 'contain'
+          }}
+        />
+      </View>
+    ) : (
+      <View style={styles.textStyle}>
+        <TextComponent
+          content={content}
+          size={fonts.fs24}
+          color={textColor || colors.white1}
+          family={fonts.medium}
+        />
+      </View>
+    )
+              }
+    {/* <View style={styles.textStyle}>
       <TextComponent
         content={content}
         size={fonts.fs24}
         color={textColor || colors.white1}
         family={fonts.medium}
       />
-    </View>
+    </View> */}
   </TouchableOpacity>
 );
 
 ButtonRectangle.propTypes = {
   buttonColor: string,
   onPress: func,
-  content: string.isRequired,
-  textColor: string
+  content: string,
+  textColor: string,
+  image: number
 };
 
 export default ButtonRectangle;

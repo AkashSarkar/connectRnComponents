@@ -151,25 +151,14 @@ class KeyboardNumeric extends Component {
             </View>
           </View>
           <View style={styles.buttonRow}>
-            <View
-              style={[styles.buttonStyle, {
-                // backgroundColor: 'red',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }]}
-            >
-              <TouchableOpacity
-                style={{}}
+            <View style={styles.buttonStyle}>
+              <ButtonRectangle
+                content="."
+                textColor={colors.primary}
+                fontSize={fonts.fs14}
+                buttonColor="transperant"
                 onPress={() => console.warn('dot')}
-              >
-                <View style={{
-                  width: 5,
-                  height: 5,
-                  borderRadius: 5 / 2,
-                  backgroundColor: colors.primary
-                }}
-                />
-              </TouchableOpacity>
+              />
             </View>
             <View style={styles.buttonStyle}>
               <ButtonRectangle
@@ -180,7 +169,17 @@ class KeyboardNumeric extends Component {
                 onPress={() => console.warn('0')}
               />
             </View>
-            <View style={{
+            <View style={styles.buttonStyle}>
+              <ButtonRectangle
+                // content="<="
+                image={images.LeftIndicator}
+                textColor={colors.white1}
+                fontSize={fonts.fs14}
+                buttonColor="transperant"
+                onPress={() => console.warn('cross')}
+              />
+            </View>
+            {/* <View style={{
               width: '32%',
               //   backgroundColor: 'red',
               justifyContent: 'center',
@@ -199,7 +198,7 @@ class KeyboardNumeric extends Component {
                   }}
                 />
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
         </View>
       </View>
