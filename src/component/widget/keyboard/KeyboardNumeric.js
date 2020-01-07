@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { func } from 'prop-types';
 import { TextComponent, ButtonRectangle } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import images from '../../../assets';
@@ -35,22 +36,22 @@ const styles = {
   }
 };
 
-const KeyboardNumeric = ({}) => (
+const KeyboardNumeric = ({ onPress }) => (
   <View style={styles.wrapper}>
     <View style={styles.topWrapper}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress('10%')}>
         <TextComponent content="10%" color="white" size={fonts.fs18} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress('20%')}>
         <TextComponent content="20%" color="white" size={fonts.fs18} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress('30%')}>
         <TextComponent content="30%" color="white" size={fonts.fs18} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress('40%')}>
         <TextComponent content="40%" color="white" size={fonts.fs18} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress('50%')}>
         <TextComponent content="50%" color="white" size={fonts.fs18} />
       </TouchableOpacity>
     </View>
@@ -62,7 +63,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('1')}
+            onPress={() => onPress(1)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -71,7 +72,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('2')}
+            onPress={() => onPress(2)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -80,7 +81,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('3')}
+            onPress={() => onPress(3)}
           />
         </View>
       </View>
@@ -91,7 +92,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('4')}
+            onPress={() => onPress(4)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -100,7 +101,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('5')}
+            onPress={() => onPress(5)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -109,7 +110,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('6')}
+            onPress={() => onPress(6)}
           />
         </View>
       </View>
@@ -120,7 +121,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('7')}
+            onPress={() => onPress(7)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -129,7 +130,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('8')}
+            onPress={() => onPress(8)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -138,7 +139,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('9')}
+            onPress={() => onPress(9)}
           />
         </View>
       </View>
@@ -150,7 +151,7 @@ const KeyboardNumeric = ({}) => (
             imagewidth={8}
             textColor={colors.primary}
             buttonColor="transperant"
-            onPress={() => console.warn('dot')}
+            onPress={() => onPress('.')}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -159,7 +160,7 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor={colors.buttonColor1}
-            onPress={() => console.warn('0')}
+            onPress={() => onPress(0)}
           />
         </View>
         <View style={styles.buttonStyle}>
@@ -168,12 +169,16 @@ const KeyboardNumeric = ({}) => (
             textColor={colors.white1}
             fontSize={fonts.fs14}
             buttonColor="transperant"
-            onPress={() => console.warn('cross')}
+            onPress={() => onPress('delete')}
           />
         </View>
       </View>
     </View>
   </View>
 );
+
+KeyboardNumeric.propTypes = {
+  onPress: func
+};
 
 export default KeyboardNumeric;
