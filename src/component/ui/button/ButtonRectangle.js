@@ -6,7 +6,6 @@ import { fonts, colors } from '../../../styles/baseStyle';
 
 const styles = {
   buttonStyle: {
-    // width: '100%',
     padding: 10,
     borderRadius: 6,
     shadowColor: '#00000029',
@@ -23,11 +22,13 @@ const styles = {
   },
   imageStyle: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: '100%',
+    width: '100%'
   }
 };
 const ButtonRectangle = ({
-  content, buttonColor, textColor, onPress, image
+  content, buttonColor, textColor, onPress, image, imageHeight, imagewidth
 }) => (
   <TouchableOpacity
     style={[styles.buttonStyle,
@@ -39,8 +40,8 @@ const ButtonRectangle = ({
         <Image
           source={image}
           style={{
-            height: 30,
-            width: 40,
+            height: imageHeight || 35,
+            width: imagewidth || 35,
             resizeMode: 'contain'
           }}
         />
@@ -55,15 +56,7 @@ const ButtonRectangle = ({
         />
       </View>
     )
-              }
-    {/* <View style={styles.textStyle}>
-      <TextComponent
-        content={content}
-        size={fonts.fs24}
-        color={textColor || colors.white1}
-        family={fonts.medium}
-      />
-    </View> */}
+  }
   </TouchableOpacity>
 );
 
@@ -72,7 +65,9 @@ ButtonRectangle.propTypes = {
   onPress: func,
   content: string,
   textColor: string,
-  image: number
+  image: number,
+  imageHeight: number,
+  imagewidth: number
 };
 
 export default ButtonRectangle;

@@ -37,6 +37,10 @@ const UIComponentV2Test = ({ navigation }) => {
   const [number, setNumber] = useState('');
   const [search, setSearch] = useState('');
 
+  const onPressKeyboard = (data) => {
+    console.warn(data);
+  };
+
   const BankAccountComponent = () => {
     const [accountHolderName, setAccountHolderName] = useState('');
     const [bankName, setBankName] = useState('');
@@ -639,7 +643,7 @@ const UIComponentV2Test = ({ navigation }) => {
             />
           </View>
           {/* ui/button/ButtonRectangle */}
-          {/* ui/button/ButtonRectangle */}
+          {/* ui/button/KeyboardNumeric */}
           <View style={p10}>
             <TextComponent
               size={fonts.fs20}
@@ -648,14 +652,10 @@ const UIComponentV2Test = ({ navigation }) => {
               family={fonts.bold}
             />
             <KeyboardNumeric
-              content="Get Payment"
-              textColor={colors.primary}
-              fontSize={fonts.fs14}
-              buttonColor={colors.colorSecondery}
-              onPress={() => console.warn('ButtonRectangle')}
+              onPress={onPressKeyboard}
             />
           </View>
-          {/* ui/button/ButtonRectangle */}
+          {/* ui/button/KeyboardNumeric */}
         </View>
       </ScrollView>
     </SafeAreaView>

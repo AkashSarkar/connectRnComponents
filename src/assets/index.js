@@ -59,7 +59,9 @@ const assets = {
   Pause: require('./icons/Pause.png'),
   Hotel: require('./icons/Hotel-1.png'),
   Bronze: require('./icons/Bronze.png'),
-  TickIcon: require('./icons/Tick.png')
+  TickIcon: require('./icons/Tick.png'),
+  DeleteIcon: require('./icons/DeleteIcon.png'),
+  Dot: require('./icons/Dot.png')
 };
 
 export default assets;
