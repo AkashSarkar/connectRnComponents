@@ -1,12 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, View, StyleSheet, Platform } from 'react-native';
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import {
-  string, func, array, number, bool
+  array, bool, func, number, string
 } from 'prop-types';
-import LinearGradient from 'react-native-linear-gradient';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10, pv25 } from '../../../styles/commonStyle';
 
 const platform = Platform.OS;
 const styles = StyleSheet.create({
@@ -24,14 +22,21 @@ const styles = StyleSheet.create({
   }
 });
 
-const ButtonPrimary = ({
-  content, buttonColor = colors.primary, buttonHeight = 80, textColor, fontSize, onPress, disabled
+const ButtonPrimaryV2 = ({
+  content,
+  buttonColor = colors.primary,
+  buttonHeight = 80,
+  textColor,
+  fontSize,
+  onPress,
+  disabled,
+  disabledColor = colors.grey1
 }) => (
   <TouchableOpacity
     onPress={onPress}
     disabled={disabled}
     style={[styles.buttonWrapper, {
-      backgroundColor: buttonColor,
+      backgroundColor: disabled ? disabledColor : buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
       justifyContent: platform === 'android' ? 'center' : 'flex-start'
@@ -47,15 +52,16 @@ const ButtonPrimary = ({
   </TouchableOpacity>
 );
 
-ButtonPrimary.propTypes = {
+ButtonPrimaryV2.propTypes = {
   content: string.isRequired,
   buttonColor: array.isRequired,
   textColor: string.isRequired,
   fontSize: number,
   buttonHeight: number,
   onPress: func,
-  disabled: bool
+  disabled: bool,
+  disabledColor: string
 };
 
 
-export default ButtonPrimary;
+export default ButtonPrimaryV2;
