@@ -68,7 +68,7 @@ const AppNavigator = createStackNavigator(
     GraphTest,
     QRTest,
     CameraTest,
-    ProfileCardTest
+    ProfileCardTest,
   },
   {
     initialRouteName: 'UIComponentV2Test',
