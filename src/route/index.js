@@ -73,7 +73,7 @@ const AppNavigator = createStackNavigator(
     WrapperTest
   },
   {
-    initialRouteName: 'WrapperTest',
+    initialRouteName: 'UIComponentV2Test',
     headerMode: 'none'
   },
 );

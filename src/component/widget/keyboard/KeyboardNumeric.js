@@ -153,9 +153,10 @@ class KeyboardNumeric extends Component {
           <View style={styles.buttonRow}>
             <View style={styles.buttonStyle}>
               <ButtonRectangle
-                content="."
+                image={images.Dot}
+                imageHeight={8}
+                imagewidth={8}
                 textColor={colors.primary}
-                fontSize={fonts.fs14}
                 buttonColor="transperant"
                 onPress={() => console.warn('dot')}
               />
@@ -172,33 +173,13 @@ class KeyboardNumeric extends Component {
             <View style={styles.buttonStyle}>
               <ButtonRectangle
                 // content="<="
-                image={images.LeftIndicator}
+                image={images.DeleteIcon}
                 textColor={colors.white1}
                 fontSize={fonts.fs14}
                 buttonColor="transperant"
                 onPress={() => console.warn('cross')}
               />
             </View>
-            {/* <View style={{
-              width: '32%',
-              //   backgroundColor: 'red',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-            >
-              <TouchableOpacity
-                onPress={() => console.warn('cross')}
-              >
-                <Image
-                  source={images.LeftIndicator}
-                  style={{
-                    height: 30,
-                    width: 40,
-                    resizeMode: 'contain'
-                  }}
-                />
-              </TouchableOpacity>
-            </View> */}
           </View>
         </View>
       </View>
