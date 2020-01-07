@@ -20,6 +20,8 @@ const InputTabbedV2 = ({
   />
 );
 
+// input tabbed
+
 InputTabbedV2.propTypes = {
   leftInputForm: func.isRequired,
   rightInputForm: func.isRequired,
