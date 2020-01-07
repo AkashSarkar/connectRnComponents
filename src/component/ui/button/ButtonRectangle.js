@@ -40,8 +40,8 @@ const ButtonRectangle = ({
         <Image
           source={image}
           style={{
-            height: imageHeight || 35,
-            width: imagewidth || 35,
+            height: imageHeight || 30,
+            width: imagewidth || 30,
             resizeMode: 'contain'
           }}
         />

@@ -160,8 +160,8 @@ const KeyboardNumeric = ({ onPress }) => (
             <ButtonRectangle
               content={isNaN(items.value) ? null : items.content}
               image={isNaN(items.value) ? items.content : null}
-              imageHeight={items.value === 'dot' ? 8 : null}
-              imagewidth={items.value === 'dot' ? 8 : null}
+              imageHeight={items.value === 'dot' ? 5 : null}
+              imagewidth={items.value === 'dot' ? 5 : null}
               textColor={colors.white1}
               fontSize={fonts.fs14}
               buttonColor={isNaN(items.value) ? 'transparent' : colors.buttonColor1}
