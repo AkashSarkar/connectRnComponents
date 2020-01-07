@@ -26,6 +26,7 @@ export const colors = {
   black6: '#c9c9c9',
   black7: '#c2c2c2',
   black8: '#1c1c1c',
+  buttonColor1: '#303030',
   black9: '#1a1a1a',
   text1: '#08205C',
   text2: '#000000',
