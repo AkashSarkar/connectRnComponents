@@ -164,7 +164,7 @@ const KeyboardNumeric = ({ onPress }) => (
               imagewidth={items.value === 'dot' ? 8 : null}
               textColor={colors.white1}
               fontSize={fonts.fs14}
-              buttonColor={colors.buttonColor1}
+              buttonColor={isNaN(items.value) ? 'transparent' : colors.buttonColor1}
               onPress={() => onPress(items.value)}
             />
           </View>
