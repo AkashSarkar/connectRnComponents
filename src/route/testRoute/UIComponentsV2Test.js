@@ -553,7 +553,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/ButtonDoubleV3"
+              content="ui/button/ButtonBorderV2"
               family={fonts.bold}
             />
             <ButtonBorderV2
@@ -565,6 +565,7 @@ const UIComponentV2Test = ({ navigation }) => {
               textColorMiddle={colors.white1}
               textColorRight={colors.white1}
               buttonHeight={80}
+              inModal
               fontSize={fonts.fs16}
               onPressLeft={() => console.warn('Left')}
               onPressRight={() => console.warn('Right')}
