@@ -1,16 +1,15 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { func } from 'prop-types';
+import { func, number } from 'prop-types';
 import { TextComponent, ButtonRectangle } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import images from '../../../assets';
 
 const styles = {
   wrapper: {
-    // width: '100%',
-    flex: 1,
-    // height: '50%',
+    // flex: 1,
+    width: '100%',
     backgroundColor: '#1a1a1a'
   },
   topWrapper: {
@@ -28,7 +27,6 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingBottom: 5
-    // backgroundColor: 'red'
   },
   buttonStyle: {
     flex: 1,
@@ -36,142 +34,141 @@ const styles = {
   }
 };
 
+const suggestionText = [{
+  content: '10%',
+  value: 10
+},
+{
+  content: '20%',
+  value: 20
+},
+{
+  content: '30%',
+  value: 30
+},
+{
+  content: '40%',
+  value: 40
+},
+{
+  content: '50%',
+  value: 50
+}
+];
+
+const numPad1 = [{
+  content: '1',
+  value: 1
+},
+{
+  content: '2',
+  value: 2
+},
+{
+  content: '3',
+  value: 3
+}];
+const numPad2 = [{
+  content: '4',
+  value: 4
+},
+{
+  content: '5',
+  value: 5
+},
+{
+  content: '6',
+  value: 6
+}];
+const numPad3 = [{
+  content: '7',
+  value: 7
+},
+{
+  content: '8',
+  value: 8
+},
+{
+  content: '9',
+  value: 9
+}];
+const numPad4 = [{
+  content: images.Dot,
+  value: 'dot'
+},
+{
+  content: '0',
+  value: 0
+},
+{
+  content: images.DeleteIcon,
+  value: 'delete'
+}];
+
 const KeyboardNumeric = ({ onPress }) => (
   <View style={styles.wrapper}>
     <View style={styles.topWrapper}>
-      <TouchableOpacity onPress={() => onPress('10%')}>
-        <TextComponent content="10%" color="white" size={fonts.fs18} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => onPress('20%')}>
-        <TextComponent content="20%" color="white" size={fonts.fs18} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => onPress('30%')}>
-        <TextComponent content="30%" color="white" size={fonts.fs18} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => onPress('40%')}>
-        <TextComponent content="40%" color="white" size={fonts.fs18} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => onPress('50%')}>
-        <TextComponent content="50%" color="white" size={fonts.fs18} />
-      </TouchableOpacity>
+      {suggestionText.map(items => (
+        <TouchableOpacity onPress={() => onPress(items.value)}>
+          <TextComponent content={items.content} color="white" size={fonts.fs18} />
+        </TouchableOpacity>
+      ))}
     </View>
     <View style={styles.bottomWrapper}>
       <View style={styles.buttonRow}>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="1"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(1)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="2"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(2)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="3"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(3)}
-          />
-        </View>
+        {numPad1.map(items => (
+          <View style={styles.buttonStyle}>
+            <ButtonRectangle
+              content={items.content}
+              textColor={colors.white1}
+              fontSize={fonts.fs14}
+              buttonColor={colors.buttonColor1}
+              onPress={() => onPress(items.value)}
+            />
+          </View>
+        ))}
       </View>
       <View style={styles.buttonRow}>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="4"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(4)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="5"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(5)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="6"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(6)}
-          />
-        </View>
+        {numPad2.map(items => (
+          <View style={styles.buttonStyle}>
+            <ButtonRectangle
+              content={items.content}
+              textColor={colors.white1}
+              fontSize={fonts.fs14}
+              buttonColor={colors.buttonColor1}
+              onPress={() => onPress(items.value)}
+            />
+          </View>
+        ))}
       </View>
       <View style={styles.buttonRow}>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="7"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(7)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="8"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(8)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="9"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(9)}
-          />
-        </View>
+        {numPad3.map(items => (
+          <View style={styles.buttonStyle}>
+            <ButtonRectangle
+              content={items.content}
+              textColor={colors.white1}
+              fontSize={fonts.fs14}
+              buttonColor={colors.buttonColor1}
+              onPress={() => onPress(items.value)}
+            />
+          </View>
+        ))}
       </View>
       <View style={styles.buttonRow}>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            image={images.Dot}
-            imageHeight={8}
-            imagewidth={8}
-            textColor={colors.primary}
-            buttonColor="transperant"
-            onPress={() => onPress('.')}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            content="0"
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor={colors.buttonColor1}
-            onPress={() => onPress(0)}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <ButtonRectangle
-            image={images.DeleteIcon}
-            textColor={colors.white1}
-            fontSize={fonts.fs14}
-            buttonColor="transperant"
-            onPress={() => onPress('delete')}
-          />
-        </View>
+        {numPad4.map(items => (
+          <View style={styles.buttonStyle}>
+            <ButtonRectangle
+              content={isNaN(items.value) ? null : items.content}
+              image={isNaN(items.value) ? items.content : null}
+              imageHeight={items.value === 'dot' ? 5 : null}
+              imagewidth={items.value === 'dot' ? 5 : null}
+              textColor={colors.white1}
+              fontSize={fonts.fs14}
+              buttonColor={isNaN(items.value) ? 'transparent' : colors.buttonColor1}
+              onPress={() => onPress(items.value)}
+            />
+          </View>
+        ))}
       </View>
     </View>
   </View>
