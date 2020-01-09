@@ -92,9 +92,14 @@ export const fonts = {
   fs32: 32,
   fs50: 50,
   fs52: 52,
-  light: 'Montserrat-Light',
-  medium: 'Montserrat-Medium',
-  regular: 'Montserrat-Regular',
-  semiBold: 'Montserrat-SemiBold',
-  bold: 'Montserrat-Bold'
+  light: 'ProximaNovaA-Light',
+  black: 'ProximaNova-Black',
+  medium: 'ProximaNovaT-Thin',
+  tThin: 'ProximaNovaT-Thin',
+  aThin: 'ProximaNovaA-Thin',
+  regular: 'ProximaNova-Regular',
+  semiBold: 'ProximaNovaT-Thin',
+  bold: 'ProximaNova-Bold',
+  aBold: 'ProximaNovaA-Bold',
+  extraBold: 'ProximaNova-Extrabld'
 };

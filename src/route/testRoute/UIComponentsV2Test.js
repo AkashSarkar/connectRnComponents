@@ -390,7 +390,7 @@ const UIComponentV2Test = ({ navigation }) => {
                 />
               </View>
               <BoxShadow>
-                <View style={{ padding: 15 }}>
+                <View style={{ padding: 10 }}>
                   <InputField
                     value={name}
                     placeholder="Temporary Connect ID"

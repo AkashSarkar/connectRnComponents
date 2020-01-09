@@ -6,19 +6,33 @@ import {
   TouchableWithoutFeedback,
   Animated
 } from 'react-native';
-import { string, number } from 'prop-types';
+import {
+  string, number, bool, array
+} from 'prop-types';
 import assets from '../../../assets';
 import { colors } from '../../../styles/baseStyle';
 
 const dimension = 60;
 const styles = {
-  button: {
+  container: {
+    position: 'relative',
+    zIndex: 9999
+  },
+  buttonChild: {
     height: dimension,
     width: dimension,
     borderRadius: dimension / 2,
     position: 'absolute',
-    bottom: 20,
-    right: 20,
+    // bottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  button: {
+    height: dimension,
+    width: dimension,
+    borderRadius: dimension / 2,
+    // position: 'absolute',
+    // bottom: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -27,7 +41,7 @@ const styles = {
     width: dimension / 3
   }
 };
-const FabButton = ({ background }) => {
+const FabButton = ({ background, parentIcon, childrenButtons }) => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [isActive, setIsActive] = useState(false);
   const toggleAnimation = () => {
@@ -38,83 +52,69 @@ const FabButton = ({ background }) => {
       .start();
     setIsActive(!isActive);
   };
-  const firstButtonStyle = {
-    transform: [{
-      scale: animation
-    }, {
-      translateY: animation.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, -100],
-        extrapolate: 'clamp'
-      })
-    }]
-  };
-  const secondButtonStyle = {
-    transform: [{
-      scale: animation
-    }, {
-      translateY: animation.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, -170],
-        extrapolate: 'clamp'
-      })
-    }]
-  };
+
+  const renderChildren = () => (
+    childrenButtons.map((item, idx) => {
+      return (
+        <TouchableWithoutFeedback
+          onPress={() => item.func()}
+          key={idx}
+        >
+          <Animated.View style={[
+            styles.buttonChild,
+            { backgroundColor: background },
+            {
+              transform: [{
+                scale: animation
+              }, {
+                translateY: animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -item.translate],
+                  extrapolate: 'clamp'
+                })
+              }]
+            }
+          ]}
+          >
+            <Image
+              source={item.icon}
+              style={styles.iconStyle}
+              resizeMode="contain"
+            />
+          </Animated.View>
+        </TouchableWithoutFeedback>
+      );
+    })
+  );
+
   return (
-    <View style={{
-      flex: 1
-    }}
-    >
-      <TouchableWithoutFeedback
-        onPress={() => console.warn('Search')}
-      >
-        <Animated.View style={[
-          styles.button,
-          { backgroundColor: background },
-          secondButtonStyle
-        ]}
-        >
-          <Image
-            source={assets.HandQRCode}
-            style={styles.iconStyle}
-            resizeMode="contain"
-          />
-        </Animated.View>
-      </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => console.warn('Search')}
-      >
-        <Animated.View style={[
-          styles.button,
-          { backgroundColor: background },
-          firstButtonStyle
-        ]}
-        >
-          <Image
-            source={assets.Search}
-            style={styles.iconStyle}
-            resizeMode="contain"
-          />
-        </Animated.View>
-      </TouchableWithoutFeedback>
+    <View style={styles.container}>
+      {renderChildren()}
       <TouchableOpacity
-        style={[styles.button, { backgroundColor: background }]}
+        style={[
+          styles.button,
+          { backgroundColor: background }
+        ]}
         onPress={() => toggleAnimation()}
       >
         <Image
-          source={assets.Connect}
+          source={parentIcon}
           style={styles.iconStyle}
           resizeMode="contain"
         />
       </TouchableOpacity>
     </View>
-);
+  );
 };
 
 FabButton.defaultProps = {
-  background: colors.red1
+  background: colors.red1,
+  parentIcon: assets.Connect
+
 };
 FabButton.propTypes = {
-  background: string
+  background: string,
+  parentIcon: number,
+  childrenButtons: array
 };
 export default FabButton;
