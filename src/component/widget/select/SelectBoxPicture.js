@@ -8,6 +8,7 @@ import { fonts, colors, gradientColors } from '../../../styles/baseStyle';
 import { TextComponent, BoxShadow, ButtonPrimary } from '../../ui';
 import ModalComponent from '../modal/ModalComponent';
 import ImageComponent from '../image/ImageComponent';
+import ImageComponentV2 from '../image/ImageComponentV2';
 import { p10 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const SelectBoxPicture = ({ onPictureSelect, label }) => {
+const SelectBoxPicture = ({ onPictureSelect, label, v2 }) => {
   const [pictureSelecting, setPictureSelecting] = useState(false);
   const [pictureSelected, setPictureSelected] = useState(null);
 
@@ -70,18 +71,37 @@ const SelectBoxPicture = ({ onPictureSelect, label }) => {
               /> */}
             </View>
           )}
-          <ModalComponent
-            isVisible={pictureSelecting}
-            setVisible={setPictureSelecting}
-          >
-            <ImageComponent
-              onImageCapture={(imageObj) => {
-                setPictureSelected(imageObj);
-                setPictureSelecting(false);
-              }}
-              onRequestClose={() => setPictureSelecting(false)}
-            />
-          </ModalComponent>
+          {v2 ? (
+            <ModalComponent
+              isVisible={pictureSelecting}
+              setVisible={setPictureSelecting}
+            >
+              <ImageComponentV2
+                onImageCapture={(imageObj) => {
+                  setPictureSelected(imageObj);
+                  setPictureSelecting(false);
+                }}
+                onRequestClose={() => setPictureSelecting(false)}
+                title="Capture NID"
+                buttonColor={colors.primary}
+                isOverlay
+              />
+            </ModalComponent>
+          )
+            : (
+              <ModalComponent
+                isVisible={pictureSelecting}
+                setVisible={setPictureSelecting}
+              >
+                <ImageComponent
+                  onImageCapture={(imageObj) => {
+                    setPictureSelected(imageObj);
+                    setPictureSelecting(false);
+                  }}
+                  onRequestClose={() => setPictureSelecting(false)}
+                />
+              </ModalComponent>
+            )}
         </View>
       </TouchableOpacity>
     </BoxShadow>

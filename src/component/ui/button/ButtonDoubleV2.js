@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
-    // borderWidth: 0.2
-    // elevation: 1
   },
   buttonGradient: {
     width: '100%',
@@ -48,12 +46,12 @@ const styles = StyleSheet.create({
 });
 
 const ButtonDoubleV2 = ({
-  content,
+  contentLeft,
   contentRight,
   buttonColor,
   textColorLeft,
   textColorRight,
-  buttonHeight,
+  buttonHeight = 80,
   fontSize,
   onPressLeft,
   onPressRight,
@@ -73,7 +71,7 @@ const ButtonDoubleV2 = ({
       disabled={disabled}
     >
       <TextComponent
-        content={content}
+        content={contentLeft}
         family={fonts.regular}
         size={fontSize}
         color={textColorLeft}
@@ -82,7 +80,10 @@ const ButtonDoubleV2 = ({
 
     <TouchableOpacity
       onPress={onPressRight}
-      style={styles.rightWrapper}
+      style={[styles.rightWrapper, {
+        backgroundColor: colors.white1
+      }]}
+      disabled={disabled}
     >
       <TextComponent
         content={contentRight}
@@ -95,7 +96,7 @@ const ButtonDoubleV2 = ({
 );
 
 ButtonDoubleV2.propTypes = {
-  content: string.isRequired,
+  contentLeft: string.isRequired,
   contentRight: string.isRequired,
   buttonColor: string.isRequired,
   textColorLeft: string.isRequired,

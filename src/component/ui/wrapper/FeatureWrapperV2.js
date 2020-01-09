@@ -11,17 +11,6 @@ import assets from '../../../assets';
 const styles = {
   wrapperStyle: {
     height: '100%'
-
-    // paddingVertical: 10,
-    // paddingHorizontal: 20
-    // borderTopLeftRadius: 20,
-    // borderTopRightRadius: 20,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3
-    // },
-    // shadowOpacity: 0.5,
-    // elevation: 1
   },
   titleStyle: {
     flexDirection: 'row',

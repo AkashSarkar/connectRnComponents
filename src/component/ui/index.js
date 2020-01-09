@@ -24,6 +24,7 @@ import Input from './input/Input';
 import InputV2 from './input/InputV2';
 import InputFieldSeperator from './uiUtils/InputFieldSeperator';
 import ControlWrapper from './wrapper/ControlWrapper';
+import FeatureWrapperV2 from './wrapper/FeatureWrapperV2';
 import AnimateOpacity from './wrapper/animation/AnimateOpacity';
 import ButtonNidFront from './button/ButtonNidFront';
 import ButtonDoubleV2 from './button/ButtonDoubleV2';
@@ -58,6 +59,7 @@ export {
   InputFieldSeperator,
   CarouselWrapper,
   ControlWrapper,
+  FeatureWrapperV2,
   AnimateOpacity,
   ButtonNidFront,
   ButtonDoubleV2,
