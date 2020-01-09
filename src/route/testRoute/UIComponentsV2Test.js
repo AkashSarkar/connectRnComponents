@@ -557,7 +557,7 @@ const UIComponentV2Test = ({ navigation }) => {
               family={fonts.bold}
             />
             <ButtonBorderV2
-              content="Get Paid Now"
+              contentLeft="Get Paid Now"
               contentMiddle="|"
               contentRight="Get Paid Later"
               buttonColor={colors.red2}

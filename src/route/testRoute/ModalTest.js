@@ -9,7 +9,8 @@ import {
   ModalDouble,
   ModalInfo,
   ModalFamilyList,
-  ModalContact
+  ModalContact,
+  ModalDiscount
 } from '../../component/widget';
 
 
@@ -170,7 +171,8 @@ class ModalTest extends React.Component {
       isModalDoubleVisible: false,
       isModalInfoVisible: false,
       isModalFamilyList: false,
-      isModalContact: false
+      isModalContact: false,
+      isModalDiscount: false
     };
   }
 
@@ -204,6 +206,12 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalDiscount = () => {
+    this.setState({
+      isModalDiscount: !this.state.isModalDiscount
+    });
+  };
+
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
@@ -231,6 +239,12 @@ class ModalTest extends React.Component {
   handleCloseModalContact = () => {
     this.setState({
       isModalContact: !this.state.isModalContact
+    });
+  };
+
+  handleCloseModalDiscount = () => {
+    this.setState({
+      isModalDiscount: !this.state.isModalDiscount
     });
   };
 
@@ -333,6 +347,27 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseModalContact();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Discount"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalDiscount}
+            />
+            <ModalDiscount
+              modalTitle="Add discount"
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalDiscount}
+              onBackButtonPress={this.handleCloseModalDiscount}
+              onClose={this.handleCloseModalDiscount}
+              onPress={this.handleCloseModalDiscount}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalDiscount();
               }}
             />
           </View>

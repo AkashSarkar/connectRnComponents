@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 });
 
 const ButtonBorderV2 = ({
-  content,
+  contentLeft,
   contentMiddle,
   contentRight,
   buttonColor,
@@ -70,7 +70,7 @@ const ButtonBorderV2 = ({
       }]}
     >
       <TextComponent
-        content={content}
+        content={contentLeft}
         family={fonts.regular}
         size={fontSize}
         color={textColorLeft}
@@ -116,7 +116,7 @@ const ButtonBorderV2 = ({
 );
 
 ButtonBorderV2.propTypes = {
-  content: string.isRequired,
+  contentLeft: string.isRequired,
   contentRight: string.isRequired,
   contentMiddle: string.isRequired,
   buttonColor: string.isRequired,
