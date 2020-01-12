@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
 const ImageComponentV2 = (
   {
-    onImageCapture, isOverlay, cameraType, buttonColor, backgroundTopColor, titleBarColor, title
+    onImageCapture, isOverlay, cameraType, buttonColor, title
   }
 ) => {
   const [imageUri, setImageUri] = useState(null);
@@ -141,8 +141,6 @@ ImageComponentV2.propTypes = {
   cameraType: string,
   isOverlay: bool,
   buttonColor: array.isRequired,
-  backgroundTopColor: string.isRequired,
-  titleBarColor: string.isRequired,
   title: string
 };
 
