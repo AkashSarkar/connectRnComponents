@@ -36,6 +36,7 @@ import ModalDouble from './modal/ModalDouble';
 import ModalInfo from './modal/ModalInfo';
 import ModalFamilyList from './modal/ModalFamilyList';
 import ModalContact from './modal/ModalContact';
+import ModalDiscount from './modal/ModalDiscount';
 import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
@@ -93,6 +94,7 @@ export {
   ModalInfo,
   ModalFamilyList,
   ModalContact,
+  ModalDiscount,
   Avatar,
   AvatarList,
   SplitItem,

@@ -28,6 +28,7 @@ export const colors = {
   black8: '#1c1c1c',
   buttonColor1: '#303030',
   black9: '#1a1a1a',
+  black10: '#363636',
   text1: '#08205C',
   text2: '#000000',
   yellow1: '#fff500',
