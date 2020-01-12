@@ -10,7 +10,7 @@ import { node, string, bool } from 'prop-types';
 import { BoxShadow, TextComponent } from '../../ui';
 import TabSliderV2 from './TabSliderV2';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { p15 } from '../../../styles/commonStyle';
+import { p15, mb20 } from '../../../styles/commonStyle';
 
 if (
   Platform.OS === 'android'
@@ -32,13 +32,16 @@ const styles = StyleSheet.create({
 const TabWrapperV2 = ({
   tab1Components,
   tab2Components,
+  tabHeader1,
+  tabHeader2,
   tabTitle1,
   tabTitle2,
   tabSubtitle1,
   tabSubtitle2,
   shadowContainer,
   inputFieldBackground,
-  tabBackground
+  tabBackground,
+  headerColor
 }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [shouldTab1Render, setShouldTab1Render] = useState(true);
@@ -73,18 +76,38 @@ const TabWrapperV2 = ({
     <View style={styles.container}>
       {shadowContainer ? (
         <View>
+          <View style={mb20}>
+            {activeTab === 1 ? (
+              <TextComponent
+                content={tabHeader1}
+                size={fonts.fs14}
+                color={headerColor}
+                family={fonts.medium}
+                extraStyle={{ textAlign: 'center' }}
+              />
+            ) : (
+                <TextComponent
+                  content={tabHeader2}
+                  size={fonts.fs14}
+                  color={headerColor}
+                  family={fonts.medium}
+                  extraStyle={{ textAlign: 'center' }}
+                />
+              )}
+          </View>
           <TabSliderV2
             title1={tabTitle1}
             title2={tabTitle2}
             setCurrentTab={setActiveTab}
             tabBackground={tabBackground}
           />
-          <BoxShadow background={inputFieldBackground}>{innerContents()}</BoxShadow>
+          <BoxShadow
+            background={inputFieldBackground}>{innerContents()}</BoxShadow>
         </View>
 
       ) : (
-        <>{innerContents()}</>
-      )}
+          <>{innerContents()}</>
+        )}
     </View>
   );
 };
@@ -92,7 +115,8 @@ const TabWrapperV2 = ({
 TabWrapperV2.defaultProps = {
   shadowContainer: true,
   inputFieldBackground: 'white',
-  tabBackground: 'white'
+  tabBackground: 'white',
+  headerColor: colors.red
 };
 
 TabWrapperV2.propTypes = {
@@ -104,7 +128,8 @@ TabWrapperV2.propTypes = {
   tabSubtitle2: string,
   shadowContainer: bool,
   inputFieldBackground: string,
-  tabBackground: string
+  tabBackground: string,
+  headerColor: string
 };
 
 export default TabWrapperV2;

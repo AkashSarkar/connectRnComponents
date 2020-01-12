@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  SafeAreaView, View, Image
+  SafeAreaView, View, Image, TouchableOpacity
 } from 'react-native';
-import { node, string, number } from 'prop-types';
+import { node, string, number, func } from 'prop-types';
 import TextComponent from '../typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 import { p15 } from '../../../styles/commonStyle';
@@ -11,17 +11,6 @@ import assets from '../../../assets';
 const styles = {
   wrapperStyle: {
     height: '100%'
-
-    // paddingVertical: 10,
-    // paddingHorizontal: 20
-    // borderTopLeftRadius: 20,
-    // borderTopRightRadius: 20,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3
-    // },
-    // shadowOpacity: 0.5,
-    // elevation: 1
   },
   titleStyle: {
     flexDirection: 'row',
@@ -46,45 +35,64 @@ const FeatureWrapperV2 = (
     title,
     backgroundColor,
     leftIcon,
-    rightIcon
+    rightIcon,
+    titleTextColor,
+    leftPressAction,
+    rightPressAction
   }
 ) => (
   <SafeAreaView style={{ backgroundColor: backgroundColor || colors.black9 }}>
     <View style={styles.wrapperStyle}>
-      {title && title.length > 0 && (
-        <View style={[styles.titleStyle, p15]}>
-          <Image
-            source={leftIcon}
-            style={styles.leftImageStyle}
-          />
+      <View style={[styles.titleStyle, p15]}>
 
+        <TouchableOpacity
+          onPress={leftPressAction}
+          disabled={leftIcon ? false : true}
+        >
+          {leftIcon && (
+            <Image
+              source={leftIcon}
+              style={styles.leftImageStyle}
+            />
+          )}
+        </TouchableOpacity>
+
+        {title && title.length > 0 && (
           <TextComponent
             content={title}
             size={fonts.fs20}
-            color={colors.red2}
+            color={titleTextColor}
             family={fonts.regular}
           />
-
+        )}
+        <TouchableOpacity
+          onPress={rightPressAction}
+        >
           <Image
             source={rightIcon}
             style={styles.crossImageStyle}
           />
+        </TouchableOpacity>
 
-        </View>
-      )}
+      </View>
+
       {children}
     </View>
   </SafeAreaView>
 );
 FeatureWrapperV2.defaultProps = {
-  leftIcon: assets.LeftArrow,
-  rightIcon: assets.Cross
+  // leftIcon: assets.LeftArrow,
+  rightIcon: assets.Cross,
+  titleTextColor: colors.red
 };
 FeatureWrapperV2.propTypes = {
   title: string,
+  titleTextColor: string,
   backgroundColor: string,
   children: node,
   leftIcon: number,
-  rightIcon: number
+  rightIcon: number,
+  leftPressAction: func,
+  rightPressAction: func
 };
 export default FeatureWrapperV2;
