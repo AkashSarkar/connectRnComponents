@@ -8,7 +8,10 @@ const InputTabbedV2 = ({
   tabTitle1,
   tabTitle2,
   inputFieldBackground,
-  tabBackground
+  tabBackground,
+  tabHeader1,
+  tabHeader2,
+  headerColor
 }) => (
   <TabWrapperV2
     tabTitle1={tabTitle1}
@@ -17,6 +20,9 @@ const InputTabbedV2 = ({
     tabBackground={tabBackground}
     tab1Components={leftInputForm()}
     tab2Components={rightInputForm()}
+    tabHeader1={tabHeader1}
+    tabHeader2={tabHeader2}
+    headerColor={headerColor}
   />
 );
 
@@ -28,6 +34,9 @@ InputTabbedV2.propTypes = {
   tabTitle1: string.isRequired,
   tabTitle2: string.isRequired,
   inputFieldBackground: string,
-  tabBackground: string
+  tabBackground: string,
+  tabHeader1: string,
+  tabHeader2: string,
+  headerColor: string
 };
 export default InputTabbedV2;
