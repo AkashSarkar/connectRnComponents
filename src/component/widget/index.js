@@ -60,6 +60,7 @@ import NotificationList from './list/NotificationList';
 import ToggleSlider from './tab/ToggleSlider';
 import ModalComponent from './modal/ModalComponent';
 import ImageComponent from './image/ImageComponent';
+import ImageComponentV2 from './image/ImageComponentV2';
 import KeyboardNumeric from './keyboard/KeyboardNumeric';
 
 export {
@@ -123,5 +124,6 @@ export {
   ToggleSlider,
   ModalComponent,
   ImageComponent,
+  ImageComponentV2,
   KeyboardNumeric
 };
