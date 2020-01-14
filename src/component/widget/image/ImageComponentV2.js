@@ -10,6 +10,7 @@ import {
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
 import ButtonCapture from '../../ui/button/ButtonCapture';
+import assets from '../../../../../../../src/asset';
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
 
 const ImageComponentV2 = (
   {
-    onImageCapture, isOverlay, cameraType, buttonColor, title
+    onImageCapture, isOverlay, cameraType, buttonColor, title, leftIcon, titleTextColor
   }
 ) => {
   const [imageUri, setImageUri] = useState(null);
@@ -110,7 +111,7 @@ const ImageComponentV2 = (
           />
         </View>
       </ModalComponent>
-      <FeatureWrapperV2 title={title}>
+      <FeatureWrapperV2 title={title} leftIcon={leftIcon} titleTextColor={titleTextColor}>
         {!isPreview && (
         <RNCamera
           ref={(ref) => {
