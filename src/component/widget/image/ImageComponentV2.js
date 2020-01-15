@@ -10,14 +10,11 @@ import {
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
 import ButtonCapture from '../../ui/button/ButtonCapture';
-import assets from '../../../../../../../src/asset';
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
-    // backgroundColor: 'red'
-    // height: 300,
-    // marginTop: 100
   },
   captureBtnWrapper: {
     alignItems: 'center',
