@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
+import {
+  SafeAreaView, ScrollView, View, ToastAndroid
+} from 'react-native';
 import { colors, fonts } from '../../styles/baseStyle';
 import {
   ButtonBorderV2,
@@ -520,7 +522,12 @@ const UIComponentV2Test = ({ navigation }) => {
               buttonHeight={80}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
-              onPress={() => console.warn('Button Primary')}
+              onPress={() => ToastAndroid.showWithGravity(
+                'All Your Base Are Belong To Us',
+                ToastAndroid.LONG,
+                ToastAndroid.TOP,
+              )
+              }
               // disabled
             />
           </View>
@@ -535,7 +542,7 @@ const UIComponentV2Test = ({ navigation }) => {
               family={fonts.bold}
             />
             <ButtonDoubleV2
-              content="Confirm"
+              contentLeft="Confirm"
               contentRight="Re-Capture"
               buttonColor={colors.primary}
               textColorLeft={colors.white1}

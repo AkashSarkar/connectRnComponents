@@ -10,7 +10,8 @@ import {
   ModalInfo,
   ModalFamilyList,
   ModalContact,
-  ModalDiscount
+  ModalDiscount,
+  ModalSecondaryV2
 } from '../../component/widget';
 
 
@@ -52,6 +53,46 @@ const DataModalSecondary = [
     title: 'Third Item'
   }
 ];
+
+const DataModalSecondaryV2 = [
+  {
+    id: '1',
+    title: 'Jamuna Bank'
+  },
+  {
+    id: '2',
+    title: 'Eastern Bank'
+  },
+  {
+    id: '3',
+    title: 'Sonali Bank'
+  },
+  {
+    id: '4',
+    title: 'Dutch Bangla Bank'
+  },
+  {
+    id: '5',
+    title: 'City Bank'
+  },
+  {
+    id: '6',
+    title: 'Pubali Bank'
+  },
+  {
+    id: '7',
+    title: 'Al Arafa Bank'
+  },
+  {
+    id: '8',
+    title: 'Community Bank'
+  },
+  {
+    id: '9',
+    title: 'Janata Bank'
+  }
+];
+
 const DataModalDouble = [
   {
     id: '1',
@@ -168,6 +209,7 @@ class ModalTest extends React.Component {
     super(props);
     this.state = {
       isModalSecondaryVisible: false,
+      isModalSecondaryV2Visible: false,
       isModalDoubleVisible: false,
       isModalInfoVisible: false,
       isModalFamilyList: false,
@@ -179,6 +221,12 @@ class ModalTest extends React.Component {
   toggleModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  toggleModalSecondaryV2 = () => {
+    this.setState({
+      isModalSecondaryV2Visible: !this.state.isModalSecondaryV2Visible
     });
   };
 
@@ -215,6 +263,12 @@ class ModalTest extends React.Component {
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  handleCloseModalSecondaryV2 = () => {
+    this.setState({
+      isModalSecondaryV2Visible: !this.state.isModalSecondaryV2Visible
     });
   };
 
@@ -368,6 +422,26 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseModalDiscount();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal SecondaryV2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalSecondaryV2}
+            />
+            <ModalSecondaryV2
+              modalTitle="Bank Name"
+              isVisible={this.state.isModalSecondaryV2Visible}
+              onBackButtonPress={this.handleCloseModalSecondaryV2}
+              onClose={this.handleCloseModalSecondaryV2}
+              items={DataModalSecondaryV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalSecondaryV2();
               }}
             />
           </View>
