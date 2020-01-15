@@ -2,15 +2,14 @@ import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import {
-  func, string, bool, array
+  func, string, bool, array, number
 } from 'prop-types';
 import {
-  ButtonDouble, TextComponent, FeatureWrapperV2, ButtonDoubleV2
+  FeatureWrapperV2, ButtonDoubleV2
 } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
 import ButtonCapture from '../../ui/button/ButtonCapture';
-
 
 const styles = StyleSheet.create({
   container: {
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
 
 const ImageComponentV2 = (
   {
-    onImageCapture, isOverlay, cameraType, buttonColor, title, leftIcon, titleTextColor
+    onImageCapture, isOverlay, cameraType, buttonColor, title, leftIcon, rightIcon
   }
 ) => {
   const [imageUri, setImageUri] = useState(null);
@@ -108,7 +107,7 @@ const ImageComponentV2 = (
           />
         </View>
       </ModalComponent>
-      <FeatureWrapperV2 title={title} leftIcon={leftIcon} titleTextColor={titleTextColor}>
+      <FeatureWrapperV2 title={title} leftIcon={leftIcon} rightIcon={rightIcon}>
         {!isPreview && (
         <RNCamera
           ref={(ref) => {
@@ -139,7 +138,10 @@ ImageComponentV2.propTypes = {
   cameraType: string,
   isOverlay: bool,
   buttonColor: array.isRequired,
-  title: string
+  title: string,
+  leftIcon: number,
+  rightIcon: number
+
 };
 
 export default ImageComponentV2;
