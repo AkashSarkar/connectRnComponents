@@ -5,16 +5,13 @@ import {
 import {
   array, bool, func, number, string
 } from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
-import TextComponent from '../typography/TextComponent';
-
+import { TextComponent } from '@appscftl/connect-rn-components';
+import { colors, fonts } from '@appscftl/connect-rn-components/src/styles/baseStyle';
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
-    // justifyContent: 'flex-start',
     alignItems: 'center'
-    // borderRadius: 25,
-    // paddingHorizontal: 10
+
   },
   hitSlop: {
     top: 5,
@@ -26,8 +23,8 @@ const styles = StyleSheet.create({
 
 const ButtonSecondary = ({
   content,
-  buttonColor = colors.primary,
-  buttonHeight = 80,
+  buttonColor,
+  buttonHeight,
   textColor,
   fontSize,
   onPress,
@@ -36,7 +33,8 @@ const ButtonSecondary = ({
   isLeftIcon,
   isRightIcon,
   leftIcon,
-  rightIcon
+  rightIcon,
+  extraStyle
 }) => (
   <TouchableOpacity
     onPress={onPress}
@@ -45,9 +43,8 @@ const ButtonSecondary = ({
       backgroundColor: disabled ? disabledColor : buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
-      justifyContent: platform === 'android' ? 'center' : 'flex-start',
       flexDirection: 'row'
-    }]}
+    }, extraStyle]}
     hitSlop={styles.hitSlop}
   >
     {
@@ -56,8 +53,8 @@ const ButtonSecondary = ({
           <Image
             source={leftIcon}
             style={{
-              height: 30,
-              width: 30
+              height: 20,
+              width: 20
             }}
             resizeMode="contain"
           />
@@ -78,8 +75,8 @@ const ButtonSecondary = ({
           <Image
             source={rightIcon}
             style={{
-              height: 30,
-              width: 30
+              height: 20,
+              width: 20
             }}
             resizeMode="contain"
           />
@@ -102,8 +99,10 @@ ButtonSecondary.propTypes = {
   isLeftIcon: bool,
   isRightIcon: bool,
   leftIcon: number,
-  rightIcon: number
+  rightIcon: number,
+  extraStyle: string
 };
 
 
 export default ButtonSecondary;
+
