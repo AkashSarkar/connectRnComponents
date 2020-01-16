@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { colors, fonts } from '../../styles/baseStyle';
 import { HeaderTop, TextComponent } from '../../component/ui';
-import { mb10, mb20, mt10, p10, pb10 } from '../../styles/commonStyle';
+import {
+  mb10, mb20, mt10, p10, pb10
+} from '../../styles/commonStyle';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import AccountListItem from '../../component/widget/card/AccountListItem';
 import AccountDetails from '../../component/widget/card/AccountDetails';
@@ -28,6 +30,7 @@ import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
 import Selection from '../../component/widget/card/Selection';
 import ProfileCard from '../../component/widget/card/ProfileCard';
+import PaymentsCard from '../../component/widget/card/PaymentsCard';
 
 const WidgetL1Test = ({ navigation }) => {
   const [search, setSearch] = useState('');
@@ -68,16 +71,16 @@ const WidgetL1Test = ({ navigation }) => {
   };
 
   const onButtonPress = () => {
-    console.log("");
+    console.log('');
   };
 
   const onTextChange = (val) => {
     console.log(val);
-  }
+  };
 
   return (
     <ScrollView contentContainerStyle={screenContainer}>
-      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()}/>
+      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
       <View style={mb10}>
         <TextComponent
           size={fonts.fs30}
@@ -165,7 +168,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputLogin"
             family={fonts.bold}
           />
-          <InputLogin/>
+          <InputLogin />
         </View>
         <View style={[mb20, p10, mt10]}>
           <TextComponent
@@ -174,7 +177,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputLabeled"
             family={fonts.bold}
           />
-          <InputLabeled/>
+          <InputLabeled />
         </View>
         <View style={mb20}>
           <TextComponent
@@ -183,7 +186,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputTabbed"
             family={fonts.bold}
           />
-          <InputTabbed/>
+          <InputTabbed />
         </View>
         <View style={mb20}>
           <TextComponent
@@ -192,7 +195,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputMiddleLabeled"
             family={fonts.bold}
           />
-          <InputMiddleLabeled 
+          <InputMiddleLabeled
             isInput
             isButton
             isIcon
@@ -214,7 +217,8 @@ const WidgetL1Test = ({ navigation }) => {
         />
         <Selection
           heading="Grameenphone"
-          handleModalOpen={handleSelectionModal}/>
+          handleModalOpen={handleSelectionModal}
+        />
       </View>
 
       <View style={[pb10]}>
@@ -224,8 +228,7 @@ const WidgetL1Test = ({ navigation }) => {
           content="widget/card/AccountListItem"
           family={fonts.bold}
         />
-        <AccountListItem accountInformation={accountListItemInformation}
-        />
+        <AccountListItem accountInformation={accountListItemInformation} />
       </View>
       {/* widget/card/AccountListItem */}
       <View style={[pb10]}>
@@ -242,6 +245,8 @@ const WidgetL1Test = ({ navigation }) => {
           connectAcc="0002-90909-90909"
         />
       </View>
+      
+
       {/* widget/card/AccountSliderItem */}
       <View style={[pb10]}>
         <TextComponent
@@ -259,6 +264,26 @@ const WidgetL1Test = ({ navigation }) => {
       </View>
       {/* widget/card/ProfileCard */}
 
+      <View style={pb10}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="widget/card/PaymentsCard"
+          family={fonts.bold}
+        />
+        <PaymentsCard
+          upperLeftContent="Salary Account"
+          upperRightContent="188,000.00"
+          lowerContent1="Remaining balance:"
+          lowerContent2="175,500.00"
+          upperLeftIcon={assets.Add}
+          upperRightIcon={assets.Add2}
+          lowerIcon={assets.Add2}
+        />
+      </View>
+        
+      {/* widget/card/PaymentsCard */}
+
       <View style={[pb10]}>
         <TextComponent
           size={fonts.fs20}
@@ -266,7 +291,7 @@ const WidgetL1Test = ({ navigation }) => {
           content="widget/card/AccountDetails"
           family={fonts.bold}
         />
-        <AccountDetails handleShareButton={handleAccountDetailsShareButton}/>
+        <AccountDetails handleShareButton={handleAccountDetailsShareButton} />
       </View>
       {/* widget/card/AccountDetails */}
 

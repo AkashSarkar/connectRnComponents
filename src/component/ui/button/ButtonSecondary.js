@@ -1,5 +1,7 @@
 import React from 'react';
-import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  Platform, StyleSheet, TouchableOpacity, Image, View
+} from 'react-native';
 import {
   array, bool, func, number, string
 } from 'prop-types';
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const ButtonPrimaryV2 = ({
+const ButtonSecondary = ({
   content,
   buttonColor = colors.primary,
   buttonHeight = 80,
@@ -30,7 +32,11 @@ const ButtonPrimaryV2 = ({
   fontSize,
   onPress,
   disabled,
-  disabledColor = colors.grey1
+  disabledColor = colors.grey1,
+  isLeftIcon,
+  isRightIcon,
+  leftIcon,
+  rightIcon
 }) => (
   <TouchableOpacity
     onPress={onPress}
@@ -44,16 +50,47 @@ const ButtonPrimaryV2 = ({
     }]}
     hitSlop={styles.hitSlop}
   >
+    {
+      isLeftIcon && (
+        <View style={{ paddingRight: 10 }}>
+          <Image
+            source={leftIcon}
+            style={{
+              height: 30,
+              width: 30
+            }}
+            resizeMode="contain"
+          />
+        </View>
+      )
+    }
+
     <TextComponent
       content={content}
       family={fonts.regular}
       size={fontSize}
       color={textColor}
     />
+
+    {
+      isRightIcon && (
+        <View style={{ paddingLeft: 10 }}>
+          <Image
+            source={rightIcon}
+            style={{
+              height: 30,
+              width: 30
+            }}
+            resizeMode="contain"
+          />
+        </View>
+      )
+    }
+
   </TouchableOpacity>
 );
 
-ButtonPrimaryV2.propTypes = {
+ButtonSecondary.propTypes = {
   content: string.isRequired,
   buttonColor: array.isRequired,
   textColor: string.isRequired,
@@ -61,8 +98,12 @@ ButtonPrimaryV2.propTypes = {
   buttonHeight: number,
   onPress: func,
   disabled: bool,
-  disabledColor: string
+  disabledColor: string,
+  isLeftIcon: bool,
+  isRightIcon: bool,
+  leftIcon: number,
+  rightIcon: number
 };
 
 
-export default ButtonPrimaryV2;
+export default ButtonSecondary;

@@ -27,6 +27,8 @@ import ButtonNidFront from './button/ButtonNidFront';
 import ButtonDoubleV2 from './button/ButtonDoubleV2';
 import ButtonBorderV2 from './button/ButtonBorderV2';
 import FlatButtonV2 from './button/FlatButtonV2';
+import ButtonDoubleWithIcon from './button/ButtonDoubleWithIcon';
+import ButtonSecondary from './button/ButtonSecondary';
 
 export {
   TextComponent,
@@ -57,5 +59,7 @@ export {
   ButtonNidFront,
   ButtonDoubleV2,
   ButtonBorderV2,
+  ButtonDoubleWithIcon,
   FlatButtonV2,
+  ButtonSecondary
 };
