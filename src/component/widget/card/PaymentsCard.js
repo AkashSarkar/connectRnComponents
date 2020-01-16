@@ -4,6 +4,7 @@ import { fonts, colors } from '../../../styles/baseStyle';
 import { TextComponent } from '../../ui';
 import assets from '../../../assets';
 import { ph5 } from '../../../styles/commonStyle';
+import { string, number } from 'prop-types';
 
 const styles = {
   container: {
@@ -127,4 +128,15 @@ PaymentsCard.defaultProps = {
   lowerContent2: '0',
   lowerIcon: assets.Add
 };
+
+PaymentsCard.propTypes = {
+  upperLeftContent: string,
+  upperRightContent: string,
+  upperLeftIcon: number,
+  upperRightIcon: number,
+  lowerContent1: string,
+  lowerContent2: string,
+  lowerIcon: number
+};
+
 export default PaymentsCard;
