@@ -5,8 +5,9 @@ import {
 import {
   array, bool, func, number, string
 } from 'prop-types';
-import { TextComponent } from '@appscftl/connect-rn-components';
-import { colors, fonts } from '@appscftl/connect-rn-components/src/styles/baseStyle';
+import TextComponent from '../typography/TextComponent';
+import { colors, fonts } from '../../../styles/baseStyle';
+
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
@@ -105,4 +106,3 @@ ButtonSecondary.propTypes = {
 
 
 export default ButtonSecondary;
-

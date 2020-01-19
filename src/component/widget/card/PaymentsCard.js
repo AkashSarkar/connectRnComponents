@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import { string, number } from 'prop-types';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { TextComponent } from '../../ui';
 import assets from '../../../assets';
 import { ph5 } from '../../../styles/commonStyle';
-import { string, number } from 'prop-types';
 
 const styles = {
   container: {
@@ -59,23 +60,27 @@ const PaymentsCard = ({
   <View style={styles.container}>
     <View style={styles.upperView}>
       <View style={styles.leftUpperView}>
-        <View style={styles.leftUpper}>
-          <View style={{ paddingRight: 20 }}>
-            <TextComponent
-              color={colors.black8}
-              content={upperLeftContent}
-              size={fonts.fs14}
+
+        <TouchableOpacity>
+          <View style={styles.leftUpper}>
+            <View style={{ paddingRight: 20 }}>
+              <TextComponent
+                color={colors.black8}
+                content={upperLeftContent}
+                size={fonts.fs14}
+              />
+            </View>
+            <Image
+              source={upperLeftIcon}
+              style={{
+                height: 14,
+                width: 14
+              }}
+              resizeMode="contain"
             />
           </View>
-          <Image
-            source={upperLeftIcon}
-            style={{
-              height: 14,
-              width: 14
-            }}
-            resizeMode="contain"
-          />
-        </View>
+        </TouchableOpacity>
+
       </View>
       <View style={styles.rightUpper}>
         <View style={{ paddingRight: 5 }}>
