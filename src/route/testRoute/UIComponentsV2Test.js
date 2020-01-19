@@ -7,7 +7,8 @@ import {
   ButtonPrimaryV2,
   FlatButtonV2,
   ButtonSecondary,
-  TextComponent
+  TextComponent,
+  ButtonInfo
 } from '../../component/ui';
 import {
   mb10, mb5, p10, pb10
@@ -262,6 +263,22 @@ const UIComponentV2Test = () => {
           </View>
 
           {/* ends ui/button/ButtonBorderV2 */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonInfo"
+              family={fonts.bold}
+            />
+            <ButtonInfo
+              content="Button Info"
+              buttonHeight={50}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Info')}
+            />
+          </View>
+
+          { /* ends ui/button/ButtonInfo */ }
 
           <View style={{ marginLeft: 10 }}>
             <View style={mb10}>
