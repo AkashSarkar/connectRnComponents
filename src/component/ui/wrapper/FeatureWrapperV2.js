@@ -2,7 +2,9 @@ import React from 'react';
 import {
   SafeAreaView, View, Image, TouchableOpacity
 } from 'react-native';
-import { node, string, number, func } from 'prop-types';
+import {
+  node, string, number, func
+} from 'prop-types';
 import TextComponent from '../typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 import { p15 } from '../../../styles/commonStyle';
@@ -18,17 +20,14 @@ const styles = {
     alignItems: 'center'
   },
   leftImageStyle: {
-    width: 15,
-    height: 25,
-    borderStyle: 'solid',
-    borderWidth: 3.1
+    width: 25,
+    height: 25
   },
   crossImageStyle: {
     width: 25,
     height: 25
   }
 };
-
 const FeatureWrapperV2 = (
   {
     children,
@@ -41,18 +40,20 @@ const FeatureWrapperV2 = (
     rightPressAction
   }
 ) => (
+
   <SafeAreaView style={{ backgroundColor: backgroundColor || colors.black9 }}>
     <View style={styles.wrapperStyle}>
       <View style={[styles.titleStyle, p15]}>
 
         <TouchableOpacity
           onPress={leftPressAction}
-          disabled={leftIcon ? false : true}
+          disabled={!leftIcon}
         >
           {leftIcon && (
             <Image
               source={leftIcon}
               style={styles.leftImageStyle}
+              resizeMode="stretch"
             />
           )}
         </TouchableOpacity>
@@ -71,6 +72,7 @@ const FeatureWrapperV2 = (
           <Image
             source={rightIcon}
             style={styles.crossImageStyle}
+            resizeMode="stretch"
           />
         </TouchableOpacity>
 
@@ -81,7 +83,7 @@ const FeatureWrapperV2 = (
   </SafeAreaView>
 );
 FeatureWrapperV2.defaultProps = {
-  // leftIcon: assets.LeftArrow,
+  leftIcon: assets.Back,
   rightIcon: assets.Cross,
   titleTextColor: colors.red
 };

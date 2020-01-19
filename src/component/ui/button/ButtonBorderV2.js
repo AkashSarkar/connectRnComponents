@@ -12,7 +12,6 @@ const platform = Platform.OS;
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    flex: 1,
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
