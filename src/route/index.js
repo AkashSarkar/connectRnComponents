@@ -70,7 +70,7 @@ const AppNavigator = createStackNavigator(
     ProfileCardTest
   },
   {
-    initialRouteName: 'UIComponentV2Test',
+    initialRouteName: 'ModalTest',
     headerMode: 'none'
   },
 );

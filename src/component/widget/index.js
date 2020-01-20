@@ -38,6 +38,7 @@ import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
 import HeaderTop from '../ui/header/HeaderTop';
+import ModalInvoiceList from './modal/ModalInvoiceList';
 import {
   Limit,
   LimitChange,
@@ -115,5 +116,6 @@ export {
   NotificationList,
   ToggleSlider,
   ModalComponent,
-  ImageComponent
+  ImageComponent,
+  ModalInvoiceList
 };

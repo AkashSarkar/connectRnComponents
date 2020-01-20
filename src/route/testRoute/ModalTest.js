@@ -9,7 +9,8 @@ import {
   ModalDouble,
   ModalInfo,
   ModalFamilyList,
-  ModalContact
+  ModalContact,
+  ModalInvoiceList
 } from '../../component/widget';
 
 
@@ -146,6 +147,24 @@ const DataModalFamilyList = [
   }
 ];
 
+const DataModalInvoiceList = [
+  {
+    id: '1',
+    title: 'Date',
+    details: '2019.MAY.28'
+  },
+  {
+    id: '2',
+    title: 'Invoice No.',
+    details: 'IN-00-123'
+  },
+  {
+    id: '3',
+    title: 'TxN ID',
+    details: 'TxN-123-456'
+  }
+];
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -170,7 +189,8 @@ class ModalTest extends React.Component {
       isModalDoubleVisible: false,
       isModalInfoVisible: false,
       isModalFamilyList: false,
-      isModalContact: false
+      isModalContact: false,
+      isModalInvoiceList: false
     };
   }
 
@@ -204,6 +224,12 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
+    });
+  };
+
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
@@ -231,6 +257,12 @@ class ModalTest extends React.Component {
   handleCloseModalContact = () => {
     this.setState({
       isModalContact: !this.state.isModalContact
+    });
+  };
+
+  handleCloseModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
     });
   };
 
@@ -333,6 +365,27 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseModalContact();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal InvoiceList"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalInvoiceList}
+            />
+            <ModalInvoiceList
+              // modalTitle="Hello"
+              isVisible={this.state.isModalInvoiceList}
+              onBackButtonPress={this.handleCloseModalInvoiceList}
+              items={DataModalInvoiceList}
+              onClose={this.handleCloseModalInvoiceList}
+              onPress={this.handleCloseModalInvoiceList}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalInvoiceList();
               }}
             />
           </View>
