@@ -123,17 +123,6 @@ const ModalContact = ({
             />
           </View>
         </BoxShadow>
-        <View style={styles.textAreaContainer}>
-          <TextInput
-            style={styles.textArea}
-            underlineColorAndroid="transparent"
-            placeholder="Write here..."
-            fontFamily={fonts.regular}
-            placeholderTextColor="grey"
-            numberOfLines={10}
-            multiline
-          />
-        </View>
         <View style={{ marginTop: 20 }}>
           <ButtonPrimary
             content="Send"

@@ -12,6 +12,8 @@ import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import BoxShadow from '../../ui/wrapper/BoxShadow';
 import image from '../../../assets';
 import { ButtonPrimary, ButtonBorderV2 } from '../../ui';
+import assets from '../../../assets';
+import { mb10, mr10, mb20, mr20, ph10 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,13 +36,20 @@ const styles = StyleSheet.create({
     // borderTopEndRadius: 16
   },
   contentWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
     // alignItems: 'center',
     // alignContent: 'center',
     // padding: 50,
-    height: 250,
-    backgroundColor: 'purple'
+    paddingBottom: 30,
+    height: 250
+    //backgroundColor: 'purple'
     // borderTopLeftRadius: 16,
-    // borderTopEndRadius: 16
+    // borderTopEndRadius: 16,
+  },
+  percentWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   bottomWrapper: {
     // alignItems: 'center',
@@ -112,18 +121,32 @@ const ModalDiscount = ({
         </View>
         {/* Content wrapper */}
         <View style={styles.contentWrapper}>
-          <TextComponent
-            content="Amount"
-            size={fonts.fs14}
-            family={fonts.light}
-            color={colors.white1}
-          />
-          <TextComponent
-            content="Amount"
-            size={fonts.fs14}
-            family={fonts.light}
-            color={colors.white1}
-          />
+          <View style={{ marginRight: 60 }}>
+            <TextComponent
+              content="Amount"
+              size={fonts.fs14}
+              family={fonts.light}
+              color={colors.white1}
+              extraStyle={[mb10, { lineHeight: 22 }]}
+            />
+          </View>
+
+          <View style={styles.percentWrapper}>
+            <Image
+              source={assets.Change}
+              style={[mr10, {
+                height: 30,
+                width: 30
+              }]}
+              resizeMode="contain"
+            />
+            <TextComponent
+              content="10%"
+              size={fonts.fs52}
+              family={fonts.light}
+              color={colors.white1}
+            />
+          </View>
         </View>
         {/* Bottom wrapper */}
         <View style={styles.bottomWrapper}>

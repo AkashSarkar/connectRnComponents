@@ -7,26 +7,28 @@ import {
   arrayOf, shape, number, string, func, bool
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
+import { ButtonPrimary } from '../../ui';
+import { p5, ph20 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   container: {
     height: 250,
-    backgroundColor: colors.white1,
+    backgroundColor: colors.black10,
     padding: 20,
     borderRadius: 16,
     borderColor: 'black'
   },
   viewWrapper: {
     paddingVertical: 10,
-    backgroundColor: colors.white1
+    backgroundColor: colors.black10
   },
   closeModalContainer: {
     position: 'absolute',
     right: 0,
-    backgroundColor: colors.white1
+    backgroundColor: colors.black10
   },
   closeImageStyle: {
     height: 24,
@@ -57,15 +59,15 @@ const renderItem = item => (
     <View>
       <TextComponent
         content={item.title}
-        size={fonts.fs16}
+        size={fonts.fs18}
         family={fonts.semiBold}
-        color={colors.black0}
+        color={colors.red2}
       />
       <TextComponent
         content={item.details}
         size={fonts.fs16}
         family={fonts.regular}
-        color={colors.black0}
+        color={colors.white1}
       />
     </View>
   </View>
@@ -98,10 +100,10 @@ const ModalInfo = ({
           style={styles.closeModalContainer}
           hitSlop={styles.hitSlop}
         >
-          <Image
-            style={styles.closeImageStyle}
-            source={image.Cross}
-          />
+          {/*<Image*/}
+          {/*  style={styles.closeImageStyle}*/}
+          {/*  source={image.Cross}*/}
+          {/*/>*/}
         </TouchableOpacity>
         <View
           style={styles.listViewWrapper}
@@ -115,6 +117,25 @@ const ModalInfo = ({
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}
           />
+          <View style={{
+            //flexDirection: 'row',
+            alignSelf: 'flex-end',
+            borderRadius: 16,
+            width: 90,
+            height: 24,
+            paddingTop: 10
+            //backgroundColor: 'powderblue'
+          }}
+          >
+            <ButtonPrimary
+              content=" Map "
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              //buttonColor={colors.red2}
+              // onPress={this.toggleModalInfo}
+            />
+          </View>
         </View>
 
       </View>

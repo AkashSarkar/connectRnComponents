@@ -11,7 +11,9 @@ import {
   ModalFamilyList,
   ModalContact,
   ModalDiscount,
-  ModalSecondaryV2
+  ModalDiscountV2,
+  ModalSecondaryV2,
+  ModalContactV2,
 } from '../../component/widget';
 
 
@@ -201,7 +203,8 @@ const styles = StyleSheet.create({
 
 class ModalTest extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    header: <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
+    header: <HeaderTop content="Modal Test"
+                       onPress={() => navigation.goBack()}/>
   });
 
 
@@ -214,7 +217,9 @@ class ModalTest extends React.Component {
       isModalInfoVisible: false,
       isModalFamilyList: false,
       isModalContact: false,
-      isModalDiscount: false
+      isModalContactV2: false,
+      isModalDiscount: false,
+      isModalDiscountV2: false
     };
   }
 
@@ -254,9 +259,21 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalContactV2 = () => {
+    this.setState({
+      isModalContactV2: !this.state.isModalContact
+    });
+  };
+
   toggleModalDiscount = () => {
     this.setState({
       isModalDiscount: !this.state.isModalDiscount
+    });
+  };
+
+  toggleModalDiscountV2 = () => {
+    this.setState({
+      isModalDiscountV2: !this.state.isModalDiscountV2
     });
   };
 
@@ -295,6 +312,11 @@ class ModalTest extends React.Component {
       isModalContact: !this.state.isModalContact
     });
   };
+  handleCloseModalContactV2 = () => {
+    this.setState({
+      isModalContactV2: !this.state.isModalContactV2
+    });
+  };
 
   handleCloseModalDiscount = () => {
     this.setState({
@@ -302,11 +324,18 @@ class ModalTest extends React.Component {
     });
   };
 
+  handleCloseModalDiscountV2 = () => {
+    this.setState({
+      isModalDiscountV2: !this.state.isModalDiscountV2
+    });
+  };
+
   render() {
     return (
       <ScrollView>
         <SafeAreaView style={styles.container}>
-          <HeaderTop content="Modal Test" onPress={() => this.props.navigation.goBack()} />
+          <HeaderTop content="Modal Test"
+                     onPress={() => this.props.navigation.goBack()}/>
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal Secondary"
@@ -445,6 +474,49 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Discount v2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalDiscountV2}
+            />
+            <ModalDiscountV2
+              modalTitle="Add New Location"
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalDiscountV2}
+              onBackButtonPress={this.handleCloseModalDiscountV2}
+              onClose={this.handleCloseModalDiscountV2}
+              onPress={this.handleCloseModalDiscountV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalDiscountV2();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Count v2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalContactV2}
+            />
+            <ModalContactV2
+              modalTitle="Add description"
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalContactV2}
+              onBackButtonPress={this.handleCloseModalContactV2}
+              onClose={this.handleCloseModalContactV2}
+              onPress={this.handleCloseModalContactV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalContactV2();
+              }}
+            />
+          </View>
+
         </SafeAreaView>
       </ScrollView>
     );
