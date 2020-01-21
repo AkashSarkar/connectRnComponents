@@ -12,6 +12,7 @@ import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
 import { ButtonPrimary } from '../../ui';
 import { p5, ph20 } from '../../../styles/commonStyle';
+import ModalDiscountV2 from './ModalContactV2';
 
 const styles = StyleSheet.create({
   container: {
@@ -124,7 +125,6 @@ const ModalInfo = ({
             width: 90,
             height: 24,
             paddingTop: 10
-            //backgroundColor: 'powderblue'
           }}
           >
             <ButtonPrimary
@@ -132,15 +132,18 @@ const ModalInfo = ({
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
-              //buttonColor={colors.red2}
-              // onPress={this.toggleModalInfo}
             />
           </View>
         </View>
-
       </View>
     </View>
   </Modal>
 );
-
+ModalInfo.propTypes = {
+  modalTitle: string.isRequired,
+  isVisible: bool,
+  onBackButtonPress: func,
+  onClose: func,
+  onSelect: func
+};
 export default ModalInfo;
