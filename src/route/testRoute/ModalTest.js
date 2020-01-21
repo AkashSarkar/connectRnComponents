@@ -6,6 +6,7 @@ import { ButtonPrimary, HeaderTop } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
   ModalSecondary,
+  ModalSecondaryV2,
   ModalDouble,
   ModalInfo,
   ModalFamilyList,
@@ -15,6 +16,44 @@ import {
 
 
 const DataModalSecondary = [
+  {
+    id: '1',
+    title: 'Connect'
+  },
+  {
+    id: '2',
+    title: 'Jamuna Bank'
+  },
+  {
+    id: '3',
+    title: 'Dmoney'
+  },
+  {
+    id: '4',
+    title: 'First Item'
+  },
+  {
+    id: '5',
+    title: 'Credit Card'
+  },
+  {
+    id: '58694a0f-3da1-471f-',
+    title: 'Third Item'
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed53abb28ba',
+    title: 'First Item'
+  },
+  {
+    id: '3ac68af5-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item'
+  },
+  {
+    id: '5864a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item'
+  }
+];
+const DataModalSecondaryV2 = [
   {
     id: '1',
     title: 'Connect'
@@ -186,6 +225,7 @@ class ModalTest extends React.Component {
     super(props);
     this.state = {
       isModalSecondaryVisible: false,
+      isModalSecondaryV2Visible: false,
       isModalDoubleVisible: false,
       isModalInfoVisible: false,
       isModalFamilyList: false,
@@ -197,6 +237,12 @@ class ModalTest extends React.Component {
   toggleModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  toggleModalSecondaryV2 = () => {
+    this.setState({
+      isModalSecondaryV2Visible: !this.state.isModalSecondaryV2Visible
     });
   };
 
@@ -233,6 +279,12 @@ class ModalTest extends React.Component {
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  handleCloseModalSecondaryV2 = () => {
+    this.setState({
+      isModalSecondaryV2Visible: !this.state.isModalSecondaryV2Visible
     });
   };
 
@@ -288,6 +340,26 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseModalSecondary();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal SecondaryV2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalSecondaryV2}
+            />
+            <ModalSecondaryV2
+              modalTitle="Modal SecondaryV2"
+              isVisible={this.state.isModalSecondaryV2Visible}
+              onBackButtonPress={this.handleCloseModalSecondaryV2}
+              onClose={this.handleCloseModalSecondaryV2}
+              items={DataModalSecondaryV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalSecondaryV2();
               }}
             />
           </View>

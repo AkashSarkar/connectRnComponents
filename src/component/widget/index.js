@@ -27,6 +27,7 @@ import AvatarList from './list/AvatarList';
 import InputField from './input/InputField';
 import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
+import ModalSecondaryV2 from './modal/ModalSecondaryV2';
 import Control from './interactive/control/Control';
 import SplitItem from './interactive/split/SplitItem';
 import SplitList from './interactive/split/SplitList';
@@ -86,6 +87,7 @@ export {
   CTA,
   AmountChange,
   ModalSecondary,
+  ModalSecondaryV2,
   ModalDouble,
   ModalInfo,
   ModalFamilyList,
