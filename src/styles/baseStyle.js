@@ -1,5 +1,5 @@
 export const colors = {
-  primary: '#14438f',
+  primary: '#FF005B',
   primary2: '#000632',
   secondary: '#00d1da',
   secondary2: '#e5f5f5',
@@ -26,8 +26,9 @@ export const colors = {
   black6: '#c9c9c9',
   black7: '#c2c2c2',
   black8: '#1c1c1c',
-  buttonColor1: '#303030',
   black9: '#1a1a1a',
+  black10: '#363636',
+  buttonColor1: '#303030',
   text1: '#08205C',
   text2: '#000000',
   yellow1: '#fff500',
@@ -91,9 +92,14 @@ export const fonts = {
   fs32: 32,
   fs50: 50,
   fs52: 52,
-  light: 'Montserrat-Light',
-  medium: 'Montserrat-Medium',
-  regular: 'Montserrat-Regular',
-  semiBold: 'Montserrat-SemiBold',
-  bold: 'Montserrat-Bold'
+  light: 'ProximaNovaA-Light',
+  black: 'ProximaNova-Black',
+  medium: 'ProximaNovaT-Thin',
+  tThin: 'ProximaNovaT-Thin',
+  aThin: 'ProximaNovaA-Thin',
+  regular: 'ProximaNova-Regular',
+  semiBold: 'ProximaNovaT-Thin',
+  bold: 'ProximaNova-Bold',
+  aBold: 'ProximaNovaA-Bold',
+  extraBold: 'ProximaNova-Extrabld'
 };

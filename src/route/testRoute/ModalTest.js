@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View, StyleSheet, ScrollView, SafeAreaView
 } from 'react-native';
@@ -10,7 +10,11 @@ import {
   ModalInfo,
   ModalFamilyList,
   ModalContact,
-  ModalInvoiceList
+  ModalInvoiceList,
+  ModalDiscount,
+  ModalDiscountV2,
+  ModalSecondaryV2,
+  ModalContactV2
 } from '../../component/widget';
 
 
@@ -52,6 +56,46 @@ const DataModalSecondary = [
     title: 'Third Item'
   }
 ];
+
+const DataModalSecondaryV2 = [
+  {
+    id: '1',
+    title: 'Jamuna Bank'
+  },
+  {
+    id: '2',
+    title: 'Eastern Bank'
+  },
+  {
+    id: '3',
+    title: 'Sonali Bank'
+  },
+  {
+    id: '4',
+    title: 'Dutch Bangla Bank'
+  },
+  {
+    id: '5',
+    title: 'City Bank'
+  },
+  {
+    id: '6',
+    title: 'Pubali Bank'
+  },
+  {
+    id: '7',
+    title: 'Al Arafa Bank'
+  },
+  {
+    id: '8',
+    title: 'Community Bank'
+  },
+  {
+    id: '9',
+    title: 'Janata Bank'
+  }
+];
+
 const DataModalDouble = [
   {
     id: '1',
@@ -178,7 +222,10 @@ const styles = StyleSheet.create({
 
 class ModalTest extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    header: <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
+    header: <HeaderTop
+      content="Modal Test"
+      onPress={() => navigation.goBack()}
+    />
   });
 
 
@@ -186,17 +233,27 @@ class ModalTest extends React.Component {
     super(props);
     this.state = {
       isModalSecondaryVisible: false,
+      isModalSecondaryV2Visible: false,
       isModalDoubleVisible: false,
       isModalInfoVisible: false,
       isModalFamilyList: false,
       isModalContact: false,
-      isModalInvoiceList: false
+      isModalInvoiceList: false,
+      isModalContactV2: false,
+      isModalDiscount: false,
+      isModalDiscountV2: false
     };
   }
 
   toggleModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  toggleModalSecondaryV2 = () => {
+    this.setState({
+      isModalSecondaryV2Visible: !this.state.isModalSecondaryV2Visible
     });
   };
 
@@ -230,9 +287,33 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalContactV2 = () => {
+    this.setState({
+      isModalContactV2: !this.state.isModalContact
+    });
+  };
+
+  toggleModalDiscount = () => {
+    this.setState({
+      isModalDiscount: !this.state.isModalDiscount
+    });
+  };
+
+  toggleModalDiscountV2 = () => {
+    this.setState({
+      isModalDiscountV2: !this.state.isModalDiscountV2
+    });
+  };
+
   handleCloseModalSecondary = () => {
     this.setState({
       isModalSecondaryVisible: !this.state.isModalSecondaryVisible
+    });
+  };
+
+  handleCloseModalSecondaryV2 = () => {
+    this.setState({
+      isModalSecondaryV2Visible: !this.state.isModalSecondaryV2Visible
     });
   };
 
@@ -260,6 +341,24 @@ class ModalTest extends React.Component {
     });
   };
 
+  handleCloseModalContactV2 = () => {
+    this.setState({
+      isModalContactV2: !this.state.isModalContactV2
+    });
+  };
+
+  handleCloseModalDiscount = () => {
+    this.setState({
+      isModalDiscount: !this.state.isModalDiscount
+    });
+  };
+
+  handleCloseModalDiscountV2 = () => {
+    this.setState({
+      isModalDiscountV2: !this.state.isModalDiscountV2
+    });
+  };
+
   handleCloseModalInvoiceList = () => {
     this.setState({
       isModalInvoiceList: !this.state.isModalInvoiceList
@@ -270,7 +369,10 @@ class ModalTest extends React.Component {
     return (
       <ScrollView>
         <SafeAreaView style={styles.container}>
-          <HeaderTop content="Modal Test" onPress={() => this.props.navigation.goBack()} />
+          <HeaderTop
+            content="Modal Test"
+            onPress={() => this.props.navigation.goBack()}
+          />
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal Secondary"
@@ -389,6 +491,90 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
+          <View>
+            <ButtonPrimary
+              content="Modal Discount"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalDiscount}
+            />
+            <ModalDiscount
+              modalTitle="Add discount"
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalDiscount}
+              onBackButtonPress={this.handleCloseModalDiscount}
+              onClose={this.handleCloseModalDiscount}
+              onPress={this.handleCloseModalDiscount}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalDiscount();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal SecondaryV2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalSecondaryV2}
+            />
+            <ModalSecondaryV2
+              modalTitle="Bank Name"
+              isVisible={this.state.isModalSecondaryV2Visible}
+              onBackButtonPress={this.handleCloseModalSecondaryV2}
+              onClose={this.handleCloseModalSecondaryV2}
+              items={DataModalSecondaryV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalSecondaryV2();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Discount v2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalDiscountV2}
+            />
+            <ModalDiscountV2
+              modalTitle="Add New Location"
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalDiscountV2}
+              onBackButtonPress={this.handleCloseModalDiscountV2}
+              onClose={this.handleCloseModalDiscountV2}
+              onPress={this.handleCloseModalDiscountV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalDiscountV2();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="Modal Count v2"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalContactV2}
+            />
+            <ModalContactV2
+              modalTitle="Add description"
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalContactV2}
+              onBackButtonPress={this.handleCloseModalContactV2}
+              onClose={this.handleCloseModalContactV2}
+              onPress={this.handleCloseModalContactV2}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalContactV2();
+              }}
+            />
+          </View>
+
         </SafeAreaView>
       </ScrollView>
     );

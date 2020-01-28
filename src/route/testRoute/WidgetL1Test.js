@@ -23,7 +23,8 @@ import {
   Scan,
   SeatListItem,
   TripType,
-  VerifiedInfo
+  VerifiedInfo,
+  InputTabbedV2
 } from '../../component/widget';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';

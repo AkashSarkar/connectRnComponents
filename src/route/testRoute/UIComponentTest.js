@@ -18,7 +18,8 @@ import {
   HeaderPrimary,
   HeaderTop,
   MenuItem,
-  TextComponent
+  TextComponent,
+  ButtonRectangle
 } from '../../component/ui';
 import { mb10, p10, pb10 } from '../../styles/commonStyle';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
@@ -27,7 +28,6 @@ import assets from '../../assets';
 import { AmountChange } from '../../component/widget';
 import Switch from '../../component/ui/input/Switch';
 import TabTest from './TabTest';
-import ButtonRectangle from '../../component/ui/button/ButtonRectangle';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -413,10 +413,8 @@ const UIComponentTest = ({ navigation }) => {
                 family={fonts.bold}
               />
               <ButtonTag
-                contentL="Basic"
-                contentR="Account Management"
-                buttonColorL={colors.colorSecondery}
-                buttonColorR={colors.white1}
+                content="Basic"
+                buttonColor={colors.colorSecondery}
                 textColor={colors.text2}
                 fontSize={fonts.fs10}
                 onPress={() => console.warn('Button Desco')}

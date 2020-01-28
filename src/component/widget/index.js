@@ -15,8 +15,10 @@ import MenuStackList from './list/MenuStackList';
 import InputLogin from './card/InputLogin';
 import TabWrapper from './tab/TabWrapper';
 import TabSlider from './tab/TabSlider';
+import TabSliderV2 from './tab/TabSliderV2';
 import InputLabeled from './card/InputLabeled';
 import InputTabbed from './card/InputTabbed';
+import InputTabbedV2 from './card/InputTabbedV2';
 import DateRange from './card/DateRange';
 import DatePick from './card/DatePick';
 import CardTitleWidget from './title/CardTitleWidget';
@@ -27,6 +29,7 @@ import AvatarList from './list/AvatarList';
 import InputField from './input/InputField';
 import AmountChange from './input/AmountChange';
 import ModalSecondary from './modal/ModalSecondary';
+import ModalSecondaryV2 from './modal/ModalSecondaryV2';
 import Control from './interactive/control/Control';
 import SplitItem from './interactive/split/SplitItem';
 import SplitList from './interactive/split/SplitList';
@@ -34,6 +37,9 @@ import ModalDouble from './modal/ModalDouble';
 import ModalInfo from './modal/ModalInfo';
 import ModalFamilyList from './modal/ModalFamilyList';
 import ModalContact from './modal/ModalContact';
+import ModalContactV2 from './modal/ModalContactV2';
+import ModalDiscount from './modal/ModalDiscount';
+import ModalDiscountV2 from './modal/ModalDiscountV2';
 import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
@@ -58,6 +64,8 @@ import NotificationList from './list/NotificationList';
 import ToggleSlider from './tab/ToggleSlider';
 import ModalComponent from './modal/ModalComponent';
 import ImageComponent from './image/ImageComponent';
+import ImageComponentV2 from './image/ImageComponentV2';
+import KeyboardNumeric from './keyboard/KeyboardNumeric';
 
 export {
   SeatListItem,
@@ -79,6 +87,7 @@ export {
   InputLogin,
   InputLabeled,
   InputTabbed,
+  InputTabbedV2,
   InputMiddleLabeled,
   DateRange,
   DatePick,
@@ -86,10 +95,14 @@ export {
   CTA,
   AmountChange,
   ModalSecondary,
+  ModalSecondaryV2,
   ModalDouble,
   ModalInfo,
   ModalFamilyList,
   ModalContact,
+  ModalContactV2,
+  ModalDiscount,
+  ModalDiscountV2,
   Avatar,
   AvatarList,
   SplitItem,
@@ -110,6 +123,7 @@ export {
   Selection,
   TxnHistory,
   TabSlider,
+  TabSliderV2,
   QRScanner,
   NFC,
   MenuOptions,
@@ -117,5 +131,7 @@ export {
   ToggleSlider,
   ModalComponent,
   ImageComponent,
-  ModalInvoiceList
+  ModalInvoiceList,
+  ImageComponentV2,
+  KeyboardNumeric
 };

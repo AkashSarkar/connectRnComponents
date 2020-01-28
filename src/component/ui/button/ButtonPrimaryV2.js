@@ -30,13 +30,13 @@ const ButtonPrimaryV2 = ({
   fontSize,
   onPress,
   disabled,
-  disabledColor = colors.grey1
+  disabledColor
 }) => (
   <TouchableOpacity
     onPress={onPress}
     disabled={disabled}
     style={[styles.buttonWrapper, {
-      backgroundColor: disabled ? disabledColor : buttonColor,
+      backgroundColor: buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
       justifyContent: platform === 'android' ? 'center' : 'flex-start',
@@ -48,7 +48,7 @@ const ButtonPrimaryV2 = ({
       content={content}
       family={fonts.regular}
       size={fontSize}
-      color={textColor}
+      color={disabled ? disabledColor : textColor}
     />
   </TouchableOpacity>
 );

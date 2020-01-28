@@ -38,21 +38,25 @@ const styles = StyleSheet.create({
 });
 
 const ButtonTag = ({
-  contentL, contentR, buttonColorL, buttonColorR, textColor, fontSize, onPress
+  content, buttonColor, textColor, fontSize, onPress
 }) => (
-  <TouchableOpacity onPress={onPress} style={{ flexDirection: 'row' }}>
-    <View style={[styles.buttonWrapper, { backgroundColor: buttonColorL }]} hitSlop={styles.hitSlop}>
-      <TextComponent content={contentL} family={fonts.regular} size={fontSize} color={textColor} />
-    </View>
-    <View style={[styles.buttonWrapper, { backgroundColor: buttonColorR }]} hitSlop={styles.hitSlop}>
-      <TextComponent content={contentR} family={fonts.regular} size={fontSize} color={textColor} />
-    </View>
+  <TouchableOpacity
+    style={[styles.buttonWrapper, { backgroundColor: buttonColor }]}
+    onPress={onPress}
+    hitSlop={styles.hitSlop}
+  >
+    <TextComponent
+      content={content}
+      family={fonts.regular}
+      size={fontSize}
+      color={textColor}
+    />
   </TouchableOpacity>
 );
 
 ButtonTag.propTypes = {
   content: string.isRequired,
-  buttonColor: string.isRequired,
+  buttonColor: string,
   textColor: string.isRequired,
   fontSize: number,
   onPress: func

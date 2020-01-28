@@ -19,12 +19,12 @@ import {
   MenuItem,
   TextComponent,
   ButtonNidFront,
-  FlatButton,
+  FlatButton
 } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
 import { p10 } from '../../styles/commonStyle';
-
+import FabButton from '../../component/ui/button/FabButton';
 
 
 const styles = StyleSheet.create({
@@ -59,6 +59,16 @@ const ButtonTest = ({ params }) => (
           onPressLeft={() => console.warn('Left')}
           onPressRight={() => console.warn('Right')}
         />
+      </View>
+      {/* ui/button/ButtonDouble */}
+      <View style={p10}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="ui/button/fab button"
+          family={fonts.bold}
+        />
+        {/* <FabButton /> */}
       </View>
       {/* ui/button/ButtonDouble */}
 

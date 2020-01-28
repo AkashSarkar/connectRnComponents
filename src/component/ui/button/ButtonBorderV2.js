@@ -5,46 +5,32 @@ import {
 import {
   number, string, func, bool
 } from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { pv10 } from '../../../styles/commonStyle';
 
 const platform = Platform.OS;
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    width: '100%',
+    justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    // borderWidth: 1
-    // elevation: 1
-  },
-  buttonGradient: {
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    ...pv10
+    alignContent: 'center'
   },
   leftWrapper: {
-    width: '48%',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'stretch',
+    marginRight: -1
   },
   middleWrapper: {
-    width: '4%',
     justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch'
+    alignItems: 'center'
   },
-
   rightWrapper: {
-    width: '48%',
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
+    alignItems: 'center'
   },
   hitSlop: {
     top: 5,
@@ -55,7 +41,7 @@ const styles = StyleSheet.create({
 });
 
 const ButtonBorderV2 = ({
-  content,
+  contentLeft,
   contentMiddle,
   contentRight,
   buttonColor,
@@ -66,38 +52,57 @@ const ButtonBorderV2 = ({
   fontSize,
   onPressLeft,
   onPressRight,
+  inModal
 }) => (
-  // <TouchableOpacity onPress={onPress}>
-  <View style={[styles.buttonWrapper]} hitSlop={styles.hitSlop}>
+  <View
+    style={[styles.buttonWrapper]}
+    hitSlop={styles.hitSlop}
+  >
     <TouchableOpacity
       onPress={onPressLeft}
       style={[styles.leftWrapper, {
         backgroundColor: buttonColor,
         paddingBottom: platform === 'android' ? 0 : 30,
         height: buttonHeight,
+        borderBottomLeftRadius: inModal ? 15 : 0,
         justifyContent: platform === 'android' ? 'center' : 'flex-start'
       }]}
     >
       <TextComponent
-        content={content}
+        content={contentLeft}
         family={fonts.regular}
         size={fontSize}
         color={textColorLeft}
       />
     </TouchableOpacity>
 
-    <View style={[styles.middleWrapper, {paddingBottom: platform === 'android' ? 0 : 30}, {backgroundColor: buttonColor}]}>
-        <TextComponent
+    <View style={[styles.middleWrapper,
+      {
+        paddingBottom: platform === 'android' ? 0 : 30,
+        backgroundColor: buttonColor,
+        height: buttonHeight
+      }]}
+    >
+      <TextComponent
         content={contentMiddle}
         family={fonts.regular}
         size={fontSize}
         color={textColorMiddle}
-        />
+      />
     </View>
+
 
     <TouchableOpacity
       onPress={onPressRight}
-      style={[styles.rightWrapper, {backgroundColor: buttonColor}, {paddingBottom: platform === 'android' ? 0 : 30}]}
+      style={[styles.rightWrapper,
+        {
+          backgroundColor: buttonColor,
+          paddingBottom: platform === 'android' ? 0 : 30,
+          height: buttonHeight,
+          borderBottomRightRadius: inModal ? 15 : 0,
+          justifyContent: platform === 'android' ? 'center' : 'flex-start'
+        }
+      ]}
     >
       <TextComponent
         content={contentRight}
@@ -110,8 +115,9 @@ const ButtonBorderV2 = ({
 );
 
 ButtonBorderV2.propTypes = {
-  content: string.isRequired,
+  contentLeft: string.isRequired,
   contentRight: string.isRequired,
+  contentMiddle: string.isRequired,
   buttonColor: string.isRequired,
   textColorLeft: string.isRequired,
   textColorMiddle: string.isRequired,
@@ -120,6 +126,7 @@ ButtonBorderV2.propTypes = {
   fontSize: number,
   onPressLeft: func,
   onPressRight: func,
+  inModal: bool
 };
 
 
