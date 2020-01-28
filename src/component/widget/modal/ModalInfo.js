@@ -10,13 +10,13 @@ import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
-import { ButtonPrimary } from '../../ui';
+import { ButtonPrimaryV2 } from '../../ui';
 import { p5, ph20 } from '../../../styles/commonStyle';
 import ModalDiscountV2 from './ModalContactV2';
 
 const styles = StyleSheet.create({
   container: {
-    height: 250,
+    height: 260,
     backgroundColor: colors.black10,
     padding: 20,
     borderRadius: 16,
@@ -119,19 +119,23 @@ const ModalInfo = ({
             showsVerticalScrollIndicator={false}
           />
           <View style={{
-            //flexDirection: 'row',
-            alignSelf: 'flex-end',
-            borderRadius: 16,
-            width: 90,
             height: 24,
-            paddingTop: 10
+            width: '100%',
+            alignItems: 'flex-end',
+            marginTop: 20,
           }}
           >
-            <ButtonPrimary
-              content=" Map "
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
+            <ButtonPrimaryV2
+              content="Map"
+              textColor={colors.white1}
+              fontSize={fonts.fs12}
+              buttonColor={colors.primary}
+              buttonHeight={30}
+              extraStyle={{
+                borderRadius: 16,
+                paddingHorizontal: 28
+              }}
+              // onPress={this.toggleModalInfo}
             />
           </View>
         </View>

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, TextInput
+  Text, View, Image, StyleSheet, TextInput
 } from 'react-native';
 import Modal from 'react-native-modal';
-import {
-  arrayOf, shape, number, string, func, bool, object
-} from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 import { ButtonBorderV2, ButtonPrimaryV2 } from '../../ui';
+import assets from '../../../assets';
+import { mb10, ml20, mr10, mr15, mr20 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +26,16 @@ const styles = StyleSheet.create({
   },
   bottomWrapper: {
     width: '100%'
+  },
+  contentWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 30,
+    height: 250
+  },
+  percentWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   closeModalContainer: {
     position: 'absolute',
@@ -55,7 +64,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const ModalDiscountV2 = ({
+const ModalAddDiscount = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
@@ -94,40 +103,39 @@ const ModalDiscountV2 = ({
             color={discountV2Color.titleColor}
           />
         </View>
-        <View
-          style={[{ backgroundColor: discountV2Color.textAreabgColor },
-            styles.textAreaContainer
-          ]}
-        >
-          <TextInput
-            style={styles.textArea}
-            underlineColorAndroid="transparent"
-            placeholder="Write here..."
-            fontFamily={fonts.regular}
-            placeholderTextColor={discountV2Color.inputTextColor}
-            numberOfLines={10}
-            multiline
-          />
-        </View>
-        <View style={{
-          height: 25,
-          width: '100%',
-          alignItems: 'flex-end',
-          marginTop: 20
-        }}
-        >
-          <ButtonPrimaryV2
-            content="Pin with map"
-            textColor={discountV2Color.buttontextColor}
-            fontSize={fonts.fs12}
-            buttonColor={discountV2Color.buttonbgColor}
-            buttonHeight={30}
-            extraStyle={{
-              borderRadius: 16,
-              paddingHorizontal: 20
-            }}
-            // onPress={this.toggleModalInfo}
-          />
+        <View style={styles.contentWrapper}>
+          <View style={{ alignSelf: 'center' }}>
+            <TextComponent
+              content="Amount"
+              size={fonts.fs14}
+              family={fonts.light}
+              color={colors.white1}
+              extraStyle={{
+                marginRight: 110,
+                lineHeight: 22
+              }}
+            />
+          </View>
+
+          <View style={styles.percentWrapper}>
+            <Image
+              source={assets.Taka}
+              style={[mr10, {
+                height: 30,
+                width: 30
+              }]}
+              resizeMode="contain"
+            />
+            <View>
+              <TextComponent
+                content="10%"
+                //size={fonts.fs52}
+                family={fonts.light}
+                color={colors.white1}
+                extraStyle={{ fontSize: 74 }}
+              />
+            </View>
+          </View>
         </View>
       </View>
       <View style={styles.bottomWrapper}>
@@ -146,16 +154,9 @@ const ModalDiscountV2 = ({
           onPressRight={() => console.warn('Right')}
         />
       </View>
+
     </Modal>
   );
 };
-ModalDiscountV2.propTypes = {
-  modalTitle: string.isRequired,
-  isVisible: bool,
-  onBackButtonPress: func,
-  onClose: func,
-  onSelect: func,
-  discountV2Color: object
-};
 
-export default ModalDiscountV2;
+export default ModalAddDiscount;

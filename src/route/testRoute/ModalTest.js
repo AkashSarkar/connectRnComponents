@@ -14,6 +14,7 @@ import {
   ModalDiscountV2,
   ModalSecondaryV2,
   ModalContactV2,
+  ModalAddDiscount
 } from '../../component/widget';
 
 
@@ -200,11 +201,21 @@ const styles = StyleSheet.create({
     marginBottom: 40
   }
 });
+const discountV2Color = {
+  titleColor: colors.red2,
+  modalbgColor: colors.black9,
+  inputTextColor: colors.white1,
+  buttonbgColor: colors.primary,
+  buttontextColor: colors.white1,
+  textAreabgColor: colors.buttonColor1
+};
 
 class ModalTest extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    header: <HeaderTop content="Modal Test"
-                       onPress={() => navigation.goBack()}/>
+    header: <HeaderTop
+      content="Modal Test"
+      onPress={() => navigation.goBack()}
+    />
   });
 
 
@@ -219,7 +230,8 @@ class ModalTest extends React.Component {
       isModalContact: false,
       isModalContactV2: false,
       isModalDiscount: false,
-      isModalDiscountV2: false
+      isModalDiscountV2: false,
+      isModalAddDiscount: false
     };
   }
 
@@ -262,6 +274,11 @@ class ModalTest extends React.Component {
   toggleModalContactV2 = () => {
     this.setState({
       isModalContactV2: !this.state.isModalContact
+    });
+  };
+  toggleModalAddDiscount = () => {
+    this.setState({
+      isModalAddDiscount: !this.state.isModalAddDiscount
     });
   };
 
@@ -312,9 +329,16 @@ class ModalTest extends React.Component {
       isModalContact: !this.state.isModalContact
     });
   };
+
   handleCloseModalContactV2 = () => {
     this.setState({
       isModalContactV2: !this.state.isModalContactV2
+    });
+  };
+
+  handleCloseModalAddDiscount = () => {
+    this.setState({
+      isModalAddDiscount: !this.state.isModalAddDiscount
     });
   };
 
@@ -334,8 +358,10 @@ class ModalTest extends React.Component {
     return (
       <ScrollView>
         <SafeAreaView style={styles.container}>
-          <HeaderTop content="Modal Test"
-                     onPress={() => this.props.navigation.goBack()}/>
+          <HeaderTop
+            content="Modal Test"
+            onPress={() => this.props.navigation.goBack()}
+          />
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal Secondary"
@@ -433,27 +459,27 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Discount"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalDiscount}
-            />
-            <ModalDiscount
-              modalTitle="Add discount"
-              modalTitleTextColor={colors.primary}
-              isVisible={this.state.isModalDiscount}
-              onBackButtonPress={this.handleCloseModalDiscount}
-              onClose={this.handleCloseModalDiscount}
-              onPress={this.handleCloseModalDiscount}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalDiscount();
-              }}
-            />
-          </View>
+          {/*<View style={styles.viewWrapper}>*/}
+          {/*  <ButtonPrimary*/}
+          {/*    content="Modal Discount"*/}
+          {/*    buttonColor={gradientColors.gradient5}*/}
+          {/*    textColor={colors.bgPrimary}*/}
+          {/*    fontSize={fonts.fs14}*/}
+          {/*    onPress={this.toggleModalDiscount}*/}
+          {/*  />*/}
+          {/*  <ModalDiscount*/}
+          {/*    modalTitle="Add discount"*/}
+          {/*    modalTitleTextColor={colors.primary}*/}
+          {/*    isVisible={this.state.isModalDiscount}*/}
+          {/*    onBackButtonPress={this.handleCloseModalDiscount}*/}
+          {/*    onClose={this.handleCloseModalDiscount}*/}
+          {/*    onPress={this.handleCloseModalDiscount}*/}
+          {/*    onSelect={(id) => {*/}
+          {/*      console.warn('from top ', id);*/}
+          {/*      this.handleCloseModalDiscount();*/}
+          {/*    }}*/}
+          {/*  />*/}
+          {/*</View>*/}
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal SecondaryV2"
@@ -486,6 +512,7 @@ class ModalTest extends React.Component {
               modalTitle="Add New Location"
               modalTitleTextColor={colors.primary}
               isVisible={this.state.isModalDiscountV2}
+              discountV2Color={discountV2Color}
               onBackButtonPress={this.handleCloseModalDiscountV2}
               onClose={this.handleCloseModalDiscountV2}
               onPress={this.handleCloseModalDiscountV2}
@@ -516,7 +543,28 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
-
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="ModalAddDiscount"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalAddDiscount}
+            />
+            <ModalAddDiscount
+              modalTitle="Add discount"
+              discountV2Color={discountV2Color}
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalAddDiscount}
+              onBackButtonPress={this.handleCloseModalAddDiscount}
+              onClose={this.handleCloseModalAddDiscount}
+              onPress={this.handleCloseModalAddDiscount}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalAddDiscount();
+              }}
+            />
+          </View>
         </SafeAreaView>
       </ScrollView>
     );

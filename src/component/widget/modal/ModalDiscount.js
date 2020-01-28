@@ -133,7 +133,7 @@ const ModalDiscount = ({
 
           <View style={styles.percentWrapper}>
             <Image
-              source={assets.Change}
+              source={assets.Taka}
               style={[mr10, {
                 height: 30,
                 width: 30
