@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import {
-  array, bool, func, number, string
+  array, bool, func, number, string, object
 } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
@@ -30,12 +30,13 @@ const ButtonPrimaryV2 = ({
   fontSize,
   onPress,
   disabled,
-  disabledColor
+  disabledColor,
+  extraStyle
 }) => (
   <TouchableOpacity
     onPress={onPress}
     disabled={disabled}
-    style={[styles.buttonWrapper, {
+    style={[styles.buttonWrapper,extraStyle, {
       backgroundColor: buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
@@ -61,7 +62,8 @@ ButtonPrimaryV2.propTypes = {
   buttonHeight: number,
   onPress: func,
   disabled: bool,
-  disabledColor: string
+  disabledColor: string,
+  extraStyle: object
 };
 
 

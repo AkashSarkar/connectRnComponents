@@ -8,7 +8,6 @@ import {
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import image from '../../../assets';
 
 
 const styles = StyleSheet.create({

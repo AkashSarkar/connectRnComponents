@@ -66,7 +66,8 @@ const assets = {
   PayUnionPay: require('./icons/PayUnionPay.png'),
   PayMasterCard: require('./icons/PayMasterCard.png'),
   PayAmex: require('./icons/PayAMEX.png'),
-  QRCode: require('./icons/ScanQR.png')
+  QRCode: require('./icons/ScanQR.png'),
+  Taka: require('./icons/Taka.png')
 };
 
 export default assets;
