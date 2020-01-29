@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     height: 30,
     // backgroundColor: 'green',
     fontFamily: fonts.medium,
-    fontSize: fonts.fs12,
+    fontSize: fonts.fs18,
     color: colors.white1,
     letterSpacing: 0.9,
     // ...pl15,
