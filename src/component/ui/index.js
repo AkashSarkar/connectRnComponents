@@ -31,6 +31,9 @@ import ButtonDoubleV2 from './button/ButtonDoubleV2';
 import ButtonBorderV2 from './button/ButtonBorderV2';
 import FlatButtonV2 from './button/FlatButtonV2';
 import FabButton from './button/FabButton';
+import ButtonDoubleWithIcon from './button/ButtonDoubleWithIcon';
+import ButtonSecondary from './button/ButtonSecondary';
+import ButtonInfo from './button/ButtonInfo';
 
 export {
   TextComponent,
@@ -64,6 +67,9 @@ export {
   ButtonNidFront,
   ButtonDoubleV2,
   ButtonBorderV2,
+  ButtonDoubleWithIcon,
   FlatButtonV2,
-  FabButton
+  FabButton,
+  ButtonSecondary,
+  ButtonInfo
 };

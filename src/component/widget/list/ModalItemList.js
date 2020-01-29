@@ -20,9 +20,9 @@ const ModalItemList = (
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <TextComponent
           content={item.title}
-          size={fonts.fs16}
+          size={fonts.fs18}
           family={fonts.semiBold}
-          color={colors.colorSecondery}
+          color={colors.red2}
         />
         {item.cardInfo && (
           <View style={{ marginHorizontal: 20 }}>
@@ -30,7 +30,7 @@ const ModalItemList = (
               content={item.cardInfo}
               size={fonts.fs14}
               family={fonts.regular}
-              color={colors.black7}
+              color={colors.white1}
             />
           </View>
         )}

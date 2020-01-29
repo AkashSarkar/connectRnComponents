@@ -61,7 +61,12 @@ const assets = {
   Bronze: require('./icons/Bronze.png'),
   TickIcon: require('./icons/Tick.png'),
   DeleteIcon: require('./icons/DeleteIcon.png'),
-  Dot: require('./icons/Dot.png')
+  Dot: require('./icons/Dot.png'),
+  PayVisa: require('./icons/PayVisa.png'),
+  PayUnionPay: require('./icons/PayUnionPay.png'),
+  PayMasterCard: require('./icons/PayMasterCard.png'),
+  PayAmex: require('./icons/PayAMEX.png'),
+  QRCode: require('./icons/ScanQR.png')
 };
 
 export default assets;

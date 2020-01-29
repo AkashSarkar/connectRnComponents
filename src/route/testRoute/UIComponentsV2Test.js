@@ -10,7 +10,9 @@ import {
   ButtonRectangle,
   FlatButtonV2,
   InputFieldSeperator,
-  TextComponent
+  ButtonSecondary,
+  TextComponent,
+  ButtonInfo
 } from '../../component/ui';
 import {
   mb10, mb5, p10, pb10
@@ -404,7 +406,7 @@ const UIComponentV2Test = ({ navigation }) => {
                     onChangeText={(text) => {
                       setName(text);
                     }}
-                    setIsValid={(validity) => {
+                    setIsValid={() => {
                     }}
                     validations={[
                       {
@@ -446,7 +448,7 @@ const UIComponentV2Test = ({ navigation }) => {
                     onChangeText={(text) => {
                       setName(text);
                     }}
-                    setIsValid={(validity) => {
+                    setIsValid={() => {
                     }}
                     validations={[
                       {
@@ -479,7 +481,7 @@ const UIComponentV2Test = ({ navigation }) => {
                     onChangeText={(text) => {
                       setName(text);
                     }}
-                    setIsValid={(validity) => {
+                    setIsValid={() => {
                     }}
                     validations={[
                       {
@@ -535,6 +537,37 @@ const UIComponentV2Test = ({ navigation }) => {
           {/* ends ui/button/ButtonPrimaryV2 */}
 
           <View style={p10}>
+            <View style={[pb10]}>
+              <TextComponent
+                size={fonts.fs30}
+                color={colors.black0}
+                content="Buttons"
+                family={fonts.bold}
+              />
+            </View>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonSecondary"
+              family={fonts.bold}
+            />
+            <ButtonSecondary
+              isLeftIcon
+              isRightIcon
+              leftIcon={assets.Add}
+              rightIcon={assets.TickIcon}
+              content="Single Button With Icon"
+              buttonColor={colors.white1}
+              buttonHeight={40}
+              textColor={colors.red2}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Single Button With Icon')}
+              // disabled
+            />
+          </View>
+
+          {/* ends ui/button/SingleButtonWithIcon */}
+          <View style={p10}>
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
@@ -580,6 +613,22 @@ const UIComponentV2Test = ({ navigation }) => {
           </View>
 
           {/* ends ui/button/ButtonBorderV2 */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonInfo"
+              family={fonts.bold}
+            />
+            <ButtonInfo
+              content="Button Info"
+              buttonHeight={50}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Info')}
+            />
+          </View>
+
+          { /* ends ui/button/ButtonInfo */ }
 
           <View style={{
             marginLeft: 10,

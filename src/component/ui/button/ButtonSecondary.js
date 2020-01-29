@@ -5,15 +5,13 @@ import {
 import {
   array, bool, func, number, string
 } from 'prop-types';
-import { TextComponent } from '@appscftl/connect-rn-components';
-import { colors, fonts } from '@appscftl/connect-rn-components/src/styles/baseStyle';
-import assets from '@appscftl/connect-rn-components/src/assets';
- 
+import TextComponent from '../typography/TextComponent';
+import { colors, fonts } from '../../../styles/baseStyle';
+
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
     alignItems: 'center'
- 
   },
   hitSlop: {
     top: 5,
@@ -22,7 +20,6 @@ const styles = StyleSheet.create({
     right: 5
   }
 });
- 
 const ButtonSecondary = ({
   content,
   buttonColor,
@@ -63,14 +60,14 @@ const ButtonSecondary = ({
         </View>
       )
     }
- 
+
     <TextComponent
       content={content}
-      family={fonts.bold}
+      family={fonts.regular}
       size={fontSize}
       color={textColor}
     />
- 
+
     {
       isRightIcon && (
         <View style={{ paddingLeft: 10 }}>
@@ -85,29 +82,14 @@ const ButtonSecondary = ({
         </View>
       )
     }
- 
+
   </TouchableOpacity>
 );
- 
-ButtonSecondary.defaultProps = {
-  content: 'Confirm',
-  buttonColor: colors.secondary,
-  textColor: colors.white1,
-  fontSize: number,
-  buttonHeight: 80,
-  onPress: () => '',
-  disabled: false,
-  disabledColor: colors.grey1,
-  isLeftIcon: true,
-  isRightIcon: false,
-  leftIcon: assets.Edit,
-  rightIcon: assets.Add
-};
- 
+
 ButtonSecondary.propTypes = {
-  content: string,
-  buttonColor: array,
-  textColor: string,
+  content: string.isRequired,
+  buttonColor: array.isRequired,
+  textColor: string.isRequired,
   fontSize: number,
   buttonHeight: number,
   onPress: func,
@@ -119,6 +101,6 @@ ButtonSecondary.propTypes = {
   rightIcon: number,
   extraStyle: string
 };
- 
- 
+
+
 export default ButtonSecondary;

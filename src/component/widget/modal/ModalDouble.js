@@ -15,7 +15,7 @@ import image from '../../../assets';
 const styles = StyleSheet.create({
   container: {
     height: 350,
-    backgroundColor: colors.white1,
+    backgroundColor: colors.black9,
     paddingHorizontal: 15,
     paddingBottom: 10,
     borderRadius: 16,
@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
     width: 24
   },
   listViewWrapper: {
-    // alignContent: 'center',
     height: 260,
     width: '100%'
   },
@@ -48,32 +47,23 @@ const styles = StyleSheet.create({
   containerBottom: {
     height: 115,
     marginTop: 10,
-    backgroundColor: colors.white1,
+    backgroundColor: colors.black9,
     borderRadius: 16,
     borderColor: 'black'
   },
   imageList: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignContent: 'center',
-    alignItems: 'center',
     marginBottom: 15
-    // backgroundColor: colors.white1
+  },
+  imageWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   listImageStyle: {
     height: 60,
     width: 60,
     borderRadius: 16,
     resizeMode: 'contain'
-  },
-  imageBOxWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 16,
-    // height: 60,
-    // width: 60,
-    elevation: 1,
-    backgroundColor: colors.white1
   },
   textWrapper: {
     alignContent: 'center',
@@ -107,18 +97,14 @@ const ModalDouble = ({
     <View style={styles.container}>
       <View style={styles.viewWrapper}>
         <TextComponent
+          color={colors.red2}
           content={modalTitle}
-          size={fonts.fs16}
+          size={fonts.fs20}
           family={fonts.semiBold}
         />
-        <TouchableOpacity onPress={onClose} style={styles.closeModalContainer}>
-          <Image
-            style={styles.closeImageStyle}
-            source={image.Cross}
-          />
-        </TouchableOpacity>
+
       </View>
-      {/* <View style={styles.lineStyle} /> */}
+
       <View
         style={styles.listViewWrapper}
       >
@@ -136,35 +122,48 @@ const ModalDouble = ({
     <View style={styles.containerBottom}>
       <View style={styles.textWrapper}>
         <TextComponent
+          color={colors.red2}
           content={modalTitleBottom}
-          size={fonts.fs16}
+          size={fonts.fs20}
           family={fonts.semiBold}
         />
       </View>
-      <View>
-        <TouchableOpacity onPress={onClose} style={styles.imageList}>
-          <View style={styles.imageBOxWrapper}>
+      <View style={styles.imageWrapper}>
+        <TouchableOpacity onPress={onClose}>
+          <View>
             <Image
               style={styles.listImageStyle}
-              source={image.Desco}
+              source={image.PayVisa}
             />
           </View>
+        </TouchableOpacity>
+
+        <View style={{ borderWidth: 1, borderColor: colors.red2, height: 10 }} />
+        <TouchableOpacity onPress={onClose}>
           <View style={styles.imageBOxWrapper}>
             <Image
               style={styles.listImageStyle}
-              source={image.Connect}
+              source={image.PayMasterCard}
             />
           </View>
+        </TouchableOpacity>
+
+        <View style={{ borderWidth: 1, borderColor: colors.red2, height: 10 }} />
+        <TouchableOpacity onPress={onClose}>
           <View style={styles.imageBOxWrapper}>
             <Image
               style={styles.listImageStyle}
-              source={image.FlagBd}
+              source={image.PayAmex}
             />
           </View>
+        </TouchableOpacity>
+
+        <View style={{ borderWidth: 1, borderColor: colors.red2, height: 10 }} />
+        <TouchableOpacity onPress={onClose}>
           <View style={styles.imageBOxWrapper}>
             <Image
               style={styles.listImageStyle}
-              source={image.SliderIcon}
+              source={image.PayUnionPay}
             />
           </View>
         </TouchableOpacity>

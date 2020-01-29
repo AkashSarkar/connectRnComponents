@@ -39,7 +39,8 @@ const ButtonPrimaryV2 = ({
       backgroundColor: buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
-      justifyContent: platform === 'android' ? 'center' : 'flex-start'
+      justifyContent: platform === 'android' ? 'center' : 'flex-start',
+      flexDirection: 'row'
     }]}
     hitSlop={styles.hitSlop}
   >
