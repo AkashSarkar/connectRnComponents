@@ -491,7 +491,7 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
-          <View>
+          <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal Discount"
               buttonColor={gradientColors.gradient5}
