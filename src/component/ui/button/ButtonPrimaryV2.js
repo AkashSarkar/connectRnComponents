@@ -10,7 +10,8 @@ const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
     // justifyContent: 'flex-start',
-    alignItems: 'center'
+    flexDirection: 'row',
+    justifyContent: 'center'
     // borderRadius: 25,
     // paddingHorizontal: 10
   },
@@ -36,12 +37,11 @@ const ButtonPrimaryV2 = ({
   <TouchableOpacity
     onPress={onPress}
     disabled={disabled}
-    style={[styles.buttonWrapper,extraStyle, {
+    style={[styles.buttonWrapper, extraStyle, {
       backgroundColor: buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
-      height: buttonHeight,
-      justifyContent: platform === 'android' ? 'center' : 'flex-start',
-      flexDirection: 'row'
+      alignItems: platform === 'android' ? 'center' : 'flex-start',
+      height: buttonHeight
     }]}
     hitSlop={styles.hitSlop}
   >
