@@ -68,7 +68,11 @@ const assets = {
   QRCode: require('./icons/ScanQR.png'),
   DeleteIcon: require('./icons/DeleteIcon.png'),
   Dot: require('./icons/Dot.png'),
-  Split: require('./icons/Split.png')
+  Split: require('./icons/Split.png'),
+  ConnectCode: require('./icons/Connect_Code.png'),
+  ConnectCredit: require('./icons/Connect_Credit.png'),
+  Location: require('./icons/Location.png'),
+  K1: require('./icons/1K_Area.png')
 };
 
 export default assets;

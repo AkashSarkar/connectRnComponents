@@ -833,7 +833,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/uiUtils/SplitandShare"
+              content="ui/uiUtils/SplitandShareV2"
               family={fonts.bold}
             />
             <SplitandShareV2 />
