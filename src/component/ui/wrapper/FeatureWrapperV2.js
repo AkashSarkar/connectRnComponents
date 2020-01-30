@@ -32,13 +32,17 @@ const FeatureWrapperV2 = (
     },
     leftImageStyle: {
       width: 15,
-      height: 25,
-      borderStyle: 'solid',
-      borderWidth: 3.1
+      height: 25
     },
     crossImageStyle: {
       width: 25,
       height: 25
+    },
+    hitSlop: {
+      top: 5,
+      bottom: 5,
+      left: 5,
+      right: 5
     }
   };
   return (
@@ -50,6 +54,7 @@ const FeatureWrapperV2 = (
         <TouchableOpacity
           onPress={leftPressAction}
           disabled={leftIcon ? false : true}
+          hitSlop={styles.hitSlop}
         >
           {leftIcon && (
             <Image
@@ -69,6 +74,7 @@ const FeatureWrapperV2 = (
         )}
         <TouchableOpacity
           onPress={rightPressAction}
+          hitSlop={styles.hitSlop}
         >
           <Image
             source={rightIcon}

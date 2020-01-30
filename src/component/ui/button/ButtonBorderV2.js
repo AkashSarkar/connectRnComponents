@@ -43,9 +43,9 @@ const styles = {
 
 const ButtonBorderV2 = ({
   contentLeft,
-  contentMiddle,
   contentRight,
   buttonColor,
+  disabledColor,
   textColorLeft,
   textColorMiddle,
   textColorRight,
@@ -53,7 +53,8 @@ const ButtonBorderV2 = ({
   fontSize,
   onPressLeft,
   onPressRight,
-  inModal
+  inModal,
+  disabled
 }) => (
   <View
     style={[styles.buttonWrapper]}
@@ -63,8 +64,9 @@ const ButtonBorderV2 = ({
       onPress={onPressLeft}
       style={{
         flex: 1,
-        backgroundColor: buttonColor
+        backgroundColor: disabled ? disabledColor : buttonColor
       }}
+      disabled={disabled}
     >
       <View style={[styles.buttonStyle, {
         borderBottomLeftRadius: inModal ? 15 : 0,
@@ -127,7 +129,7 @@ const ButtonBorderV2 = ({
 ButtonBorderV2.propTypes = {
   contentLeft: string.isRequired,
   contentRight: string.isRequired,
-  contentMiddle: string.isRequired,
+  disabledColor: string,
   buttonColor: string.isRequired,
   textColorLeft: string.isRequired,
   textColorMiddle: string.isRequired,
@@ -136,7 +138,8 @@ ButtonBorderV2.propTypes = {
   fontSize: number,
   onPressLeft: func,
   onPressRight: func,
-  inModal: bool
+  inModal: bool,
+  disabled: bool
 };
 
 
