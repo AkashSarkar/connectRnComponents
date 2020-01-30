@@ -67,7 +67,8 @@ const assets = {
   Taka: require('./icons/Taka.png'),
   QRCode: require('./icons/ScanQR.png'),
   DeleteIcon: require('./icons/DeleteIcon.png'),
-  Dot: require('./icons/Dot.png')
+  Dot: require('./icons/Dot.png'),
+  Split: require('./icons/Split.png')
 };
 
 export default assets;

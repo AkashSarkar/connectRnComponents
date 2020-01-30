@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import { string, number } from 'prop-types';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { fonts, colors } from '../../../styles/baseStyle';
+import { colors, fonts } from '../../../styles/baseStyle';
 import { TextComponent } from '../../ui';
-import assets from '../../../assets';
 import { ph5 } from '../../../styles/commonStyle';
+import assets from '../../../assets';
+
 
 const styles = {
   container: {
@@ -80,7 +80,6 @@ const PaymentsCard = ({
             />
           </View>
         </TouchableOpacity>
-
       </View>
       <View style={styles.rightUpper}>
         <View style={{ paddingRight: 5 }}>
@@ -127,11 +126,11 @@ const PaymentsCard = ({
 PaymentsCard.defaultProps = {
   upperLeftContent: 'Salary Account',
   upperRightContent: '0',
-  upperLeftIcon: assets.Add,
-  upperRightIcon: assets.Add,
+  upperLeftIcon: assets.Change,
+  upperRightIcon: assets.TestTransaction,
   lowerContent1: 'Remaining balance:',
   lowerContent2: '0',
-  lowerIcon: assets.Add
+  lowerIcon: assets.TestTransaction
 };
 
 PaymentsCard.propTypes = {
