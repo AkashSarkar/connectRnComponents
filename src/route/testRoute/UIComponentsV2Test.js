@@ -773,7 +773,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/LineSpearator"
+              content="ui/header/HeaderPrimary"
               family={fonts.bold}
             />
             <HeaderPrimary
