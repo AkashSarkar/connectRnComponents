@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  Platform, StyleSheet, TouchableOpacity, Image, View
+  Platform, StyleSheet, TouchableOpacity
 } from 'react-native';
 import {
-  array, bool, func, number, string
+  func, number, string
 } from 'prop-types';
 import TextComponent from '../typography/TextComponent';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { fonts, colors } from '../../../styles/baseStyle';
 
 const platform = Platform.OS;
 const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
-    borderColor: colors.grey1,
+    borderColor: colors.grey,
     borderWidth: 1
 
   },

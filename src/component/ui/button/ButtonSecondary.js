@@ -7,6 +7,7 @@ import {
 } from 'prop-types';
 import TextComponent from '../typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
+import assets from '../../../assets';
 
 const platform = Platform.OS;
 const styles = StyleSheet.create({
@@ -35,61 +36,75 @@ const ButtonSecondary = ({
   rightIcon,
   extraStyle
 }) => (
-  <TouchableOpacity
-    onPress={onPress}
-    disabled={disabled}
-    style={[styles.buttonWrapper, {
-      backgroundColor: disabled ? disabledColor : buttonColor,
-      paddingTop: platform === 'android' ? 0 : 12,
-      height: buttonHeight,
-      flexDirection: 'row'
-    }, extraStyle]}
-    hitSlop={styles.hitSlop}
-  >
-    {
-      isLeftIcon && (
-        <View style={{ paddingRight: 10 }}>
-          <Image
-            source={leftIcon}
-            style={{
-              height: 20,
-              width: 20
-            }}
-            resizeMode="contain"
-          />
-        </View>
-      )
-    }
+    <TouchableOpacity
+      onPress={onPress}
+      disabled={disabled}
+      style={[styles.buttonWrapper, {
+        backgroundColor: disabled ? disabledColor : buttonColor,
+        paddingTop: platform === 'android' ? 0 : 12,
+        height: buttonHeight,
+        flexDirection: 'row'
+      }, extraStyle]}
+      hitSlop={styles.hitSlop}
+    >
+      {
+        isLeftIcon && (
+          <View style={{ paddingRight: 10 }}>
+            <Image
+              source={leftIcon}
+              style={{
+                height: 20,
+                width: 20
+              }}
+              resizeMode="contain"
+            />
+          </View>
+        )
+      }
 
-    <TextComponent
-      content={content}
-      family={fonts.regular}
-      size={fontSize}
-      color={textColor}
-    />
+      <TextComponent
+        content={content}
+        family={fonts.bold}
+        size={fontSize}
+        color={textColor}
+      />
 
-    {
-      isRightIcon && (
-        <View style={{ paddingLeft: 10 }}>
-          <Image
-            source={rightIcon}
-            style={{
-              height: 20,
-              width: 20
-            }}
-            resizeMode="contain"
-          />
-        </View>
-      )
-    }
+      {
+        isRightIcon && (
+          <View style={{ paddingLeft: 10 }}>
+            <Image
+              source={rightIcon}
+              style={{
+                height: 20,
+                width: 20
+              }}
+              resizeMode="contain"
+            />
+          </View>
+        )
+      }
 
-  </TouchableOpacity>
-);
+    </TouchableOpacity>
+  );
 
+ButtonSecondary.defaultProps = {
+  content: 'Confirm',
+  buttonColor: colors.secondary,
+  textColor: colors.white1,
+  fontSize: number,
+  buttonHeight: 80,
+  onPress: () => '',
+  disabled: false,
+  disabledColor: colors.grey1,
+  isLeftIcon: true,
+  isRightIcon: false,
+  leftIcon: assets.Edit,
+  rightIcon: assets.Add
+};
 ButtonSecondary.propTypes = {
-  content: string.isRequired,
-  buttonColor: array.isRequired,
-  textColor: string.isRequired,
+  content: string,
+  buttonColor: array,
+  textColor: string,
   fontSize: number,
   buttonHeight: number,
   onPress: func,
@@ -101,6 +116,5 @@ ButtonSecondary.propTypes = {
   rightIcon: number,
   extraStyle: string
 };
-
 
 export default ButtonSecondary;

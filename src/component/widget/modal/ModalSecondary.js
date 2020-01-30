@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   container: {
     height: 300,
     backgroundColor: colors.black9,
-    paddingHorizontal: 15,
+    paddingHorizontal: 5,
     paddingBottom: 10,
     borderRadius: 16,
     borderColor: 'black'
@@ -24,7 +24,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 20
+    paddingVertical: 20,
+    borderBottomColor: colors.grey3,
+    borderBottomWidth: 1
   },
   closeModalContainer: {
     position: 'absolute',

@@ -9,7 +9,6 @@ import {
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalItemList from '../list/ModalItemList';
-import image from '../../../assets';
 import assets from '../../../assets';
 
 const styles = StyleSheet.create({
@@ -27,13 +26,9 @@ const styles = StyleSheet.create({
 
 
 const ModalInvoiceList = ({
-  modalTitle,
-  modalTitleBottom,
   isVisible,
   onBackButtonPress,
-  onClose,
-  items,
-  onSelect
+  items
 }) => (
   <Modal
     isVisible={isVisible}

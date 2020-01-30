@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, StyleSheet, FlatList
+  Text, View, Image, TouchableOpacity, TouchableHighlight, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
@@ -12,52 +12,39 @@ import { colors, fonts } from '../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   container: {
-    height: 300,
+    height: '40%',
     backgroundColor: colors.black9,
-    paddingHorizontal: 5,
-    paddingBottom: 10,
-    borderRadius: 16,
-    borderColor: 'black'
+    paddingBottom: 15,
+    borderRadius: 16
   },
   viewWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 20,
-    borderBottomColor: colors.grey3,
-    borderBottomWidth: 1
-
-  },
-  closeModalContainer: {
-    position: 'absolute',
-    right: 0
-  },
-  closeImageStyle: {
-    height: 24,
-    width: 24
+    paddingVertical: 20
   },
   listViewWrapper: {
-    height: 210,
-    width: '100%'
+    flex: 1
   }
 });
 
 const renderItem = (item, onSelect) => (
-  <View style={{
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-    alignItems: 'center'
-  }}
+  <TouchableHighlight
+    style={{
+      paddingVertical: 10,
+      paddingHorizontal: 30,
+      alignItems: 'center'
+    }}
+    underlayColor={colors.black10}
+    onPress={() => onSelect(item.id)}
   >
-    <TouchableOpacity onPress={() => onSelect(item.id)}>
-      <TextComponent
-        content={item.title}
-        size={fonts.fs18}
-        family={fonts.regular}
-        color={colors.white1}
-      />
-    </TouchableOpacity>
-  </View>
+    <TextComponent
+      content={item.title}
+      size={fonts.fs18}
+      family={fonts.medium}
+      color={colors.white1}
+    />
+  </TouchableHighlight>
 );
 
 
@@ -65,7 +52,6 @@ const ModalSecondaryV2 = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
-  onClose,
   items,
   onSelect
 }) => (
@@ -85,12 +71,11 @@ const ModalSecondaryV2 = ({
     <View style={styles.container}>
       <View style={styles.viewWrapper}>
         <TextComponent
-          color={colors.red2}
           content={modalTitle}
           size={fonts.fs20}
-          family={fonts.regular}
+          family={fonts.light}
+          color={colors.primary}
         />
-        
       </View>
       <View
         style={styles.listViewWrapper}
@@ -98,7 +83,6 @@ const ModalSecondaryV2 = ({
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            // <ModalItemList item={item} onSelect={onSelect} />
             renderItem(item, onSelect)
           )}
           keyExtractor={item => item.id.toString()}
@@ -114,7 +98,6 @@ ModalSecondaryV2.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
-  onClose: func,
   items: shape({
     id: number.isRequired,
     title: string.isRequired

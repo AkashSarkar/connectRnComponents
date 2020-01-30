@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View, StyleSheet, ScrollView, SafeAreaView
 } from 'react-native';
@@ -6,14 +6,15 @@ import { ButtonPrimary, HeaderTop } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
   ModalSecondary,
-  ModalSecondaryV2,
   ModalDouble,
   ModalInfo,
   ModalFamilyList,
   ModalContact,
+  ModalInvoiceList,
+  ModalDiscount,
   ModalDiscountV2,
-  ModalContactV2,
-  ModalAddDiscount
+  ModalSecondaryV2,
+  ModalContactV2
 } from '../../component/widget';
 
 
@@ -55,44 +56,46 @@ const DataModalSecondary = [
     title: 'Third Item'
   }
 ];
+
 const DataModalSecondaryV2 = [
   {
     id: '1',
-    title: 'Connect'
-  },
-  {
-    id: '2',
     title: 'Jamuna Bank'
   },
   {
+    id: '2',
+    title: 'Eastern Bank'
+  },
+  {
     id: '3',
-    title: 'Dmoney'
+    title: 'Sonali Bank'
   },
   {
     id: '4',
-    title: 'First Item'
+    title: 'Dutch Bangla Bank'
   },
   {
     id: '5',
-    title: 'Credit Card'
+    title: 'City Bank'
   },
   {
-    id: '58694a0f-3da1-471f-',
-    title: 'Third Item'
+    id: '6',
+    title: 'Pubali Bank'
   },
   {
-    id: 'bd7acbea-c1b1-46c2-aed53abb28ba',
-    title: 'First Item'
+    id: '7',
+    title: 'Al Arafa Bank'
   },
   {
-    id: '3ac68af5-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item'
+    id: '8',
+    title: 'Community Bank'
   },
   {
-    id: '5864a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item'
+    id: '9',
+    title: 'Janata Bank'
   }
 ];
+
 const DataModalDouble = [
   {
     id: '1',
@@ -243,10 +246,10 @@ class ModalTest extends React.Component {
       isModalInfoVisible: false,
       isModalFamilyList: false,
       isModalContact: false,
+      isModalInvoiceList: false,
       isModalContactV2: false,
       isModalDiscount: false,
-      isModalDiscountV2: false,
-      isModalAddDiscount: false
+      isModalDiscountV2: false
     };
   }
 
@@ -283,6 +286,12 @@ class ModalTest extends React.Component {
   toggleModalContact = () => {
     this.setState({
       isModalContact: !this.state.isModalContact
+    });
+  };
+
+  toggleModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
     });
   };
 
@@ -394,26 +403,6 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseModalSecondary();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal SecondaryV2"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalSecondaryV2}
-            />
-            <ModalSecondaryV2
-              modalTitle="Modal SecondaryV2"
-              isVisible={this.state.isModalSecondaryV2Visible}
-              onBackButtonPress={this.handleCloseModalSecondaryV2}
-              onClose={this.handleCloseModalSecondaryV2}
-              items={DataModalSecondaryV2}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalSecondaryV2();
               }}
             />
           </View>
@@ -554,28 +543,6 @@ class ModalTest extends React.Component {
               onSelect={(id) => {
                 console.warn('from top ', id);
                 this.handleCloseModalContactV2();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="ModalAddDiscount"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalAddDiscount}
-            />
-            <ModalAddDiscount
-              modalTitle="Add discount"
-              discountV2Color={discountV2Color}
-              modalTitleTextColor={colors.primary}
-              isVisible={this.state.isModalAddDiscount}
-              onBackButtonPress={this.handleCloseModalAddDiscount}
-              onClose={this.handleCloseModalAddDiscount}
-              onPress={this.handleCloseModalAddDiscount}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalAddDiscount();
               }}
             />
           </View>

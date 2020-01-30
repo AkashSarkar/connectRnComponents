@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
       width: 10,
       height: 10,
       borderRadius: 5,
-      marginHorizontal: 8,
+      marginHorizontal: -5,
       backgroundColor: colors.primary
     },
   inactiveDotStyle: {
