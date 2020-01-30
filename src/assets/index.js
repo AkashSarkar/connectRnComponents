@@ -34,7 +34,6 @@ const assets = {
   Info: require('./icons/Info.png'),
   Info2: require('./icons/Info2.png'),
   Drag: require('./icons/Drag.png'),
-  Share: require('./icons/Share.png'),
   Cross: require('./icons/Cross.png'),
   JamunaBankLogo1: require('./icons/JamunaBankLogo1.png'),
   JamunaBankLogo2: require('./icons/JamunaBankLogo2.png'),
@@ -68,11 +67,12 @@ const assets = {
   QRCode: require('./icons/ScanQR.png'),
   DeleteIcon: require('./icons/DeleteIcon.png'),
   Dot: require('./icons/Dot.png'),
-  Split: require('./icons/Split.png'),
-  ConnectCode: require('./icons/Connect_Code.png'),
-  ConnectCredit: require('./icons/Connect_Credit.png'),
-  Location: require('./icons/Location.png'),
-  K1: require('./icons/1K_Area.png')
+  Share: require('./icons/Share.png'), //
+  Split: require('./icons/Split.png'), //
+  ConnectCode: require('./icons/Connect_Code.png'), //
+  ConnectCredit: require('./icons/Connect_Credit.png'), //
+  Location: require('./icons/Location.png'), //
+  K1: require('./icons/1K_Area.png') //
 };
 
 export default assets;
