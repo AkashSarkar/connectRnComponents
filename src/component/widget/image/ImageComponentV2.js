@@ -5,13 +5,11 @@ import {
   func, string, bool, array, number
 } from 'prop-types';
 import {
-  FeatureWrapperV2, ButtonDoubleV2
+  FeatureWrapperV2, ButtonDoubleV2, ButtonBorderV2
 } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
 import ButtonCapture from '../../ui/button/ButtonCapture';
-import { ButtonBorderV2 } from '@appscftl/connect-rn-components';
-import { resetAction } from '../../../../../../../src/utility/function/navigation';
 
 const styles = StyleSheet.create({
   container: {
