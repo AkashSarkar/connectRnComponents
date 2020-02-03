@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import {
-  array, bool, func, number, string, object
+  bool, func, number, string, object
 } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
@@ -9,11 +9,8 @@ import TextComponent from '../typography/TextComponent';
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
-    // justifyContent: 'flex-start',
     flexDirection: 'row',
     justifyContent: 'center'
-    // borderRadius: 25,
-    // paddingHorizontal: 10
   },
   hitSlop: {
     top: 5,

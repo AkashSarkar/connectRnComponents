@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, TouchableOpacity, Animated
+  View, StyleSheet, TouchableOpacity
 } from 'react-native';
 import { string, func } from 'prop-types';
-import LinearGradient from 'react-native-linear-gradient';
-import { TextComponent, BoxShadow } from '../../ui';
+import { TextComponent } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   tabWrapper: {
     flexDirection: 'row',
     justifyContent: 'flex-start'
-    // position: 'relative'
   },
   title: {
     minWidth: '50%',
     paddingVertical: 10,
     justifyContent: 'center',
     alignItems: 'center'
-    // backgroundColor: 'red'
   }
 });
 
@@ -46,7 +43,7 @@ const TabSliderV2 = ({
         <TextComponent
           content={title1}
           family={fonts.medium}
-          size={fonts.fs14}
+          size={fonts.fs18}
           color={active === 1 ? colors.white1 : colors.grey1}
         />
       </TouchableOpacity>
@@ -58,7 +55,7 @@ const TabSliderV2 = ({
         <TextComponent
           content={title2}
           family={fonts.medium}
-          size={fonts.fs14}
+          size={fonts.fs18}
           color={active === 2 ? colors.white1 : colors.grey1}
         />
       </TouchableOpacity>
