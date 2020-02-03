@@ -20,7 +20,7 @@ const AmountWidget = ({
   let givenAmount = parseFloat(amount).toFixed(2);
   givenAmount = givenAmount.split('.');
   const _amount = (givenAmount[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  const _decimal = givenAmount[1];
+  const decimal = givenAmount[1];
 
   return (
     <View style={styles.amountTextWrapper}>
@@ -35,15 +35,15 @@ const AmountWidget = ({
       ) : ''}
 
       <TextComponent
-        content={_amount}
+        content={amount}
         family={amountStyle.fontFamily}
         size={amountStyle.size}
         color={amountStyle.color}
-      />
+      /> 
 
       <View style={[styles.decimalWrapper, pb6]}>
         <TextComponent
-          content={`.${_decimal}`}
+          content={`.${decimal}`}
           family={decimalStyle.fontFamily}
           size={decimalStyle.size}
           color={decimalStyle.color}

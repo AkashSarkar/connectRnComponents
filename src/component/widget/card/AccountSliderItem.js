@@ -2,10 +2,11 @@ import React from 'react';
 import {
   Image, StyleSheet, View, Dimensions
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {
-  func, number, string
+  array, func, number, string
 } from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
 import {
   mb15, mr15, ph15, pv15, mv10
 } from '../../../styles/commonStyle';
@@ -16,6 +17,11 @@ import { ButtonCommunication } from '../../ui';
 
 const styles = StyleSheet.create({
   cardBg: {
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    elevation: 1,
     borderRadius: 20
   },
   body: {
@@ -25,18 +31,22 @@ const styles = StyleSheet.create({
   connectAmount: {
     lineHeight: 61
   }
-
+  // connectAccNo: {
+  //   fontStyle: "italic",
+  //   letterSpacing: 1.8,
+  // }
 });
 
 const AccountSliderItem = (
   {
     handleInformation,
+    // gradient = gradientColors.gradientYellow,
     color1,
     color2,
     textColor1,
     textColor2,
     activeIndex,
-    infoImage = assets.Info,
+    InfoImage = assets.Info,
     connectImage = assets.ConnectCoin,
     suffixNo,
     amount,
@@ -45,6 +55,7 @@ const AccountSliderItem = (
   }
 ) => {
   const screenHeight = Math.round(Dimensions.get('window').height);
+  const screenWidth = Math.round(Dimensions.get('window').width);
   const amountStyle = {
     fontFamily: fonts.regular,
     size: screenHeight <= 720 ? fonts.fs40 : fonts.fs50,
@@ -61,7 +72,7 @@ const AccountSliderItem = (
     <View style={[ph15, pv15, mb15, styles.cardBg, { height: 170, backgroundColor: activeIndex !== 3 ? color1 : color2 }]}>
       <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
         <ButtonCommunication
-          logo={infoImage}
+          logo={InfoImage}
           buttonColor={colors.white1}
           buttonWidth={20}
           buttonHeight={20}
@@ -69,7 +80,7 @@ const AccountSliderItem = (
           iconHeight={20}
           iconWidth={20}
           textColor={colors.text2}
-          fontSize={fonts.fs14}
+          fontSize={fonts.fs14} 
           onPress={handleInformation}
         />
         <Image
@@ -137,8 +148,9 @@ AccountSliderItem.propTypes = {
   textColor1: string,
   textColor2: string,
   icon: number,
-  infoImage: number,
+  InfoImage: number,
   connectImage: number
 };
 
 export default AccountSliderItem;
+
