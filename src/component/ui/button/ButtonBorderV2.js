@@ -64,7 +64,7 @@ const ButtonBorderV2 = ({
       onPress={onPressLeft}
       style={{
         flex: 1,
-        backgroundColor: disabled ? disabledColor : buttonColor
+        backgroundColor: buttonColor
       }}
       disabled={disabled}
     >
@@ -77,7 +77,7 @@ const ButtonBorderV2 = ({
           content={contentLeft}
           family={fonts.regular}
           size={fontSize}
-          color={textColorLeft}
+          color={disabled ? disabledColor : textColorLeft}
         />
       </View>
     </TouchableOpacity>
@@ -132,7 +132,6 @@ ButtonBorderV2.propTypes = {
   disabledColor: string,
   buttonColor: string.isRequired,
   textColorLeft: string.isRequired,
-  textColorMiddle: string.isRequired,
   textColorRight: string.isRequired,
   buttonHeight: number,
   fontSize: number,
