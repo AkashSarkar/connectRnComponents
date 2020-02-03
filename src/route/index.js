@@ -75,7 +75,7 @@ const AppNavigator = createStackNavigator(
     FabTest
   },
   {
-    initialRouteName: 'FabTest',
+    initialRouteName: 'CCMTest',
     headerMode: 'none'
   }
 );
