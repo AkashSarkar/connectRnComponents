@@ -18,7 +18,6 @@ const assets = {
   Minus: require('./icons/Minus.png'),
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
-  // Connect: require('./icons/Connect.png'),
   ConnectIcon: require('./icons/Connect2.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),

@@ -108,7 +108,7 @@ export const fonts = {
   fs120: 120,
   light: 'ProximaNovaA-Light',
   black: 'ProximaNova-Black',
-  medium: 'ProximaNova-Bold',
+  medium: 'ProximaNova-Regular',
   tThin: 'ProximaNovaT-Thin',
   aThin: 'ProximaNovaA-Thin',
   regular: 'ProximaNova-Regular',
