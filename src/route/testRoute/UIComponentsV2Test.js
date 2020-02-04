@@ -620,6 +620,8 @@ const UIComponentV2Test = ({ navigation }) => {
               fontSize={fonts.fs16}
               onPressLeft={() => console.warn('Left')}
               onPressRight={() => console.warn('Right')}
+              disabled
+              disabledColor='#FF8AB7'
             />
           </View>
 
