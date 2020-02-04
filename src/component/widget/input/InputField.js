@@ -147,7 +147,7 @@ const InputField = forwardRef(
         {errorMsg.length > 0 ? (
           <View style={[mb5, ml5, mt5]}>
             <AnimatedTextComponent
-              color={colors.red1}
+              color={colors.white1}
               content={errorMsg}
               family={fonts.regular}
               size={fonts.fs12}

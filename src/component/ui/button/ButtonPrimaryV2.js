@@ -29,7 +29,8 @@ const ButtonPrimaryV2 = ({
   onPress,
   disabled,
   disabledColor,
-  extraStyle
+  extraStyle,
+  family
 }) => (
   <TouchableOpacity
     onPress={onPress}
@@ -44,7 +45,7 @@ const ButtonPrimaryV2 = ({
   >
     <TextComponent
       content={content}
-      family={fonts.regular}
+      family={family || fonts.medium}
       size={fontSize}
       color={disabled ? disabledColor : textColor}
     />
@@ -60,7 +61,8 @@ ButtonPrimaryV2.propTypes = {
   onPress: func,
   disabled: bool,
   disabledColor: string,
-  extraStyle: object
+  extraStyle: object,
+  family: string
 };
 
 
