@@ -5,32 +5,33 @@ import {
 import {
   number, string, func, bool
 } from 'prop-types';
-import { fonts } from '../../../styles/baseStyle';
+import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 
 const platform = Platform.OS;
 
-const styles = StyleSheet.create({
+const styles = {
   buttonWrapper: {
-    justifyContent: 'center',
     flexDirection: 'row',
+    width: '100%',
+    backgroundColor: 'white'
+    // justifyContent:'space-between'
+  },
+  buttonStyle: {
     alignItems: 'center',
-    alignContent: 'center'
+    marginTop: platform === 'android' ? 0 : 12,
+    justifyContent: platform === 'android' ? 'center' : 'flex-start'
   },
-  leftWrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: -1
+  borderWrapper: {
+    position: 'absolute',
+    left: '50%',
+    zIndex: 1
   },
-  middleWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  rightWrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  borderStyle: {
+    borderWidth: 2,
+    borderColor: colors.white1,
+    borderRadius: 2,
+    height: 25
   },
   hitSlop: {
     top: 5,
@@ -38,49 +39,54 @@ const styles = StyleSheet.create({
     left: 5,
     right: 5
   }
-});
+};
 
 const ButtonBorderV2 = ({
   contentLeft,
-  contentMiddle,
   contentRight,
   buttonColor,
+  disabledColor,
   textColorLeft,
   textColorMiddle,
   textColorRight,
-  buttonHeight,
+  buttonHeight = 80,
   fontSize,
   onPressLeft,
   onPressRight,
-  inModal
+  inModal,
+  disabled
 }) => (
-  <View
-    style={[styles.buttonWrapper]}
-    hitSlop={styles.hitSlop}
-  >
-    <TouchableOpacity
-      onPress={onPressLeft}
-      style={[styles.leftWrapper, {
-        backgroundColor: buttonColor,
-        paddingBottom: platform === 'android' ? 0 : 30,
-        height: buttonHeight,
-        borderBottomLeftRadius: inModal ? 15 : 0,
-        justifyContent: platform === 'android' ? 'center' : 'flex-start'
-      }]}
+    <View
+      style={[styles.buttonWrapper]}
+      hitSlop={styles.hitSlop}
     >
-      <TextComponent
-        content={contentLeft}
-        family={fonts.regular}
-        size={fontSize}
-        color={textColorLeft}
-      />
-    </TouchableOpacity>
+      <TouchableOpacity
+        onPress={onPressLeft}
+        style={{
+          flex: 1,
+          backgroundColor: buttonColor
+        }}
+        disabled={disabled}
+      >
+        <View style={[styles.buttonStyle, {
+          borderBottomLeftRadius: inModal ? 15 : 0,
+          height: buttonHeight
+        }]}
+        >
+          <TextComponent
+            content={contentLeft}
+            family={fonts.regular}
+            size={fontSize}
+            color={disabled ? disabledColor : textColorLeft}
+          />
+        </View>
+      </TouchableOpacity>
 
-    <View style={[styles.middleWrapper,
+      {/* <View style={[styles.middleWrapper,
       {
-        paddingBottom: platform === 'android' ? 0 : 30,
+        // marginTop: platform === 'android' ? 0 : 12,
         backgroundColor: buttonColor,
-        height: buttonHeight
+        // height: buttonHeight
       }]}
     >
       <TextComponent
@@ -89,44 +95,51 @@ const ButtonBorderV2 = ({
         size={fontSize}
         color={textColorMiddle}
       />
-    </View>
-
-
-    <TouchableOpacity
-      onPress={onPressRight}
-      style={[styles.rightWrapper,
-        {
+    </View> */}
+      <View style={[styles.borderWrapper, {
+        marginTop: platform === 'android' ? 27 : 12
+      }]}
+      >
+        <View style={styles.borderStyle} />
+      </View>
+      <TouchableOpacity
+        onPress={onPressRight}
+        style={{
+          flex: 1,
           backgroundColor: buttonColor,
-          paddingBottom: platform === 'android' ? 0 : 30,
-          height: buttonHeight,
           borderBottomRightRadius: inModal ? 15 : 0,
-          justifyContent: platform === 'android' ? 'center' : 'flex-start'
-        }
-      ]}
-    >
-      <TextComponent
-        content={contentRight}
-        family={fonts.regular}
-        size={fontSize}
-        color={textColorRight}
-      />
-    </TouchableOpacity>
-  </View>
-);
+          marginLeft: -1
+        }}
+      >
+        <View style={[styles.buttonStyle, {
+          borderBottomLeftRadius: inModal ? 15 : 0,
+          height: buttonHeight
+        }]}
+        >
+          <TextComponent
+            content={contentRight}
+            family={fonts.regular}
+            size={fontSize}
+            color={textColorRight}
+          />
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
 
 ButtonBorderV2.propTypes = {
   contentLeft: string.isRequired,
   contentRight: string.isRequired,
-  contentMiddle: string.isRequired,
+  disabledColor: string,
   buttonColor: string.isRequired,
   textColorLeft: string.isRequired,
-  textColorMiddle: string.isRequired,
   textColorRight: string.isRequired,
   buttonHeight: number,
   fontSize: number,
   onPressLeft: func,
   onPressRight: func,
-  inModal: bool
+  inModal: bool,
+  disabled: bool
 };
 
 

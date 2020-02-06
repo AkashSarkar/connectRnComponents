@@ -18,7 +18,6 @@ const assets = {
   Minus: require('./icons/Minus.png'),
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
-  Connect: require('./icons/Connect.png'),
   ConnectIcon: require('./icons/Connect2.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
@@ -34,7 +33,6 @@ const assets = {
   Info: require('./icons/Info.png'),
   Info2: require('./icons/Info2.png'),
   Drag: require('./icons/Drag.png'),
-  Share: require('./icons/Share.png'),
   Cross: require('./icons/Cross.png'),
   JamunaBankLogo1: require('./icons/JamunaBankLogo1.png'),
   JamunaBankLogo2: require('./icons/JamunaBankLogo2.png'),
@@ -60,8 +58,20 @@ const assets = {
   Hotel: require('./icons/Hotel-1.png'),
   Bronze: require('./icons/Bronze.png'),
   TickIcon: require('./icons/Tick.png'),
+  PayVisa: require('./icons/PayVisa.png'),
+  PayUnionPay: require('./icons/PayUnionPay.png'),
+  PayMasterCard: require('./icons/PayMasterCard.png'),
+  PayAmex: require('./icons/PayAMEX.png'),
+  Taka: require('./icons/Taka.png'),
+  QRCode: require('./icons/ScanQR.png'),
   DeleteIcon: require('./icons/DeleteIcon.png'),
-  Dot: require('./icons/Dot.png')
+  Dot: require('./icons/Dot.png'),
+  Share: require('./icons/Share.png'), //
+  Split: require('./icons/Split.png'), //
+  ConnectCode: require('./icons/Connect_Code.png'), //
+  ConnectCredit: require('./icons/Connect_Credit.png'), //
+  Location: require('./icons/Location.png'), //
+  K1: require('./icons/1K_Area.png') //
 };
 
 export default assets;

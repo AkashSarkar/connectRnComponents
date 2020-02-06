@@ -5,15 +5,14 @@ import {
 import {
   array, bool, func, number, string
 } from 'prop-types';
-import { TextComponent } from '@appscftl/connect-rn-components';
-import { colors, fonts } from '@appscftl/connect-rn-components/src/styles/baseStyle';
-import assets from '@appscftl/connect-rn-components/src/assets';
- 
+import TextComponent from '../typography/TextComponent';
+import { colors, fonts } from '../../../styles/baseStyle';
+import assets from '../../../assets';
+
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
     alignItems: 'center'
- 
   },
   hitSlop: {
     top: 5,
@@ -22,7 +21,6 @@ const styles = StyleSheet.create({
     right: 5
   }
 });
- 
 const ButtonSecondary = ({
   content,
   buttonColor,
@@ -38,57 +36,57 @@ const ButtonSecondary = ({
   rightIcon,
   extraStyle
 }) => (
-  <TouchableOpacity
-    onPress={onPress}
-    disabled={disabled}
-    style={[styles.buttonWrapper, {
-      backgroundColor: disabled ? disabledColor : buttonColor,
-      paddingTop: platform === 'android' ? 0 : 12,
-      height: buttonHeight,
-      flexDirection: 'row'
-    }, extraStyle]}
-    hitSlop={styles.hitSlop}
-  >
-    {
-      isLeftIcon && (
-        <View style={{ paddingRight: 10 }}>
-          <Image
-            source={leftIcon}
-            style={{
-              height: 20,
-              width: 20
-            }}
-            resizeMode="contain"
-          />
-        </View>
-      )
-    }
- 
-    <TextComponent
-      content={content}
-      family={fonts.bold}
-      size={fontSize}
-      color={textColor}
-    />
- 
-    {
-      isRightIcon && (
-        <View style={{ paddingLeft: 10 }}>
-          <Image
-            source={rightIcon}
-            style={{
-              height: 20,
-              width: 20
-            }}
-            resizeMode="contain"
-          />
-        </View>
-      )
-    }
- 
-  </TouchableOpacity>
-);
- 
+    <TouchableOpacity
+      onPress={onPress}
+      disabled={disabled}
+      style={[styles.buttonWrapper, {
+        backgroundColor: disabled ? disabledColor : buttonColor,
+        paddingTop: platform === 'android' ? 0 : 12,
+        height: buttonHeight,
+        flexDirection: 'row'
+      }, extraStyle]}
+      hitSlop={styles.hitSlop}
+    >
+      {
+        isLeftIcon && (
+          <View style={{ paddingRight: 10 }}>
+            <Image
+              source={leftIcon}
+              style={{
+                height: 20,
+                width: 20
+              }}
+              resizeMode="contain"
+            />
+          </View>
+        )
+      }
+
+      <TextComponent
+        content={content}
+        family={fonts.bold}
+        size={fontSize}
+        color={textColor}
+      />
+
+      {
+        isRightIcon && (
+          <View style={{ paddingLeft: 10 }}>
+            <Image
+              source={rightIcon}
+              style={{
+                height: 20,
+                width: 20
+              }}
+              resizeMode="contain"
+            />
+          </View>
+        )
+      }
+
+    </TouchableOpacity>
+  );
+
 ButtonSecondary.defaultProps = {
   content: 'Confirm',
   buttonColor: colors.secondary,
@@ -103,7 +101,6 @@ ButtonSecondary.defaultProps = {
   leftIcon: assets.Edit,
   rightIcon: assets.Add
 };
- 
 ButtonSecondary.propTypes = {
   content: string,
   buttonColor: array,
@@ -119,6 +116,5 @@ ButtonSecondary.propTypes = {
   rightIcon: number,
   extraStyle: string
 };
- 
- 
+
 export default ButtonSecondary;

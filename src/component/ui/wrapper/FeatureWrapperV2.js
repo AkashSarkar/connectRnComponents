@@ -10,24 +10,6 @@ import { colors, fonts } from '../../../styles/baseStyle';
 import { p15 } from '../../../styles/commonStyle';
 import assets from '../../../assets';
 
-const styles = {
-  wrapperStyle: {
-    height: '100%'
-  },
-  titleStyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  leftImageStyle: {
-    width: 25,
-    height: 25
-  },
-  crossImageStyle: {
-    width: 25,
-    height: 25
-  }
-};
 const FeatureWrapperV2 = (
   {
     children,
@@ -39,10 +21,30 @@ const FeatureWrapperV2 = (
     leftPressAction,
     rightPressAction
   }
-) => (
-
-  <SafeAreaView style={{ backgroundColor: backgroundColor || colors.black9 }}>
+) => {
+  const styles = {
+    wrapperStyle: {
+      height: '100%',
+      backgroundColor: backgroundColor || colors.black9
+    },
+    titleStyle: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    leftImageStyle: {
+      width: 40,
+      height: 40
+    },
+    crossImageStyle: {
+      width: 40,
+      height: 40
+    }
+  };
+  return (
+    // <View style={{ backgroundColor: backgroundColor || colors.black9 }}>
     <View style={styles.wrapperStyle}>
+      <SafeAreaView />
       <View style={[styles.titleStyle, p15]}>
 
         <TouchableOpacity
@@ -53,7 +55,6 @@ const FeatureWrapperV2 = (
             <Image
               source={leftIcon}
               style={styles.leftImageStyle}
-              resizeMode="stretch"
             />
           )}
         </TouchableOpacity>
@@ -63,7 +64,7 @@ const FeatureWrapperV2 = (
             content={title}
             size={fonts.fs20}
             color={titleTextColor}
-            family={fonts.regular}
+            family={fonts.light}
           />
         )}
         <TouchableOpacity
@@ -72,7 +73,6 @@ const FeatureWrapperV2 = (
           <Image
             source={rightIcon}
             style={styles.crossImageStyle}
-            resizeMode="stretch"
           />
         </TouchableOpacity>
 
@@ -80,10 +80,11 @@ const FeatureWrapperV2 = (
 
       {children}
     </View>
-  </SafeAreaView>
-);
+    // </View>
+  );
+};
 FeatureWrapperV2.defaultProps = {
-  leftIcon: assets.Back,
+  // leftIcon: assets.LeftArrow,
   rightIcon: assets.Cross,
   titleTextColor: colors.red
 };

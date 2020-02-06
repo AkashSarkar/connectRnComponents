@@ -35,7 +35,6 @@ import ProfileCardTest from './testRoute/ProfileCardTest';
 import WrapperTest from './testRoute/WrapperTest';
 import FabTest from './testRoute/FabTest';
 
-
 const AppNavigator = createStackNavigator(
   {
     Home: App,
