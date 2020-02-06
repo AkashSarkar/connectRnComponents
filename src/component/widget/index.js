@@ -63,6 +63,7 @@ import ModalComponent from './modal/ModalComponent';
 import ImageComponent from './image/ImageComponent';
 import ImageComponentV2 from './image/ImageComponentV2';
 import KeyboardNumeric from './keyboard/KeyboardNumeric';
+import KeyboardPin from './keyboard/KeyboardPin';
 
 export {
   SeatListItem,
@@ -127,5 +128,6 @@ export {
   ModalComponent,
   ImageComponent,
   ImageComponentV2,
-  KeyboardNumeric
+  KeyboardNumeric,
+  KeyboardPin
 };

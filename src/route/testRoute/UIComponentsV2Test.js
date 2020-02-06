@@ -18,7 +18,7 @@ import {
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
-import { InputTabbedV2, KeyboardNumeric } from '../../component/widget';
+import { InputTabbedV2, KeyboardNumeric, KeyboardPin } from '../../component/widget';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -656,7 +656,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/ButtonRectangle"
+              content="ui/button/KeyboardNumeric"
               family={fonts.bold}
             />
             <KeyboardNumeric
@@ -664,6 +664,19 @@ const UIComponentV2Test = ({ navigation }) => {
             />
           </View>
           {/* ui/button/KeyboardNumeric */}
+          {/* ui/button/KeyboardPin */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/KeyboardPin"
+              family={fonts.bold}
+            />
+            <KeyboardPin
+              onPress={onPressKeyboard}
+            />
+          </View>
+          {/* ui/button/KeyboardPin */}
         </View>
       </ScrollView>
     </SafeAreaView>
