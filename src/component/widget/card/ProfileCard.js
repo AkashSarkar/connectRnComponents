@@ -106,7 +106,7 @@ const ProfileCard = (
             </View>
           </View>
           <View style={styles.contentBottomWrapper}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onLeftPress}>
               <Image
                 source={leftIcon}
                 style={{
@@ -116,7 +116,7 @@ const ProfileCard = (
                 resizeMode="contain"
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onRightPress}>
               <View style={pl10}>
                 <Image
                   source={rightIcon}
@@ -159,6 +159,8 @@ ProfileCard.propTypes = {
   rightIcon: number,
   onLeftPress: func,
   onRightPress: func,
+  leftGradient: array,
+  rightGradient: array,
   logo: number,
   leftButtonColor: array,
   rightButtonColor: array,

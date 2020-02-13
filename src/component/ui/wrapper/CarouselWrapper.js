@@ -3,11 +3,8 @@ import {
   View, Dimensions, StyleSheet
 } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import {
-  func, node, bool, number
-} from 'prop-types';
+import { func, node, bool, number, string } from 'prop-types';
 import { colors } from '../../../styles/baseStyle';
-
 
 const {
   width: viewportWidth,
@@ -28,16 +25,14 @@ export const itemWidth = (slideWidth + itemHorizontalMargin * 2) / 1;
 
 const styles = StyleSheet.create({
   activeDotStyle:
-    {
-      width: 10,
-      height: 10,
-      borderRadius: 5,
-      marginHorizontal: -5,
-      backgroundColor: colors.primary
-    },
+  {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: -10
+  },
   inactiveDotStyle: {
     backgroundColor: colors.white1,
-    borderColor: colors.primary,
     borderWidth: 1
   }
 
@@ -45,32 +40,52 @@ const styles = StyleSheet.create({
 
 
 const CarouselWrapper = ({
-  componentArray, isPagination, isMaxWidth, activeIndex, onSliderChange, firstItem
+  componentArray, isPagination, isMaxWidth, activeIndex, onSliderChange, dotStyleColor, inactiveDotStyleColor
 }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
   const renderItem = ({ item, index }) => (
     <View>
       {item}
     </View>
   );
 
+  const renderPagination = () => (
+    <Pagination
+      dotsLength={componentArray.length}
+      activeDotIndex={activeTab}
+      containerStyle={{ paddingTop: 0 }}
+      dotStyle={[styles.activeDotStyle, { backgroundColor: dotStyleColor || colors.primary }]}
+      inactiveDotStyle={[styles.inactiveDotStyle, { borderColor: inactiveDotStyleColor || colors.primary }]}
+      inactiveDotOpacity={0.9}
+      inactiveDotScale={0.7}
+    />
+  );
+
   const carouselRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      carouselRef.current.snapToItem(activeIndex);
+    }, 500);
+  }, []);
 
   return (
     <>
       <Carousel
-        firstItem={firstItem}
         ref={carouselRef}
         data={componentArray}
         renderItem={renderItem}
         sliderWidth={sliderWidth}
         itemWidth={isMaxWidth ? viewportWidth - 30 : itemWidth}
         onBeforeSnapToItem={(idx) => {
+          setActiveTab(idx);
           onSliderChange(idx);
         }}
       />
       {
-      isPagination
-    }
+        isPagination && renderPagination()
+      }
     </>
   );
 };
@@ -79,7 +94,7 @@ CarouselWrapper.defaultProps = {
   isPagination: false,
   isMaxWidth: false,
   activeIndex: 0,
-  onSliderChange: () => {}
+  onSliderChange: () => { }
 };
 
 CarouselWrapper.propTypes = {
@@ -87,7 +102,9 @@ CarouselWrapper.propTypes = {
   isPagination: bool, // boolean that specifies whether pagination will be displayed or not
   isMaxWidth: bool, // boolean that specifies whether the slider will take up the whole width of the screen
   activeIndex: number, // initial active index in the component array
-  onSliderChange: func // event handler for swiping the slider, index of item is passed
+  onSliderChange: func, // event handler for swiping the slider, index of item is passed
+  dotStyleColor: string,
+  inactiveDotStyleColor: string
 };
 
 export default CarouselWrapper;
