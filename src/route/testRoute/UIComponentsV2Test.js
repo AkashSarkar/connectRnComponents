@@ -723,9 +723,25 @@ const UIComponentV2Test = ({ navigation }) => {
             />
             <KeyboardNumeric
               onPress={onPressKeyboard}
+              withoutPercentageButton
             />
           </View>
           {/* ui/button/KeyboardNumeric */}
+
+          {/* ui/button/KeyboardPin */}
+          {/* <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/KeyboardPin"
+              family={fonts.bold}
+            />
+            <KeyboardPin
+              onPress={onPressKeyboard}
+            />
+          </View> */}
+          {/* ui/button/KeyboardPin */}
+
           {/* ui/button/ButtonRectangleV2 */}
           <View style={p10}>
             <TextComponent

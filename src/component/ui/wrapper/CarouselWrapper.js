@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
       width: 10,
       height: 10,
       borderRadius: 5,
-      marginHorizontal: -5,
+      marginHorizontal: 8,
       backgroundColor: colors.primary
     },
   inactiveDotStyle: {
@@ -45,31 +45,51 @@ const styles = StyleSheet.create({
 
 
 const CarouselWrapper = ({
-  componentArray, isPagination, isMaxWidth, activeIndex, onSliderChange, firstItem
+  componentArray, isPagination, isMaxWidth, activeIndex, onSliderChange
 }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
   const renderItem = ({ item, index }) => (
     <View>
       {item}
     </View>
   );
 
+  const renderPagination = () => (
+    <Pagination
+      dotsLength={componentArray.length}
+      activeDotIndex={activeTab}
+      containerStyle={{}}
+      dotStyle={styles.activeDotStyle}
+      inactiveDotStyle={styles.inactiveDotStyle}
+      inactiveDotOpacity={0.9}
+      inactiveDotScale={0.7}
+    />
+  );
+
   const carouselRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      carouselRef.current.snapToItem(activeIndex);
+    }, 500);
+  }, []);
 
   return (
     <>
       <Carousel
-        firstItem={firstItem}
         ref={carouselRef}
         data={componentArray}
         renderItem={renderItem}
         sliderWidth={sliderWidth}
         itemWidth={isMaxWidth ? viewportWidth - 30 : itemWidth}
         onBeforeSnapToItem={(idx) => {
+          setActiveTab(idx);
           onSliderChange(idx);
         }}
       />
       {
-      isPagination
+      isPagination && renderPagination()
     }
     </>
   );
