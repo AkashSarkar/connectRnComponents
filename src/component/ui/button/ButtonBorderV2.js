@@ -56,33 +56,34 @@ const ButtonBorderV2 = ({
   inModal,
   disabled
 }) => (
-    <View
-      style={[styles.buttonWrapper]}
-      hitSlop={styles.hitSlop}
+  <View
+    style={[styles.buttonWrapper]}
+    hitSlop={styles.hitSlop}
+  >
+    <TouchableOpacity
+      onPress={onPressLeft}
+      style={{
+        flex: 1,
+        backgroundColor: buttonColor
+      }}
+      disabled={disabled}
+      activeOpacity={0.8}
     >
-      <TouchableOpacity
-        onPress={onPressLeft}
-        style={{
-          flex: 1,
-          backgroundColor: buttonColor
-        }}
-        disabled={disabled}
+      <View style={[styles.buttonStyle, {
+        borderBottomLeftRadius: inModal ? 15 : 0,
+        height: buttonHeight
+      }]}
       >
-        <View style={[styles.buttonStyle, {
-          borderBottomLeftRadius: inModal ? 15 : 0,
-          height: buttonHeight
-        }]}
-        >
-          <TextComponent
-            content={contentLeft}
-            family={fonts.regular}
-            size={fontSize}
-            color={disabled ? disabledColor : textColorLeft}
-          />
-        </View>
-      </TouchableOpacity>
+        <TextComponent
+          content={contentLeft}
+          family={fonts.medium}
+          size={fontSize}
+          color={disabled ? disabledColor : textColorLeft}
+        />
+      </View>
+    </TouchableOpacity>
 
-      {/* <View style={[styles.middleWrapper,
+    {/* <View style={[styles.middleWrapper,
       {
         // marginTop: platform === 'android' ? 0 : 12,
         backgroundColor: buttonColor,
@@ -96,36 +97,37 @@ const ButtonBorderV2 = ({
         color={textColorMiddle}
       />
     </View> */}
-      <View style={[styles.borderWrapper, {
-        marginTop: platform === 'android' ? 27 : 12
+    <View style={[styles.borderWrapper, {
+      marginTop: platform === 'android' ? 27 : 12
+    }]}
+    >
+      <View style={styles.borderStyle} />
+    </View>
+    <TouchableOpacity
+      onPress={onPressRight}
+      style={{
+        flex: 1,
+        backgroundColor: buttonColor,
+        borderBottomRightRadius: inModal ? 15 : 0,
+        marginLeft: -1
+      }}
+      activeOpacity={0.8}
+    >
+      <View style={[styles.buttonStyle, {
+        borderBottomLeftRadius: inModal ? 15 : 0,
+        height: buttonHeight
       }]}
       >
-        <View style={styles.borderStyle} />
+        <TextComponent
+          content={contentRight}
+          family={fonts.medium}
+          size={fontSize}
+          color={textColorRight}
+        />
       </View>
-      <TouchableOpacity
-        onPress={onPressRight}
-        style={{
-          flex: 1,
-          backgroundColor: buttonColor,
-          borderBottomRightRadius: inModal ? 15 : 0,
-          marginLeft: -1
-        }}
-      >
-        <View style={[styles.buttonStyle, {
-          borderBottomLeftRadius: inModal ? 15 : 0,
-          height: buttonHeight
-        }]}
-        >
-          <TextComponent
-            content={contentRight}
-            family={fonts.regular}
-            size={fontSize}
-            color={textColorRight}
-          />
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
+    </TouchableOpacity>
+  </View>
+);
 
 ButtonBorderV2.propTypes = {
   contentLeft: string.isRequired,

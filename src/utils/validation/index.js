@@ -19,6 +19,13 @@ const validate = (validation, value) => {
     }
     return true;
   }
+  if (validation.validationType === 'type' && validation.value === 'mobile') {
+    const regexNumber = /\+?(88)?0?1[3-9][0-9]{2}(-)?[0-9]{6}\b/; // mobile number validation
+    if (!regexNumber.test(value)) {
+      return false;
+    }
+    return true;
+  }
 
   return false;
 };
