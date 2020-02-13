@@ -203,12 +203,28 @@ const styles = StyleSheet.create({
 });
 const discountV2Color = {
   titleColor: colors.red2,
-  modalbgColor: colors.black9,
-  inputTextColor: colors.white1,
-  buttonbgColor: colors.primary,
-  buttontextColor: colors.white1,
+  modalbgColor: colors.white1,
+  inputTextColor: colors.black0,
+  centerTextColor:colors.black0,
+  buttonbgColor: colors.white5,
+  buttontextColor: colors.black0,
   textAreabgColor: colors.buttonColor1
 };
+const contactV2Color = {
+  titleColor: colors.red2,
+  modalbgColor: colors.white1,
+  inputTextColor: colors.black0,
+  centerTextColor:colors.black0,
+  buttonbgColor: colors.black10,
+  buttontextColor: colors.black0,
+  textAreabgColor: colors.buttonColor1
+};
+const modalInfoColor = {
+  titleColor: colors.red2,
+  modalbgColor: colors.black,
+  textComponentColor1 : colors.red2,
+  textComponentColor2 : colors.white1
+}
 
 class ModalTest extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -416,6 +432,7 @@ class ModalTest extends React.Component {
               onBackButtonPress={this.handleCloseModalInfo}
               onClose={this.handleCloseModalInfo}
               items={DataModalInfo}
+              modalInfoColor={modalInfoColor}
             />
           </View>
           <View style={styles.viewWrapper}>
@@ -532,6 +549,7 @@ class ModalTest extends React.Component {
             />
             <ModalContactV2
               modalTitle="Add description"
+              contactV2Color={contactV2Color}
               modalTitleTextColor={colors.primary}
               isVisible={this.state.isModalContactV2}
               onBackButtonPress={this.handleCloseModalContactV2}

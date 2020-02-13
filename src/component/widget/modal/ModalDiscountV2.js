@@ -83,7 +83,7 @@ const ModalDiscountV2 = ({
         style={[{
           backgroundColor: discountV2Color.modalbgColor
         },
-          styles.container
+        styles.container
         ]}
       >
         <View style={styles.viewWrapper}>

@@ -109,7 +109,7 @@ const ModalAddDiscount = ({
               content="Amount"
               size={fonts.fs14}
               family={fonts.light}
-              color={colors.white1}
+              color={discountV2Color.inputTextColor}
               extraStyle={{
                 marginRight: 110,
                 lineHeight: 22
@@ -131,7 +131,7 @@ const ModalAddDiscount = ({
                 content="10%"
                 //size={fonts.fs52}
                 family={fonts.light}
-                color={colors.white1}
+                color={discountV2Color.centerTextColor}
                 extraStyle={{ fontSize: 74 }}
               />
             </View>
@@ -143,10 +143,10 @@ const ModalAddDiscount = ({
           contentLeft="Apply"
           contentMiddle="|"
           contentRight="Cancel"
-          buttonColor={colors.black10}
-          textColorLeft={colors.white1}
+          buttonColor={discountV2Color.buttonbgColor}
+          textColorLeft={discountV2Color.buttontextColor}
           textColorMiddle={colors.primary}
-          textColorRight={colors.white1}
+          textColorRight={discountV2Color.buttontextColor}
           buttonHeight={50}
           inModal
           fontSize={fonts.fs16}

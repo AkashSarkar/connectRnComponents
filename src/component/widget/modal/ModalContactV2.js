@@ -64,7 +64,8 @@ const ModalDiscountV2 = ({
   onBackButtonPress,
   onClose,
   items,
-  onPress
+  onPress,
+  contactV2Color
 }) => {
   const [id, setId] = useState('');
   return (
@@ -87,7 +88,7 @@ const ModalDiscountV2 = ({
             content={modalTitle}
             size={fonts.fs20}
             family={fonts.medium}
-            color={colors.red2}
+            color={contactV2Color.titleColor}
           />
           {/*Cross button*/}
           {/*<TouchableOpacity*/}
@@ -117,7 +118,7 @@ const ModalDiscountV2 = ({
           contentLeft="Apply"
           contentMiddle="|"
           contentRight="Cancel"
-          buttonColor={colors.black10}
+          buttonColor={contactV2Color.buttonbgColor}
           textColorLeft={colors.white1}
           textColorMiddle={colors.primary}
           textColorRight={colors.white1}
