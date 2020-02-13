@@ -54,7 +54,6 @@ const ModalInfo = ({
   onClose,
   items,
   modalInfoColor
-
 }) => {
   const renderItem = item => (
     <View style={{
@@ -93,8 +92,12 @@ const ModalInfo = ({
       backdropTransitionOutTiming={600}
     >
       <View
-        style={[styles.container, { backgroundColor: modalInfoColor.modalbgColor }]}>
-
+        style={[
+          styles.container,
+          {
+            backgroundColor: modalInfoColor.modalbgColor
+          }]}
+      >
         <View style={styles.viewWrapper}>
           <TouchableOpacity
             onPress={onClose}

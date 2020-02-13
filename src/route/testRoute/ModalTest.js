@@ -407,8 +407,11 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalDouble}
             />
             <ModalDouble
+              isDescription
+              borderButtonColor={colors.black0}
               modalTitle="Select account"
               modalTitleBottom="Card payments with"
+              titleColor={colors.red2}
               isVisible={this.state.isModalDoubleVisible}
               onBackButtonPress={this.handleCloseModalDouble}
               onClose={this.handleCloseModalDouble}
@@ -548,6 +551,7 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalContactV2}
             />
             <ModalContactV2
+              isDescription
               modalTitle="Add description"
               contactV2Color={contactV2Color}
               modalTitleTextColor={colors.primary}
