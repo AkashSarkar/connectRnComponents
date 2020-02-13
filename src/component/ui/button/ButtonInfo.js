@@ -5,8 +5,8 @@ import {
 import {
   func, number, string
 } from 'prop-types';
+import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
-import { fonts, colors } from '../../../styles/baseStyle';
 
 const platform = Platform.OS;
 const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
-    borderColor: colors.grey,
+    borderColor: colors.grey3,
     borderWidth: 1
 
   },
@@ -44,7 +44,7 @@ const ButtonInfo = ({
   >
     <TextComponent
       content={content}
-      family={fonts.regular}
+      family={fonts.medium}
       size={fontSize}
       color={textColor}
     />

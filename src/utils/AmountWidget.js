@@ -10,10 +10,8 @@ const AmountWidget = ({
   const styles = StyleSheet.create({
     amountTextWrapper: {
       flexDirection: 'row',
-      justifyContent: 'flex-start'
     },
     decimalWrapper: {
-      alignSelf: 'flex-end'
     }
   });
 

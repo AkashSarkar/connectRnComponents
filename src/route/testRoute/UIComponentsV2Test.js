@@ -21,7 +21,7 @@ import {
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
-import { InputTabbedV2, KeyboardNumeric } from '../../component/widget';
+import { InputTabbedV2, KeyboardNumeric, KeyboardPin } from '../../component/widget';
 import ProfileCardV2 from '../../component/widget/card/ProfileCardV2';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 import LineSeparatorV2 from '../../component/ui/uiUtils/LineSeparatorV2';
@@ -718,7 +718,7 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/ButtonRectangle"
+              content="ui/button/KeyboardNumeric"
               family={fonts.bold}
             />
             <KeyboardNumeric

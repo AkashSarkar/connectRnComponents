@@ -41,7 +41,8 @@ const InputField = forwardRef(
       iconSource,
       isIcon,
       secureTextEntry,
-      v2
+      v2,
+      color
     },
     ref
   ) => {
@@ -132,6 +133,7 @@ const InputField = forwardRef(
               iconSource={iconSource}
               isIcon={isIcon}
               secureTextEntry={secureTextEntry}
+              color={color || null}
             />
           ) : (
             <Input

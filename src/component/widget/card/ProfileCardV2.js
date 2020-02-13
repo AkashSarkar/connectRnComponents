@@ -11,17 +11,19 @@ import assets from '../../../assets';
 const styles = StyleSheet.create({
 
   firstWrapper: {
-    // marginTop: '2%',
     flexDirection: 'row',
     paddingHorizontal: 20
-    // marginBottom: '2%'
   },
   firstRightWrapper: {
     justifyContent: 'center',
     marginRight: '30%',
     paddingLeft: 30
+  },
+  imageWrapper: {
+    borderRadius: 50,
+    borderColor: colors.secondary,
+    borderWidth: 5
   }
-
 });
 
 const ProfileCardV2 = ({
@@ -31,7 +33,7 @@ const ProfileCardV2 = ({
 }) => (
   <View>
     <View style={styles.firstWrapper}>
-      <View style={{ borderRadius: 50, borderColor: colors.secondary, borderWidth: 5 }}>
+      <View style={styles.imageWrapper}>
         <Image
           source={icon}
           style={{
@@ -42,15 +44,25 @@ const ProfileCardV2 = ({
         />
       </View>
       <View style={styles.firstRightWrapper}>
-        <TextComponent content={title} size={fonts.fs20} color={colors.primary} family={fonts.bold} />
+        <TextComponent
+          content={title}
+          size={fonts.fs20}
+          color={colors.primary}
+          family={fonts.medium}
+        />
         <View>
-          <TextComponent content={id} size={fonts.fs12} color={colors.primary} />
+          <TextComponent
+            content={id}
+            size={fonts.fs12}
+            color={colors.primary}
+            family={fonts.light}
+          />
         </View>
       </View>
     </View>
     <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
       <TouchableOpacity>
-        <View style={{ paddingLeft: 10, paddingTop: 10 }}>
+        <View style={{ paddingLeft: 10, paddingTop: 13 }}>
           <View>
             <Image
               source={assets.Location}

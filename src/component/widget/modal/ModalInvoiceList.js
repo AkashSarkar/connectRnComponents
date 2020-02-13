@@ -46,7 +46,7 @@ const ModalInvoiceList = ({
     <View style={styles.container}>
       <View style={{ paddingBottom: 10, paddingTop: 30 }}>
         <Image
-          source={assets.Plus}
+          source={assets.Add}
           style={{
             height: 144,
             width: 144
@@ -65,7 +65,7 @@ const ModalInvoiceList = ({
               <TextComponent
                 content={item.title}
                 size={fonts.fs14}
-                family={fonts.regular}
+                family={fonts.bold}
                 color={colors.black0}
               />
 
@@ -73,14 +73,14 @@ const ModalInvoiceList = ({
                 <TextComponent
                   content={item.details}
                   size={fonts.fs18}
-                  family={fonts.semiBold}
+                  family={fonts.regular}
                   color={colors.black0}
                 />
               </View>
             </View>
           </View>
         )}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       />
@@ -97,7 +97,7 @@ ModalInvoiceList.propTypes = {
       details: string.isRequired
     })
   ),
-  onSelect: func
+  onBackButtonPress: func
 };
 
 export default ModalInvoiceList;
