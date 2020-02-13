@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import {
   SafeAreaView, ScrollView, View, ToastAndroid
 } from 'react-native';
-import { colors, fonts } from '../../styles/baseStyle';
+import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
   ButtonBorderV2,
   ButtonDoubleV2,
   ButtonPrimaryV2,
   ButtonRectangle,
   FlatButtonV2,
+  ButtonSecondary,
+  TextComponent,
+  ButtonInfo,
   InputFieldSeperator,
-  TextComponent
+  HeaderPrimary
 } from '../../component/ui';
 import {
   mb10, mb5, p10, pb10
@@ -19,6 +22,13 @@ import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
 import { InputTabbedV2, KeyboardNumeric } from '../../component/widget';
+import ProfileCardV2 from '../../component/widget/card/ProfileCardV2';
+import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
+import LineSeparatorV2 from '../../component/ui/uiUtils/LineSeparatorV2';
+import AccountInfoHeader from '../../component/widget/card/AccountInfoHeader';
+import ButtonRectangleV2 from '../../component/ui/button/ButtonRectangleV2';
+import SplitandShareV2 from '../../component/ui/uiUtils/SplitandShareV2';
+import PaymentsCard from '../../component/widget/card/PaymentsCard';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -41,6 +51,9 @@ const UIComponentV2Test = ({ navigation }) => {
 
   const onPressKeyboard = (data) => {
     console.warn(data);
+  };
+  const handleAccountSliderItem = () => {
+    alert('AccountSliderItem');
   };
 
   const BankAccountComponent = () => {
@@ -404,7 +417,7 @@ const UIComponentV2Test = ({ navigation }) => {
                     onChangeText={(text) => {
                       setName(text);
                     }}
-                    setIsValid={(validity) => {
+                    setIsValid={() => {
                     }}
                     validations={[
                       {
@@ -446,7 +459,7 @@ const UIComponentV2Test = ({ navigation }) => {
                     onChangeText={(text) => {
                       setName(text);
                     }}
-                    setIsValid={(validity) => {
+                    setIsValid={() => {
                     }}
                     validations={[
                       {
@@ -479,7 +492,7 @@ const UIComponentV2Test = ({ navigation }) => {
                     onChangeText={(text) => {
                       setName(text);
                     }}
-                    setIsValid={(validity) => {
+                    setIsValid={() => {
                     }}
                     validations={[
                       {
@@ -528,12 +541,43 @@ const UIComponentV2Test = ({ navigation }) => {
                 ToastAndroid.TOP,
               )
               }
-              // disabled
+            // disabled
             />
           </View>
 
           {/* ends ui/button/ButtonPrimaryV2 */}
 
+          <View style={p10}>
+            <View style={[pb10]}>
+              <TextComponent
+                size={fonts.fs30}
+                color={colors.black0}
+                content="Buttons"
+                family={fonts.bold}
+              />
+            </View>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonSecondary"
+              family={fonts.bold}
+            />
+            <ButtonSecondary
+              isLeftIcon
+              isRightIcon
+              leftIcon={assets.Add}
+              rightIcon={assets.TickIcon}
+              content="Single Button With Icon"
+              buttonColor={colors.white1}
+              buttonHeight={40}
+              textColor={colors.red2}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Single Button With Icon')}
+            // disabled
+            />
+          </View>
+
+          {/* ends ui/button/SingleButtonWithIcon */}
           <View style={p10}>
             <TextComponent
               size={fonts.fs20}
@@ -580,6 +624,22 @@ const UIComponentV2Test = ({ navigation }) => {
           </View>
 
           {/* ends ui/button/ButtonBorderV2 */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonInfo"
+              family={fonts.bold}
+            />
+            <ButtonInfo
+              content="Button Info"
+              buttonHeight={50}
+              fontSize={fonts.fs14}
+              onPress={() => console.warn('Info')}
+            />
+          </View>
+
+          { /* ends ui/button/ButtonInfo */}
 
           <View style={{
             marginLeft: 10,
@@ -664,6 +724,137 @@ const UIComponentV2Test = ({ navigation }) => {
             />
           </View>
           {/* ui/button/KeyboardNumeric */}
+          {/* ui/button/ButtonRectangleV2 */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonRectangleV2"
+              family={fonts.bold}
+            />
+            <ButtonRectangleV2
+              content="Get Payment"
+              textColor={colors.white1}
+              fontSize={fonts.fs14}
+              buttonColor={colors.colorSecondery}
+              onPress={() => console.warn('ButtonRectangleV2')}
+            />
+          </View>
+          {/* ui/button/ButtonRectangleV2 */}
+          {/* ui/button/ButtonInfo */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/ButtonInfo"
+              family={fonts.bold}
+            />
+            <ButtonInfo
+              content="Button Info"
+              textColor={colors.grey3}
+              fontSize={fonts.fs14}
+              buttonColor={colors.colorSecondery}
+              onPress={() => console.warn('ButtonInfo')}
+            />
+          </View>
+          {/* ui/button/ButtonInfo */}
+          {/* ui/button/LineSeparatorV2 */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/button/LineSpearator"
+              family={fonts.bold}
+            />
+            <LineSeparatorV2 />
+          </View>
+          {/* ui/button/LineSeparatorV2 */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/header/HeaderPrimary"
+              family={fonts.bold}
+            />
+            <HeaderPrimary
+              content="Credit Payments"
+              buttonItems={headerButtonsInformation}
+            />
+          </View>
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/AccountInfoHeader"
+              family={fonts.bold}
+            />
+            <AccountInfoHeader
+              title="Bismillah Store"
+              logo={assets.AppIcon}
+              id="1234 5678 9888 1331"
+              buttonColor={gradientColors.gradientActiveBTN}
+              onPress={() => console.warn('Account Info Header')}
+              navigation={navigation}
+            />
+          </View>
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/AccountSliderItem"
+              family={fonts.bold}
+            />
+            <AccountSliderItem
+              handleInformation={handleAccountSliderItem}
+              suffixNo={12}
+              amount={125899.0}
+              connectAcc="Loan Limit 5,00,000"
+              textColor1={colors.white1}
+              // gradient={colors.blue}
+              color1="blue"
+              // activeIndex={idx}
+              icon={assets.JamunaBankLogo2}
+            />
+          </View>
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/ProfileCardV2"
+              family={fonts.bold}
+            />
+            <ProfileCardV2
+              title="Lazz Pharma Ltd"
+              id="1234 1700 20011"
+              icon={assets.AppIcon}
+            />
+          </View>
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="ui/uiUtils/SplitandShareV2"
+              family={fonts.bold}
+            />
+            <SplitandShareV2 />
+          </View>
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/PaymentsCard"
+              family={fonts.bold}
+            />
+            <PaymentsCard
+              upperLeftContent="Salary Account"
+              upperRightContent="188,000.00"
+              lowerContent1="Remaining balance:"
+              lowerContent2="175,500.00"
+              upperLeftIcon={assets.Change}
+              upperRightIcon={assets.Taka}
+              lowerIcon={assets.Taka}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

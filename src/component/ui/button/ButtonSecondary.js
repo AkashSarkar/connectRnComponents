@@ -5,15 +5,15 @@ import {
 import {
   array, bool, func, number, string
 } from 'prop-types';
-import { TextComponent } from '@appscftl/connect-rn-components';
-import { colors, fonts } from '@appscftl/connect-rn-components/src/styles/baseStyle';
-import assets from '@appscftl/connect-rn-components/src/assets';
- 
+import TextComponent from '../typography/TextComponent';
+import { colors, fonts } from '../../../styles/baseStyle';
+import assets from '../../../assets';
+
 const platform = Platform.OS;
 const styles = StyleSheet.create({
   buttonWrapper: {
     alignItems: 'center'
- 
+
   },
   hitSlop: {
     top: 5,
@@ -22,16 +22,14 @@ const styles = StyleSheet.create({
     right: 5
   }
 });
- 
+
 const ButtonSecondary = ({
   content,
-  buttonColor,
   buttonHeight,
   textColor,
   fontSize,
   onPress,
   disabled,
-  disabledColor = colors.grey1,
   isLeftIcon,
   isRightIcon,
   leftIcon,
@@ -42,7 +40,6 @@ const ButtonSecondary = ({
     onPress={onPress}
     disabled={disabled}
     style={[styles.buttonWrapper, {
-      backgroundColor: disabled ? disabledColor : buttonColor,
       paddingTop: platform === 'android' ? 0 : 12,
       height: buttonHeight,
       flexDirection: 'row'
@@ -63,14 +60,14 @@ const ButtonSecondary = ({
         </View>
       )
     }
- 
+
     <TextComponent
       content={content}
       family={fonts.bold}
       size={fontSize}
       color={textColor}
     />
- 
+
     {
       isRightIcon && (
         <View style={{ paddingLeft: 10 }}>
@@ -85,40 +82,36 @@ const ButtonSecondary = ({
         </View>
       )
     }
- 
+
   </TouchableOpacity>
 );
- 
+
 ButtonSecondary.defaultProps = {
   content: 'Confirm',
-  buttonColor: colors.secondary,
   textColor: colors.white1,
   fontSize: number,
   buttonHeight: 80,
   onPress: () => '',
   disabled: false,
-  disabledColor: colors.grey1,
-  isLeftIcon: true,
+  isLeftIcon: false,
   isRightIcon: false,
   leftIcon: assets.Edit,
   rightIcon: assets.Add
 };
- 
+
 ButtonSecondary.propTypes = {
   content: string,
-  buttonColor: array,
   textColor: string,
   fontSize: number,
   buttonHeight: number,
   onPress: func,
   disabled: bool,
-  disabledColor: string,
   isLeftIcon: bool,
   isRightIcon: bool,
   leftIcon: number,
   rightIcon: number,
   extraStyle: string
 };
- 
- 
+
+
 export default ButtonSecondary;

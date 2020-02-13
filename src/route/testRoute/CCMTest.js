@@ -18,24 +18,39 @@ const CCMTest = () => {
         handleInformation={handleAccountSliderItem}
         suffixNo={12}
         amount={125899.0}
-        connectAcc="0002-90909-90909"
-      />,
+        connectAcc="Loan Limit 5,00,000"
+        textColor1={colors.white1}
+      // gradient={colors.blue}
+        color1="blue"
+      // activeIndex={idx}
+        icon={assets.JamunaBankLogo2}
+      />
     );
     components.push(
       <AccountSliderItem
         handleInformation={handleAccountSliderItem}
         suffixNo={12}
         amount={125899.0}
-        connectAcc="0002-90909-90909"
-      />,
+        connectAcc="Loan Limit 5,00,000"
+        textColor1={colors.white1}
+      // gradient={colors.blue}
+        color1="blue"
+      // activeIndex={idx}
+        icon={assets.JamunaBankLogo2}
+      />
     );
     components.push(
       <AccountSliderItem
         handleInformation={handleAccountSliderItem}
         suffixNo={12}
         amount={125899.0}
-        connectAcc="0002-90909-90909"
-      />,
+        connectAcc="Loan Limit 5,00,000"
+        textColor1={colors.white1}
+      // gradient={colors.blue}
+        color1="blue"
+      // activeIndex={idx}
+        icon={assets.JamunaBankLogo2}
+      />
     );
 
     return components;

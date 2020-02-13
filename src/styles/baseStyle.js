@@ -3,6 +3,7 @@ export const colors = {
   primary2: '#000632',
   secondary: '#00d1da',
   secondary2: '#e5f5f5',
+  red: '#F00F00',
   red1: '#e15073',
   red2: '#ff005b',
   offWhite: '#fefefe',
@@ -34,7 +35,8 @@ export const colors = {
   yellow1: '#fff500',
   colorSecondery: '#00d1da',
   bgPrimary: '#F7F7F7',
-  barPrimary: '#4A4A4A'
+  barPrimary: '#4A4A4A',
+  sky1: '#3FBBEA'
 };
 
 export const gradientColors = {
@@ -90,14 +92,15 @@ export const fonts = {
   fs26: 26,
   fs30: 30,
   fs32: 32,
+  fs40: 40,
+  fs44: 44,
   fs50: 50,
-  fs52: 52,
   light: 'ProximaNovaA-Light',
   black: 'ProximaNova-Black',
-  medium: 'ProximaNovaT-Thin',
+  medium: 'ProximaNova-Regular',
   tThin: 'ProximaNovaT-Thin',
   aThin: 'ProximaNovaA-Thin',
-  regular: 'ProximaNova-Regular',
+  regular: 'ProximaNovaT-Regular',
   semiBold: 'ProximaNovaT-Thin',
   bold: 'ProximaNova-Bold',
   aBold: 'ProximaNovaA-Bold',

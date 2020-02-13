@@ -1,51 +1,63 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, TouchableHighlight, StyleSheet, FlatList
+  View, TouchableOpacity, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+  shape, number, string, func, bool
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import image from '../../../assets';
 
 
 const styles = StyleSheet.create({
   container: {
-    height: '40%',
+    height: 300,
     backgroundColor: colors.black9,
-    paddingBottom: 15,
-    borderRadius: 16
+    paddingHorizontal: 5,
+    paddingBottom: 10,
+    borderRadius: 16,
+    borderColor: 'black'
   },
   viewWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 20
+    paddingVertical: 20,
+    borderBottomColor: colors.grey3,
+    borderBottomWidth: 1
+
+  },
+  closeModalContainer: {
+    position: 'absolute',
+    right: 0
+  },
+  closeImageStyle: {
+    height: 24,
+    width: 24
   },
   listViewWrapper: {
-    flex: 1
+    height: 210,
+    width: '100%'
   }
 });
 
 const renderItem = (item, onSelect) => (
-  <TouchableHighlight
-    style={{
-      paddingVertical: 10,
-      paddingHorizontal: 30,
-      alignItems: 'center'
-    }}
-    underlayColor={colors.black10}
-    onPress={() => onSelect(item.id)}
+  <View style={{
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    alignItems: 'center'
+  }}
   >
-    <TextComponent
-      content={item.title}
-      size={fonts.fs18}
-      family={fonts.medium}
-      color={colors.white1}
-    />
-  </TouchableHighlight>
+    <TouchableOpacity onPress={() => onSelect(item)}>
+      <TextComponent
+        content={item.title}
+        size={fonts.fs18}
+        family={fonts.regular}
+        color={colors.white1}
+      />
+    </TouchableOpacity>
+  </View>
 );
 
 
@@ -72,11 +84,12 @@ const ModalSecondaryV2 = ({
     <View style={styles.container}>
       <View style={styles.viewWrapper}>
         <TextComponent
+          color={colors.red2}
           content={modalTitle}
           size={fonts.fs20}
-          family={fonts.light}
-          color={colors.primary}
+          family={fonts.regular}
         />
+
       </View>
       <View
         style={styles.listViewWrapper}

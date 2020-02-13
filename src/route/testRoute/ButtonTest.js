@@ -68,7 +68,7 @@ const ButtonTest = ({ params }) => (
           content="ui/button/fab button"
           family={fonts.bold}
         />
-        <FabButton />
+        {/* <FabButton /> */}
       </View>
       {/* ui/button/ButtonDouble */}
 

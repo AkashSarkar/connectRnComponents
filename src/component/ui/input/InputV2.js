@@ -16,8 +16,7 @@ const style = StyleSheet.create({
     height: 30,
     // backgroundColor: 'green',
     fontFamily: fonts.medium,
-    fontSize: fonts.fs12,
-    color: colors.white1,
+    fontSize: fonts.fs18,
     letterSpacing: 0.9,
     // ...pl15,
     ...pv5
@@ -59,7 +58,8 @@ const InputV2 = forwardRef(
       isError,
       iconSource,
       isIcon,
-      secureTextEntry
+      secureTextEntry,
+      color
     },
     ref,
   ) => {
@@ -99,7 +99,7 @@ const InputV2 = forwardRef(
         </View>
         )}
         <TextInput
-          style={style.input}
+          style={[style.input, {color: color || colors.white1 }]}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
