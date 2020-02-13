@@ -99,7 +99,7 @@ const InputV2 = forwardRef(
         </View>
         )}
         <TextInput
-          style={[style.input, {color: color || colors.white1 }]}
+          style={[style.input, { color: color || colors.white1 }]}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
@@ -150,7 +150,8 @@ InputV2.propTypes = {
   isError: bool.isRequired,
   iconSource: number,
   isIcon: bool,
-  secureTextEntry: bool
+  secureTextEntry: bool,
+  color: string
 };
 
 export default InputV2;

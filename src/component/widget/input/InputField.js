@@ -192,7 +192,8 @@ InputField.propTypes = {
   iconSource: number,
   isIcon: bool,
   secureTextEntry: bool,
-  v2: bool
+  v2: bool,
+  color: string
 };
 
 export default InputField;

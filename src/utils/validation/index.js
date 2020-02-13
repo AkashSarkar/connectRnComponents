@@ -26,6 +26,13 @@ const validate = (validation, value) => {
     }
     return true;
   }
+  if (validation.validationType === 'type' && validation.value === 'onlyAlpha') {
+    const regexOnlyAlpha = /^[^.][a-zA-Z .]+$/; // /^a-z & A_Z - only
+    if (!regexOnlyAlpha.test(value)) {
+      return false;
+    }
+    return true;
+  }
 
   return false;
 };
