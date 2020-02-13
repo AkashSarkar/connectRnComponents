@@ -1,5 +1,5 @@
 import React, {
-  useState, useImperativeHandle, forwardRef, useRef
+  useState, useImperativeHandle, forwardRef, useRef, useEffect
 } from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
@@ -44,10 +44,11 @@ const InputField = forwardRef(
       v2,
       color
     },
-    ref,
+    ref
   ) => {
     const [errorMsg, setErrorMsg] = useState('');
     const [isError, setIsError] = useState(false);
+    const [showErrorMsg, setShowErrorMsg] = useState(false);
 
     const inputRef = useRef(null);
     const inputFocus = () => {
@@ -84,15 +85,23 @@ const InputField = forwardRef(
     useImperativeHandle(ref, () => ({
       onValidate() {
         return new Promise((resolve, reject) => {
-          onValidate().then((res) => {
-            resolve(res);
-          });
+          onValidate()
+            .then((res) => {
+              resolve(res);
+            });
         });
       }
       // focus() {
       //   inputFocus();
       // }
     }));
+    useEffect(() => {
+      if (errorMsg.length > 0) {
+        setShowErrorMsg(true);
+      } else {
+        setShowErrorMsg(false);
+      }
+    }, [errorMsg]);
 
     return (
       <View style={{ padding: label.length > 0 ? 10 : 0 }}>
@@ -146,19 +155,19 @@ const InputField = forwardRef(
             />
           )}
         </View>
-        {errorMsg.length > 0 ? (
-          <View style={[mb5, ml5, mt5]}>
+        {showErrorMsg ? (
+          <View style={[mb5, mt5]}>
             <AnimatedTextComponent
               color={colors.white1}
               content={errorMsg}
-              family={fonts.regular}
+              family={fonts.medium}
               size={fonts.fs12}
             />
           </View>
         ) : null}
       </View>
     );
-  },
+  }
 );
 
 InputField.defaultProps = {
@@ -183,7 +192,8 @@ InputField.propTypes = {
   iconSource: number,
   isIcon: bool,
   secureTextEntry: bool,
-  v2: bool
+  v2: bool,
+  color: string
 };
 
 export default InputField;
