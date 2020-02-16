@@ -150,7 +150,7 @@ const ModalDouble = ({
     {
       !isDescription && (
         <View style={styles.container}>
-          <View style={[styles.viewWrapper], {height: 100}}>
+          <View style={[styles.viewWrapper], { height: 100 }}>
             <TextComponent
               content={modalTitle}
               size={fonts.fs20}

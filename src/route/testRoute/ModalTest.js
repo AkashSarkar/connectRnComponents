@@ -551,7 +551,7 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalContactV2}
             />
             <ModalContactV2
-              isDescription
+              // isDescription
               modalTitle="Add description"
               contactV2Color={contactV2Color}
               modalTitleTextColor={colors.primary}

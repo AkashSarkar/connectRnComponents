@@ -87,8 +87,8 @@ const CarouselWrapper = ({
         }}
       />
       {
-      isPagination && renderPagination()
-    }
+        isPagination && renderPagination()
+      }
     </>
   );
 };
@@ -97,7 +97,8 @@ CarouselWrapper.defaultProps = {
   isPagination: false,
   isMaxWidth: false,
   activeIndex: 0,
-  onSliderChange: () => {}
+  onSliderChange: () => {
+  }
 };
 
 CarouselWrapper.propTypes = {
