@@ -203,11 +203,11 @@ const styles = StyleSheet.create({
 });
 const discountV2Color = {
   titleColor: colors.red2,
-  modalbgColor: colors.white1,
-  inputTextColor: colors.black0,
-  centerTextColor:colors.black0,
-  buttonbgColor: colors.white5,
-  buttontextColor: colors.black0,
+  modalbgColor: colors.black9,
+  inputTextColor: colors.white1,
+  centerTextColor:colors.white1,
+  buttonbgColor: colors.primary,
+  buttontextColor: colors.white1,
   textAreabgColor: colors.buttonColor1
 };
 const contactV2Color = {
@@ -479,27 +479,6 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
-          {/*<View style={styles.viewWrapper}>*/}
-          {/*  <ButtonPrimary*/}
-          {/*    content="Modal Discount"*/}
-          {/*    buttonColor={gradientColors.gradient5}*/}
-          {/*    textColor={colors.bgPrimary}*/}
-          {/*    fontSize={fonts.fs14}*/}
-          {/*    onPress={this.toggleModalDiscount}*/}
-          {/*  />*/}
-          {/*  <ModalDiscount*/}
-          {/*    modalTitle="Add discount"*/}
-          {/*    modalTitleTextColor={colors.primary}*/}
-          {/*    isVisible={this.state.isModalDiscount}*/}
-          {/*    onBackButtonPress={this.handleCloseModalDiscount}*/}
-          {/*    onClose={this.handleCloseModalDiscount}*/}
-          {/*    onPress={this.handleCloseModalDiscount}*/}
-          {/*    onSelect={(id) => {*/}
-          {/*      console.warn('from top ', id);*/}
-          {/*      this.handleCloseModalDiscount();*/}
-          {/*    }}*/}
-          {/*  />*/}
-          {/*</View>*/}
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal SecondaryV2"
