@@ -17,14 +17,11 @@ import ModalDiscountV2 from './ModalContactV2';
 const styles = StyleSheet.create({
   container: {
     height: 260,
-    backgroundColor: colors.black10,
     padding: 20,
-    borderRadius: 16,
-    borderColor: 'black'
+    borderRadius: 16
   },
   viewWrapper: {
-    paddingVertical: 10,
-    backgroundColor: colors.black10
+    paddingVertical: 10
   },
   closeModalContainer: {
     position: 'absolute',
@@ -51,98 +48,105 @@ const styles = StyleSheet.create({
   }
 });
 
-const renderItem = item => (
-  <View style={{
-    paddingVertical: 10,
-    alignItems: 'flex-start'
-  }}
-  >
-    <View>
-      <TextComponent
-        content={item.title}
-        size={fonts.fs18}
-        family={fonts.semiBold}
-        color={colors.red2}
-      />
-      <TextComponent
-        content={item.details}
-        size={fonts.fs16}
-        family={fonts.regular}
-        color={colors.white1}
-      />
-    </View>
-  </View>
-);
-
 const ModalInfo = ({
   isVisible,
   onBackButtonPress,
   onClose,
-  items
-}) => (
-  <Modal
-    isVisible={isVisible}
-    backdropColor={colors.black5}
-    backdropOpacity={0.5}
-    animationIn="zoomInDown"
-    animationOut="zoomOutUp"
-    animationInTiming={300}
-    animationOutTiming={600}
-    onBackButtonPress={onBackButtonPress}
-    onBackdropPress={onBackButtonPress}
-    backdropTransitionInTiming={300}
-    backdropTransitionOutTiming={600}
-  >
-    <View style={styles.container}>
-
-      <View style={styles.viewWrapper}>
-        <TouchableOpacity
-          onPress={onClose}
-          style={styles.closeModalContainer}
-          hitSlop={styles.hitSlop}
-        >
-          {/*<Image*/}
-          {/*  style={styles.closeImageStyle}*/}
-          {/*  source={image.Cross}*/}
-          {/*/>*/}
-        </TouchableOpacity>
-        <View
-          style={styles.listViewWrapper}
-        >
-          <FlatList
-            data={items}
-            renderItem={({ item }) => (
-              renderItem(item)
-            )}
-            keyExtractor={item => item.id.toString()}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-          />
-          <View style={{
-            height: 24,
-            width: '100%',
-            alignItems: 'flex-end',
-            marginTop: 20,
-          }}
+  items,
+  modalInfoColor
+}) => {
+  const renderItem = item => (
+    <View style={{
+      paddingVertical: 10,
+      alignItems: 'flex-start'
+    }}
+    >
+      <View>
+        <TextComponent
+          content={item.title}
+          size={fonts.fs18}
+          family={fonts.semiBold}
+          color={modalInfoColor.textComponentColor1}
+        />
+        <TextComponent
+          content={item.details}
+          size={fonts.fs16}
+          family={fonts.regular}
+          color={modalInfoColor.textComponentColor2}
+        />
+      </View>
+    </View>
+  );
+  return (
+    <Modal
+      isVisible={isVisible}
+      backdropColor={colors.black5}
+      backdropOpacity={0.5}
+      animationIn="zoomInDown"
+      animationOut="zoomOutUp"
+      animationInTiming={300}
+      animationOutTiming={600}
+      onBackButtonPress={onBackButtonPress}
+      onBackdropPress={onBackButtonPress}
+      backdropTransitionInTiming={300}
+      backdropTransitionOutTiming={600}
+    >
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor: modalInfoColor.modalbgColor
+          }]}
+      >
+        <View style={styles.viewWrapper}>
+          <TouchableOpacity
+            onPress={onClose}
+            style={styles.closeModalContainer}
+            hitSlop={styles.hitSlop}
           >
-            <ButtonPrimaryV2
-              content="Map"
-              textColor={colors.white1}
-              fontSize={fonts.fs12}
-              buttonColor={colors.primary}
-              buttonHeight={30}
-              extraStyle={{
-                borderRadius: 16,
-                paddingHorizontal: 28
-              }}
-              // onPress={this.toggleModalInfo}
+            {/*<Image*/}
+            {/*  style={styles.closeImageStyle}*/}
+            {/*  source={image.Cross}*/}
+            {/*/>*/}
+          </TouchableOpacity>
+          <View
+            style={styles.listViewWrapper}
+          >
+            <FlatList
+              data={items}
+              renderItem={({ item }) => (
+                renderItem(item)
+              )}
+              keyExtractor={item => item.id.toString()}
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
             />
+            <View style={{
+              height: 24,
+              width: '100%',
+              alignItems: 'flex-end',
+              marginTop: 20
+            }}
+            >
+              <ButtonPrimaryV2
+                content="Map"
+                textColor={colors.white1}
+                fontSize={fonts.fs12}
+                buttonColor={colors.primary}
+                buttonHeight={30}
+                extraStyle={{
+                  borderRadius: 16,
+                  paddingHorizontal: 28
+                }}
+                // onPress={this.toggleModalInfo}
+              />
+            </View>
           </View>
         </View>
       </View>
-    </View>
-  </Modal>
-);
+    </Modal>
+  );
+};
 ModalInfo.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,

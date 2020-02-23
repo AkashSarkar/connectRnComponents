@@ -94,7 +94,8 @@ CarouselWrapper.defaultProps = {
   isPagination: false,
   isMaxWidth: false,
   activeIndex: 0,
-  onSliderChange: () => { }
+  onSliderChange: () => {
+  }
 };
 
 CarouselWrapper.propTypes = {
