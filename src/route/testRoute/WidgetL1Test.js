@@ -16,7 +16,6 @@ import {
   InputLabeled,
   InputLogin,
   InputMiddleLabeled,
-  InputTabbed,
   PopUpMessage,
   Scan,
   SeatListItem,
@@ -166,7 +165,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputLogin"
             family={fonts.bold}
           />
-          <InputLogin/>
+          <InputLogin />
         </View>
         <View style={[mb20, p10, mt10]}>
           <TextComponent
@@ -175,7 +174,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputLabeled"
             family={fonts.bold}
           />
-          <InputLabeled/>
+          <InputLabeled />
         </View>
         <View style={mb20}>
           <TextComponent
@@ -193,7 +192,7 @@ const WidgetL1Test = ({ navigation }) => {
             content="widget/card/InputMiddleLabeled"
             family={fonts.bold}
           />
-          <InputMiddleLabeled 
+          <InputMiddleLabeled
             isInput
             isButton
             isIcon

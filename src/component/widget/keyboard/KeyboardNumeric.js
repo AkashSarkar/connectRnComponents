@@ -107,7 +107,7 @@ const numPad4 = [{
 
 const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
   <View style={styles.wrapper}>
-    { isPercentageValue
+    {isPercentageValue
       && (
         <View style={styles.topWrapper}>
           {suggestionText.map(items => (
