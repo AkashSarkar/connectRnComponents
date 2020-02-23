@@ -14,8 +14,8 @@ import image from '../../../assets';
 const styles = StyleSheet.create({
   container: {
     height: 300,
-    backgroundColor: 'white',
-    paddingHorizontal: 15,
+    backgroundColor: colors.black9,
+    paddingHorizontal: 5,
     paddingBottom: 10,
     borderRadius: 16,
     borderColor: 'black'
@@ -24,7 +24,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 20
+    paddingVertical: 20,
+    borderBottomColor: colors.grey3,
+    borderBottomWidth: 1
   },
   closeModalContainer: {
     position: 'absolute',
@@ -50,9 +52,9 @@ const renderItem = (item, onSelect) => (
     <TouchableOpacity onPress={() => onSelect(item.id)}>
       <TextComponent
         content={item.title}
-        size={fonts.fs16}
-        family={fonts.semiBold}
-        color={colors.colorSecondery}
+        size={fonts.fs18}
+        family={fonts.regular}
+        color={colors.white1}
       />
     </TouchableOpacity>
   </View>
@@ -83,16 +85,12 @@ const ModalSecondary = ({
     <View style={styles.container}>
       <View style={styles.viewWrapper}>
         <TextComponent
+          color={colors.red2}
           content={modalTitle}
-          size={fonts.fs16}
-          family={fonts.semiBold}
+          size={fonts.fs20}
+          family={fonts.regular}
         />
-        <TouchableOpacity onPress={onClose} style={styles.closeModalContainer}>
-          <Image
-            style={styles.closeImageStyle}
-            source={image.Cross}
-          />
-        </TouchableOpacity>
+
       </View>
       <View
         style={styles.listViewWrapper}
