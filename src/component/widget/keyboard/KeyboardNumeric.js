@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { func, number } from 'prop-types';
-import { TextComponent, ButtonRectangle } from '../../ui';
+import { func, bool } from 'prop-types';
 import { fonts, colors } from '../../../styles/baseStyle';
 import images from '../../../assets';
+import { TextComponent, ButtonRectangle } from '../../ui';
 
 const styles = {
   wrapper: {
@@ -105,15 +105,19 @@ const numPad4 = [{
   value: 'delete'
 }];
 
-const KeyboardNumeric = ({ onPress }) => (
+const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
   <View style={styles.wrapper}>
-    <View style={styles.topWrapper}>
-      {suggestionText.map(items => (
-        <TouchableOpacity onPress={() => onPress(items.value)}>
-          <TextComponent content={items.content} color="white" size={fonts.fs18} />
-        </TouchableOpacity>
-      ))}
-    </View>
+    {isPercentageValue
+      && (
+        <View style={styles.topWrapper}>
+          {suggestionText.map(items => (
+            <TouchableOpacity onPress={() => onPress(items.value)}>
+              <TextComponent content={items.content} color="white" size={fonts.fs18} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      )
+    }
     <View style={styles.bottomWrapper}>
       <View style={styles.buttonRow}>
         {numPad1.map(items => (
@@ -175,7 +179,8 @@ const KeyboardNumeric = ({ onPress }) => (
 );
 
 KeyboardNumeric.propTypes = {
-  onPress: func
+  onPress: func,
+  isPercentageValue: bool
 };
 
 export default KeyboardNumeric;

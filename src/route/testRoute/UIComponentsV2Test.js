@@ -656,11 +656,12 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/ButtonRectangle"
+              content="ui/button/keyboardNumeric"
               family={fonts.bold}
             />
             <KeyboardNumeric
               onPress={onPressKeyboard}
+              isPercentageValue
             />
           </View>
           {/* ui/button/KeyboardNumeric */}
