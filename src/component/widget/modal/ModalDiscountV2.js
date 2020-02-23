@@ -83,7 +83,7 @@ const ModalDiscountV2 = ({
         style={[{
           backgroundColor: discountV2Color.modalbgColor
         },
-          styles.container
+        styles.container
         ]}
       >
         <View style={styles.viewWrapper}>
@@ -132,7 +132,7 @@ const ModalDiscountV2 = ({
       </View>
       <View style={styles.bottomWrapper}>
         <ButtonBorderV2
-          contentLeft="Apply"
+          contentLeft="Save"
           contentMiddle="|"
           contentRight="Cancel"
           buttonColor={colors.black10}

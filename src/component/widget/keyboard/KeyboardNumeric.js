@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { func, bool } from 'prop-types';
+import { func, number, bool } from 'prop-types';
+import { TextComponent, ButtonRectangle } from '../../ui';
 import { fonts, colors } from '../../../styles/baseStyle';
 import images from '../../../assets';
-import { TextComponent, ButtonRectangle } from '../../ui';
 
 const styles = {
   wrapper: {
