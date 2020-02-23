@@ -5,7 +5,9 @@ import {
   UIManager,
   View
 } from 'react-native';
-import { node, string, bool } from 'prop-types';
+import {
+  node, string, bool, func
+} from 'prop-types';
 import { BoxShadow, TextComponent } from '../../ui';
 import TabSliderV2 from './TabSliderV2';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -38,7 +40,8 @@ const TabWrapperV2 = ({
   shadowContainer,
   inputFieldBackground,
   tabBackground,
-  headerColor
+  headerColor,
+  activeTabNumber
 }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [shouldTab1Render, setShouldTab1Render] = useState(true);
@@ -48,9 +51,11 @@ const TabWrapperV2 = ({
     if (activeTab === 1) {
       setShouldTab1Render(true);
       setShouldTab2Render(false);
+      activeTabNumber(activeTab);
     } else {
       setShouldTab2Render(true);
       setShouldTab1Render(false);
+      activeTabNumber(activeTab);
     }
   }, [activeTab]);
 
@@ -130,7 +135,8 @@ TabWrapperV2.propTypes = {
   tabBackground: string,
   headerColor: string,
   tabHeader1: string,
-  tabHeader2: string
+  tabHeader2: string,
+  activeTabNumber: func
 };
 
 export default TabWrapperV2;

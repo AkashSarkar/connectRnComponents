@@ -27,7 +27,14 @@ const validate = (validation, value) => {
     return true;
   }
   if (validation.validationType === 'type' && validation.value === 'onlyAlpha') {
-    const regexOnlyAlpha = /^[^.][a-zA-Z .]+$/; // /^a-z & A_Z - only
+    const regexOnlyAlpha = /^[a-zA-Z .]+$/; // /^a-z & A_Z - only
+    if (!regexOnlyAlpha.test(value)) {
+      return false;
+    }
+    return true;
+  }
+  if (validation.validationType === 'type' && validation.value === 'mobileNumber') {
+    const regexOnlyAlpha = /\+?(88)?0?1[356789][0-9]{8}\b/; // Bangladesh mobile number only
     if (!regexOnlyAlpha.test(value)) {
       return false;
     }
