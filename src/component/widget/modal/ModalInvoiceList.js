@@ -115,7 +115,6 @@ const ModalInvoiceList = ({
                 />
               </View>
             </View>
-
           </View>
         )
       }
