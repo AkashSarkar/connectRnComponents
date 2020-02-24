@@ -10,27 +10,22 @@ import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
-import { ButtonBorderV2 } from '../../ui';
 
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
-    alignItems: 'center',
-    backgroundColor: colors.white1,
-    // paddingHorizontal: 15,
-    // paddingBottom: 10,
+    height: 350,
+    backgroundColor: colors.black9,
+    paddingHorizontal: 15,
+    paddingBottom: 10,
     borderRadius: 16,
     borderColor: 'black'
   },
   viewWrapper: {
-    // flexDirection: 'row',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 10
-  },
-  bottomWrapper: {
-    width: '100%'
+    justifyContent: 'center',
+    paddingVertical: 20
   },
   closeModalContainer: {
     position: 'absolute',
@@ -76,7 +71,6 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
-
 const ModalDouble = ({
   modalTitle,
   modalTitleBottom,
@@ -84,10 +78,7 @@ const ModalDouble = ({
   onBackButtonPress,
   onClose,
   items,
-  isDescription,
-  onSelect,
-  titleColor,
-  borderButtonColor
+  onSelect
 }) => (
   <Modal
     isVisible={isVisible}
@@ -102,73 +93,31 @@ const ModalDouble = ({
     backdropTransitionInTiming={300}
     backdropTransitionOutTiming={600}
   >
-    {
-      isDescription && (
-        <View style={styles.container}>
-          <View style={styles.viewWrapper}>
-            <TextComponent
-              content={modalTitle}
-              size={fonts.fs16}
-              family={fonts.semiBold}
-            />
-            <TouchableOpacity
-              onPress={onClose}
-              style={styles.closeModalContainer}>
-              <Image
-                style={styles.closeImageStyle}
-                source={image.Cross}
-              />
-            </TouchableOpacity>
-          </View>
-          {/* <View style={styles.lineStyle} /> */}
-          <View
-            style={styles.listViewWrapper}
-          >
-            <FlatList
-              data={items}
-              renderItem={({ item }) => (
-                <ModalItemList item={item} onSelect={onSelect}/>
-              )}
-              keyExtractor={item => item.id.toString()}
-              showsHorizontalScrollIndicator={false}
-              showsVerticalScrollIndicator={false}
-            />
-          </View>
-        </View>
-      )
-    }
-    {
-      !isDescription && (
-        <View style={styles.container}>
-          <View style={[styles.viewWrapper], { height: 100 }}>
-            <TextComponent
-              content={modalTitle}
-              size={fonts.fs20}
-              family={fonts.medium}
-              color={titleColor}
-            />
-          </View>
-          <View style={styles.bottomWrapper}>
-            <ButtonBorderV2
-              contentLeft="Apply"
-              contentMiddle="|"
-              contentRight="Cancel"
-              buttonColor={borderButtonColor}
-              textColorLeft={colors.white1}
-              textColorMiddle={colors.primary}
-              textColorRight={colors.white1}
-              buttonHeight={50}
-              inModal
-              fontSize={fonts.fs16}
-              onPressLeft={() => console.warn('Left')}
-              onPressRight={() => console.warn('Right')}
-            />
-          </View>
-        </View>
-      )
-    }
+    <View style={styles.container}>
+      <View style={styles.viewWrapper}>
+        <TextComponent
+          color={colors.red2}
+          content={modalTitle}
+          size={fonts.fs20}
+          family={fonts.semiBold}
+        />
 
+      </View>
 
+      <View
+        style={styles.listViewWrapper}
+      >
+        <FlatList
+          data={items}
+          renderItem={({ item }) => (
+            <ModalItemList item={item} onSelect={onSelect} />
+          )}
+          keyExtractor={item => item.id.toString()}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    </View>
     <View style={styles.containerBottom}>
       <View style={styles.textWrapper}>
         <TextComponent
@@ -231,10 +180,7 @@ ModalDouble.propTypes = {
     id: number.isRequired,
     title: string.isRequired
   }).isRequired,
-  onSelect: func,
-  isDescription: bool,
-  titleColor: string,
-  borderButtonColor: string
+  onSelect: func
 };
 
 export default ModalDouble;

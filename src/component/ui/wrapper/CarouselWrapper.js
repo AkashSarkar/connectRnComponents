@@ -25,12 +25,12 @@ export const itemWidth = (slideWidth + itemHorizontalMargin * 2) / 1;
 
 const styles = StyleSheet.create({
   activeDotStyle:
-  {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    marginHorizontal: -10
-  },
+    {
+      width: 10,
+      height: 10,
+      borderRadius: 5,
+      marginHorizontal: -10
+    },
   inactiveDotStyle: {
     backgroundColor: colors.white1,
     borderWidth: 1
@@ -94,8 +94,7 @@ CarouselWrapper.defaultProps = {
   isPagination: false,
   isMaxWidth: false,
   activeIndex: 0,
-  onSliderChange: () => {
-  }
+  onSliderChange: () => { }
 };
 
 CarouselWrapper.propTypes = {
