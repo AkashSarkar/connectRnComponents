@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
-
 const ModalDouble = ({
   modalTitle,
   modalTitleBottom,
