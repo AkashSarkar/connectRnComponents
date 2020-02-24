@@ -41,6 +41,7 @@ import ModalContactV2 from './modal/ModalContactV2';
 import ModalDiscount from './modal/ModalDiscount';
 import ModalDiscountV2 from './modal/ModalDiscountV2';
 import ModalAddDiscount from './modal/ModalAddDiscount';
+import ModalInvoiceList from './modal/ModalInvoiceList';
 import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
@@ -104,6 +105,7 @@ export {
   ModalDiscount,
   ModalDiscountV2,
   ModalAddDiscount,
+  ModalInvoiceList,
   Avatar,
   AvatarList,
   SplitItem,
