@@ -58,6 +58,8 @@ import {
 } from './interactive';
 import Selection from './card/Selection';
 import TxnHistory from './card/TxnHistory';
+import PaymentsCard from './card/PaymentsCard';
+import ProfileCardV2 from './card/ProfileCardV2';
 import QRScanner from './scanner/QRScanner';
 import NFC from './scanner/NFC';
 import MenuOptions from './list/MenuOptions';
@@ -135,5 +137,7 @@ export {
   ModalComponent,
   ImageComponent,
   ImageComponentV2,
-  KeyboardNumeric
+  KeyboardNumeric,
+  PaymentsCard,
+  ProfileCardV2
 };

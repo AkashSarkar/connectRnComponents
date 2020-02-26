@@ -53,7 +53,7 @@ const ModalInfo = ({
   onBackButtonPress,
   onClose,
   items,
-  modalInfoColor
+  modalInfoColor,
 }) => {
   const renderItem = item => (
     <View style={{
@@ -148,7 +148,6 @@ const ModalInfo = ({
   );
 };
 ModalInfo.propTypes = {
-  modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
   onClose: func,

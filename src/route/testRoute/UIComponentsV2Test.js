@@ -18,7 +18,7 @@ import {
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
-import { InputTabbedV2, KeyboardNumeric } from '../../component/widget';
+import { InputTabbedV2, KeyboardNumeric, PaymentsCard , ProfileCardV2 } from '../../component/widget';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -77,7 +77,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={bankName}
@@ -106,7 +106,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={branchName}
@@ -135,7 +135,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={bankName}
@@ -164,7 +164,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={bankName}
@@ -232,7 +232,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={cardholderName}
@@ -260,7 +260,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={validity}
@@ -289,7 +289,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={cvc}
@@ -318,7 +318,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={cvc}
@@ -525,7 +525,7 @@ const UIComponentV2Test = ({ navigation }) => {
               onPress={() => ToastAndroid.showWithGravity(
                 'All Your Base Are Belong To Us',
                 ToastAndroid.LONG,
-                ToastAndroid.TOP,
+                ToastAndroid.TOP
               )
               }
               // disabled
@@ -665,6 +665,40 @@ const UIComponentV2Test = ({ navigation }) => {
             />
           </View>
           {/* ui/button/KeyboardNumeric */}
+          {/* Payments card*/}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/PaymentsCard"
+              family={fonts.bold}
+            />
+            <PaymentsCard
+              upperLeftContent="Salary Account"
+              upperRightContent="188,000.00"
+              lowerContent1="Remaining balance:"
+              lowerContent2="175,500.00"
+              upperLeftIcon={assets.Change}
+              upperRightIcon={assets.Taka}
+              lowerIcon={assets.Taka}
+            />
+          </View>
+          {/* Payments card */}
+          {/* ProfileCardV2 card */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/ProfileCardV2"
+              family={fonts.bold}
+            />
+            <ProfileCardV2
+              title="Lazz Pharma Ltd"
+              id="1234 1700 20011"
+              icon={assets.AppIcon}
+            />
+          </View>
+          {/* ProfileCardV2 card */}
         </View>
       </ScrollView>
     </SafeAreaView>

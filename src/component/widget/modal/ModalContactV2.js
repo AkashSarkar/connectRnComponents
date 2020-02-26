@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const ModalDiscountV2 = ({
+const ModalContactV2 = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
@@ -134,7 +134,7 @@ const ModalDiscountV2 = ({
     </Modal>
   );
 };
-ModalDiscountV2.propTypes = {
+ModalContactV2.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
@@ -143,4 +143,4 @@ ModalDiscountV2.propTypes = {
   isDescription: bool
 };
 
-export default ModalDiscountV2;
+export default ModalContactV2;
