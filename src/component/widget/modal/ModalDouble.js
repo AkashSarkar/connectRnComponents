@@ -221,6 +221,7 @@ const ModalDouble = ({
 
 ModalDouble.propTypes = {
   modalTitle: string.isRequired,
+  modalTitleBottom: string.isRequired,
   isVisible: bool,
   isPayment: bool,
   contentLeft: string,
