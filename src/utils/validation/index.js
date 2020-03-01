@@ -40,6 +40,14 @@ const validate = (validation, value) => {
     }
     return true;
   }
+  if (validation.validationType === 'minimumNumberLength') {
+    const regex = `^[a-zA-Z\\d]{${validation.value},}$`; // Minimum number
+    const replacedRegex = new RegExp(regex);
+    if (!replacedRegex.test(value)) {
+      return false;
+    }
+    return true;
+  }
 
   return false;
 };
