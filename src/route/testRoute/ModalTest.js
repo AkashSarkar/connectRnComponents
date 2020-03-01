@@ -224,6 +224,7 @@ const discountV2Color = {
   inputTextColor: colors.white1,
   centerTextColor: colors.white1,
   buttonbgColor: colors.black10,
+  pinButtonbgColor: colors.primary,
   buttontextColor: colors.white1,
   textAreabgColor: colors.buttonColor1
 };
