@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import {
-  Text, View, Image, StyleSheet, TextInput
+  View, Image, StyleSheet
 } from 'react-native';
 import Modal from 'react-native-modal';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { ButtonBorderV2, ButtonPrimaryV2 } from '../../ui';
+import { ButtonBorderV2 } from '../../ui';
 import assets from '../../../assets';
-import { mb10, ml20, mr10, mr15, mr20 } from '../../../styles/commonStyle';
+import { mr10 } from '../../../styles/commonStyle';
+import { string, bool, func, object } from 'prop-types';
 
 const styles = StyleSheet.create({
   container: {
@@ -63,14 +64,14 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
-
 const ModalAddDiscount = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
   onClose,
   items,
-  onPress,
+  onPressLeft,
+  onPressRight,
   discountV2Color
 }) => {
   const [id, setId] = useState('');
@@ -150,13 +151,21 @@ const ModalAddDiscount = ({
           buttonHeight={50}
           inModal
           fontSize={fonts.fs16}
-          onPressLeft={() => console.warn('Left')}
-          onPressRight={() => console.warn('Right')}
+          onPressLeft={onPressLeft}
+          onPressRight={onPressRight}
         />
       </View>
-
     </Modal>
   );
+};
+
+ModalAddDiscount.propTypes = {
+  modalTitle: string,
+  isVisible: bool,
+  onBackButtonPress: func,
+  onPressLeft: func,
+  onPressRight: func,
+  discountV2Color: object
 };
 
 export default ModalAddDiscount;
