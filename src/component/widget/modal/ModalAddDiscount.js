@@ -3,12 +3,15 @@ import {
   View, Image, StyleSheet
 } from 'react-native';
 import Modal from 'react-native-modal';
+import {
+  string, bool, func, object
+} from 'prop-types';
+import { TextInput } from 'react-native-gesture-handler';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { ButtonBorderV2 } from '../../ui';
 import assets from '../../../assets';
 import { mr10 } from '../../../styles/commonStyle';
-import { string, bool, func, object } from 'prop-types';
+import { ButtonBorderV2 } from '../../ui';
 
 const styles = StyleSheet.create({
   container: {
@@ -62,19 +65,22 @@ const styles = StyleSheet.create({
     height: '100%',
     textAlignVertical: 'top',
     color: 'white'
+  },
+  input: {
+    fontSize: 74,
+    fontFamily: fonts.light
   }
 });
 const ModalAddDiscount = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
-  onClose,
-  items,
   onPressLeft,
   onPressRight,
   discountV2Color
 }) => {
   const [id, setId] = useState('');
+  const [input, setInput] = useState('');
   return (
     <Modal
       isVisible={isVisible}
@@ -93,7 +99,7 @@ const ModalAddDiscount = ({
         style={[{
           backgroundColor: discountV2Color.modalbgColor
         },
-          styles.container
+        styles.container
         ]}
       >
         <View style={styles.viewWrapper}>
@@ -127,10 +133,19 @@ const ModalAddDiscount = ({
               }]}
               resizeMode="contain"
             />
+
+            <TextInput
+              style={[styles.input, { color: discountV2Color.centerTextColor }]}
+              onChangeText={text => setInput(text)}
+              value={input}
+              maxLength={3}
+              autoFocus
+              keyboardType="number-pad"
+            />
+
             <View>
               <TextComponent
-                content="10%"
-                //size={fonts.fs52}
+                content="%"
                 family={fonts.light}
                 color={discountV2Color.centerTextColor}
                 extraStyle={{ fontSize: 74 }}

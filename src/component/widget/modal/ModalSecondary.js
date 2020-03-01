@@ -90,7 +90,6 @@ const ModalSecondary = ({
           size={fonts.fs20}
           family={fonts.regular}
         />
-
       </View>
       <View
         style={styles.listViewWrapper}

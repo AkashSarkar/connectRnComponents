@@ -90,16 +90,6 @@ const ModalContactV2 = ({
             family={fonts.medium}
             color={contactV2Color.titleColor}
           />
-          {/*Cross button*/}
-          {/*<TouchableOpacity*/}
-          {/*  onPress={onClose}*/}
-          {/*  style={styles.closeModalContainer}*/}
-          {/*>*/}
-          {/*  <Image*/}
-          {/*    style={styles.closeImageStyle}*/}
-          {/*    source={image.Cross}*/}
-          {/*  />*/}
-          {/*</TouchableOpacity>*/}
         </View>
         {isDescription && (
           <View style={styles.textAreaContainer}>

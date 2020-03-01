@@ -55,29 +55,26 @@ const PaymentsCard = ({
 }) => (
   <View style={styles.container}>
     <View style={styles.upperView}>
-      <View style={styles.leftUpperView}>
-
-        <TouchableOpacity onPress={onPress}>
-          <View style={styles.leftUpper}>
-            <View style={{ paddingRight: 20 }}>
-              <TextComponent
-                color={colors.black0}
-                content={upperLeftContent}
-                size={fonts.fs14}
-                family={fonts.medium}
-              />
-            </View>
-            <Image
-              source={upperLeftIcon}
-              style={{
-                height: 14,
-                width: 14
-              }}
-              resizeMode="contain"
+      <TouchableOpacity onPress={onPress} style={styles.leftUpperView}>
+        <View style={styles.leftUpper}>
+          <View style={{ paddingRight: 12 }}>
+            <TextComponent
+              color={colors.black0}
+              content={upperLeftContent}
+              size={fonts.fs14}
+              family={fonts.medium}
             />
           </View>
-        </TouchableOpacity>
-      </View>
+          <Image
+            source={upperLeftIcon}
+            style={{
+              height: 14,
+              width: 14
+            }}
+            resizeMode="contain"
+          />
+        </View>
+      </TouchableOpacity>
       <View style={styles.rightUpper}>
 
         <TextComponent

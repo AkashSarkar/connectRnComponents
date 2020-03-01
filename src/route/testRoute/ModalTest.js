@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View, StyleSheet, ScrollView, SafeAreaView
 } from 'react-native';
@@ -10,7 +10,6 @@ import {
   ModalInfo,
   ModalFamilyList,
   ModalContact,
-  ModalDiscount,
   ModalDiscountV2,
   ModalSecondaryV2,
   ModalContactV2,
@@ -224,7 +223,7 @@ const discountV2Color = {
   modalbgColor: colors.black9,
   inputTextColor: colors.white1,
   centerTextColor: colors.white1,
-  buttonbgColor: colors.primary,
+  buttonbgColor: colors.black10,
   buttontextColor: colors.white1,
   textAreabgColor: colors.buttonColor1
 };
@@ -308,7 +307,7 @@ class ModalTest extends React.Component {
 
   toggleModalContactV2 = () => {
     this.setState({
-      isModalContactV2: !this.state.isModalContact
+      isModalContactV2: !this.state.isModalContactV2
     });
   };
 
@@ -555,7 +554,7 @@ class ModalTest extends React.Component {
           </View>
           <View style={styles.viewWrapper}>
             <ButtonPrimary
-              content="Modal Count v2"
+              content="ModalContactV2"
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
@@ -613,6 +612,7 @@ class ModalTest extends React.Component {
               items={DataModalInvoiceList}
             />
           </View>
+         
         </SafeAreaView>
       </ScrollView>
     );
