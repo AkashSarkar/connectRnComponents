@@ -554,7 +554,7 @@ class ModalTest extends React.Component {
           </View>
           <View style={styles.viewWrapper}>
             <ButtonPrimary
-              content="Modal Count v2"
+              content="ModalContactV2"
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
@@ -612,6 +612,7 @@ class ModalTest extends React.Component {
               items={DataModalInvoiceList}
             />
           </View>
+         
         </SafeAreaView>
       </ScrollView>
     );
