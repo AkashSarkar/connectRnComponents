@@ -15,8 +15,8 @@ import { colors } from '../../../styles/baseStyle';
 const dimension = 50;
 const styles = {
   container: {
-    position: 'relative',
-    zIndex: 100
+    position: 'relative'
+    // zIndex: 1
   },
   buttonChild: {
     height: dimension,
@@ -38,10 +38,10 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0.6)'
   },
   label: {
-    flex: 1,
+    // flex: 1,
     color: colors.white1,
     position: 'absolute',
-    fontSize: 14,
+    // fontSize: 14,
     backgroundColor: 'transparent',
     width: 100
   },
@@ -91,10 +91,10 @@ const FabButton = (
   const rightPosition = [-10, -90];
   const leftPosition = [10, 90];
   const labelPosition = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: right ? rightPosition : leftPosition
-  })
-    ;
+      inputRange: [0, 1],
+      outputRange: right ? rightPosition : leftPosition
+    })
+  ;
   const labelOpacity = animation.interpolate({
     inputRange: [0, 0.8, 1],
     outputRange: [0, 0, 1]
@@ -121,18 +121,23 @@ const FabButton = (
               }, {
                 translateY: animation.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [0, -item.translate],
-                  extrapolate: 'clamp'
+                  outputRange: [0, -item.translate]
+                  // extrapolate: 'clamp'
                 })
               }]
             }
           ]}
           >
-            <Animated.Text
-              style={[styles.label, labelStyle, { textAlign: right ? 'right' : 'left' }]}
-            >
-              {item.text}
-            </Animated.Text>
+            {
+              isActive && (
+                <Animated.Text
+                  style={[styles.label, labelStyle, { textAlign: right ? 'right' : 'left' }]}
+                >
+                  {item.text}
+                </Animated.Text>
+              )
+            }
+
             <Image
               source={item.icon}
               style={styles.childrenIconStyle}
