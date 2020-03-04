@@ -120,7 +120,7 @@ const ModalDiscountV2 = ({
             content="Pin with map"
             textColor={discountV2Color.buttontextColor}
             fontSize={fonts.fs12}
-            buttonColor={discountV2Color.buttonbgColor}
+            buttonColor={discountV2Color.pinButtonbgColor}
             buttonHeight={30}
             extraStyle={{
               borderRadius: 16,

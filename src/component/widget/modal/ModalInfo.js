@@ -1,18 +1,14 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, StyleSheet, FlatList
+  View, TouchableOpacity, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+ func, bool, object
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
-import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
-import ModalItemList from '../list/ModalItemList';
-import image from '../../../assets';
+import { colors, fonts } from '../../../styles/baseStyle';
 import { ButtonPrimaryV2 } from '../../ui';
-import { p5, ph20 } from '../../../styles/commonStyle';
-import ModalDiscountV2 from './ModalContactV2';
 
 const styles = StyleSheet.create({
   container: {
@@ -103,12 +99,7 @@ const ModalInfo = ({
             onPress={onClose}
             style={styles.closeModalContainer}
             hitSlop={styles.hitSlop}
-          >
-            {/*<Image*/}
-            {/*  style={styles.closeImageStyle}*/}
-            {/*  source={image.Cross}*/}
-            {/*/>*/}
-          </TouchableOpacity>
+          />
           <View
             style={styles.listViewWrapper}
           >
@@ -138,7 +129,7 @@ const ModalInfo = ({
                   borderRadius: 16,
                   paddingHorizontal: 28
                 }}
-                // onPress={this.toggleModalInfo}
+              // onPress={this.toggleModalInfo}
               />
             </View>
           </View>
@@ -148,10 +139,10 @@ const ModalInfo = ({
   );
 };
 ModalInfo.propTypes = {
-  modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
   onClose: func,
-  onSelect: func
+  modalInfoColor: object,
+  items: object
 };
 export default ModalInfo;

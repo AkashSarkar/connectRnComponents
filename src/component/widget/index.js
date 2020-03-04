@@ -41,11 +41,11 @@ import ModalContactV2 from './modal/ModalContactV2';
 import ModalDiscount from './modal/ModalDiscount';
 import ModalDiscountV2 from './modal/ModalDiscountV2';
 import ModalAddDiscount from './modal/ModalAddDiscount';
+import ModalInvoiceList from './modal/ModalInvoiceList';
 import PaymentInfo from './list/PaymentInfo';
 import Checkout from './list/Checkout';
 import QuickAmount from './list/QuickAmount';
 import HeaderTop from '../ui/header/HeaderTop';
-import ModalInvoiceList from './modal/ModalInvoiceList';
 import {
   Limit,
   LimitChange,
@@ -58,6 +58,8 @@ import {
 } from './interactive';
 import Selection from './card/Selection';
 import TxnHistory from './card/TxnHistory';
+import PaymentsCard from './card/PaymentsCard';
+import ProfileCardV2 from './card/ProfileCardV2';
 import QRScanner from './scanner/QRScanner';
 import NFC from './scanner/NFC';
 import MenuOptions from './list/MenuOptions';
@@ -106,6 +108,7 @@ export {
   ModalDiscount,
   ModalDiscountV2,
   ModalAddDiscount,
+  ModalInvoiceList,
   Avatar,
   AvatarList,
   SplitItem,
@@ -135,7 +138,8 @@ export {
   ModalComponent,
   ImageComponent,
   ImageComponentV2,
-  ModalInvoiceList,
+  KeyboardPin,
   KeyboardNumeric,
-  KeyboardPin
+  PaymentsCard,
+  ProfileCardV2
 };

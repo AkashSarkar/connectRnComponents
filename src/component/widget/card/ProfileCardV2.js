@@ -2,11 +2,13 @@ import React from 'react';
 import {
   View, Image, StyleSheet, TouchableOpacity
 } from 'react-native';
-import { string, number } from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
+// import { TextComponent } from '@appscftl/connect-rn-components';
+import { string, number, func } from 'prop-types';
 import { TextComponent } from '../../ui';
+import { colors, fonts } from '../../../styles/baseStyle';
 import assets from '../../../assets';
-
+// import assets from '../../../asset';
+// import { fonts, colors } from '../../../style/baseStyle';
 
 const styles = StyleSheet.create({
 
@@ -29,7 +31,8 @@ const styles = StyleSheet.create({
 const ProfileCardV2 = ({
   title,
   id,
-  icon
+  icon,
+  onPress
 }) => (
   <View>
     <View style={styles.firstWrapper}>
@@ -61,7 +64,7 @@ const ProfileCardV2 = ({
       </View>
     </View>
     <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <View style={{ paddingLeft: 10, paddingTop: 13 }}>
           <View>
             <Image
@@ -130,7 +133,8 @@ ProfileCardV2.defaultProps = {
 ProfileCardV2.propTypes = {
   title: string,
   id: string,
-  icon: number
+  icon: number,
+  onPress: func
 };
 
 export default ProfileCardV2;

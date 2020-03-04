@@ -54,7 +54,7 @@ const ButtonPrimaryV2 = ({
 
 ButtonPrimaryV2.propTypes = {
   content: string.isRequired,
-  buttonColor: string.isRequired,
+  buttonColor: string,
   textColor: string.isRequired,
   fontSize: number,
   buttonHeight: number,

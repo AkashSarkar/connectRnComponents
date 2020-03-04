@@ -37,8 +37,8 @@ const styles = {
     alignItems: 'center'
   },
   iconStyle: {
-    height: dimension / 3,
-    width: dimension / 3
+    height: dimension,
+    width: dimension
   }
 };
 const FabButton = ({ background, parentIcon, childrenButtons }) => {
@@ -62,7 +62,7 @@ const FabButton = ({ background, parentIcon, childrenButtons }) => {
         >
           <Animated.View style={[
             styles.buttonChild,
-            { backgroundColor: background },
+            // { backgroundColor: background },
             {
               transform: [{
                 scale: animation
@@ -92,8 +92,8 @@ const FabButton = ({ background, parentIcon, childrenButtons }) => {
       {renderChildren()}
       <TouchableOpacity
         style={[
-          styles.button,
-          { backgroundColor: background }
+          styles.button
+          // { backgroundColor: background }
         ]}
         onPress={() => toggleAnimation()}
       >
