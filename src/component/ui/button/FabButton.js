@@ -24,6 +24,7 @@ const styles = {
     borderRadius: dimension / 2,
     position: 'absolute',
     // bottom: 20,
+    // zIndex: 2,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -33,6 +34,7 @@ const styles = {
     borderRadius: dimension / 2,
     position: 'absolute',
     // bottom: 20,
+    // zIndex: 0,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.6)'
@@ -49,8 +51,6 @@ const styles = {
     height: dimension,
     width: dimension,
     borderRadius: dimension / 2,
-    // position: 'absolute',
-    // bottom: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -121,8 +121,8 @@ const FabButton = (
               }, {
                 translateY: animation.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [0, -item.translate]
-                  // extrapolate: 'clamp'
+                  outputRange: [0, -item.translate],
+                  extrapolate: 'clamp'
                 })
               }]
             }

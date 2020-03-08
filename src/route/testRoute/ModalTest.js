@@ -208,23 +208,6 @@ const DataModalInvoiceList = [
   }
 ];
 
-const DataModalInvoiceList = [
-  {
-    id: '1',
-    title: 'Date',
-    details: '2019.MAY.28'
-  },
-  {
-    id: '2',
-    title: 'Invoice No.',
-    details: 'IN-00-123'
-  },
-  {
-    id: '3',
-    title: 'TxN ID',
-    details: 'TxN-123-456'
-  }
-];
 
 const styles = StyleSheet.create({
   container: {
