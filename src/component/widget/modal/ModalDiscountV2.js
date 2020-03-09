@@ -83,7 +83,7 @@ const ModalDiscountV2 = ({
         style={[{
           backgroundColor: discountV2Color.modalbgColor
         },
-          styles.container
+        styles.container
         ]}
       >
         <View style={styles.viewWrapper}>
@@ -120,7 +120,7 @@ const ModalDiscountV2 = ({
             content="Pin with map"
             textColor={discountV2Color.buttontextColor}
             fontSize={fonts.fs12}
-            buttonColor={discountV2Color.buttonbgColor}
+            buttonColor={discountV2Color.pinButtonbgColor}
             buttonHeight={30}
             extraStyle={{
               borderRadius: 16,
@@ -132,7 +132,7 @@ const ModalDiscountV2 = ({
       </View>
       <View style={styles.bottomWrapper}>
         <ButtonBorderV2
-          contentLeft="Apply"
+          contentLeft="Save"
           contentMiddle="|"
           contentRight="Cancel"
           buttonColor={colors.black10}

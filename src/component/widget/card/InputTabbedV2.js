@@ -11,7 +11,8 @@ const InputTabbedV2 = ({
   tabBackground,
   tabHeader1,
   tabHeader2,
-  headerColor
+  headerColor,
+  activeTabNumber
 }) => (
   <TabWrapperV2
     tabTitle1={tabTitle1}
@@ -23,6 +24,7 @@ const InputTabbedV2 = ({
     tabHeader1={tabHeader1}
     tabHeader2={tabHeader2}
     headerColor={headerColor}
+    activeTabNumber={value => activeTabNumber(value)}
   />
 );
 
@@ -37,6 +39,7 @@ InputTabbedV2.propTypes = {
   tabBackground: string,
   tabHeader1: string,
   tabHeader2: string,
-  headerColor: string
+  headerColor: string,
+  activeTabNumber: func
 };
 export default InputTabbedV2;

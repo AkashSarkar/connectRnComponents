@@ -18,7 +18,6 @@ import {
   InputLabeled,
   InputLogin,
   InputMiddleLabeled,
-  InputTabbed,
   PopUpMessage,
   Scan,
   SeatListItem,

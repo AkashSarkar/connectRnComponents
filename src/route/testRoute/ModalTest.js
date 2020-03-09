@@ -10,11 +10,11 @@ import {
   ModalInfo,
   ModalFamilyList,
   ModalContact,
-  ModalInvoiceList,
-  ModalDiscount,
   ModalDiscountV2,
   ModalSecondaryV2,
-  ModalContactV2
+  ModalContactV2,
+  ModalAddDiscount,
+  ModalInvoiceList
 } from '../../component/widget';
 
 
@@ -190,7 +190,6 @@ const DataModalFamilyList = [
     title: 'Friend’s Savings A/C'
   }
 ];
-
 const DataModalInvoiceList = [
   {
     id: '1',
@@ -209,6 +208,7 @@ const DataModalInvoiceList = [
   }
 ];
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -223,9 +223,26 @@ const discountV2Color = {
   titleColor: colors.red2,
   modalbgColor: colors.black9,
   inputTextColor: colors.white1,
-  buttonbgColor: colors.primary,
+  centerTextColor: colors.white1,
+  buttonbgColor: colors.black10,
+  pinButtonbgColor: colors.primary,
   buttontextColor: colors.white1,
   textAreabgColor: colors.buttonColor1
+};
+const contactV2Color = {
+  titleColor: colors.red2,
+  modalbgColor: colors.white1,
+  inputTextColor: colors.black0,
+  centerTextColor: colors.black0,
+  buttonbgColor: colors.black10,
+  buttontextColor: colors.black0,
+  textAreabgColor: colors.buttonColor1
+};
+const modalInfoColor = {
+  titleColor: colors.red2,
+  modalbgColor: colors.black,
+  textComponentColor1: colors.red2,
+  textComponentColor2: colors.white1
 };
 
 class ModalTest extends React.Component {
@@ -249,7 +266,9 @@ class ModalTest extends React.Component {
       isModalInvoiceList: false,
       isModalContactV2: false,
       isModalDiscount: false,
-      isModalDiscountV2: false
+      isModalDiscountV2: false,
+      isModalAddDiscount: false,
+      isModalInvoiceList: false
     };
   }
 
@@ -297,9 +316,10 @@ class ModalTest extends React.Component {
 
   toggleModalContactV2 = () => {
     this.setState({
-      isModalContactV2: !this.state.isModalContact
+      isModalContactV2: !this.state.isModalContactV2
     });
   };
+
   toggleModalAddDiscount = () => {
     this.setState({
       isModalAddDiscount: !this.state.isModalAddDiscount
@@ -315,6 +335,12 @@ class ModalTest extends React.Component {
   toggleModalDiscountV2 = () => {
     this.setState({
       isModalDiscountV2: !this.state.isModalDiscountV2
+    });
+  };
+
+  toggleModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
     });
   };
 
@@ -378,6 +404,12 @@ class ModalTest extends React.Component {
     });
   };
 
+  handleCloseModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
+    });
+  };
+
   render() {
     return (
       <ScrollView>
@@ -415,8 +447,11 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalDouble}
             />
             <ModalDouble
+              isDescription
+              borderButtonColor={colors.black0}
               modalTitle="Select account"
               modalTitleBottom="Card payments with"
+              titleColor={colors.red2}
               isVisible={this.state.isModalDoubleVisible}
               onBackButtonPress={this.handleCloseModalDouble}
               onClose={this.handleCloseModalDouble}
@@ -440,6 +475,7 @@ class ModalTest extends React.Component {
               onBackButtonPress={this.handleCloseModalInfo}
               onClose={this.handleCloseModalInfo}
               items={DataModalInfo}
+              modalInfoColor={modalInfoColor}
             />
           </View>
           <View style={styles.viewWrapper}>
@@ -527,14 +563,16 @@ class ModalTest extends React.Component {
           </View>
           <View style={styles.viewWrapper}>
             <ButtonPrimary
-              content="Modal Count v2"
+              content="ModalContactV2"
               buttonColor={gradientColors.gradient5}
               textColor={colors.bgPrimary}
               fontSize={fonts.fs14}
               onPress={this.toggleModalContactV2}
             />
             <ModalContactV2
+              isDescription
               modalTitle="Add description"
+              contactV2Color={contactV2Color}
               modalTitleTextColor={colors.primary}
               isVisible={this.state.isModalContactV2}
               onBackButtonPress={this.handleCloseModalContactV2}
@@ -546,6 +584,44 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="ModalAddDiscount"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalAddDiscount}
+            />
+            <ModalAddDiscount
+              modalTitle="Add discount"
+              discountV2Color={discountV2Color}
+              modalTitleTextColor={colors.primary}
+              isVisible={this.state.isModalAddDiscount}
+              onBackButtonPress={this.handleCloseModalAddDiscount}
+              onClose={this.handleCloseModalAddDiscount}
+              onPress={this.handleCloseModalAddDiscount}
+              onSelect={(id) => {
+                console.warn('from top ', id);
+                this.handleCloseModalAddDiscount();
+              }}
+            />
+          </View>
+          <View style={styles.viewWrapper}>
+            <ButtonPrimary
+              content="ModalInvoiceList"
+              buttonColor={gradientColors.gradient5}
+              textColor={colors.bgPrimary}
+              fontSize={fonts.fs14}
+              onPress={this.toggleModalInvoiceList}
+            />
+            <ModalInvoiceList
+              isInvoice
+              isVisible={this.state.isModalInvoiceList}
+              onBackButtonPress={this.handleCloseModalInvoiceList}
+              items={DataModalInvoiceList}
+            />
+          </View>
+         
         </SafeAreaView>
       </ScrollView>
     );

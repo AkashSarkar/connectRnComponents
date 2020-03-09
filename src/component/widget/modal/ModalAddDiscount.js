@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import {
-  Text, View, Image, StyleSheet, TextInput
+  View, Image, StyleSheet
 } from 'react-native';
 import Modal from 'react-native-modal';
+import {
+  string, bool, func, object
+} from 'prop-types';
+import { TextInput } from 'react-native-gesture-handler';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import { ButtonBorderV2, ButtonPrimaryV2 } from '../../ui';
 import assets from '../../../assets';
-import { mb10, ml20, mr10, mr15, mr20 } from '../../../styles/commonStyle';
+import { mr10 } from '../../../styles/commonStyle';
+import { ButtonBorderV2 } from '../../ui';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,19 +65,22 @@ const styles = StyleSheet.create({
     height: '100%',
     textAlignVertical: 'top',
     color: 'white'
+  },
+  input: {
+    fontSize: 74,
+    fontFamily: fonts.light
   }
 });
-
 const ModalAddDiscount = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
-  onClose,
-  items,
-  onPress,
+  onPressLeft,
+  onPressRight,
   discountV2Color
 }) => {
   const [id, setId] = useState('');
+  const [input, setInput] = useState('');
   return (
     <Modal
       isVisible={isVisible}
@@ -92,7 +99,7 @@ const ModalAddDiscount = ({
         style={[{
           backgroundColor: discountV2Color.modalbgColor
         },
-          styles.container
+        styles.container
         ]}
       >
         <View style={styles.viewWrapper}>
@@ -109,7 +116,7 @@ const ModalAddDiscount = ({
               content="Amount"
               size={fonts.fs14}
               family={fonts.light}
-              color={colors.white1}
+              color={discountV2Color.inputTextColor}
               extraStyle={{
                 marginRight: 110,
                 lineHeight: 22
@@ -126,12 +133,21 @@ const ModalAddDiscount = ({
               }]}
               resizeMode="contain"
             />
+
+            <TextInput
+              style={[styles.input, { color: discountV2Color.centerTextColor }]}
+              onChangeText={text => setInput(text)}
+              value={input}
+              maxLength={3}
+              autoFocus
+              keyboardType="number-pad"
+            />
+
             <View>
               <TextComponent
-                content="10%"
-                //size={fonts.fs52}
+                content="%"
                 family={fonts.light}
-                color={colors.white1}
+                color={discountV2Color.centerTextColor}
                 extraStyle={{ fontSize: 74 }}
               />
             </View>
@@ -143,20 +159,28 @@ const ModalAddDiscount = ({
           contentLeft="Apply"
           contentMiddle="|"
           contentRight="Cancel"
-          buttonColor={colors.black10}
-          textColorLeft={colors.white1}
+          buttonColor={discountV2Color.buttonbgColor}
+          textColorLeft={discountV2Color.buttontextColor}
           textColorMiddle={colors.primary}
-          textColorRight={colors.white1}
+          textColorRight={discountV2Color.buttontextColor}
           buttonHeight={50}
           inModal
           fontSize={fonts.fs16}
-          onPressLeft={() => console.warn('Left')}
-          onPressRight={() => console.warn('Right')}
+          onPressLeft={onPressLeft}
+          onPressRight={onPressRight}
         />
       </View>
-
     </Modal>
   );
+};
+
+ModalAddDiscount.propTypes = {
+  modalTitle: string,
+  isVisible: bool,
+  onBackButtonPress: func,
+  onPressLeft: func,
+  onPressRight: func,
+  discountV2Color: object
 };
 
 export default ModalAddDiscount;

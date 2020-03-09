@@ -23,47 +23,47 @@ const AccountSliderItem = (
     textColor2,
     activeIndex,
     InfoImage = assets.Info,
-    connectImage = assets.ConnectCoin,
+    TakaImage = assets.Taka,
     suffixNo,
     amount,
     connectAcc,
     icon
   }
 ) => {
-  const screenHeight = Math.round(Dimensions.get('window').height);
-  const screenWidth = Math.round(Dimensions.get('window').width);
   const amountStyle = {
-    fontFamily: fonts.regular,
-    size: (screenHeight >= 800 && screenWidth >= 800) ? fonts.fs120 : screenWidth >= 500 ? fonts.fs70 : screenHeight <= 670 ? fonts.fs36 : screenHeight <= 720 ? fonts.fs40 : screenHeight <= 750 ? fonts.fs50 : fonts.fs50,
+    fontFamily: fonts.light,
+    size: fonts.fs44,
     color: activeIndex !== 3 ? textColor1 : textColor2
   };
 
   const decimalStyle = {
-    fontFamily: fonts.regular,
-    size: (screenHeight >= 800 && screenWidth >= 800) ? fonts.fs120 : screenWidth >= 500 ? fonts.fs70 : screenHeight <= 670 ? fonts.fs36 : screenHeight <= 720 ? fonts.fs40 : screenHeight <= 750 ? fonts.fs50 : fonts.fs50,
+    fontFamily: fonts.light,
+    size: fonts.fs44,
     color: activeIndex !== 3 ? textColor1 : textColor2
   };
 
   return (
-    <View style={[ph15, pv15, mb15, styles.cardBg, { backgroundColor: activeIndex !== 3 ? color1 : color2 }]}>
-      <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-        <ButtonCommunication
+    <View style={[ph15, pv15, mb15, styles.cardBg, {height: 170, justifyContent: 'space-evenly', backgroundColor: activeIndex !== 3 ? color1 : color2 }]}>
+      <View style={{ justifyContent: 'flex-end', flexDirection: 'row' }}>
+        
+        {/* For Future Use
+         <ButtonCommunication
           logo={InfoImage}
           buttonColor={colors.white1}
-          buttonWidth={screenWidth >= 500 ? 30 : 20}
-          buttonHeight={screenWidth >= 500 ? 30 : 20}
-          buttonBorderRadius={screenWidth >= 500 ? 15 : 10}
-          iconHeight={screenWidth >= 500 ? 30 : 20}
-          iconWidth={screenWidth >= 500 ? 30 : 20}
+          buttonWidth={20}
+          buttonHeight={20}
+          buttonBorderRadius={10}
+          iconHeight={20}
+          iconWidth={20}
           textColor={colors.text2}
           fontSize={fonts.fs14}
           onPress={handleInformation}
-        />
+        /> */}
         <Image
           source={icon}
           style={{
-            height: screenWidth >= 500 ? 22.5 : 15,
-            width: screenWidth >= 500 ? 150 : 100
+            height: 15,
+            width: 100
           }}
           resizeMode="contain"
         />
@@ -74,15 +74,15 @@ const AccountSliderItem = (
           <TextComponent
             content={`Connect Suffix ${suffixNo}`}
             family={fonts.regular}
-            size={screenWidth <= 500 ? fonts.fs12 : fonts.fs24}
+            size={fonts.fs14}
             color={activeIndex !== 3 ? textColor1 : textColor2}
           />
         </View>
         <View style={[{ flexDirection: 'row' }, mv10]}>
           <View style={[{ justifyContent: 'center' }, mr15]}>
             <Image
-              style={screenWidth >= 500 ? { width: 45, height: 45 } : { width: 30, height: 30 }}
-              source={connectImage}
+              style={{ width: 34, height: 34 }}
+              source={TakaImage}
             />
           </View>
 
@@ -97,16 +97,17 @@ const AccountSliderItem = (
           <View style={{ paddingLeft: 50 }}>
             <TextComponent
               content={connectAcc}
-              family={fonts.regular}
-              size={screenWidth <= 500 ? fonts.fs12 : fonts.fs24}
+              family={fonts.medium}
+              size={fonts.fs16}
               color={activeIndex !== 3 ? textColor1 : textColor2}
             />
           </View>
           <TextComponent
-            content="LOAN A/C"
-            family={fonts.regular}
-            size={screenWidth <= 500 ? fonts.fs12 : fonts.fs24}
-            color={activeIndex !== 3 ? textColor1 : textColor2}
+            content="SAVINGS A/C"
+            family={fonts.bold}
+            size={fonts.fs12}
+            // color={activeIndex !== 3 ? textColor1 : textColor2}
+            color={colors.red2}
           />
         </View>
       </View>
@@ -149,7 +150,7 @@ AccountSliderItem.propTypes = {
   textColor2: string,
   icon: number,
   InfoImage: number,
-  connectImage: number
+  TakaImage: number
 };
 
 export default AccountSliderItem;

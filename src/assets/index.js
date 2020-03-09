@@ -18,6 +18,7 @@ const assets = {
   Minus: require('./icons/Minus.png'),
   Lock: require('./icons/lock.png'),
   Lock2: require('./icons/Lock-2.png'),
+  // Connect: require('./icons/Connect2.png'),
   ConnectIcon: require('./icons/Connect2.png'),
   Jamuna: require('./icons/Jamuna.png'),
   Bkash: require('./icons/bKash.png'),
@@ -66,12 +67,12 @@ const assets = {
   QRCode: require('./icons/ScanQR.png'),
   DeleteIcon: require('./icons/DeleteIcon.png'),
   Dot: require('./icons/Dot.png'),
-  Share: require('./icons/Share.png'), //
-  Split: require('./icons/Split.png'), //
-  ConnectCode: require('./icons/Connect_Code.png'), //
-  ConnectCredit: require('./icons/Connect_Credit.png'), //
-  Location: require('./icons/Location.png'), //
-  K1: require('./icons/1K_Area.png') //
+  Share: require('./icons/Share.png'), 
+  Split: require('./icons/Split.png'), 
+  ConnectCode: require('./icons/Connect_Code.png'), 
+  ConnectCredit: require('./icons/Connect_Credit.png'), 
+  Location: require('./icons/Location.png'), 
+  K1: require('./icons/1K_Area.png') 
 };
 
 export default assets;

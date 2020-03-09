@@ -21,14 +21,7 @@ import {
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
 import InputField from '../../component/widget/input/InputField';
 import assets from '../../assets';
-import { InputTabbedV2, KeyboardNumeric, KeyboardPin } from '../../component/widget';
-import ProfileCardV2 from '../../component/widget/card/ProfileCardV2';
-import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
-import LineSeparatorV2 from '../../component/ui/uiUtils/LineSeparatorV2';
-import AccountInfoHeader from '../../component/widget/card/AccountInfoHeader';
-import ButtonRectangleV2 from '../../component/ui/button/ButtonRectangleV2';
-import SplitandShareV2 from '../../component/ui/uiUtils/SplitandShareV2';
-import PaymentsCard from '../../component/widget/card/PaymentsCard';
+import { InputTabbedV2, KeyboardNumeric, PaymentsCard , ProfileCardV2 } from '../../component/widget';
 
 const screenContainer = {
   paddingHorizontal: 10,
@@ -90,7 +83,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={bankName}
@@ -119,7 +112,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={branchName}
@@ -148,7 +141,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={bankName}
@@ -177,7 +170,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={bankName}
@@ -245,7 +238,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={cardholderName}
@@ -273,7 +266,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={validity}
@@ -302,7 +295,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={cvc}
@@ -331,7 +324,7 @@ const UIComponentV2Test = ({ navigation }) => {
             ]}
           />
         </View>
-        <InputFieldSeperator />
+        <InputFieldSeperator/>
         <View style={styles.inputField}>
           <InputField
             value={cvc}
@@ -538,7 +531,7 @@ const UIComponentV2Test = ({ navigation }) => {
               onPress={() => ToastAndroid.showWithGravity(
                 'All Your Base Are Belong To Us',
                 ToastAndroid.LONG,
-                ToastAndroid.TOP,
+                ToastAndroid.TOP
               )
               }
             // disabled
@@ -718,144 +711,16 @@ const UIComponentV2Test = ({ navigation }) => {
             <TextComponent
               size={fonts.fs20}
               color={colors.secondary}
-              content="ui/button/KeyboardNumeric"
+              content="ui/button/keyboardNumeric"
               family={fonts.bold}
             />
             <KeyboardNumeric
               onPress={onPressKeyboard}
-              withoutPercentageButton
+              isPercentageValue
             />
           </View>
           {/* ui/button/KeyboardNumeric */}
-
-          {/* ui/button/KeyboardPin */}
-          {/* <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/button/KeyboardPin"
-              family={fonts.bold}
-            />
-            <KeyboardPin
-              onPress={onPressKeyboard}
-            />
-          </View> */}
-          {/* ui/button/KeyboardPin */}
-
-          {/* ui/button/ButtonRectangleV2 */}
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/button/ButtonRectangleV2"
-              family={fonts.bold}
-            />
-            <ButtonRectangleV2
-              content="Get Payment"
-              textColor={colors.white1}
-              fontSize={fonts.fs14}
-              buttonColor={colors.colorSecondery}
-              onPress={() => console.warn('ButtonRectangleV2')}
-            />
-          </View>
-          {/* ui/button/ButtonRectangleV2 */}
-          {/* ui/button/ButtonInfo */}
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/button/ButtonInfo"
-              family={fonts.bold}
-            />
-            <ButtonInfo
-              content="Button Info"
-              textColor={colors.grey3}
-              fontSize={fonts.fs14}
-              buttonColor={colors.colorSecondery}
-              onPress={() => console.warn('ButtonInfo')}
-            />
-          </View>
-          {/* ui/button/ButtonInfo */}
-          {/* ui/button/LineSeparatorV2 */}
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/button/LineSpearator"
-              family={fonts.bold}
-            />
-            <LineSeparatorV2 />
-          </View>
-          {/* ui/button/LineSeparatorV2 */}
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/header/HeaderPrimary"
-              family={fonts.bold}
-            />
-            <HeaderPrimary
-              content="Credit Payments"
-              buttonItems={headerButtonsInformation}
-            />
-          </View>
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="widget/card/AccountInfoHeader"
-              family={fonts.bold}
-            />
-            <AccountInfoHeader
-              title="Bismillah Store"
-              logo={assets.AppIcon}
-              id="1234 5678 9888 1331"
-              buttonColor={gradientColors.gradientActiveBTN}
-              onPress={() => console.warn('Account Info Header')}
-              navigation={navigation}
-            />
-          </View>
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="widget/card/AccountSliderItem"
-              family={fonts.bold}
-            />
-            <AccountSliderItem
-              handleInformation={handleAccountSliderItem}
-              suffixNo={12}
-              amount={125899.0}
-              connectAcc="Loan Limit 5,00,000"
-              textColor1={colors.white1}
-              // gradient={colors.blue}
-              color1="blue"
-              // activeIndex={idx}
-              icon={assets.JamunaBankLogo2}
-            />
-          </View>
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="widget/card/ProfileCardV2"
-              family={fonts.bold}
-            />
-            <ProfileCardV2
-              title="Lazz Pharma Ltd"
-              id="1234 1700 20011"
-              icon={assets.AppIcon}
-            />
-          </View>
-          <View style={p10}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="ui/uiUtils/SplitandShareV2"
-              family={fonts.bold}
-            />
-            <SplitandShareV2 />
-          </View>
+          {/* Payments card*/}
           <View style={p10}>
             <TextComponent
               size={fonts.fs20}
@@ -873,6 +738,22 @@ const UIComponentV2Test = ({ navigation }) => {
               lowerIcon={assets.Taka}
             />
           </View>
+          {/* Payments card */}
+          {/* ProfileCardV2 card */}
+          <View style={p10}>
+            <TextComponent
+              size={fonts.fs20}
+              color={colors.secondary}
+              content="widget/card/ProfileCardV2"
+              family={fonts.bold}
+            />
+            <ProfileCardV2
+              title="Lazz Pharma Ltd"
+              id="1234 1700 20011"
+              icon={assets.AppIcon}
+            />
+          </View>
+          {/* ProfileCardV2 card */}
         </View>
       </ScrollView>
     </SafeAreaView>

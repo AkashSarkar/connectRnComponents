@@ -4,16 +4,14 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+ string, func, bool, object
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
-import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
-import { ButtonBorderV2, ButtonPrimary } from '../../ui';
-import ModalFamilyList from './ModalFamilyList';
+import { colors, fonts } from '../../../styles/baseStyle';
+import { ButtonBorderV2 } from '../../ui';
 
 const styles = StyleSheet.create({
   container: {
-    height: 330,
     paddingHorizontal: 20,
     paddingBottom: 10,
     borderColor: 'black',
@@ -58,13 +56,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const ModalDiscountV2 = ({
+const ModalContactV2 = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
-  onClose,
-  items,
-  onPress
+  contactV2Color,
+  isDescription
 }) => {
   const [id, setId] = useState('');
   return (
@@ -81,43 +78,35 @@ const ModalDiscountV2 = ({
       backdropTransitionInTiming={300}
       backdropTransitionOutTiming={600}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, { height: isDescription ? 330 : 150 }]}>
         <View style={styles.viewWrapper}>
           <TextComponent
             content={modalTitle}
             size={fonts.fs20}
             family={fonts.medium}
-            color={colors.red2}
-          />
-          {/*Cross button*/}
-          {/*<TouchableOpacity*/}
-          {/*  onPress={onClose}*/}
-          {/*  style={styles.closeModalContainer}*/}
-          {/*>*/}
-          {/*  <Image*/}
-          {/*    style={styles.closeImageStyle}*/}
-          {/*    source={image.Cross}*/}
-          {/*  />*/}
-          {/*</TouchableOpacity>*/}
-        </View>
-        <View style={styles.textAreaContainer}>
-          <TextInput
-            style={styles.textArea}
-            underlineColorAndroid="transparent"
-            placeholder="Write here..."
-            fontFamily={fonts.regular}
-            placeholderTextColor={colors.white1}
-            numberOfLines={10}
-            multiline
+            color={contactV2Color.titleColor}
           />
         </View>
+        {isDescription && (
+          <View style={styles.textAreaContainer}>
+            <TextInput
+              style={styles.textArea}
+              underlineColorAndroid="transparent"
+              placeholder="Write here..."
+              fontFamily={fonts.regular}
+              placeholderTextColor={colors.white1}
+              numberOfLines={10}
+              multiline
+            />
+          </View>
+        )}
       </View>
       <View style={styles.bottomWrapper}>
         <ButtonBorderV2
           contentLeft="Apply"
           contentMiddle="|"
           contentRight="Cancel"
-          buttonColor={colors.black10}
+          buttonColor={contactV2Color.buttonbgColor}
           textColorLeft={colors.white1}
           textColorMiddle={colors.primary}
           textColorRight={colors.white1}
@@ -131,12 +120,12 @@ const ModalDiscountV2 = ({
     </Modal>
   );
 };
-ModalDiscountV2.propTypes = {
+ModalContactV2.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
-  onClose: func,
-  onSelect: func
+  isDescription: bool,
+  contactV2Color: object
 };
 
-export default ModalDiscountV2;
+export default ModalContactV2;

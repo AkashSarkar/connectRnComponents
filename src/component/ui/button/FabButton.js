@@ -12,11 +12,11 @@ import {
 import assets from '../../../assets';
 import { colors } from '../../../styles/baseStyle';
 
-const dimension = 60;
+const dimension = 50;
 const styles = {
   container: {
-    position: 'relative',
-    zIndex: 9999
+    position: 'relative'
+    // zIndex: 1
   },
   buttonChild: {
     height: dimension,
@@ -24,24 +24,51 @@ const styles = {
     borderRadius: dimension / 2,
     position: 'absolute',
     // bottom: 20,
+    // zIndex: 2,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  background: {
+    height: dimension,
+    width: dimension,
+    borderRadius: dimension / 2,
+    position: 'absolute',
+    // bottom: 20,
+    // zIndex: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.6)'
+  },
+  label: {
+    // flex: 1,
+    color: colors.white1,
+    position: 'absolute',
+    // fontSize: 14,
+    backgroundColor: 'transparent',
+    width: 100
   },
   button: {
     height: dimension,
     width: dimension,
     borderRadius: dimension / 2,
-    // position: 'absolute',
-    // bottom: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
   iconStyle: {
+    height: dimension,
+    width: dimension
+  },
+  childrenIconStyle: {
     height: dimension / 3,
     width: dimension / 3
   }
 };
-const FabButton = ({ background, parentIcon, childrenButtons }) => {
+const FabButton = (
+  {
+    background, parentIcon, childrenButtons,
+    onParentPress, right
+  }
+) => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [isActive, setIsActive] = useState(false);
   const toggleAnimation = () => {
@@ -53,6 +80,31 @@ const FabButton = ({ background, parentIcon, childrenButtons }) => {
     setIsActive(!isActive);
   };
 
+  const bgStyle = {
+    transform: [{
+      scale: animation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 300]
+      })
+    }]
+  };
+  const rightPosition = [-10, -90];
+  const leftPosition = [10, 90];
+  const labelPosition = animation.interpolate({
+      inputRange: [0, 1],
+      outputRange: right ? rightPosition : leftPosition
+    })
+  ;
+  const labelOpacity = animation.interpolate({
+    inputRange: [0, 0.8, 1],
+    outputRange: [0, 0, 1]
+  });
+  const labelStyle = {
+    opacity: labelOpacity,
+    transform: [{
+      translateX: labelPosition
+    }]
+  };
   const renderChildren = () => (
     childrenButtons.map((item, idx) => {
       return (
@@ -76,9 +128,19 @@ const FabButton = ({ background, parentIcon, childrenButtons }) => {
             }
           ]}
           >
+            {
+              isActive && (
+                <Animated.Text
+                  style={[styles.label, labelStyle, { textAlign: right ? 'right' : 'left' }]}
+                >
+                  {item.text}
+                </Animated.Text>
+              )
+            }
+
             <Image
               source={item.icon}
-              style={styles.iconStyle}
+              style={styles.childrenIconStyle}
               resizeMode="contain"
             />
           </Animated.View>
@@ -89,13 +151,17 @@ const FabButton = ({ background, parentIcon, childrenButtons }) => {
 
   return (
     <View style={styles.container}>
+      <Animated.View style={[styles.background, bgStyle]} />
       {renderChildren()}
       <TouchableOpacity
         style={[
-          styles.button,
-          { backgroundColor: background }
+          styles.button
+          // { backgroundColor: background }
         ]}
-        onPress={() => toggleAnimation()}
+        onPress={() => {
+          toggleAnimation();
+          // onParentPress();
+        }}
       >
         <Image
           source={parentIcon}
@@ -103,6 +169,7 @@ const FabButton = ({ background, parentIcon, childrenButtons }) => {
           resizeMode="contain"
         />
       </TouchableOpacity>
+
     </View>
   );
 };
@@ -115,6 +182,7 @@ FabButton.defaultProps = {
 FabButton.propTypes = {
   background: string,
   parentIcon: number,
-  childrenButtons: array
+  childrenButtons: array,
+  right: bool
 };
 export default FabButton;

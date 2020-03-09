@@ -1,24 +1,23 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, StyleSheet, FlatList
+  View, Image, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+  arrayOf, shape, string, func, bool
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import ModalItemList from '../list/ModalItemList';
 import assets from '../../../assets';
+import { pv25 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   container: {
-    height: 400,
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: colors.offWhite,
-    paddingHorizontal: 15,
     paddingBottom: 10,
+    marginHorizontal: 62,
     borderRadius: 16,
     borderColor: 'black'
   }
@@ -28,7 +27,9 @@ const styles = StyleSheet.create({
 const ModalInvoiceList = ({
   isVisible,
   onBackButtonPress,
-  items
+  items,
+  isInvoice,
+  isQRCode
 }) => (
   <Modal
     isVisible={isVisible}
@@ -43,61 +44,94 @@ const ModalInvoiceList = ({
     backdropTransitionInTiming={300}
     backdropTransitionOutTiming={600}
   >
-    <View style={styles.container}>
-      <View style={{ paddingBottom: 10, paddingTop: 30 }}>
-        <Image
-          source={assets.Plus}
-          style={{
-            height: 144,
-            width: 144
-          }}
-          resizeMode="contain"
-        />
-      </View>
-      <FlatList
-        data={items}
-        renderItem={({ item }) => (
-          <View style={{
-            paddingVertical: 10
-          }}
-          >
+    {
+      isInvoice && (
+        <View style={[styles.container, { height: 400 }]}>
+          <View style={{ paddingBottom: 10, paddingTop: 30 }}>
+            <Image
+              source={assets.Plus}
+              style={{
+                height: 144,
+                width: 144
+              }}
+              resizeMode="contain"
+            />
+          </View>
+          <FlatList
+            data={items}
+            renderItem={({ item }) => (
+              <View style={{
+                paddingVertical: 10
+              }}
+              >
+                <View style={{ alignItems: 'center' }}>
+                  <TextComponent
+                    content={item.title}
+                    size={fonts.fs14}
+                    family={fonts.regular}
+                    color={colors.black0}
+                  />
+
+                  <View>
+                    <TextComponent
+                      content={item.details}
+                      size={fonts.fs18}
+                      family={fonts.semiBold}
+                      color={colors.black0}
+                    />
+                  </View>
+                </View>
+              </View>
+            )}
+            keyExtractor={item => item.id.toString()}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
+      )
+    }
+    {
+      isQRCode && (
+        <View style={[styles.container, { height: 270 }]}>
+          <View>
+            <View style={pv25}>
+              <Image
+                source={assets.Plus}
+                style={{
+                  height: 144,
+                  width: 144
+                }}
+                resizeMode="contain"
+              />
+            </View>
             <View style={{ alignItems: 'center' }}>
               <TextComponent
-                content={item.title}
-                size={fonts.fs14}
-                family={fonts.regular}
+                content="My Code"
+                family={fonts.medium}
+                size={fonts.fs16}
                 color={colors.black0}
               />
-
-              <View>
-                <TextComponent
-                  content={item.details}
-                  size={fonts.fs18}
-                  family={fonts.semiBold}
-                  color={colors.black0}
-                />
-              </View>
             </View>
           </View>
-        )}
-        keyExtractor={item => item.id.toString()}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
+        </View>
+      )
+    }
+
   </Modal>
 );
 
 ModalInvoiceList.propTypes = {
   isVisible: bool,
+  isQRCode: bool,
+  isInvoice: bool,
   items: arrayOf(
     shape({
-      id: number.isRequired,
+      id: string.isRequired,
       title: string.isRequired,
       details: string.isRequired
     })
   ),
-  onSelect: func
+  onBackButtonPress: func
 };
 
 export default ModalInvoiceList;
