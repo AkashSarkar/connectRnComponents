@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
-import { string, number } from 'prop-types';
+import { string, number, func } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import { TextComponent } from '../../ui';
 import assets from '../../../assets';
@@ -15,7 +15,6 @@ const styles = {
   upperView: {
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderBottomColor: colors.white1
   },
@@ -26,6 +25,7 @@ const styles = {
     width: '50%',
     flexDirection: 'row',
     justifyContent: 'center',
+    paddingHorizontal: 20,
     borderRightWidth: 1,
     borderRightColor: colors.white1,
     paddingVertical: 12
@@ -35,6 +35,7 @@ const styles = {
     justifyContent: 'flex-end',
     flexDirection: 'row',
     width: '50%',
+    paddingHorizontal: 20,
     paddingVertical: 12
   },
   lowerView: {
@@ -50,33 +51,29 @@ const PaymentsCard = ({
   upperRightContent,
   lowerContent1,
   lowerContent2,
+  onPress,
   upperLeftIcon
 }) => (
   <View style={styles.container}>
     <View style={styles.upperView}>
-      <View style={styles.leftUpperView}>
-
-        <TouchableOpacity>
-          <View style={styles.leftUpper}>
-            <View style={{ paddingRight: 20 }}>
-              <TextComponent
-                color={colors.black0}
-                content={upperLeftContent}
-                size={fonts.fs14}
-                family={fonts.medium}
-              />
-            </View>
-            <Image
-              source={upperLeftIcon}
-              style={{
-                height: 14,
-                width: 14
-              }}
-              resizeMode="contain"
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={onPress} style={[styles.leftUpperView, styles.leftUpper]}>
+        <View style={{ paddingRight: 12 }}>
+          <TextComponent
+            color={colors.black0}
+            content={upperLeftContent}
+            size={fonts.fs14}
+            family={fonts.medium}
+          />
+        </View>
+        <Image
+          source={upperLeftIcon}
+          style={{
+            height: 14,
+            width: 14
+          }}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
       <View style={styles.rightUpper}>
 
         <TextComponent
@@ -116,7 +113,8 @@ PaymentsCard.propTypes = {
   upperRightContent: string,
   upperLeftIcon: number,
   lowerContent1: string,
-  lowerContent2: string
+  lowerContent2: string,
+  onPress: func
 };
 
 export default PaymentsCard;
