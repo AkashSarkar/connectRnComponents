@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
- func, bool, object
+  func, bool, object
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -49,8 +49,17 @@ const ModalInfo = ({
   onBackButtonPress,
   onClose,
   items,
-  modalInfoColor
+  modalInfoColor,
+  mapOpen,
+  mapItems
 }) => {
+
+  console.log("----",mapItems[0].store_name);
+
+  const lan = mapItems[0].location.coordinate.lan;
+  const lat = mapItems[0].location.coordinate.lat;
+  const title = mapItems[0].store_name;
+
   const renderItem = item => (
     <View style={{
       paddingVertical: 10,
@@ -129,7 +138,7 @@ const ModalInfo = ({
                   borderRadius: 16,
                   paddingHorizontal: 28
                 }}
-              // onPress={this.toggleModalInfo}
+                onPress={()=>mapOpen(lat, lan, title)}
               />
             </View>
           </View>
