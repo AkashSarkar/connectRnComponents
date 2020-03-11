@@ -1,10 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, Image, View } from 'react-native';
-import {
-  string, func, bool, number, object
-} from 'prop-types';
-import { colors, fonts } from '../../../styles/baseStyle';
+import { TouchableOpacity, View, Image } from 'react-native';
+import { string, func, number } from 'prop-types';
 import TextComponent from '../typography/TextComponent';
+import { fonts, colors } from '../../../styles/baseStyle';
 
 const styles = {
   buttonStyle: {
@@ -17,59 +15,59 @@ const styles = {
     },
     shadowRadius: 2,
     shadowOpacity: 1
-    // activeOpacity: .7
   },
   textStyle: {
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  imageStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%'
   }
 };
 const ButtonRectangleV2 = ({
-  content, buttonColor, textColor, onPress, styleProp, isIcon, icon, value, disabled, size
-}) => {
-  const onPressHandler = () => {
-    onPress(value);
-  };
-  // console.log(value)
-  return (
-    <TouchableOpacity
-      style={[styles.buttonStyle, { backgroundColor: buttonColor || colors.black1 }, styleProp]}
-      onPress={() => onPressHandler()}
-      disabled={disabled}
-    >
-      <View style={styles.textStyle}>
-        {isIcon
-          ? (
-            <View style={[size === fonts.fs14 ? { height: 18.3, width: 45 } : size === fonts.fs18 ? { height: 22, width: 45 } : size === fonts.fs50 ? { height: 60, width: 90 } : { height: 30, width: 45 }, { justifyContent: 'center', alignItems: 'center' }]}>
-              <Image source={icon} style={size === fonts.fs50 ? { height: 40, width: 40 } : { height: 20, width: 20 }} resizeMode="contain" />
-            </View>
-          )
-          : (
-            <TextComponent
-              content={content}
-              size={size}
-              color={textColor || colors.white1}
-              family={fonts.bold}
-            />
-          )
-        }
-
+  content, buttonColor, textColor, onPress, image, imageHeight, imagewidth
+}) => (
+  <TouchableOpacity
+    style={[styles.buttonStyle,
+      { backgroundColor: buttonColor || colors.black1 }]}
+    onPress={onPress}
+  >
+    {image ? (
+      <View style={styles.imageStyle}>
+        <Image
+          source={image}
+          style={{
+            height: imageHeight || 30,
+            width: imagewidth || 30,
+            resizeMode: 'contain'
+          }}
+        />
       </View>
-    </TouchableOpacity>
-  );
-};
+    ) : (
+      <View style={styles.textStyle}>
+        <TextComponent
+          content={content}
+          size={fonts.fs24}
+          color={textColor || colors.white1}
+          family={fonts.medium}
+        />
+      </View>
+    )
+    }
+  </TouchableOpacity>
+);
 
 ButtonRectangleV2.propTypes = {
   buttonColor: string,
   onPress: func,
-  content: string.isRequired,
+  content: string,
   textColor: string,
-  isIcon: bool,
-  icon: number,
-  value: string,
-  disabled: bool,
-  size: number,
-  styleProp: object
+  image: number,
+  imageHeight: number,
+  imagewidth: number
 };
 
 export default ButtonRectangleV2;

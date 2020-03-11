@@ -4,12 +4,11 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+ string, func, bool, object
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
-import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
-import { ButtonBorderV2, ButtonPrimary } from '../../ui';
-import ModalFamilyList from './ModalFamilyList';
+import { colors, fonts } from '../../../styles/baseStyle';
+import { ButtonBorderV2 } from '../../ui';
 
 const styles = StyleSheet.create({
   container: {
@@ -57,13 +56,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const ModalDiscountV2 = ({
+const ModalContactV2 = ({
   modalTitle,
   isVisible,
   onBackButtonPress,
-  onClose,
-  items,
-  onPress,
   contactV2Color,
   isDescription
 }) => {
@@ -90,16 +86,6 @@ const ModalDiscountV2 = ({
             family={fonts.medium}
             color={contactV2Color.titleColor}
           />
-          {/*Cross button*/}
-          {/*<TouchableOpacity*/}
-          {/*  onPress={onClose}*/}
-          {/*  style={styles.closeModalContainer}*/}
-          {/*>*/}
-          {/*  <Image*/}
-          {/*    style={styles.closeImageStyle}*/}
-          {/*    source={image.Cross}*/}
-          {/*  />*/}
-          {/*</TouchableOpacity>*/}
         </View>
         {isDescription && (
           <View style={styles.textAreaContainer}>
@@ -134,13 +120,12 @@ const ModalDiscountV2 = ({
     </Modal>
   );
 };
-ModalDiscountV2.propTypes = {
+ModalContactV2.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
-  onClose: func,
-  onSelect: func,
-  isDescription: bool
+  isDescription: bool,
+  contactV2Color: object
 };
 
-export default ModalDiscountV2;
+export default ModalContactV2;

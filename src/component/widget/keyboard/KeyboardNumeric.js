@@ -1,10 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { func, number, bool } from 'prop-types';
-import { TextComponent, ButtonRectangle } from '../../ui';
+import { func, bool } from 'prop-types';
 import { fonts, colors } from '../../../styles/baseStyle';
 import images from '../../../assets';
+import TextComponent from '../../ui/typography/TextComponent';
+import ButtonRectangleV2 from '../../ui/button/ButtonRectangleV2';
 
 const styles = {
   wrapper: {
@@ -104,25 +105,40 @@ const numPad4 = [{
   content: images.DeleteIcon,
   value: 'delete'
 }];
+const numPad5 = [{
+  value: 'dot'
+},
+{
+  content: '0',
+  value: 0
+},
+{
+  content: images.DeleteIcon,
+  value: 'delete'
+}];
 
-const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
+const KeyboardNumeric = ({ onPress, isPercentageValue, isDotImage }) => (
   <View style={styles.wrapper}>
     {isPercentageValue
-      && (
-        <View style={styles.topWrapper}>
-          {suggestionText.map(items => (
-            <TouchableOpacity onPress={() => onPress(items.value)}>
-              <TextComponent content={items.content} color="white" size={fonts.fs18} />
-            </TouchableOpacity>
-          ))}
-        </View>
-      )
+    && (
+      <View style={styles.topWrapper}>
+        {suggestionText.map(items => (
+          <TouchableOpacity onPress={() => onPress(items.value)}>
+            <TextComponent
+              content={items.content}
+              color="white"
+              size={fonts.fs18}
+            />
+          </TouchableOpacity>
+        ))}
+      </View>
+    )
     }
     <View style={styles.bottomWrapper}>
       <View style={styles.buttonRow}>
         {numPad1.map(items => (
           <View style={styles.buttonStyle}>
-            <ButtonRectangle
+            <ButtonRectangleV2
               content={items.content}
               textColor={colors.white1}
               fontSize={fonts.fs14}
@@ -135,7 +151,7 @@ const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
       <View style={styles.buttonRow}>
         {numPad2.map(items => (
           <View style={styles.buttonStyle}>
-            <ButtonRectangle
+            <ButtonRectangleV2
               content={items.content}
               textColor={colors.white1}
               fontSize={fonts.fs14}
@@ -148,7 +164,7 @@ const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
       <View style={styles.buttonRow}>
         {numPad3.map(items => (
           <View style={styles.buttonStyle}>
-            <ButtonRectangle
+            <ButtonRectangleV2
               content={items.content}
               textColor={colors.white1}
               fontSize={fonts.fs14}
@@ -159,20 +175,39 @@ const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
         ))}
       </View>
       <View style={styles.buttonRow}>
-        {numPad4.map(items => (
-          <View style={styles.buttonStyle}>
-            <ButtonRectangle
-              content={isNaN(items.value) ? null : items.content}
-              image={isNaN(items.value) ? items.content : null}
-              imageHeight={items.value === 'dot' ? 5 : null}
-              imagewidth={items.value === 'dot' ? 5 : null}
-              textColor={colors.white1}
-              fontSize={fonts.fs14}
-              buttonColor={isNaN(items.value) ? 'transparent' : colors.buttonColor1}
-              onPress={() => onPress(items.value)}
-            />
-          </View>
-        ))}
+        {
+          isDotImage ? (
+            numPad4.map(items => (
+              <View style={styles.buttonStyle}>
+                <ButtonRectangleV2
+                  content={isNaN(items.value) ? null : items.content}
+                  image={isNaN(items.value) ? items.content : null}
+                  imageHeight={items.value === 'dot' ? 5 : null}
+                  imagewidth={items.value === 'dot' ? 5 : null}
+                  textColor={colors.white1}
+                  fontSize={fonts.fs14}
+                  buttonColor={isNaN(items.value) ? 'transparent' : colors.buttonColor1}
+                  onPress={() => onPress(items.value)}
+                />
+              </View>
+            ))
+          ) : (
+            numPad5.map(items => (
+              <View style={styles.buttonStyle}>
+                <ButtonRectangleV2
+                  content={isNaN(items.value) ? null : items.content}
+                  image={isNaN(items.value) ? items.content : null}
+                  imageHeight={items.value === 'dot' ? 5 : null}
+                  imagewidth={items.value === 'dot' ? 5 : null}
+                  textColor={colors.white1}
+                  fontSize={fonts.fs14}
+                  buttonColor={isNaN(items.value) ? 'transparent' : colors.buttonColor1}
+                  onPress={() => onPress(items.value)}
+                />
+              </View>
+            ))
+          )
+        }
       </View>
     </View>
   </View>
@@ -180,7 +215,8 @@ const KeyboardNumeric = ({ onPress, isPercentageValue }) => (
 
 KeyboardNumeric.propTypes = {
   onPress: func,
-  isPercentageValue: bool
+  isPercentageValue: bool,
+  isDotImage: bool
 };
 
 export default KeyboardNumeric;
