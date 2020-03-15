@@ -13,9 +13,7 @@ const platform = Platform.OS;
 const styles = {
   buttonWrapper: {
     flexDirection: 'row',
-    width: '100%',
-    backgroundColor: 'white'
-    // justifyContent:'space-between'
+    width: '100%'
   },
   buttonStyle: {
     alignItems: 'center',
@@ -29,7 +27,6 @@ const styles = {
   },
   borderStyle: {
     borderWidth: 2,
-    borderColor: colors.white1,
     borderRadius: 2,
     height: 25
   },
@@ -47,7 +44,6 @@ const ButtonBorderV2 = ({
   buttonColor,
   disabledColor,
   textColorLeft,
-  textColorMiddle,
   textColorRight,
   buttonHeight = 80,
   fontSize,
@@ -64,7 +60,8 @@ const ButtonBorderV2 = ({
       onPress={onPressLeft}
       style={{
         flex: 1,
-        backgroundColor: buttonColor
+        backgroundColor: buttonColor,
+        borderBottomLeftRadius: inModal ? 15 : 0
       }}
       disabled={disabled}
       activeOpacity={0.8}
@@ -82,26 +79,11 @@ const ButtonBorderV2 = ({
         />
       </View>
     </TouchableOpacity>
-
-    {/* <View style={[styles.middleWrapper,
-      {
-        // marginTop: platform === 'android' ? 0 : 12,
-        backgroundColor: buttonColor,
-        // height: buttonHeight
-      }]}
-    >
-      <TextComponent
-        content={contentMiddle}
-        family={fonts.regular}
-        size={fontSize}
-        color={textColorMiddle}
-      />
-    </View> */}
     <View style={[styles.borderWrapper, {
-      marginTop: platform === 'android' ? 27 : 12
+      marginTop: platform === 'android' ? (inModal ? 14 : 27) : 12
     }]}
     >
-      <View style={styles.borderStyle} />
+      <View style={[styles.borderStyle, { borderColor: inModal ? colors.red2 : colors.white1 }]} />
     </View>
     <TouchableOpacity
       onPress={onPressRight}
@@ -114,7 +96,7 @@ const ButtonBorderV2 = ({
       activeOpacity={0.8}
     >
       <View style={[styles.buttonStyle, {
-        borderBottomLeftRadius: inModal ? 15 : 0,
+        borderBottomRightRadius: inModal ? 15 : 0,
         height: buttonHeight
       }]}
       >
@@ -134,14 +116,14 @@ ButtonBorderV2.propTypes = {
   contentRight: string.isRequired,
   buttonColor: string,
   textColorLeft: string,
-  textColorMiddle: string,
   textColorRight: string,
   buttonHeight: number,
   fontSize: number,
   onPressLeft: func,
   onPressRight: func,
   inModal: bool,
-  disabled: bool
+  disabled: bool,
+  disabledColor: string
 };
 
 

@@ -4,6 +4,7 @@ import { FabButton, TextComponent } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import assets from '../../assets';
 import { p15 } from '../../styles/commonStyle';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     top: '85%',
     height: '12%',
     width: '100%',
-    backgroundColor: colors.black,
+    // backgroundColor: colors.black,
     // zIndex: 1,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -91,23 +92,29 @@ const BottomMenu = () => {
 
   return (
     <View style={[styles.wrapper, p15]}>
-      <FabButton
-        childrenButtons={leftActions}
-        background={colors.secondary}
-        parentIcon={assets.Plus}
-      />
-      <TextComponent
-        content="Menu"
-        size={fonts.fs14}
-        family={fonts.regular}
-        color={colors.white}
-      />
-      <FabButton
-        childrenButtons={rightActions}
-        background={colors.secondary}
-        parentIcon={assets.Plus}
-        right
-      />
+      <View>
+        <FabButton
+          childrenButtons={leftActions}
+          background={colors.secondary}
+          parentIcon={assets.Plus}
+        />
+      </View>
+      <TouchableOpacity>
+        <TextComponent
+          content="Menu"
+          size={fonts.fs14}
+          family={fonts.regular}
+          color={colors.white}
+        />
+      </TouchableOpacity>
+      <View>
+        <FabButton
+          childrenButtons={rightActions}
+          background={colors.secondary}
+          parentIcon={assets.Plus}
+          right
+        />
+      </View>
     </View>
   );
 };

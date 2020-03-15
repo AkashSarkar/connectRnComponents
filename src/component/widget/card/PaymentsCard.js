@@ -15,7 +15,6 @@ const styles = {
   upperView: {
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderBottomColor: colors.white1
   },
@@ -26,6 +25,7 @@ const styles = {
     width: '50%',
     flexDirection: 'row',
     justifyContent: 'center',
+    paddingHorizontal: 20,
     borderRightWidth: 1,
     borderRightColor: colors.white1,
     paddingVertical: 12
@@ -35,6 +35,7 @@ const styles = {
     justifyContent: 'flex-end',
     flexDirection: 'row',
     width: '50%',
+    paddingHorizontal: 20,
     paddingVertical: 12
   },
   lowerView: {
@@ -55,25 +56,23 @@ const PaymentsCard = ({
 }) => (
   <View style={styles.container}>
     <View style={styles.upperView}>
-      <TouchableOpacity onPress={onPress} style={styles.leftUpperView}>
-        <View style={styles.leftUpper}>
-          <View style={{ paddingRight: 12 }}>
-            <TextComponent
-              color={colors.black0}
-              content={upperLeftContent}
-              size={fonts.fs14}
-              family={fonts.medium}
-            />
-          </View>
-          <Image
-            source={upperLeftIcon}
-            style={{
-              height: 14,
-              width: 14
-            }}
-            resizeMode="contain"
+      <TouchableOpacity onPress={onPress} style={[styles.leftUpperView, styles.leftUpper]}>
+        <View style={{ paddingRight: 12 }}>
+          <TextComponent
+            color={colors.black0}
+            content={upperLeftContent}
+            size={fonts.fs14}
+            family={fonts.medium}
           />
         </View>
+        <Image
+          source={upperLeftIcon}
+          style={{
+            height: 14,
+            width: 14
+          }}
+          resizeMode="contain"
+        />
       </TouchableOpacity>
       <View style={styles.rightUpper}>
 

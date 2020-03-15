@@ -2,13 +2,16 @@ import React from 'react';
 import {
   View, Image, StyleSheet, TouchableOpacity
 } from 'react-native';
-// import { TextComponent } from '@appscftl/connect-rn-components';
-import { string, number, func } from 'prop-types';
-import { TextComponent } from '../../ui';
+import {
+  string, number, func, bool
+} from 'prop-types';
+import {
+  TextComponent,
+  ButtonSecondary
+} from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
 import assets from '../../../assets';
-// import assets from '../../../asset';
-// import { fonts, colors } from '../../../style/baseStyle';
+import { pr10, pt15, pl10 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
 
@@ -25,6 +28,29 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderColor: colors.secondary,
     borderWidth: 5
+  },
+  ChangeImageWrapper: {
+    position: 'absolute',
+    width: 66,
+    height: 24,
+    bottom: -10,
+    left: 13
+  },
+  contentProfile: {
+    paddingHorizontal: 40,
+    paddingTop: 20
+  },
+  assetsWrapper: {
+    flexDirection: 'row',
+    paddingHorizontal: 20
+  },
+  connectAssets: {
+    flexDirection: 'row',
+    paddingTop: 10
+  },
+  k1: {
+    paddingLeft: 35,
+    paddingRight: 10
   }
 });
 
@@ -32,9 +58,14 @@ const ProfileCardV2 = ({
   title,
   id,
   icon,
-  onPress
+  onPress,
+  isBusinessProfile,
+  isEmptyStoreName,
+  profileContent,
+  isChangeImage,
+  storeButton
 }) => (
-  <View>
+  <>
     <View style={styles.firstWrapper}>
       <View style={styles.imageWrapper}>
         <Image
@@ -45,6 +76,22 @@ const ProfileCardV2 = ({
           }}
           resizeMode="contain"
         />
+        {
+            isChangeImage && (
+              <TouchableOpacity
+                hitSlop={{
+                  top: 20, bottom: 20, left: 20, right: 20
+                }}
+                onPress={() => console.log('Change')}
+              >
+                <Image
+                  source={assets.RemoveBTN}
+                  style={styles.ChangeImageWrapper}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
+            )
+          }
       </View>
       <View style={styles.firstRightWrapper}>
         <TextComponent
@@ -63,78 +110,120 @@ const ProfileCardV2 = ({
         </View>
       </View>
     </View>
-    <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
-      <TouchableOpacity onPress={onPress}>
-        <View style={{ paddingLeft: 10, paddingTop: 13 }}>
-          <View>
-            <Image
-              source={assets.Location}
-              style={{
-                height: 24,
-                width: 80
-              }}
-              resizeMode="contain"
-            />
-          </View>
-        </View>
-      </TouchableOpacity>
-      <View style={{ flexDirection: 'row', paddingTop: 10 }}>
-        <TouchableOpacity>
-          <View style={{ paddingLeft: 35, paddingRight: 10 }}>
+    {
+        isBusinessProfile && (
+          <View style={styles.contentProfile}>
+            {
+              isEmptyStoreName && (
+                <ButtonSecondary
+                  isLeftIcon
+                  leftIcon={assets.Add2}
+                  content={storeButton}
+                  family={fonts.bold}
+                  buttonColor={colors.white1}
+                  buttonHeight={50}
+                  textColor={colors.secondary}
+                  fontSize={fonts.fs12}
+                  onPress={() => ''}
+                />
+              )
+            }
+            {
+              !isEmptyStoreName && (
+                <TextComponent
+                  content={profileContent}
+                  size={fonts.fs12}
+                  color={colors.secondary}
+                  family={fonts.bold}
+                />
+              )
+            }
 
-            <Image
-              source={assets.K1}
-              style={{
-                height: 30,
-                width: 30
-              }}
-              resizeMode="contain"
-            />
-
           </View>
-        </TouchableOpacity>
+        )
+      }
+    {
+        !isBusinessProfile && (
+          <View style={styles.assetsWrapper}>
+            <TouchableOpacity onPress={onPress}>
+              <View style={[pl10, pt15]}>
+                <View>
+                  <Image
+                    source={assets.Location}
+                    style={{
+                      height: 24,
+                      width: 80
+                    }}
+                    resizeMode="contain"
+                  />
+                </View>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.connectAssets}>
+              <TouchableOpacity>
 
-        <TouchableOpacity>
-          <View style={{ paddingRight: 10 }}>
+                <View style={styles.k1}>
+                  <Image
+                    source={assets.K1}
+                    style={{
+                      height: 30,
+                      width: 30
+                    }}
+                    resizeMode="contain"
+                  />
 
-            <Image
-              source={assets.ConnectCode}
-              style={{
-                height: 30,
-                width: 30
-              }}
-              resizeMode="contain"
-            />
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <View style={pr10}>
+
+                  <Image
+                    source={assets.ConnectCode}
+                    style={{
+                      height: 30,
+                      width: 30
+                    }}
+                    resizeMode="contain"
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <View>
+                  <Image
+                    source={assets.ConnectCredit}
+                    style={{
+                      height: 30,
+                      width: 30
+                    }}
+                    resizeMode="contain"
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View>
-            <Image
-              source={assets.ConnectCredit}
-              style={{
-                height: 30,
-                width: 30
-              }}
-              resizeMode="contain"
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
-  </View>
+        )
+      }
+  </>
 );
 
 ProfileCardV2.defaultProps = {
   title: 'Incepta Pharmaceutical Ltd',
   id: '1234 1700 20011',
-  icon: assets.Store
+  icon: assets.Store,
+  profileContent: 'Lazz Pharma'
 };
 
 ProfileCardV2.propTypes = {
   title: string,
   id: string,
   icon: number,
-  onPress: func
+  onPress: func,
+  isBusinessProfile: bool,
+  isEmptyStoreName: bool,
+  profileContent: string,
+  isChangeImage: bool,
+  storeButton: string
 };
 
 export default ProfileCardV2;

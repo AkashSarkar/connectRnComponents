@@ -40,7 +40,7 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0.6)'
   },
   label: {
-    // flex: 1,
+    flex: 1,
     color: colors.white1,
     position: 'absolute',
     // fontSize: 14,
@@ -121,7 +121,7 @@ const FabButton = (
               }, {
                 translateY: animation.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [0, -item.translate],
+                  outputRange: [-10, -item.translate],
                   extrapolate: 'clamp'
                 })
               }]

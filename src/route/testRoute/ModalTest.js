@@ -447,7 +447,7 @@ class ModalTest extends React.Component {
               onPress={this.toggleModalDouble}
             />
             <ModalDouble
-              isDescription
+              isPayment
               borderButtonColor={colors.black0}
               modalTitle="Select account"
               modalTitleBottom="Card payments with"
