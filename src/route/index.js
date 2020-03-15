@@ -74,7 +74,7 @@ const AppNavigator = createStackNavigator(
     FabTest
   },
   {
-    initialRouteName: 'WidgetL2Test',
+    initialRouteName: 'Home',
     headerMode: 'none'
   }
 );
