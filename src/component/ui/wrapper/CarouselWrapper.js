@@ -54,7 +54,7 @@ const CarouselWrapper = ({
     <Pagination
       dotsLength={componentArray.length}
       activeDotIndex={activeTab}
-      containerStyle={{ paddingTop: 0 }}
+      containerStyle={{ paddingTop: 10 }}
       dotStyle={[styles.activeDotStyle, { backgroundColor: dotStyleColor || colors.primary }]}
       inactiveDotStyle={[styles.inactiveDotStyle, { borderColor: inactiveDotStyleColor || colors.primary }]}
       inactiveDotOpacity={0.9}

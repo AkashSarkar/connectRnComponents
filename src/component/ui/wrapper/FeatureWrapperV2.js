@@ -19,7 +19,8 @@ const FeatureWrapperV2 = (
     rightIcon,
     titleTextColor,
     leftPressAction,
-    rightPressAction
+    rightPressAction,
+    titleTextfamily
   }
 ) => {
   const styles = {
@@ -64,7 +65,7 @@ const FeatureWrapperV2 = (
             content={title}
             size={fonts.fs20}
             color={titleTextColor}
-            family={fonts.light}
+            family={titleTextfamily || fonts.light}
           />
         )}
         <TouchableOpacity

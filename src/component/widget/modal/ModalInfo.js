@@ -54,8 +54,8 @@ const ModalInfo = ({
   mapItems
 }) => {
 
-  console.log("----",mapItems[0].store_name);
-
+  // console.log("----",mapItems[0].store_name);
+  //
   const lan = mapItems[0].location.coordinate.lan;
   const lat = mapItems[0].location.coordinate.lat;
   const title = mapItems[0].store_name;
@@ -138,7 +138,7 @@ const ModalInfo = ({
                   borderRadius: 16,
                   paddingHorizontal: 28
                 }}
-                onPress={()=>mapOpen(lat, lan, title)}
+                onPress={() => mapOpen(lat, lan, title)}
               />
             </View>
           </View>

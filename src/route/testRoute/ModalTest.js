@@ -462,22 +462,22 @@ class ModalTest extends React.Component {
               }}
             />
           </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Info"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalInfo}
-            />
-            <ModalInfo
-              isVisible={this.state.isModalInfoVisible}
-              onBackButtonPress={this.handleCloseModalInfo}
-              onClose={this.handleCloseModalInfo}
-              items={DataModalInfo}
-              modalInfoColor={modalInfoColor}
-            />
-          </View>
+          {/*<View style={styles.viewWrapper}>*/}
+          {/*  <ButtonPrimary*/}
+          {/*    content="Modal Info"*/}
+          {/*    buttonColor={gradientColors.gradient5}*/}
+          {/*    textColor={colors.bgPrimary}*/}
+          {/*    fontSize={fonts.fs14}*/}
+          {/*    onPress={this.toggleModalInfo}*/}
+          {/*  />*/}
+          {/*  <ModalInfo*/}
+          {/*    isVisible={this.state.isModalInfoVisible}*/}
+          {/*    onBackButtonPress={this.handleCloseModalInfo}*/}
+          {/*    onClose={this.handleCloseModalInfo}*/}
+          {/*    items={DataModalInfo}*/}
+          {/*    modalInfoColor={modalInfoColor}*/}
+          {/*  />*/}
+          {/*</View>*/}
           <View style={styles.viewWrapper}>
             <ButtonPrimary
               content="Modal FamilyList"
@@ -621,7 +621,7 @@ class ModalTest extends React.Component {
               items={DataModalInvoiceList}
             />
           </View>
-         
+
         </SafeAreaView>
       </ScrollView>
     );
