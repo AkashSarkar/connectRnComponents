@@ -51,14 +51,14 @@ const QRScanner = ({ onScan, onCancel }) => {
       }}
     >
       <View style={styles.overlayContainer} />
-      <View style={styles.cancelBtn}>
+      {/* <View style={styles.cancelBtn}>
         <ButtonPrimary
           buttonColor={gradientColors.gradientPrimary}
           textColor={colors.white1}
           content="Cancel"
           onPress={onCancel}
         />
-      </View>
+      </View> */}
     </RNCamera>
   );
 

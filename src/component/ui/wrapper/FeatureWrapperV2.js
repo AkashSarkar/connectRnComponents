@@ -85,8 +85,6 @@ const FeatureWrapperV2 = (
   );
 };
 FeatureWrapperV2.defaultProps = {
-  // leftIcon: assets.LeftArrow,
-  rightIcon: assets.Cross,
   titleTextColor: colors.red
 };
 FeatureWrapperV2.propTypes = {
