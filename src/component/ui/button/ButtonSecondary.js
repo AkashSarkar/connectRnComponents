@@ -3,7 +3,7 @@ import {
   Platform, StyleSheet, TouchableOpacity, Image, View
 } from 'react-native';
 import {
-  array, bool, func, number, string
+  bool, func, number, string
 } from 'prop-types';
 import TextComponent from '../typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';

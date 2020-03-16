@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  TouchableOpacity, StyleSheet, View, Image
+  TouchableOpacity, StyleSheet
 } from 'react-native';
 import {
-  string, func, array, number
+  string, func, number
 } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';

@@ -4,6 +4,7 @@ import { string, array } from 'prop-types';
 import ButtonSecondaryBadge from '../button/ButtonSecondaryBadge';
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
+
 const screenHeight = Math.round(Dimensions.get('window').height);
 
 const styles = StyleSheet.create({
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
 });
 
 const HeaderPrimary = ({ content, buttonItems }) => {
-  const _badgeButtons = buttonItems.map((item, index) => (
+  const badgeButtons = buttonItems.map((item, index) => (
     <View key={index} style={styles.rightViewWrapper}>
       <ButtonSecondaryBadge
         content={item.content}
@@ -37,7 +38,7 @@ const HeaderPrimary = ({ content, buttonItems }) => {
   return (
     <View style={styles.container}>
       <TextComponent content={content} size={screenHeight >= 670 ? fonts.fs20 : fonts.fs14} color={colors.text1} />
-      {_badgeButtons}
+      {badgeButtons}
     </View>
   );
 };

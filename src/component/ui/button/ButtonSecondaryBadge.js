@@ -4,7 +4,7 @@ import { string, func, number } from 'prop-types';
 import { fonts, colors } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import {
-  pv8, mh10, mh5, ph10, ph5
+  pv8
 } from '../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
@@ -67,7 +67,12 @@ const ButtonSecondaryBadge = ({
 ButtonSecondaryBadge.propTypes = {
   content: string.isRequired,
   badgeCount: number,
-  onPress: func
+  onPress: func,
+  buttonColor: string,
+  textColorContent: string,
+  textColorBadge: string,
+  fontSizeText: number,
+  fontSizeBadge: number
 };
 
 ButtonSecondaryBadge.defaultProps = {

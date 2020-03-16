@@ -8,7 +8,6 @@ import {
 import { colors, fonts } from '../../../styles/baseStyle';
 import TextComponent from '../typography/TextComponent';
 import { pv5 } from '../../../styles/commonStyle';
-import image from '../../../assets';
 
 const styles = StyleSheet.create({
   buttonWrapper: {

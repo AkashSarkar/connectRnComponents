@@ -59,7 +59,7 @@ const Input = forwardRef(
       isError,
       iconSource,
       isIcon,
-      secureTextEntry,
+      secureTextEntry
     },
     ref,
   ) => {
@@ -95,7 +95,7 @@ const Input = forwardRef(
       <View style={[style.wrapperStyle, borderStyle(), { opacity: disable ? 0.2 : 1.0 }]}>
         {isIcon && (
           <View style={[mr5, mb5]}>
-            <Image source={iconSource} style={style.iconStyle}/>
+            <Image source={iconSource} style={style.iconStyle} />
           </View>
         )}
         <TextInput

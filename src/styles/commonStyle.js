@@ -108,6 +108,9 @@ export const ph90 = {
 export const pv5 = {
   paddingVertical: 5
 };
+export const pv8 = {
+  paddingVertical: 8
+};
 export const pv10 = {
   paddingVertical: 10
 };
