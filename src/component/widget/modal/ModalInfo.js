@@ -50,15 +50,8 @@ const ModalInfo = ({
   onClose,
   items,
   modalInfoColor,
-  mapOpen,
-  mapItems
+  mapOpen
 }) => {
-
-  // console.log("----",mapItems[0].store_name);
-  //
-  const lan = mapItems[0].location.coordinate.lan;
-  const lat = mapItems[0].location.coordinate.lat;
-  const title = mapItems[0].store_name;
 
   const renderItem = item => (
     <View style={{
@@ -138,7 +131,7 @@ const ModalInfo = ({
                   borderRadius: 16,
                   paddingHorizontal: 28
                 }}
-                onPress={() => mapOpen(lat, lan, title)}
+                onPress={mapOpen}
               />
             </View>
           </View>
