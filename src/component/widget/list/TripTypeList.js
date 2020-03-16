@@ -28,7 +28,7 @@ const TripTypeList = ({
       items.map((item, index) => (
         <View key={item.id} style={mr10}>
           <TripType
-            logo={item.logo}
+            logo={{ uri: item.logo }}
             title={item.title}
             onPress={() => onPress(index)}
           />

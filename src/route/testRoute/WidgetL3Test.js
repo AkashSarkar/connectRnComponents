@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { colors, fonts } from '../../styles/baseStyle';
-import { TextComponent } from '../../component/ui';
+import { TextComponent, FeatureWrapperV2 } from '../../component/ui';
 import { mb10, pb10, mb20 } from '../../styles/commonStyle';
 import {
   HotelList,
@@ -14,6 +14,7 @@ import {
   Checkout,
   QuickAmount
 } from '../../component/widget';
+import assets from '../../assets';
 
 const WidgetL2Test = ({ navigation }) => {
   const paymentInformation = [
@@ -343,156 +344,166 @@ const WidgetL2Test = ({ navigation }) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={screenContainer}>
-      <View style={mb10}>
-        <TextComponent
-          size={fonts.fs30}
-          color={colors.black0}
-          content="List"
-          family={fonts.bold}
-        />
-      </View>
+    <FeatureWrapperV2
+      title=" Test"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
+      <ScrollView contentContainerStyle={screenContainer}>
+        <View style={mb10}>
+          <TextComponent
+            size={fonts.fs30}
+            color={colors.black0}
+            content="List"
+            family={fonts.bold}
+          />
+        </View>
 
-      <View style={[pb10]}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/PaymentInfo"
-          family={fonts.bold}
-        />
-        <PaymentInfo
-          paymentInformation={paymentInformation}
-          title="Pizza Hut"
-          paymentDate="24-06-2019"
-          totalAmount={12000}/>
-      </View>
-      {/* list/PaymentInfo */}
+        <View style={[pb10]}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/PaymentInfo"
+            family={fonts.bold}
+          />
+          <PaymentInfo
+            paymentInformation={paymentInformation}
+            title="Pizza Hut"
+            paymentDate="24-06-2019"
+            totalAmount={12000}
+          />
+        </View>
+        {/* list/PaymentInfo */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/MenuStack"
-          family={fonts.bold}
-        />
-        <MenuStackList
-          items={menus}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/MenuStack */}
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/MenuStack"
+            family={fonts.bold}
+          />
+          <MenuStackList
+            items={menus}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/MenuStack */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/BrandStack"
-          family={fonts.bold}
-        />
-        <BrandStackList
-          items={brands}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/BrandStack */}
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/BrandStack"
+            family={fonts.bold}
+          />
+          <BrandStackList
+            items={brands}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/BrandStack */}
 
-      <View style={[pb10]}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/Checkout"
-          family={fonts.bold}
-        />
-        <Checkout
-          onPressQuantity={checkoutQuantity}
-          totalAmount={1650}
-          checkoutSummary={checkoutSummary}
-          totalQuantity={3}
-        />
-      </View>
-      {/*list/Checkout*/}
+        <View style={[pb10]}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/Checkout"
+            family={fonts.bold}
+          />
+          <Checkout
+            onPressQuantity={checkoutQuantity}
+            totalAmount={1650}
+            checkoutSummary={checkoutSummary}
+            totalQuantity={3}
+          />
+        </View>
+        {/* list/Checkout */}
 
-      <View style={[pb10]}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/QuickAmount"
-          family={fonts.bold}
-        />
-        <QuickAmount amounts={quickAmounts} />
-      </View>
-      {/* list/QuickAmount */}
+        <View style={[pb10]}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/QuickAmount"
+            family={fonts.bold}
+          />
+          <QuickAmount amounts={quickAmounts} />
+        </View>
+        {/* list/QuickAmount */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/Hotel"
-          family={fonts.bold}
-        />
-        <HotelList
-          items={hotels}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/Hotel */}
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/Hotel"
+            family={fonts.bold}
+          />
+          <HotelList
+            items={hotels}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/Hotel */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/TripType"
-          family={fonts.bold}
-        />
-        <TripTypeList
-          items={trips}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/TripType */}
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/TripType"
+            family={fonts.bold}
+          />
+          <TripTypeList
+            items={trips}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/TripType */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/Expense"
-          family={fonts.bold}
-        />
-        <ExpenseList
-          items={expense}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/TripType */}
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/Expense"
+            family={fonts.bold}
+          />
+          <ExpenseList
+            items={expense}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/TripType */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="list/AvatarList"
-          family={fonts.bold}
-        />
-        <AvatarList
-          items={avater}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/AvatarList */}
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="list/AvatarList"
+            family={fonts.bold}
+          />
+          <AvatarList
+            items={avater}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/AvatarList */}
 
-      <View style={mb20}>
-        <TextComponent
-          size={fonts.fs20}
-          color={colors.secondary}
-          content="List/AvatarList"
-          family={fonts.bold}
-        />
-        <AvatarList
-          items={avater2}
-          onPress={id => console.log(id)}
-        />
-      </View>
-      {/* list/AvatarList */}
-    </ScrollView>
+        <View style={mb20}>
+          <TextComponent
+            size={fonts.fs20}
+            color={colors.secondary}
+            content="List/AvatarList"
+            family={fonts.bold}
+          />
+          <AvatarList
+            items={avater2}
+            onPress={id => console.log(id)}
+          />
+        </View>
+        {/* list/AvatarList */}
+      </ScrollView>
+    </FeatureWrapperV2>
   );
 };
 

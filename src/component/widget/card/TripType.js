@@ -41,7 +41,7 @@ const TripType = ({
     <View style={styles.topWrapper}>
       <Image
         style={styles.imagestyle}
-        source={{ url: logo }}
+        source={logo}
       />
     </View>
     <View style={styles.bottomWrapper}>

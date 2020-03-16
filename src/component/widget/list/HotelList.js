@@ -22,7 +22,7 @@ const Hotellist = ({
       items.map((item, index) => (
         <HotelItem
           key={item.id}
-          logo={item.logo}
+          logo={{ uri: item.logo }}
           title={item.title}
           subtitle={item.subtitle}
           price={item.price}

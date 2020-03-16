@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { CarouselWrapper } from '../../component/ui';
+import { CarouselWrapper, FeatureWrapperV2 } from '../../component/ui';
 import { fonts, colors, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
 import { Notification } from '../../component/widget/interactive';
 import AccountSliderItem from '../../component/widget/card/AccountSliderItem';
 
-const CCMTest = () => {
+const CCMTest = ({ navigation }) => {
   const handleAccountSliderItem = () => {
     alert('AccountSliderItem');
   };
@@ -56,14 +56,23 @@ const CCMTest = () => {
     return components;
   };
   return (
-    <View style={{ paddingTop: 15 }}>
-      <CarouselWrapper
-        activeIndex={2}
-        componentArray={notifications()}
-        isPagination
-        isMaxWidth
-      />
-    </View>
+    <FeatureWrapperV2
+      title=" Test"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
+      <View style={{ paddingTop: 15 }}>
+        <CarouselWrapper
+          activeIndex={2}
+          componentArray={notifications()}
+          isPagination
+          isMaxWidth
+        />
+      </View>
+    </FeatureWrapperV2>
   );
 };
 

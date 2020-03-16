@@ -28,7 +28,7 @@ const AvatarList = ({
       items.map((item, index) => (
         <View key={item.id} style={mr10}>
           <Avatar
-            logo={item.logo}
+            logo={{ uri: item.logo }}
             onPress={() => onPress(index)}
             status={item.status}
             disabled={item.disabled}

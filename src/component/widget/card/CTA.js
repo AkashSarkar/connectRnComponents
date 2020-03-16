@@ -9,7 +9,7 @@ import image from '../../../assets';
 const styles = {
   wrapper: {
     width: '100%',
-    height: '100%',
+    height: 150,
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: colors.grey2,
@@ -41,7 +41,7 @@ const CTA = (
 ) => (
   <TouchableOpacity onPress={onPress} style={styles.wrapper}>
     <View style={styles.leftStyle}>
-      <Image style={styles.imageStyle} source={logo || image.SendMoney}/>
+      <Image style={styles.imageStyle} source={logo || image.SendMoney} />
     </View>
     <View style={[styles.rightStyle, mb10]}>
       <TextComponent

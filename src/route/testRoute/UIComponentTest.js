@@ -19,7 +19,8 @@ import {
   HeaderTop,
   MenuItem,
   TextComponent,
-  ButtonRectangle
+  ButtonRectangle,
+  FeatureWrapperV2
 } from '../../component/ui';
 import { mb10, p10, pb10 } from '../../styles/commonStyle';
 import BoxShadow from '../../component/ui/wrapper/BoxShadow';
@@ -60,7 +61,14 @@ const UIComponentTest = ({ navigation }) => {
 
 
   return (
-    <SafeAreaView>
+    <FeatureWrapperV2
+      title="Input"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
       <ScrollView contentContainerStyle={screenContainer}>
         <View>
           <View style={[pb10]}>
@@ -637,7 +645,7 @@ const UIComponentTest = ({ navigation }) => {
         </View>
 
       </ScrollView>
-    </SafeAreaView>
+    </FeatureWrapperV2>
   );
 };
 export default UIComponentTest;

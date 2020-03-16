@@ -1,7 +1,8 @@
 import React from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
-import { ButtonPrimary } from '../../component/ui';
+import { ButtonPrimary, FeatureWrapperV2 } from '../../component/ui';
 import { colors, gradientColors } from '../../styles/baseStyle';
+import assets from '../../assets';
 
 const screenContainer = {
   height: '100%',
@@ -12,7 +13,14 @@ const screenContainer = {
 };
 
 const TestRoute = ({ navigation }) => (
-  <SafeAreaView>
+  <FeatureWrapperV2
+    title="TestRoute"
+    backgroundColor={colors.white1}
+    titleTextColor={colors.secondary}
+    rightIcon={assets.CrossDark}
+    style={{ flex: 1 }}
+    rightPressAction={() => navigation.goBack()}
+  >
     <ScrollView contentContainerStyle={screenContainer}>
       <ButtonPrimary
         buttonColor={gradientColors.gradient5}
@@ -55,7 +63,7 @@ const TestRoute = ({ navigation }) => (
         onPress={() => navigation.navigate('PickerTest')}
       />
     </ScrollView>
-  </SafeAreaView>
+  </FeatureWrapperV2>
 );
 
 export default TestRoute;

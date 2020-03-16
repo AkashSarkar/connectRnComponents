@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { AccountGraph, BottomDrawer } from '../../component/widget';
+import { colors } from '../../styles/baseStyle';
+import assets from '../../assets';
+import { FeatureWrapperV2 } from '../../component/ui';
 
-const GraphTest = () => {
+const GraphTest = ({ navigation }) => {
   const [data, setDate] = useState([
     { x: new Date(2018, 9, 1), y: 800 },
     { x: new Date(2018, 9, 16), y: 1000 },
@@ -14,19 +17,28 @@ const GraphTest = () => {
   ]);
 
   return (
-    <View
-      style={{
-        paddingTop: 50,
-        flex: 1
-      }}
+    <FeatureWrapperV2
+      title=" Test"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
     >
-      <BottomDrawer>
-        <AccountGraph
-          data={data}
-          onCursorStop={idx => console.log('index', idx)}
-        />
-      </BottomDrawer>
-    </View>
+      <View
+        style={{
+          paddingTop: 50,
+          flex: 1
+        }}
+      >
+        <BottomDrawer>
+          <AccountGraph
+            data={data}
+            onCursorStop={idx => console.log('index', idx)}
+          />
+        </BottomDrawer>
+      </View>
+    </FeatureWrapperV2>
   );
 };
 
