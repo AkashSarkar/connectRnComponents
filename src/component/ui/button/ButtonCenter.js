@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  TouchableOpacity, StyleSheet, ActivityIndicator, Image, View
+  TouchableOpacity, StyleSheet, Image, View
 } from 'react-native';
 import { number, string, func } from 'prop-types';
 import { colors, fonts } from '../../../styles/baseStyle';
