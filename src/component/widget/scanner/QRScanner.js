@@ -4,6 +4,7 @@ import { RNCamera } from 'react-native-camera';
 import { func } from 'prop-types';
 import ButtonPrimary from '../../ui/button/ButtonPrimary';
 import { gradientColors, colors } from '../../../styles/baseStyle';
+import BarcodeMask from '../../../../../../../src/features/dashboard/BarcodeMask';
 
 const styles = StyleSheet.create({
   container: {
@@ -50,8 +51,8 @@ const QRScanner = ({ onScan, onCancel }) => {
         }
       }}
     >
-      <View style={styles.overlayContainer} />
-      {/* <View style={styles.cancelBtn}>
+      {/* <View style={styles.overlayContainer} />
+      <View style={styles.cancelBtn}>
         <ButtonPrimary
           buttonColor={gradientColors.gradientPrimary}
           textColor={colors.white1}
@@ -59,6 +60,8 @@ const QRScanner = ({ onScan, onCancel }) => {
           onPress={onCancel}
         />
       </View> */}
+      
+      <BarcodeMask showAnimatedLine={false}/>
     </RNCamera>
   );
 
