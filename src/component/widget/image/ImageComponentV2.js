@@ -5,7 +5,7 @@ import {
   func, string, bool, array, number
 } from 'prop-types';
 import {
-  FeatureWrapperV2, ButtonDoubleV2
+  FeatureWrapperV2, ButtonDoubleV2, ButtonBorderV2
 } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
 
 const ImageComponentV2 = (
   {
-    onImageCapture, isOverlay, cameraType, buttonColor, title, leftIcon, rightIcon
+    onImageCapture, isOverlay, cameraType, buttonColor,
+    title, leftIcon, rightIcon, leftPressAction, rightPressAction
   }
 ) => {
   const [imageUri, setImageUri] = useState(null);
@@ -95,38 +96,44 @@ const ImageComponentV2 = (
       <ModalComponent isVisible={isPreview} setVisible={setIsPreview}>
         <View style={styles.container}>
           <ImageBackground source={imageUri} style={styles.imagePreview} />
-          <ButtonDoubleV2
+          <ButtonBorderV2
             contentLeft="Confirm"
             contentRight="Re/Capture"
             buttonColor={buttonColor || colors.black10}
-            textColorLeft={colors.bgPrimary}
-            textColorRight={colors.black1}
+            textColorLeft={colors.white1}
+            textColorRight={colors.white1}
             fontSize={fonts.fs18}
             onPressLeft={confirmPicture}
             onPressRight={reCapture}
           />
         </View>
       </ModalComponent>
-      <FeatureWrapperV2 title={title} leftIcon={leftIcon} rightIcon={rightIcon}>
+      <FeatureWrapperV2
+        title={title}
+        leftIcon={leftIcon}
+        rightIcon={rightIcon}
+        leftPressAction={leftPressAction}
+        rightPressAction={rightPressAction}
+      >
         {!isPreview && (
-        <RNCamera
-          ref={(ref) => {
-            camera = ref;
-          }}
-          style={styles.cameraView}
-          type={cameraType}
-          autoFocus="on"
-          whiteBalance="auto"
-          ratio="4:3"
-          captureAudio={false}
-        >
-          {isOverlay && (
-          <View style={styles.overlayContainer} />
-          )}
-          <View style={styles.captureBtnWrapper}>
-            <ButtonCapture onPress={takePicture} />
-          </View>
-        </RNCamera>
+          <RNCamera
+            ref={(ref) => {
+              camera = ref;
+            }}
+            style={styles.cameraView}
+            type={cameraType}
+            autoFocus="on"
+            whiteBalance="auto"
+            ratio="4:3"
+            captureAudio={false}
+          >
+            {isOverlay && (
+              <View style={styles.overlayContainer} />
+            )}
+            <View style={styles.captureBtnWrapper}>
+              <ButtonCapture onPress={takePicture} />
+            </View>
+          </RNCamera>
         )}
       </FeatureWrapperV2>
     </View>
@@ -137,10 +144,12 @@ ImageComponentV2.propTypes = {
   onImageCapture: func.isRequired,
   cameraType: string,
   isOverlay: bool,
-  buttonColor: array.isRequired,
+  buttonColor: string.isRequired,
   title: string,
   leftIcon: number,
-  rightIcon: number
+  rightIcon: number,
+  rightPressAction: func,
+  leftPressAction: func
 
 };
 

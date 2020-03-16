@@ -2,12 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { mb10, mt10, p10 } from '../../styles/commonStyle';
 import assets from '../../assets';
-import { TextComponent } from '../../component/ui';
+import { TextComponent, FeatureWrapperV2 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import FnfMember from '../../component/widget/interactive/fnf/FnfMember';
 import FnfList from '../../component/widget/interactive/fnf/FnfList';
 
-const FnfTest = () => {
+const FnfTest = ({ navigation }) => {
   const mapFnfs = () => (
     [
       {
@@ -94,16 +94,16 @@ const FnfTest = () => {
         ]
       }
     ]
-  )
+  );
   const deleteAction = () => {
     alert('delete');
-  }
+  };
   const pauseAction = () => {
     alert('Pause');
-  }
+  };
   const editAction = () => {
     alert('Edit');
-  }
+  };
   const mapRightActions = () => {
     const { Delete, Pause, Edit } = assets;
     return (
@@ -131,9 +131,16 @@ const FnfTest = () => {
         }
       ]
     );
-  }
+  };
   return (
-    <View>
+    <FeatureWrapperV2
+      title="TestRoute"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
       <View style={[p10, mt10]}>
         <View style={mb10}>
           <TextComponent
@@ -188,7 +195,7 @@ const FnfTest = () => {
           leftActions={null}
         />
       </View>
-    </View>
+    </FeatureWrapperV2>
   );
-}
+};
 export default FnfTest;

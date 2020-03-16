@@ -1,35 +1,36 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {pb6} from "../styles/commonStyle";
+import { StyleSheet, View } from 'react-native';
+import { object, string, number } from 'prop-types';
 import TextComponent from '../component/ui/typography/TextComponent';
-import {string, number, object} from 'prop-types';
+import { pb6 } from '../styles/commonStyle';
 
-const AmountWidget = ({appendText, amount, amountStyle, decimalStyle}) => {
-
+const AmountWidget = ({
+  appendText, amount, amountStyle, decimalStyle
+}) => {
   const styles = StyleSheet.create({
     amountTextWrapper: {
       flexDirection: 'row',
-      justifyContent: 'flex-start',
     },
     decimalWrapper: {
-      alignSelf: 'flex-end',
     }
   });
 
   let givenAmount = parseFloat(amount).toFixed(2);
   givenAmount = givenAmount.split('.');
-  let _amount = (givenAmount[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  let _decimal = givenAmount[1];
+  const _amount = (givenAmount[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const _decimal = givenAmount[1];
 
   return (
     <View style={styles.amountTextWrapper}>
 
-      {appendText !== '' ? <TextComponent
-        content={appendText}
-        family={amountStyle.fontFamily}
-        size={amountStyle.size}
-        color={amountStyle.color}
-      /> : ''}
+      {appendText !== '' ? (
+        <TextComponent
+          content={appendText}
+          family={amountStyle.fontFamily}
+          size={amountStyle.size}
+          color={amountStyle.color}
+        />
+      ) : ''}
 
       <TextComponent
         content={_amount}
@@ -51,9 +52,9 @@ const AmountWidget = ({appendText, amount, amountStyle, decimalStyle}) => {
 };
 AmountWidget.propTypes = {
   appendText: string,
-  amountStyle: object.isRequired,
-  decimalStyle: object.isRequired,
-  amount: number.isRequired
+  amountStyle: object,
+  decimalStyle: object,
+  amount: number
 };
 
 AmountWidget.defaultProps = {

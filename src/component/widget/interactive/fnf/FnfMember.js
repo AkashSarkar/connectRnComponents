@@ -35,7 +35,7 @@ const FnfMember = (
       justifyContent: 'space-between',
       alignItems: 'center'
     }
-  }
+  };
   const fnfMember = () => (
     <View style={[styles.wrapper, p10]}>
       <View>
@@ -65,11 +65,11 @@ const FnfMember = (
       </View>
       {isConnect && (
         <View style={styles.rightChild}>
-          <Image source={assets.Connect} style={{ width: 60, height: 60 }}/>
+          <Image source={assets.Connect} style={{ width: 60, height: 60 }} />
         </View>
       )}
     </View>
-  )
+  );
   return (
     <SwipeableWrapper
       rightActions={rightActions}
@@ -82,7 +82,7 @@ const FnfMember = (
       </BoxShadow>
     </SwipeableWrapper>
   );
-}
+};
 FnfMember.propTypes = {
   name: string,
   number: string,
@@ -90,5 +90,5 @@ FnfMember.propTypes = {
   isConnect: bool,
   leftActions: object,
   rightActions: object
-}
+};
 export default FnfMember;

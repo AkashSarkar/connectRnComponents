@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 const FlatButtonV2 = ({
   content,
   textColor,
-  fontSize,
+  fontSize = 18,
   onPress,
   tickImage,
   disabled
@@ -43,7 +43,7 @@ const FlatButtonV2 = ({
   >
     <TextComponent
       content={content}
-      family={fonts.regular}
+      family={fonts.medium}
       size={fontSize}
       color={textColor}
     />
@@ -63,7 +63,8 @@ FlatButtonV2.propTypes = {
   textColor: string.isRequired,
   fontSize: number,
   onPress: func,
-  disabled: bool
+  disabled: bool,
+  tickImage: number
 };
 
 

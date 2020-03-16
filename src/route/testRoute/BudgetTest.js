@@ -12,10 +12,10 @@ import * as Animatable from 'react-native-animatable';
 import {
   mb10, mt10, p10, pl25
 } from '../../styles/commonStyle';
-import { HeaderTop, TextComponent } from '../../component/ui';
+import { HeaderTop, TextComponent, FeatureWrapperV2 } from '../../component/ui';
 import { budgetMultiShades, colors, fonts } from '../../styles/baseStyle';
 import Budget from '../../component/widget/interactive/budget/Budget';
-import assets from "../../assets";
+import assets from '../../assets';
 
 if (
   // layout animation is used.
@@ -126,14 +126,14 @@ const BudgetTest = ({ navigation }) => {
         }
       ]
     );
-  }
+  };
   let number = 9;
   /**
    * renders all nine sub budgets
    * animatable views are used for animation
    */
   const renderSubBudget = () => {
-    const colorsArray = [...budgetMultiShades, { color: colors.secondary }]
+    const colorsArray = [...budgetMultiShades, { color: colors.secondary }];
     return (
       mapBudget().map((item, index) => {
         number -= 1;
@@ -195,38 +195,47 @@ const BudgetTest = ({ navigation }) => {
     </View>
   );
   return (
-    <ScrollView>
-      <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
-      {renderAll ? (
-        <Animatable.View
-          animation="slideInDown"
-          duration={300}
-          iterationCount={1}
-        >
-          <View style={[p10, mt10]}>
-            <View style={mb10}>
-              <TextComponent
-                size={fonts.fs18}
-                color={colors.secondary}
-                content="interactive/Budget"
-                family={fonts.medium}
+    <FeatureWrapperV2
+      title=" Test"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
+      <ScrollView>
+        <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
+        {renderAll ? (
+          <Animatable.View
+            animation="slideInDown"
+            duration={300}
+            iterationCount={1}
+          >
+            <View style={[p10, mt10]}>
+              <View style={mb10}>
+                <TextComponent
+                  size={fonts.fs18}
+                  color={colors.secondary}
+                  content="interactive/Budget"
+                  family={fonts.medium}
+                />
+              </View>
+              <Budget
+                name="Shopping"
+                amount="10,000,000"
+                amountTitle="Budget Amount"
+                shadeColor={budgetMultiShades}
+                leftActions={mapLeftActions()}
+                rightActions={mapRightActions()}
               />
             </View>
-            <Budget
-              name="Shopping"
-              amount="10,000,000"
-              amountTitle="Budget Amount"
-              shadeColor={budgetMultiShades}
-              leftActions={mapLeftActions()}
-              rightActions={mapRightActions()}
-            />
-          </View>
-          {renderBudgetList()}
-        </Animatable.View>
-      ) : (
-        renderBudgetList()
-      )}
-    </ScrollView>
+            {renderBudgetList()}
+          </Animatable.View>
+        ) : (
+          renderBudgetList()
+        )}
+      </ScrollView>
+    </FeatureWrapperV2>
   );
 };
 export default BudgetTest;

@@ -37,6 +37,7 @@ const ProfileCardTest = () => {
         badgeTitle="Bronze"
       />
     </View>
+
   );
 };
 

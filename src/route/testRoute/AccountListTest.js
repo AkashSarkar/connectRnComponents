@@ -1,12 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 import { mb20, ph15 } from '../../styles/commonStyle';
-import { TextComponent } from '../../component/ui';
+import { TextComponent, FeatureWrapperV2 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 import AccountList from '../../component/widget/card/AccountList';
 import assets from '../../assets';
 
-const AccountListTest = () => {
+const AccountListTest = ({ navigation }) => {
   const accountData = [
     {
       accountName: 'Jamuna Bank',
@@ -51,15 +51,24 @@ const AccountListTest = () => {
     }
   ];
   return (
-    <View style={[mb20, ph15]}>
-      <TextComponent
-        size={fonts.fs20}
-        color={colors.secondary}
-        content="interactive/AccountList"
-        family={fonts.bold}
-      />
-      <AccountList accounts={accountData} />
-    </View>
+    <FeatureWrapperV2
+      title="Input"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
+      <View style={[mb20, ph15]}>
+        <TextComponent
+          size={fonts.fs20}
+          color={colors.secondary}
+          content="interactive/AccountList"
+          family={fonts.bold}
+        />
+        <AccountList accounts={accountData} />
+      </View>
+    </FeatureWrapperV2>
 
   );
 };

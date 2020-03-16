@@ -16,11 +16,12 @@ const styles = {
   },
   imagestyle: {
     borderRadius: 8,
-    height: 250
+    width: '100%',
+    height: 230
   },
   topWrapper: {
     width: '100%',
-    height: 250,
+    height: 230,
     borderRadius: 8,
     elevation: 1,
     shadowColor: colors.black0,
@@ -53,7 +54,7 @@ const HotelItem = ({
     <View style={[styles.topWrapper, mb20]}>
       <Image
         style={styles.imagestyle}
-        source={{ url: logo }}
+        source={logo}
       />
     </View>
     <View style={styles.bottomWrapper}>

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { Notification } from '../../component/widget/interactive';
-import { TextComponent, BoxShadow, CarouselWrapper } from '../../component/ui';
+import {
+  TextComponent, BoxShadow, CarouselWrapper, FeatureWrapperV2
+} from '../../component/ui';
 import { fonts, colors, gradientColors } from '../../styles/baseStyle';
 import assets from '../../assets';
 
-const NotificationTest = () => {
+const NotificationTest = ({ navigation }) => {
   const notifications = () => {
     const components = [];
 
@@ -56,9 +58,18 @@ const NotificationTest = () => {
   };
 
   return (
-    <View style={{ paddingTop: 15 }}>
-      <CarouselWrapper componentArray={notifications()} />
-    </View>
+    <FeatureWrapperV2
+      title=" Test"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
+      <View style={{ paddingTop: 15 }}>
+        <CarouselWrapper componentArray={notifications()} />
+      </View>
+    </FeatureWrapperV2>
   );
 };
 

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View, StyleSheet, ScrollView, SafeAreaView
 } from 'react-native';
-import { ButtonPrimary, HeaderTop } from '../../component/ui';
+import { ButtonPrimary, HeaderTop, FeatureWrapperV2 } from '../../component/ui';
 import { colors, fonts, gradientColors } from '../../styles/baseStyle';
 import {
   ModalSecondary,
@@ -10,9 +10,13 @@ import {
   ModalInfo,
   ModalFamilyList,
   ModalContact,
-  ModalDiscount,
-  ModalSecondaryV2
+  ModalDiscountV2,
+  ModalSecondaryV2,
+  ModalContactV2,
+  ModalAddDiscount,
+  ModalInvoiceList
 } from '../../component/widget';
+import assets from '../../assets';
 
 
 const DataModalSecondary = [
@@ -187,6 +191,24 @@ const DataModalFamilyList = [
     title: 'Friend’s Savings A/C'
   }
 ];
+const DataModalInvoiceList = [
+  {
+    id: '1',
+    title: 'Date',
+    details: '2019.MAY.28'
+  },
+  {
+    id: '2',
+    title: 'Invoice No.',
+    details: 'IN-00-123'
+  },
+  {
+    id: '3',
+    title: 'TxN ID',
+    details: 'TxN-123-456'
+  }
+];
+
 
 const styles = StyleSheet.create({
   container: {
@@ -198,10 +220,38 @@ const styles = StyleSheet.create({
     marginBottom: 40
   }
 });
+const discountV2Color = {
+  titleColor: colors.red2,
+  modalbgColor: colors.black9,
+  inputTextColor: colors.white1,
+  centerTextColor: colors.white1,
+  buttonbgColor: colors.black10,
+  pinButtonbgColor: colors.primary,
+  buttontextColor: colors.white1,
+  textAreabgColor: colors.buttonColor1
+};
+const contactV2Color = {
+  titleColor: colors.red2,
+  modalbgColor: colors.white1,
+  inputTextColor: colors.black0,
+  centerTextColor: colors.black0,
+  buttonbgColor: colors.black10,
+  buttontextColor: colors.black0,
+  textAreabgColor: colors.buttonColor1
+};
+const modalInfoColor = {
+  titleColor: colors.red2,
+  modalbgColor: colors.black,
+  textComponentColor1: colors.red2,
+  textComponentColor2: colors.white1
+};
 
 class ModalTest extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    header: <HeaderTop content="Modal Test" onPress={() => navigation.goBack()} />
+    header: <HeaderTop
+      content="Modal Test"
+      onPress={() => navigation.goBack()}
+    />
   });
 
 
@@ -214,7 +264,12 @@ class ModalTest extends React.Component {
       isModalInfoVisible: false,
       isModalFamilyList: false,
       isModalContact: false,
-      isModalDiscount: false
+      isModalInvoiceList: false,
+      isModalContactV2: false,
+      isModalDiscount: false,
+      isModalDiscountV2: false,
+      isModalAddDiscount: false,
+      isModalInvoiceList: false
     };
   }
 
@@ -254,9 +309,39 @@ class ModalTest extends React.Component {
     });
   };
 
+  toggleModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
+    });
+  };
+
+  toggleModalContactV2 = () => {
+    this.setState({
+      isModalContactV2: !this.state.isModalContactV2
+    });
+  };
+
+  toggleModalAddDiscount = () => {
+    this.setState({
+      isModalAddDiscount: !this.state.isModalAddDiscount
+    });
+  };
+
   toggleModalDiscount = () => {
     this.setState({
-      isModalDiscount: !this.state.isModalDiscount
+      isModalInvoiceList: !this.state.isModalInvoiceList
+    });
+  };
+
+  toggleModalDiscountV2 = () => {
+    this.setState({
+      isModalDiscountV2: !this.state.isModalDiscountV2
+    });
+  };
+
+  toggleModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
     });
   };
 
@@ -296,157 +381,260 @@ class ModalTest extends React.Component {
     });
   };
 
+  handleCloseModalContactV2 = () => {
+    this.setState({
+      isModalContactV2: !this.state.isModalContactV2
+    });
+  };
+
+  handleCloseModalAddDiscount = () => {
+    this.setState({
+      isModalAddDiscount: !this.state.isModalAddDiscount
+    });
+  };
+
   handleCloseModalDiscount = () => {
     this.setState({
-      isModalDiscount: !this.state.isModalDiscount
+      isModalInvoiceList: !this.state.isModalInvoiceList
+    });
+  };
+
+  handleCloseModalDiscountV2 = () => {
+    this.setState({
+      isModalDiscountV2: !this.state.isModalDiscountV2
+    });
+  };
+
+  handleCloseModalInvoiceList = () => {
+    this.setState({
+      isModalInvoiceList: !this.state.isModalInvoiceList
     });
   };
 
   render() {
     return (
-      <ScrollView>
-        <SafeAreaView style={styles.container}>
-          <HeaderTop content="Modal Test" onPress={() => this.props.navigation.goBack()} />
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Secondary"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalSecondary}
+      <FeatureWrapperV2
+        title="TestRoute"
+        backgroundColor={colors.white1}
+        titleTextColor={colors.secondary}
+        rightIcon={assets.CrossDark}
+        style={{ flex: 1 }}
+        rightPressAction={() => this.props.navigation.goBack()}
+      >
+        <ScrollView>
+          <SafeAreaView style={styles.container}>
+            <HeaderTop
+              content="Modal Test"
+              onPress={() => this.props.navigation.goBack()}
             />
-            <ModalSecondary
-              modalTitle="Modal Secondary"
-              isVisible={this.state.isModalSecondaryVisible}
-              onBackButtonPress={this.handleCloseModalSecondary}
-              onClose={this.handleCloseModalSecondary}
-              items={DataModalSecondary}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalSecondary();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Double"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalDouble}
-            />
-            <ModalDouble
-              modalTitle="Select account"
-              modalTitleBottom="Card payments with"
-              isVisible={this.state.isModalDoubleVisible}
-              onBackButtonPress={this.handleCloseModalDouble}
-              onClose={this.handleCloseModalDouble}
-              items={DataModalDouble}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalDouble();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Info"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalInfo}
-            />
-            <ModalInfo
-              isVisible={this.state.isModalInfoVisible}
-              onBackButtonPress={this.handleCloseModalInfo}
-              onClose={this.handleCloseModalInfo}
-              items={DataModalInfo}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal FamilyList"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleFamilyList}
-            />
-            <ModalFamilyList
-              modalTitle="Select Member"
-              isVisible={this.state.isModalFamilyList}
-              onBackButtonPress={this.handleCloseFamilyList}
-              onClose={this.handleCloseFamilyList}
-              onButtonPress={() => console.warn('add now')}
-              items={DataModalFamilyList}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseFamilyList();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Contact"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalContact}
-            />
-            <ModalContact
-              modalTitle="Email"
-              isVisible={this.state.isModalContact}
-              onBackButtonPress={this.handleCloseModalContact}
-              onClose={this.handleCloseModalContact}
-              onPress={this.handleCloseModalContact}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalContact();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal Discount"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalDiscount}
-            />
-            <ModalDiscount
-              modalTitle="Add discount"
-              modalTitleTextColor={colors.primary}
-              isVisible={this.state.isModalDiscount}
-              onBackButtonPress={this.handleCloseModalDiscount}
-              onClose={this.handleCloseModalDiscount}
-              onPress={this.handleCloseModalDiscount}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalDiscount();
-              }}
-            />
-          </View>
-          <View style={styles.viewWrapper}>
-            <ButtonPrimary
-              content="Modal SecondaryV2"
-              buttonColor={gradientColors.gradient5}
-              textColor={colors.bgPrimary}
-              fontSize={fonts.fs14}
-              onPress={this.toggleModalSecondaryV2}
-            />
-            <ModalSecondaryV2
-              modalTitle="Bank Name"
-              isVisible={this.state.isModalSecondaryV2Visible}
-              onBackButtonPress={this.handleCloseModalSecondaryV2}
-              onClose={this.handleCloseModalSecondaryV2}
-              items={DataModalSecondaryV2}
-              onSelect={(id) => {
-                console.warn('from top ', id);
-                this.handleCloseModalSecondaryV2();
-              }}
-            />
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="Modal Secondary"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalSecondary}
+              />
+              <ModalSecondary
+                modalTitle="Modal Secondary"
+                isVisible={this.state.isModalSecondaryVisible}
+                onBackButtonPress={this.handleCloseModalSecondary}
+                onClose={this.handleCloseModalSecondary}
+                items={DataModalSecondary}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalSecondary();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="Modal Double"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalDouble}
+              />
+              <ModalDouble
+                isPayment
+                borderButtonColor={colors.black0}
+                modalTitle="Select account"
+                modalTitleBottom="Card payments with"
+                titleColor={colors.red2}
+                DoubleColor={{ titleColor: 'red', buttonbgColor: 'red' }}
+                isVisible={this.state.isModalDoubleVisible}
+                onBackButtonPress={this.handleCloseModalDouble}
+                onClose={this.handleCloseModalDouble}
+                items={DataModalDouble}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalDouble();
+                }}
+              />
+            </View>
+            {/* <View style={styles.viewWrapper}> */}
+            {/*  <ButtonPrimary */}
+            {/*    content="Modal Info" */}
+            {/*    buttonColor={gradientColors.gradient5} */}
+            {/*    textColor={colors.bgPrimary} */}
+            {/*    fontSize={fonts.fs14} */}
+            {/*    onPress={this.toggleModalInfo} */}
+            {/*  /> */}
+            {/*  <ModalInfo */}
+            {/*    isVisible={this.state.isModalInfoVisible} */}
+            {/*    onBackButtonPress={this.handleCloseModalInfo} */}
+            {/*    onClose={this.handleCloseModalInfo} */}
+            {/*    items={DataModalInfo} */}
+            {/*    modalInfoColor={modalInfoColor} */}
+            {/*  /> */}
+            {/* </View> */}
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="Modal FamilyList"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleFamilyList}
+              />
+              <ModalFamilyList
+                modalTitle="Select Member"
+                isVisible={this.state.isModalFamilyList}
+                onBackButtonPress={this.handleCloseFamilyList}
+                onClose={this.handleCloseFamilyList}
+                onButtonPress={() => console.warn('add now')}
+                items={DataModalFamilyList}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseFamilyList();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="Modal Contact"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalContact}
+              />
+              <ModalContact
+                modalTitle="Email"
+                isVisible={this.state.isModalContact}
+                onBackButtonPress={this.handleCloseModalContact}
+                onClose={this.handleCloseModalContact}
+                onPress={this.handleCloseModalContact}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalContact();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="Modal SecondaryV2"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalSecondaryV2}
+              />
+              <ModalSecondaryV2
+                modalTitle="Bank Name"
+                isVisible={this.state.isModalSecondaryV2Visible}
+                onBackButtonPress={this.handleCloseModalSecondaryV2}
+                onClose={this.handleCloseModalSecondaryV2}
+                items={DataModalSecondaryV2}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalSecondaryV2();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="Modal Discount v2"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalDiscountV2}
+              />
+              <ModalDiscountV2
+                modalTitle="Add New Location"
+                modalTitleTextColor={colors.primary}
+                isVisible={this.state.isModalDiscountV2}
+                discountV2Color={discountV2Color}
+                onBackButtonPress={this.handleCloseModalDiscountV2}
+                onClose={this.handleCloseModalDiscountV2}
+                onPress={this.handleCloseModalDiscountV2}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalDiscountV2();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="ModalContactV2"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalContactV2}
+              />
+              <ModalContactV2
+                isDescription
+                modalTitle="Add description"
+                contactV2Color={contactV2Color}
+                modalTitleTextColor={colors.primary}
+                isVisible={this.state.isModalContactV2}
+                onBackButtonPress={this.handleCloseModalContactV2}
+                onClose={this.handleCloseModalContactV2}
+                onPress={this.handleCloseModalContactV2}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalContactV2();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="ModalAddDiscount"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalAddDiscount}
+              />
+              <ModalAddDiscount
+                modalTitle="Add discount"
+                discountV2Color={discountV2Color}
+                modalTitleTextColor={colors.primary}
+                isVisible={this.state.isModalAddDiscount}
+                onBackButtonPress={this.handleCloseModalAddDiscount}
+                onClose={this.handleCloseModalAddDiscount}
+                onPress={this.handleCloseModalAddDiscount}
+                onSelect={(id) => {
+                  console.warn('from top ', id);
+                  this.handleCloseModalAddDiscount();
+                }}
+              />
+            </View>
+            <View style={styles.viewWrapper}>
+              <ButtonPrimary
+                content="ModalInvoiceList"
+                buttonColor={gradientColors.gradient5}
+                textColor={colors.bgPrimary}
+                fontSize={fonts.fs14}
+                onPress={this.toggleModalInvoiceList}
+              />
+              <ModalInvoiceList
+                isInvoice
+                isVisible={this.state.isModalInvoiceList}
+                onBackButtonPress={this.handleCloseModalInvoiceList}
+                items={DataModalInvoiceList}
+              />
+            </View>
+
+          </SafeAreaView>
+        </ScrollView>
+      </FeatureWrapperV2>
     );
   }
 }

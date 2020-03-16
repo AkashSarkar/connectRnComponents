@@ -3,10 +3,10 @@ import { View } from 'react-native';
 import { SplitItem, SplitList } from '../../component/widget';
 import { mb10, mt10, p10 } from '../../styles/commonStyle';
 import assets from '../../assets';
-import { TextComponent } from '../../component/ui';
+import { TextComponent, FeatureWrapperV2 } from '../../component/ui';
 import { colors, fonts } from '../../styles/baseStyle';
 
-const SplitTest = () => {
+const SplitTest = ({ navigation }) => {
   const mapSplitItems = () => (
     [
       {
@@ -28,10 +28,10 @@ const SplitTest = () => {
         amount: '3,800.00'
       }
     ]
-  )
+  );
   const deleteAction = () => {
     alert('Split delete test');
-  }
+  };
   const mapRightActions = () => {
     const { Delete } = assets;
     return (
@@ -45,9 +45,16 @@ const SplitTest = () => {
         }
       ]
     );
-  }
+  };
   return (
-    <View>
+    <FeatureWrapperV2
+      title="TestRoute"
+      backgroundColor={colors.white1}
+      titleTextColor={colors.secondary}
+      rightIcon={assets.CrossDark}
+      style={{ flex: 1 }}
+      rightPressAction={() => navigation.goBack()}
+    >
       <View style={[p10, mt10]}>
         <View style={mb10}>
           <TextComponent
@@ -80,7 +87,7 @@ const SplitTest = () => {
           leftActions={null}
         />
       </View>
-    </View>
+    </FeatureWrapperV2>
   );
-}
+};
 export default SplitTest;

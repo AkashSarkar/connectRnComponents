@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Animated, StyleSheet, Text, View, Image
+  Animated, StyleSheet, View, Image
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { colors } from '../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -92,7 +91,7 @@ export default class SwipeableWrapper extends Component {
           style={[styles.rightAction]}
           onPress={onPressHandler}
         >
-          <Image source={action.icon} style={{ height: 40, width: 40 }}/>
+          <Image source={action.icon} style={{ height: 40, width: 40 }} />
         </RectButton>
       </Animated.View>
     );
