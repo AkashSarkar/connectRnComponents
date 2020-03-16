@@ -5,7 +5,7 @@ import { ButtonPrimary, TextComponent, FeatureWrapperV2 } from '../../component/
 import { mb10, mb20, ph15 } from '../../styles/commonStyle';
 import assets from '../../assets';
 import AccountList from '../../component/widget/card/AccountList';
-import DragInfoTest from '../../component/widget/card/DragInfoTest';
+import DragInfoTest from './DragInfoTest';
 
 const InteractiveTest = ({ navigation }) => {
   const accountData = [

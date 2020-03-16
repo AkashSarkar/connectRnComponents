@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { string, func, number } from 'prop-types';
-import { TextComponent } from '../../ui';
+import TextComponent from '../../ui/typography/TextComponent';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { p15, mb10 } from '../../../styles/commonStyle';
 import image from '../../../assets';

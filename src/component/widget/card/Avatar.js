@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { string, func, bool, number } from 'prop-types';
+import {
+  string, func, bool, number
+} from 'prop-types';
 import { colors } from '../../../styles/baseStyle';
 
 const styles = {
@@ -66,7 +68,6 @@ const Avatar = ({
   logo, status, disabled, onPress
 }) => {
   const [active, setActive] = useState(false);
-  // console.log(active);
   return (
     <TouchableOpacity
       onPress={() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { string, number } from 'prop-types';
-import { TextComponent } from '../../ui';
+import { string } from 'prop-types';
+import TextComponent from '../../ui/typography/TextComponent';
 import { fonts, colors } from '../../../styles/baseStyle';
 import { p15, mb10 } from '../../../styles/commonStyle';
 

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { func, string } from 'prop-types';
+import { func } from 'prop-types';
 import moment from 'moment';
-import { DatePicker, WheelPicker } from 'react-native-wheel-picker-android';
+import { WheelPicker } from 'react-native-wheel-picker-android';
 import { colors, fonts } from '../../../styles/baseStyle';
 import {
   generateDays,

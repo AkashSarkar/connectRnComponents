@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { func, string } from 'prop-types';
 import DateWheel from './DateWheel';
-import { TextComponent } from '../../ui';
+import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
 
 const styles = StyleSheet.create({

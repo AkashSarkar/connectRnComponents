@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import TextComponent from "../../ui/typography/TextComponent";
-import {colors, fonts} from "../../../styles/baseStyle";
+import { StyleSheet, View } from 'react-native';
+import { string } from 'prop-types';
+import TextComponent from '../../ui/typography/TextComponent';
+import { colors, fonts } from '../../../styles/baseStyle';
 
 const styles = StyleSheet.create({
   textInformationAlign: {
@@ -9,25 +10,28 @@ const styles = StyleSheet.create({
   }
 });
 
-const Title = ({subTitle, title}) => {
-  return (
-    <View>
+const Title = ({ subTitle, title }) => (
+  <View>
+    <TextComponent
+      size={fonts.fs12}
+      color={colors.grey1}
+      content={subTitle}
+      family={fonts.regular}
+    />
+    <View style={styles.textInformationAlign}>
       <TextComponent
-        size={fonts.fs12}
-        color={colors.grey1}
-        content={subTitle}
+        size={fonts.fs24}
+        color={colors.black0}
+        content={title}
         family={fonts.regular}
       />
-      <View style={styles.textInformationAlign}>
-        <TextComponent
-          size={fonts.fs24}
-          color={colors.black0}
-          content={title}
-          family={fonts.regular}
-        />
-      </View>
     </View>
-  )
+  </View>
+);
+
+Title.propTypes = {
+  title: string,
+  subTitle: string
 };
 
 export default Title;

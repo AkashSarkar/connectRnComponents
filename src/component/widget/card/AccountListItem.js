@@ -1,5 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import {
+  Image, StyleSheet, View, Alert
+} from 'react-native';
 import { object } from 'prop-types';
 import { ButtonCommunication, TextComponent } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -7,17 +9,51 @@ import { pv10, pv5 } from '../../../styles/commonStyle';
 import assets from '../../../assets';
 import Switch from '../../ui/input/Switch';
 
+const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  accountInformationWrapper: {
+    marginRight: 5
+  },
+  accountLogoWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.grey2,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    marginHorizontal: 10,
+    ...pv5,
+    elevation: 1,
+    shadowColor: colors.black1,
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 1
+  },
+  AccountLogoStyle: {
+    height: 50,
+    width: 75,
+    resizeMode: 'contain',
+    padding: 5
+  }
+});
+
 const AccountListItem = ({ accountInformation }) => {
   const onDrag = () => {
     console.warn('DRAG');
   };
 
   const onSwitchChange = () => {
-    alert('CHANGED');
+    Alert.alert('CHANGED');
   };
 
   const onInfoIconPress = () => {
-    alert('INFO ICON');
+    Alert.alert('INFO ICON');
   };
 
   return (
@@ -89,40 +125,6 @@ const AccountListItem = ({ accountInformation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  accountInformationWrapper: {
-    marginRight: 5
-  },
-  accountLogoWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.grey2,
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    marginHorizontal: 10,
-    ...pv5,
-    elevation: 1,
-    shadowColor: colors.black1,
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowOpacity: 1
-  },
-  AccountLogoStyle: {
-    height: 50,
-    width: 75,
-    resizeMode: 'contain',
-    padding: 5
-  }
-});
 
 AccountListItem.propTypes = {
   accountInformation: object.isRequired

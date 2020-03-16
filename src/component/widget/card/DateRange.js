@@ -83,8 +83,8 @@ DateRange.defaultProps = {
 
 DateRange.propTypes = {
   buttonTitle: string.isRequired,
-  onStartDateSelected: func.isRequired,
-  onEndDateSelected: func.isRequired,
+  onStartDateSelected: func,
+  onEndDateSelected: func,
   onSubmitPress: func,
   isSubmitButton: bool
 };

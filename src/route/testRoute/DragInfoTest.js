@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Animated, Dimensions, Easing, StyleSheet, Text, View } from 'react-native';
-import assets from '../../../assets';
+import {
+  Animated, Dimensions, Easing, Text, View
+} from 'react-native';
 import SortableList from 'react-native-sortable-list';
-import AccountListItem from './AccountListItem';
-import { ph10 } from '../../../styles/commonStyle';
+import assets from '../../assets';
+import AccountListItem from '../../component/widget/card/AccountListItem';
+import { ph10 } from '../../styles/commonStyle';
 
 const window = Dimensions.get('window');
 
@@ -31,7 +33,7 @@ const data = [
     suffix: '12',
     accountNo: '2233 2922 2323 5252',
     accountType: 'Salary A/C',
-    isSwitchOn: true,
+    isSwitchOn: true
 
   },
   {
@@ -53,32 +55,30 @@ const data = [
 ];
 
 export default class Basic extends Component {
+  renderRow = ({ data, active }) => <Row data={data} active={active} />
+
   render() {
     return (
       <View>
         <Text>React Native Sortable List</Text>
         <SortableList
           data={data}
-          renderRow={this._renderRow} />
+          renderRow={this.renderRow}
+        />
       </View>
     );
-  }
-
-  _renderRow = ({ data, active }) => {
-    return <Row data={data} active={active} />
   }
 }
 
 class Row extends Component {
-
   constructor(props) {
     super(props);
-    this._active = new Animated.Value(0);
+    this.active = new Animated.Value(0);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.active !== nextProps.active) {
-      Animated.timing(this._active, {
+      Animated.timing(this.active, {
         duration: 300,
         easing: Easing.bounce,
         toValue: Number(nextProps.active)
@@ -87,7 +87,7 @@ class Row extends Component {
   }
 
   render() {
-    const {data, active} = this.props;
+    const { data, active } = this.props;
 
     return (
       <Animated.View style={ph10}>
@@ -96,11 +96,3 @@ class Row extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#eee'
-  }
-});

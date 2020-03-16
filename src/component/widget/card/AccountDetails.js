@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { func } from 'prop-types';
+import { func, number } from 'prop-types';
 import Title from '../title/Title';
 import { ph20, pv10 } from '../../../styles/commonStyle';
 import BoxShadow from '../../ui/wrapper/BoxShadow';
@@ -42,7 +42,8 @@ const AccountDetails = ({ handleShareButton, shareIcon }) => (
 );
 
 AccountDetails.propTypes = {
-  handleShareButton: func.isRequired
+  handleShareButton: func.isRequired,
+  shareIcon: number
 };
 
 AccountDetails.defaultProps = {

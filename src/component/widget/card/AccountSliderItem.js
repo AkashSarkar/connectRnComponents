@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, View, Dimensions } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {
+  Image, StyleSheet, View
+} from 'react-native';
 import {
   array, func, number, string
 } from 'prop-types';
@@ -43,9 +44,9 @@ const AccountSliderItem = (
   };
 
   return (
-    <View style={[ph15, pv15, mb15, styles.cardBg, {height: 170, justifyContent: 'space-evenly', backgroundColor: activeIndex !== 3 ? color1 : color2 }]}>
+    <View style={[ph15, pv15, mb15, styles.cardBg, { height: 170, justifyContent: 'space-evenly', backgroundColor: activeIndex !== 3 ? color1 : color2 }]}>
       <View style={{ justifyContent: 'flex-end', flexDirection: 'row' }}>
-        
+
         {/* For Future Use
          <ButtonCommunication
           logo={InfoImage}
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
 
 AccountSliderItem.propTypes = {
   handleInformation: func.isRequired,
-  gradient: array,
+  // gradient: array,
   suffixNo: number.isRequired,
   amount: number.isRequired,
   connectAcc: string.isRequired,
