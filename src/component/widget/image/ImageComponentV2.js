@@ -2,14 +2,15 @@ import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import {
-  func, string, bool, array, number
+  func, string, bool, number
 } from 'prop-types';
 import {
-  FeatureWrapperV2, ButtonDoubleV2, ButtonBorderV2
+  FeatureWrapperV2, ButtonBorderV2, ButtonPrimaryV2
 } from '../../ui';
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
 import ButtonCapture from '../../ui/button/ButtonCapture';
+// import BarcodeMask from '../../../../../../../src/features/dashboard/BarcodeMask';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: 85,
     width: '100%',
-    backgroundColor: colors.black4
+    backgroundColor: colors.red2
   },
   overlayContainer: {
     flex: 1,
@@ -127,14 +128,20 @@ const ImageComponentV2 = (
             ratio="4:3"
             captureAudio={false}
           >
-            {isOverlay && (
-              <View style={styles.overlayContainer} />
-            )}
-            <View style={styles.captureBtnWrapper}>
-              <ButtonCapture onPress={takePicture} />
-            </View>
+            {/* <BarcodeMask showAnimatedLine={false}/> */}
+            {/* <View style={styles.captureBtnWrapper}> */}
+              {/* <ButtonCapture onPress={takePicture} /> */}
+            {/* </View> */}
           </RNCamera>
         )}
+        <ButtonPrimaryV2
+          content="Capture"
+          textColor={colors.white1}
+                // buttonColor={buttonColor}
+          fontSize={fonts.fs18}
+          buttonHeight={80}
+          onPress={takePicture}
+        />
       </FeatureWrapperV2>
     </View>
   );
