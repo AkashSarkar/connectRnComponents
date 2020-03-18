@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  shape, number, string, func, bool
+  shape, number, string, func, bool, array
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -112,10 +112,7 @@ ModalSecondaryV2.propTypes = {
   modalTitle: string.isRequired,
   isVisible: bool,
   onBackButtonPress: func,
-  items: shape({
-    id: number.isRequired,
-    title: string.isRequired
-  }).isRequired,
+  items: array.isRequired,
   onSelect: func
 };
 

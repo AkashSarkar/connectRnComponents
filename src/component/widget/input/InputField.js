@@ -176,7 +176,7 @@ InputField.defaultProps = {
 };
 
 InputField.propTypes = {
-  value: any.isRequired,
+  value: any,
   label: string,
   placeholder: string,
   labelColor: string,
