@@ -156,15 +156,6 @@ const InteractiveTest = ({ navigation }) => {
             content="AccountList Test"
             onPress={() => navigation.navigate('DragInfoTest')}
           />
-          <View style={[mb20, ph15]}>
-            <TextComponent
-              size={fonts.fs20}
-              color={colors.secondary}
-              content="interactive/AccountList"
-              family={fonts.bold}
-            />
-            <DragInfoTest accounts={accountData} />
-          </View>
         </View>
       </ScrollView>
     </FeatureWrapperV2>
