@@ -52,7 +52,6 @@ const ModalInfo = ({
   modalInfoColor,
   mapOpen
 }) => {
-
   const renderItem = item => (
     <View style={{
       paddingVertical: 10,
@@ -145,6 +144,7 @@ ModalInfo.propTypes = {
   onBackButtonPress: func,
   onClose: func,
   modalInfoColor: object,
-  items: object
+  items: object,
+  mapOpen: func
 };
 export default ModalInfo;

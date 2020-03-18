@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, StyleSheet, FlatList
+  View, Image, TouchableOpacity, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+  shape, number, string, func, bool
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts, gradientColors } from '../../../styles/baseStyle';
-import ModalItemList from '../list/ModalItemList';
 import image from '../../../assets';
 import { ButtonPrimary } from '../../ui';
 
@@ -183,7 +182,8 @@ ModalFamilyList.propTypes = {
     id: number.isRequired,
     title: string.isRequired
   }).isRequired,
-  onSelect: func
+  onSelect: func,
+  onButtonPress: func
 };
 
 export default ModalFamilyList;

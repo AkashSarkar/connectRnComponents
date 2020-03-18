@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-  Text, View, Image, TouchableOpacity, StyleSheet, FlatList
+  View, TouchableOpacity, StyleSheet, FlatList
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  arrayOf, shape, number, string, func, bool
+  shape, number, string, func, bool
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
-import image from '../../../assets';
 
 
 const styles = StyleSheet.create({
