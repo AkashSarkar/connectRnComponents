@@ -10,7 +10,8 @@ import {
   string, number, bool, array
 } from 'prop-types';
 import assets from '../../../assets';
-import { colors } from '../../../styles/baseStyle';
+import { colors, fonts } from '../../../styles/baseStyle';
+import { TextComponent } from '@appscftl/connect-rn-components';
 
 const dimension = 50;
 const styles = {
@@ -91,9 +92,10 @@ const FabButton = (
   const rightPosition = [-10, -90];
   const leftPosition = [10, 90];
   const labelPosition = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: right ? rightPosition : leftPosition
-  });
+      inputRange: [0, 1],
+      outputRange: right ? rightPosition : leftPosition
+    })
+  ;
   const labelOpacity = animation.interpolate({
     inputRange: [0, 0.8, 1],
     outputRange: [0, 0, 1]
@@ -105,53 +107,57 @@ const FabButton = (
     }]
   };
   const renderChildren = () => (
-    childrenButtons.map((item, idx) => (
-      <TouchableWithoutFeedback
-        onPress={() => item.func()}
-        key={idx}
-      >
-        <Animated.View style={[
-          styles.buttonChild,
-          { backgroundColor: background },
-          {
-            transform: [{
-              scale: animation
-            }, {
-              translateY: animation.interpolate({
-                inputRange: [0, 1],
-                outputRange: [-10, -item.translate],
-                extrapolate: 'clamp'
-              })
-            }]
-          }
-        ]}
+    childrenButtons.map((item, idx) => {
+      return (
+        <TouchableWithoutFeedback
+          onPress={() => item.func()}
+          key={idx}
         >
-          {
+          <Animated.View style={[
+            styles.buttonChild,
+            { backgroundColor: background },
+            {
+              transform: [{
+                scale: animation
+              }, {
+                translateY: animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [-10, -item.translate],
+                  extrapolate: 'clamp'
+                })
+              }]
+            }
+          ]}
+          >
+            {
               isActive && (
                 <Animated.Text
-                  style={[styles.label, labelStyle, {
-                    textAlign: right
-                      ? 'right' : 'left'
-                  }]}
+                  style={[styles.label, labelStyle, { textAlign: right ? 'right' : 'left' }]}
                 >
                   {item.text}
                 </Animated.Text>
               )
             }
 
-          <Image
-            source={item.icon}
-            style={styles.childrenIconStyle}
-            resizeMode="contain"
-          />
-        </Animated.View>
-      </TouchableWithoutFeedback>
-    ))
+            <Image
+              source={item.icon}
+              style={styles.childrenIconStyle}
+              resizeMode="contain"
+            />
+          </Animated.View>
+        </TouchableWithoutFeedback>
+      );
+    })
   );
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.background, bgStyle]} />
+      <TouchableWithoutFeedback
+        onPress={() => toggleAnimation()}>
+        {/*<TextComponent content="hello" size={fonts.fs14} />*/}
+        <Animated.View style={[styles.background, bgStyle]} />
+      </TouchableWithoutFeedback>
+
       {renderChildren()}
       <TouchableOpacity
         style={[
