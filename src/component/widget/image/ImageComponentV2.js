@@ -10,7 +10,7 @@ import {
 import { colors, fonts } from '../../../styles/baseStyle';
 import ModalComponent from '../modal/ModalComponent';
 import ButtonCapture from '../../ui/button/ButtonCapture';
-// import BarcodeMask from '../../../../../../../src/features/dashboard/BarcodeMask';
+import BarcodeMask from '../scanner/BarcodeMask';
 
 const styles = StyleSheet.create({
   container: {
@@ -128,7 +128,7 @@ const ImageComponentV2 = (
             ratio="4:3"
             captureAudio={false}
           >
-            {/* <BarcodeMask showAnimatedLine={false}/> */}
+            <BarcodeMask showAnimatedLine={false}/>
             {/* <View style={styles.captureBtnWrapper}> */}
               {/* <ButtonCapture onPress={takePicture} /> */}
             {/* </View> */}
