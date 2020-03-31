@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
 const ImageComponentV2 = (
   {
     onImageCapture, isOverlay, cameraType, buttonColor,
-    title, leftIcon, rightIcon, leftPressAction, rightPressAction
+    title, leftIcon, rightIcon, leftPressAction, rightPressAction,showBarcodeMask,
+    barcodeMaskWidth= 280, barcodeMaskHeight= 230
   }
 ) => {
   const [imageUri, setImageUri] = useState(null);
@@ -128,16 +129,24 @@ const ImageComponentV2 = (
             ratio="4:3"
             captureAudio={false}
           >
-            <BarcodeMask showAnimatedLine={false}/>
-            {/* <View style={styles.captureBtnWrapper}> */}
-              {/* <ButtonCapture onPress={takePicture} /> */}
-            {/* </View> */}
+            {
+              showBarcodeMask && (
+                <BarcodeMask 
+                  width={barcodeMaskWidth} 
+                  height={barcodeMaskHeight} 
+                  showAnimatedLine={false}
+                />
+                // <View style={styles.captureBtnWrapper}>
+                //  <ButtonCapture onPress={takePicture} /> 
+                // </View>
+              )
+            }
           </RNCamera>
         )}
         <ButtonPrimaryV2
           content="Capture"
           textColor={colors.white1}
-                // buttonColor={buttonColor}
+          // buttonColor={buttonColor}
           fontSize={fonts.fs18}
           buttonHeight={80}
           onPress={takePicture}
@@ -156,7 +165,10 @@ ImageComponentV2.propTypes = {
   leftIcon: number,
   rightIcon: number,
   rightPressAction: func,
-  leftPressAction: func
+  leftPressAction: func,
+  showBarcodeMask: bool,
+  barcodeMaskWidth: number,
+  barcodeMaskHeight: number
 
 };
 
