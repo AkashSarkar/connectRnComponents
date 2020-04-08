@@ -1,7 +1,5 @@
 import React, { useState, useRef } from 'react';
-import {
-  StyleSheet, View, ImageBackground, Dimensions
-} from 'react-native';
+import { StyleSheet, View, ImageBackground, Dimensions } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import {
   func, string, bool, number
@@ -60,14 +58,14 @@ const styles = StyleSheet.create({
 const ImageComponentV2 = (
   {
     onImageCapture, isOverlay, cameraType, buttonColor,
-    title, leftIcon, rightIcon, leftPressAction, rightPressAction, showBarcodeMask,
-    barcodeMaskWidth = 280, barcodeMaskHeight = 230
+    title, leftIcon, rightIcon, leftPressAction, rightPressAction,
+    barcodeMaskWidth = 280, showBarcodeMask, barcodeMaskHeight = 230
   }
 ) => {
   const buttonHeight = 80;
   const featureWrapperHeight = Dimensions.get('window').height * 0.1;
   const cameraViewHeight = Dimensions.get('window').height - (buttonHeight + featureWrapperHeight);
-
+  console.log(cameraViewHeight);
   const [imageUri, setImageUri] = useState(null);
   const [isPreview, setIsPreview] = useState(false);
 
@@ -136,11 +134,18 @@ const ImageComponentV2 = (
             ratio="4:3"
             captureAudio={false}
           >
-            <BarcodeMask
-              width={barcodeMaskWidth}
-              height={barcodeMaskHeight}
-              showAnimatedLine={false}
-            />
+            {
+              showBarcodeMask && (
+                <BarcodeMask
+                  width={barcodeMaskWidth}
+                  height={barcodeMaskHeight}
+                  showAnimatedLine={false}
+                />
+                // <View style={styles.captureBtnWrapper}>
+                //  <ButtonCapture onPress={takePicture} /> 
+                // </View>
+              )
+            }
             {/* <View style={styles.captureBtnWrapper}> */}
             {/* <ButtonCapture onPress={takePicture} /> */}
             {/* </View> */}
@@ -171,8 +176,10 @@ ImageComponentV2.propTypes = {
   rightIcon: number,
   rightPressAction: func,
   leftPressAction: func,
+  showBarcodeMask: bool,
   barcodeMaskWidth: number,
   barcodeMaskHeight: number
+
 };
 
 export default ImageComponentV2;
