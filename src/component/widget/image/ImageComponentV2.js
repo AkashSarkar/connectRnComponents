@@ -66,7 +66,7 @@ const ImageComponentV2 = (
 ) => {
   const buttonHeight = 80;
   const featureWrapperHeight = Dimensions.get('window').height * 0.1;
-  const cameraViewHeight = Dimensions.get('window').height - (buttonHeight + featureWrapperHeight + 16);
+  const cameraViewHeight = Dimensions.get('window').height - (buttonHeight + featureWrapperHeight);
 
   const [imageUri, setImageUri] = useState(null);
   const [isPreview, setIsPreview] = useState(false);
