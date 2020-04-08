@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, ImageBackground } from 'react-native';
+import {
+  StyleSheet, View, ImageBackground, Dimensions
+} from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import {
   func, string, bool, number
@@ -58,10 +60,14 @@ const styles = StyleSheet.create({
 const ImageComponentV2 = (
   {
     onImageCapture, isOverlay, cameraType, buttonColor,
-    title, leftIcon, rightIcon, leftPressAction, rightPressAction,showBarcodeMask,
-    barcodeMaskWidth= 280, barcodeMaskHeight= 230
+    title, leftIcon, rightIcon, leftPressAction, rightPressAction, showBarcodeMask,
+    barcodeMaskWidth = 280, barcodeMaskHeight = 230
   }
 ) => {
+  const buttonHeight = 80;
+  const featureWrapperHeight = Dimensions.get('window').height * 0.1;
+  const cameraViewHeight = Dimensions.get('window').height - (buttonHeight + featureWrapperHeight + 16);
+
   const [imageUri, setImageUri] = useState(null);
   const [isPreview, setIsPreview] = useState(false);
 
@@ -118,30 +124,28 @@ const ImageComponentV2 = (
         rightPressAction={rightPressAction}
       >
         {!isPreview && (
+
           <RNCamera
             ref={(ref) => {
               camera = ref;
             }}
-            style={styles.cameraView}
+            style={{ height: cameraViewHeight }}
             type={cameraType}
             autoFocus="on"
             whiteBalance="auto"
             ratio="4:3"
             captureAudio={false}
           >
-            {
-              showBarcodeMask && (
-                <BarcodeMask 
-                  width={barcodeMaskWidth} 
-                  height={barcodeMaskHeight} 
-                  showAnimatedLine={false}
-                />
-                // <View style={styles.captureBtnWrapper}>
-                //  <ButtonCapture onPress={takePicture} /> 
-                // </View>
-              )
-            }
+            <BarcodeMask
+              width={barcodeMaskWidth}
+              height={barcodeMaskHeight}
+              showAnimatedLine={false}
+            />
+            {/* <View style={styles.captureBtnWrapper}> */}
+            {/* <ButtonCapture onPress={takePicture} /> */}
+            {/* </View> */}
           </RNCamera>
+
         )}
         <ButtonPrimaryV2
           content="Capture"
@@ -150,6 +154,7 @@ const ImageComponentV2 = (
           fontSize={fonts.fs18}
           buttonHeight={80}
           onPress={takePicture}
+          extraStyle={{ position: 'absolute', width: '100%', bottom: 0 }}
         />
       </FeatureWrapperV2>
     </View>
@@ -166,10 +171,8 @@ ImageComponentV2.propTypes = {
   rightIcon: number,
   rightPressAction: func,
   leftPressAction: func,
-  showBarcodeMask: bool,
   barcodeMaskWidth: number,
   barcodeMaskHeight: number
-
 };
 
 export default ImageComponentV2;
