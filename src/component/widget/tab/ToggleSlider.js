@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 const ToggleSlider = (
   {
     title1, title2, setCurrentTab, tabColor, borderColor, textColor, initialActiveIndex,
-    activeColor
+    activeColor, family
   }
 ) => {
   const [active, setActive] = useState(1);
@@ -51,7 +51,8 @@ const ToggleSlider = (
     Animated.timing(translateX, {
       toValue: tabPosition,
       duration: 250
-    }).start();
+    })
+      .start();
   };
 
   useEffect(() => {
@@ -77,7 +78,10 @@ const ToggleSlider = (
   return (
     <View>
       <View style={[styles.tabWrapper, { borderColor }]}>
-        <Animated.View style={{ ...styles.overlay, transform: [{ translateX }] }}>
+        <Animated.View style={{
+          ...styles.overlay,
+          transform: [{ translateX }]
+        }}>
           <View
             style={[styles.overlay, styles.gradient, { backgroundColor: tabColor }]}
           />
@@ -93,7 +97,7 @@ const ToggleSlider = (
             content={title1}
             size={fonts.fs14}
             color={active === 1 ? activeColor : textColor}
-            family={fonts.semiBold}
+            family={family || fonts.medium}
           />
         </TouchableOpacity>
 
@@ -107,7 +111,7 @@ const ToggleSlider = (
             content={title2}
             size={fonts.fs14}
             color={active === 2 ? activeColor : textColor}
-            family={fonts.semiBold}
+            family={family || fonts.medium}
           />
         </TouchableOpacity>
       </View>
