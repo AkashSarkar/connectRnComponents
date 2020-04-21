@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  func, bool, object
+  func, bool, object, array
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -144,7 +144,7 @@ ModalInfo.propTypes = {
   onBackButtonPress: func,
   onClose: func,
   modalInfoColor: object,
-  items: object,
+  items: array,
   mapOpen: func
 };
 export default ModalInfo;
