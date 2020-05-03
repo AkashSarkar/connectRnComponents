@@ -29,7 +29,9 @@ const ModalInvoiceList = ({
   onBackButtonPress,
   items,
   isInvoice,
-  isQRCode
+  isQRCode,
+  qrcodeSource,
+  qrcodeText
 }) => (
   <Modal
     isVisible={isVisible}
@@ -96,7 +98,7 @@ const ModalInvoiceList = ({
           <View>
             <View style={pv25}>
               <Image
-                source={assets.Plus}
+                source={qrcodeSource}
                 style={{
                   height: 144,
                   width: 144
@@ -106,7 +108,7 @@ const ModalInvoiceList = ({
             </View>
             <View style={{ alignItems: 'center' }}>
               <TextComponent
-                content="My Code"
+                content={qrcodeText}
                 family={fonts.medium}
                 size={fonts.fs16}
                 color={colors.black0}

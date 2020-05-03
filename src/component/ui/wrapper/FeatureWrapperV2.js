@@ -31,7 +31,8 @@ const FeatureWrapperV2 = (
     titleStyle: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      height: '10%'
     },
     leftImageStyle: {
       width: 40,
@@ -49,6 +50,7 @@ const FeatureWrapperV2 = (
       <View style={[styles.titleStyle, p15]}>
 
         <TouchableOpacity
+          style={styles.leftImageStyle}
           onPress={leftPressAction}
           disabled={!leftIcon}
         >
@@ -69,6 +71,7 @@ const FeatureWrapperV2 = (
           />
         )}
         <TouchableOpacity
+          style={styles.crossImageStyle}
           onPress={rightPressAction}
         >
           <Image
@@ -78,7 +81,6 @@ const FeatureWrapperV2 = (
         </TouchableOpacity>
 
       </View>
-
       {children}
     </View>
     // </View>
