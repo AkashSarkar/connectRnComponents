@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ImageBackground, Dimensions } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import {
-  func, string, bool, number
+  func, string, bool, number, object
 } from 'prop-types';
 import {
   FeatureWrapperV2, ButtonBorderV2, ButtonPrimaryV2
@@ -59,7 +59,8 @@ const ImageComponentV2 = (
   {
     onImageCapture, isOverlay, cameraType, buttonColor,
     title, leftIcon, rightIcon, leftPressAction, rightPressAction,
-    barcodeMaskWidth = 280, showBarcodeMask, barcodeMaskHeight = 230
+    barcodeMaskWidth = 280, showBarcodeMask, barcodeMaskHeight = 230,
+    buttonText
   }
 ) => {
   const buttonHeight = 80;
@@ -103,8 +104,8 @@ const ImageComponentV2 = (
         <View style={styles.container}>
           <ImageBackground source={imageUri} style={styles.imagePreview} />
           <ButtonBorderV2
-            contentLeft="Confirm"
-            contentRight="Re/Capture"
+            contentLeft={buttonText.buttonBorderLeft}
+            contentRight={buttonText.buttonBorderRight}
             buttonColor={buttonColor || colors.black10}
             textColorLeft={colors.white1}
             textColorRight={colors.white1}
@@ -153,7 +154,7 @@ const ImageComponentV2 = (
 
         )}
         <ButtonPrimaryV2
-          content="Capture"
+          content={buttonText.buttonPrimaryText}
           textColor={colors.white1}
           // buttonColor={buttonColor}
           fontSize={fonts.fs18}
@@ -178,7 +179,8 @@ ImageComponentV2.propTypes = {
   leftPressAction: func,
   showBarcodeMask: bool,
   barcodeMaskWidth: number,
-  barcodeMaskHeight: number
+  barcodeMaskHeight: number,
+  buttonText: object
 
 };
 
