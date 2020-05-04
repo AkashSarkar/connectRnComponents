@@ -72,7 +72,8 @@ const AppNavigator = createStackNavigator(
     CameraTest,
     ProfileCardTest,
     WrapperTest,
-    FabTest
+    FabTest,
+    NotificationSnacbarTest
   },
   {
     initialRouteName: 'NotificationSnacbarTest',
