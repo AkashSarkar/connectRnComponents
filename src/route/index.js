@@ -34,6 +34,7 @@ import CameraTest from './testRoute/CameraTest';
 import ProfileCardTest from './testRoute/ProfileCardTest';
 import WrapperTest from './testRoute/WrapperTest';
 import FabTest from './testRoute/FabTest';
+import NotificationSnacbarTest from './testRoute/NotificationSnacbarTest';
 
 const AppNavigator = createStackNavigator(
   {
@@ -74,7 +75,7 @@ const AppNavigator = createStackNavigator(
     FabTest
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'NotificationSnacbarTest',
     headerMode: 'none'
   }
 );
