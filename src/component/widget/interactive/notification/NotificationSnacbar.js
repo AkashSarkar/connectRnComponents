@@ -5,19 +5,32 @@ import {
 import { string, number } from 'prop-types';
 import { colors } from '../../../../styles/baseStyle';
 import assets from '../../../../assets';
-import { pb6, mr10 } from '../../../../styles/commonStyle';
+import { mr15 } from '../../../../styles/commonStyle';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    padding: 12,
-    marginHorizontal: '20%',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    marginHorizontal: 15,
     borderRadius: 8
   },
   contentWrapper: {
     flexDirection: 'row',
+    marginTop: 15,
+    marginBottom: 15,
+    marginLeft: 15,
+    marginRight: 25
+
+  },
+  wrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    flexWrap: 'wrap'
+    maxWidth: '90%'
   }
 });
 
@@ -34,21 +47,21 @@ const NotificationSnacbar = ({
 
   Animated.timing(
     positionY, {
-    toValue: 50,
-    duration: 1500
-  }
+      toValue: 50,
+      duration: 1500
+    }
   ).start(() => {
     Animated.timing(
       positionY, {
-      toValue: 50,
-      duration
-    }
+        toValue: 50,
+        duration
+      }
     ).start(() => {
       Animated.timing(
         positionY, {
-        toValue: yPosition,
-        duration: 1500
-      }
+          toValue: yPosition,
+          duration: 1500
+        }
       ).start();
     });
   });
@@ -59,24 +72,26 @@ const NotificationSnacbar = ({
       top: positionY
     }]}
     >
-      <View style={styles.contentWrapper}>
-        <View style={[mr10, pb6]}>
-          <Image
-            source={icon}
-            style={{
-              height: 22,
-              width: 22
-            }}
-            resizeMode="contain"
-          />
+      <View style={styles.wrapper}>
+        <View style={styles.contentWrapper}>
+          <View style={mr15}>
+            <Image
+              source={icon}
+              style={{
+                height: 22,
+                width: 22
+              }}
+              resizeMode="contain"
+            />
+          </View>
+          <Text style={{
+            color: textColor,
+            fontSize: size
+          }}
+          >
+            {message}
+          </Text>
         </View>
-        <Text style={{
-          color: textColor,
-          fontSize: size
-        }}
-        >
-          {message}
-        </Text>
       </View>
     </Animated.View>
   );
