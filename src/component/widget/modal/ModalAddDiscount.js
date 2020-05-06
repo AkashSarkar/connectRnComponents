@@ -142,7 +142,6 @@ const ModalAddDiscount = ({
               autoFocus
               keyboardType="number-pad"
             />
-
             <View>
               <TextComponent
                 content="%"
@@ -168,6 +167,7 @@ const ModalAddDiscount = ({
           fontSize={fonts.fs16}
           onPressLeft={onPressLeft}
           onPressRight={onPressRight}
+          value={input}
         />
       </View>
     </Modal>

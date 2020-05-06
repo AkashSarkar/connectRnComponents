@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {
- string, func, bool, object
+  string, func, bool, object
 } from 'prop-types';
 import TextComponent from '../../ui/typography/TextComponent';
 import { colors, fonts } from '../../../styles/baseStyle';
@@ -61,9 +61,12 @@ const ModalContactV2 = ({
   isVisible,
   onBackButtonPress,
   contactV2Color,
-  isDescription
+  isDescription,
+  onPressLeft,
+  onPressRight
 }) => {
   const [id, setId] = useState('');
+  const [input, setInput] = useState('');
   return (
     <Modal
       isVisible={isVisible}
@@ -90,9 +93,11 @@ const ModalContactV2 = ({
         {isDescription && (
           <View style={styles.textAreaContainer}>
             <TextInput
-              style={styles.textArea}
+              value={input}
+              style={[styles.textArea, { color: contactV2Color.centerTextColor }]}
               underlineColorAndroid="transparent"
               placeholder="Write here..."
+              onChangeText={(text) => setInput(text)}
               fontFamily={fonts.regular}
               placeholderTextColor={colors.white1}
               numberOfLines={10}
@@ -113,8 +118,9 @@ const ModalContactV2 = ({
           buttonHeight={50}
           inModal
           fontSize={fonts.fs16}
-          onPressLeft={() => console.warn('Left')}
-          onPressRight={() => console.warn('Right')}
+          onPressLeft={onPressLeft}
+          onPressRight={onPressRight}
+          value={input}
         />
       </View>
     </Modal>
@@ -125,7 +131,9 @@ ModalContactV2.propTypes = {
   isVisible: bool,
   onBackButtonPress: func,
   isDescription: bool,
-  contactV2Color: object
+  contactV2Color: object,
+  onPressLeft: func,
+  onPressRight: func
 };
 
 export default ModalContactV2;

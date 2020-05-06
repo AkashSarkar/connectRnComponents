@@ -9,7 +9,7 @@ const NotificationSnacbarTest = ({ navigation }) => (
     backgroundColor={colors.secondary}
     yPosition={-200}
     duration={2000}
-    icon={assets.Add}
+    icon={assets.Add} // should have props sucesss and error
     message="Hello"
     size={20}
   />

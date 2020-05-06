@@ -33,22 +33,25 @@ const NotificationSnacbar = ({
   const positionY = useRef(new Animated.Value(yPosition)).current;
 
   Animated.timing(
-    positionY, {
-    toValue: 50,
-    duration: 1500
-  }
+    positionY,
+    {
+      toValue: 50,
+      duration: 1500
+    }
   ).start(() => {
     Animated.timing(
-      positionY, {
-      toValue: 50,
-      duration
-    }
+      positionY,
+      {
+        toValue: 50,
+        duration
+      }
     ).start(() => {
       Animated.timing(
-        positionY, {
-        toValue: yPosition,
-        duration: 1500
-      }
+        positionY,
+        {
+          toValue: yPosition,
+          duration: 1500
+        }
       ).start();
     });
   });
