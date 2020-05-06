@@ -8,9 +8,9 @@ const NotificationSnacbarTest = ({ navigation }) => (
     textColor={colors.red}
     backgroundColor={colors.secondary}
     yPosition={-200}
-    duration={2000}
-    icon={assets.Add} // should have props sucesss and error
-    message="Hello"
+    duration={20000}
+    icon={assets.Add}
+    message="ডিভাইসটি ইতিমধ্যে অন্য ব্যবহারকারীর জন্যে অনুমোদিত"
     size={20}
   />
 );
